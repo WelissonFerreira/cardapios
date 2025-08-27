@@ -1,20 +1,19 @@
 let catalogoDeProdutos = {
-    "produto-combopassaporte": { // Esta é a CHAVE, que corresponde ao seu data-produto-id
+    "produto-aguetonis-smash": { // Esta é a CHAVE, que corresponde ao seu data-produto-id
         tipo: "lanche",
         nome: "Combo Passaporte",
         precoRiscado: 26.00,
         preco: 22.00,
         descricao: "Passaporte Acompanhado de Batata Frita + Caçulinha",
         ingredientes: [
-            "Carne Moída",
-            "Salsicha",
-            "Tomate Picado Verde",
-            "Milho e Ervilha",
-            "Katchup",
-            "Maionese",
-            "Batata Palha"
+            "Pão Brioche",
+            "Maionese da Casa",
+            "Smash Burguer 100g",
+            "Mussarela",
+            "Cebola Roxa"
+  
         ],
-        imagem: "imagens/combos/combopassaporte.png"
+        imagem: "imagens/lanches/AguetonisSmashAlternativo.png"
     },
 
     "produto-comboburgao": {

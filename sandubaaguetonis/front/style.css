@@ -10,7 +10,7 @@
 
 /* Corpo do site */
 body {
-    background-color: white;
+    
     font-size: 10px;
     
 }
@@ -26,13 +26,14 @@ main {
     width: 100%;
     height: 100%;
     padding-bottom: 100px;
-    background-color: #252525;
+
     
 }
 
 #principal {
-    background-image: url(imagens/geral/backtransparent2.jpg);
-    background-size: contain ;
+    /*background-image: url(imagens/geral/backtransparent2.jpg);*/
+    /*background-size: contain ;*/
+    background: linear-gradient(272deg, #999A9E, #091921)
     
     /* background-color: #E8931F;*/
     
@@ -61,7 +62,7 @@ span {
 
 
 .bannermenu {
-    background-image: url(imagens/geral/fachadacomboteste2.png);
+    background-image: url(imagens/geral/logoAguetonis.jpeg);
     background-size: cover;
     background-position: center;
     height: 200px;
@@ -76,7 +77,8 @@ span {
     border-top-right-radius: 20px; /* canto superior direito */
     border-bottom-left-radius: 0;  /* canto inferior esquerdo */
     border-bottom-right-radius: 0; /* canto inferior direito */ 
-    background-color: #FD4B01;
+    background: linear-gradient(272deg, #999A9E, #091921);
+    /*background-color: #091921;*/
     position: relative;
     margin-top: -30px;
     z-index: 2;
@@ -108,7 +110,8 @@ span {
     margin: auto;
     flex-direction: column;
     align-items: center;
-    background-color: #FD4B01;
+    background: linear-gradient(272deg, #999A9E, #091921);
+    /*background-color: #091921;*/
     padding-bottom: 10px;
     border-radius: 10px;
     margin-top: 40px;
@@ -119,7 +122,7 @@ span {
     font-optical-sizing: auto;
     font-weight: bolder;
     font-style: normal;
-    color: rgb(158, 26, 24);
+    color: black;
     font-size: 0.8rem;
     text-decoration: underline;
     cursor: pointer;
@@ -130,8 +133,8 @@ span {
 
 
 .msghorariofuncionamento {
-    background-color: rgb(137, 164, 97);
-    color: white;
+    background: linear-gradient(268deg, #091921, #999A9E);
+    color: black;
     border-radius: 5px;
     padding: 5px 5px;
     margin-bottom: 5px;
@@ -149,12 +152,15 @@ span {
     flex-direction: row;
     align-items: center;
     gap: 5px;
-    border-radius: 2px;
+    background: linear-gradient(10deg, #091921, #999A9E);
+    border-radius: 5px;
     padding: 3px 5px;
 }
+    
+
 
 .msgverhorarios {
-    color: white;
+    color: black;
     padding: 2px;
     font-family: "Poppins", sans-serif;
     font-optical-sizing: auto;
@@ -196,7 +202,7 @@ span {
         font-family: "Poppins", sans-serif;
         font-weight: 700;
         font-style: normal;
-        background-color: #FD4B01;
+        background: linear-gradient(268deg, #091921, #999A9E);
         color: white;
         border-radius: 5px;
         padding: 5px;
@@ -206,9 +212,9 @@ span {
 
 
 
-#titulo-passaporte, #titulo-sanduiches, #titulo-especiais, #titulo-bebidas {
+#titulo-passaporte, #titulo-sanduiches, #titulo-especiais, #titulo-bebidas, #titulo-porcoes {
     display: inline-block;
-    background-color: #FD4B01; /* Cor de fundo para CADA item */
+    background-color: #1f25b8; /* Cor de fundo para CADA item */
     color: white;
     font-size: 0.7rem;
     border-radius: 5px; /* Borda arredondada para CADA item */
@@ -231,16 +237,35 @@ span {
 
 /* Parágrafo do menu */
 .pmenu {
-    font-family: "Poppins", sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 700;
     font-weight: bolder;
-    font-size: 1rem;
-    color: black;
+    font-size: 0.8rem;
+    color: white;
     text-align: center;
     padding: 10px;
     border-radius: 25px;
-    font-size: 1rem;
+    font-size: 0.8rem;
     margin-top: -10px;
+    line-height: 1.5;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 2px rgb(137, 164, 97);
+    
+}
+
+.pmenu2 {
+        font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-weight: bolder;
+    font-size: 0.8rem;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    border-radius: 25px;
+    font-size: 0.8rem;
+    margin-top: -10px;
+    line-height: 1.5;
+    letter-spacing: 1px;
 }
 
 
@@ -269,7 +294,7 @@ span {
     margin-top: 10px;
     padding: 8px;
     color: white;
-    background-color: #FD4B01;
+    background: linear-gradient(268deg, #091921, #999A9E);
     font-size: 0.8rem;
     text-align: center;
     border-radius: 5px;
@@ -278,6 +303,8 @@ span {
     margin-bottom: -10px;
     
 }
+
+/*091921 | 999A9E */
 
 .divimage-destaque {
     display: flex;
@@ -432,8 +459,8 @@ span {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 120px;
-    flex: 0 0 120px;
+    height: 80%;
+    flex: 0 0 160px;
     overflow: hidden;
 }
 
@@ -553,6 +580,7 @@ span {
     line-height: 1.1rem;
     letter-spacing: 1px;
     font-size: 0.8rem;
+    padding: 2px;
     
 }
 
@@ -1841,7 +1869,7 @@ footer {
         font-family: "Poppins", sans-serif;
         font-weight: 700;
         font-style: normal;
-        background-color: #FD4B01;
+        background: linear-gradient(268deg, #091921, #999A9E);
         color: white;
         border-radius: 5px;
         padding: 5px;
@@ -1983,9 +2011,7 @@ footer {
     
 }
 
-body {
-    background-color: white;
-}
+
 
 .divlogo {
     display: flex;
@@ -2038,7 +2064,7 @@ body {
         font-family: "Poppins", sans-serif;
         font-weight: 700;
         font-style: normal;
-        background-color: #EC6418;
+        background: linear-gradient(268deg, #091921, #999A9E);
         color: white;
         border-radius: 5px;
         padding: 5px;

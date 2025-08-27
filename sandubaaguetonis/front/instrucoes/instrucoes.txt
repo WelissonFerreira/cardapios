@@ -46,3 +46,42 @@ São Francisco	R$ 10,00
 São José	R$ 5,00
 Vida Nova	R$ 10,00
 Zequinha Amêndola	R$ 5,00
+
+
+TESTAR PALETAS DE CORES:
+
+Paletas recomendadas
+
+Preto + Cinza chumbo + Roxo neon
+
+Fundo principal: #0a0a0a (preto profundo)
+
+Degradê: #1a1a1a → #2b2b2b (cinza escuro metálico)
+
+Detalhes: #8a2be2 (roxo elétrico)
+
+Cinza grafite + Azul neon
+
+Fundo: #121212
+
+Degradê: #1e1e1e → #303030
+
+Destaque: #00e5ff (azul ciano neon, bem futurista)
+
+Chumbo + Magenta neon (cyberpunk clássico)
+
+Fundo: #0d0d0d
+
+Degradê: #1c1c1c → #2e2e2e
+
+Destaque: #ff00ff (magenta neon)
+
+Cinza metálico + Verde neon (mais ousado)
+
+Fundo: #111111
+
+Degradê: #1a1a1a → #333333
+
+Destaque: #39ff14 (verde neon cyberpunk)
+
+background para Açaiteria:     background: linear-gradient(268deg, #1e1e1e, #ff00ff) /* background-color: #E8931F;*/;
