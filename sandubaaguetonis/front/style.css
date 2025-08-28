@@ -33,7 +33,7 @@ main {
 #principal {
     /*background-image: url(imagens/geral/backtransparent2.jpg);*/
     /*background-size: contain ;*/
-    background: linear-gradient(272deg, #999A9E, #091921)
+    background: linear-gradient(272deg, #999A9E, #091921);
     
     /* background-color: #E8931F;*/
     
@@ -62,7 +62,7 @@ span {
 
 
 .bannermenu {
-    background-image: url(imagens/geral/logoAguetonis.jpeg);
+    background-image: url(imagens/geral/bannerAguetonis.png);
     background-size: cover;
     background-position: center;
     height: 200px;
@@ -122,7 +122,7 @@ span {
     font-optical-sizing: auto;
     font-weight: bolder;
     font-style: normal;
-    color: black;
+    color: white;
     font-size: 0.8rem;
     text-decoration: underline;
     cursor: pointer;
@@ -134,7 +134,7 @@ span {
 
 .msghorariofuncionamento {
     background: linear-gradient(268deg, #091921, #999A9E);
-    color: black;
+    color: white;
     border-radius: 5px;
     padding: 5px 5px;
     margin-bottom: 5px;
@@ -160,7 +160,7 @@ span {
 
 
 .msgverhorarios {
-    color: black;
+    color: white;
     padding: 2px;
     font-family: "Poppins", sans-serif;
     font-optical-sizing: auto;
@@ -173,12 +173,18 @@ span {
 
 
 .btn-fechado-horarios {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 0.8rem;
+    line-height: 1.2;
     color: white;
-    background-color: rgb(158, 26, 24);
-    padding: 5px;
-    margin: 5px;
+    background: linear-gradient(268deg, #091921, #999A9E);
+    /*background-color: rgb(158, 26, 24);*/
+    padding: 5px 5px;
+    margin: 8px;
     border-radius: 3px;
     cursor: pointer;
+
 }
 
 
@@ -199,13 +205,13 @@ span {
     }
 
     .botoesCategorias {
-        font-family: "Poppins", sans-serif;
+        font-family: "Montserrat", sans-serif;
         font-weight: 700;
         font-style: normal;
         background: linear-gradient(268deg, #091921, #999A9E);
         color: white;
         border-radius: 5px;
-        padding: 5px;
+        padding: 7px;
         border: none;
         cursor: pointer;
     }
@@ -214,7 +220,7 @@ span {
 
 #titulo-passaporte, #titulo-sanduiches, #titulo-especiais, #titulo-bebidas, #titulo-porcoes {
     display: inline-block;
-    background-color: #1f25b8; /* Cor de fundo para CADA item */
+    background: linear-gradient(268deg, #091921, #999A9E);
     color: white;
     font-size: 0.7rem;
     border-radius: 5px; /* Borda arredondada para CADA item */
@@ -236,7 +242,15 @@ span {
 /* TITULO PRINCIPAL */
 
 /* Parágrafo do menu */
+.divpmenu {
+    display: block;
+    list-style: none;
+    
+    
+}
+
 .pmenu {
+
     font-family: "Montserrat", sans-serif;
     font-weight: 700;
     font-weight: bolder;
@@ -249,12 +263,12 @@ span {
     margin-top: -10px;
     line-height: 1.5;
     letter-spacing: 1px;
-    text-shadow: 2px 2px 2px rgb(137, 164, 97);
+    text-shadow: 2px 2px 2px #091921;
     
 }
 
 .pmenu2 {
-        font-family: "Montserrat", sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 700;
     font-weight: bolder;
     font-size: 0.8rem;
@@ -308,15 +322,16 @@ span {
 
 .divimage-destaque {
     display: flex;
-    height: 120px;
+    height: 140px;
     
     
 }
 
 .fotodestaques {
-    height: 120px;
+    height: 100%;
     border-radius: 20px;
     width: 100%;
+    margin: auto;
 }
 
 .h4destaque {
@@ -577,9 +592,9 @@ span {
 
 .descricao-ingredientes {
     color: black;
-    line-height: 1.1rem;
+    line-height: 1.3rem;
     letter-spacing: 1px;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     padding: 2px;
     
 }
@@ -594,7 +609,7 @@ span {
 }
 
 .spanmenu {
-    color: black;
+    color: white;
     font-size: 0.7rem;
 }
 
@@ -612,12 +627,12 @@ a {
 /* CONTROLE DO MENU INFERIOR */
 
 footer {
-  position: fixed; /* Isso tira o elemento do fluxo normal e o posiciona em relação à viewport */
-  bottom: 0; /* Garante que ele fique fixo na parte inferior da tela */
-  width: 100%;  /* Faz com que ele ocupe toda a largura da tela */
-  background-Color: #FD4B01; /* Mantenha a cor de fundo, ou defina uma se ainda não tiver */
-  padding: 10px 0; /* Ajuste o padding conforme necessário para dar espaço interno */
-  z-index: 1000; /* Garante que o footer fique acima de outros elementos na página */
+    position: fixed; /* Isso tira o elemento do fluxo normal e o posiciona em relação à viewport */
+    bottom: 0; /* Garante que ele fique fixo na parte inferior da tela */
+    width: 100%;  /* Faz com que ele ocupe toda a largura da tela */
+    background: linear-gradient(268deg, #091921, #999A9E);
+    padding: 10px 0; /* Ajuste o padding conforme necessário para dar espaço interno */
+    z-index: 1000; /* Garante que o footer fique acima de outros elementos na página */
 
 
 }
@@ -644,7 +659,7 @@ footer {
     padding: 5px 0px;
     gap: 5px;
     font-size: 1.3rem;
-    color: black;
+    color: white;
     /*transition: transform 0.8s ease-out;*/
 }
 
@@ -1869,7 +1884,8 @@ footer {
         font-family: "Poppins", sans-serif;
         font-weight: 700;
         font-style: normal;
-        background: linear-gradient(268deg, #091921, #999A9E);
+        
+        /*background: linear-gradient(268deg, #091921, #999A9E);*/
         color: white;
         border-radius: 5px;
         padding: 5px;

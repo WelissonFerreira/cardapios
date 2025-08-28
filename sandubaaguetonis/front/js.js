@@ -1,446 +1,119 @@
 let catalogoDeProdutos = {
-    "produto-aguetonis-smash": { // Esta é a CHAVE, que corresponde ao seu data-produto-id
+    "produto-aguetonis-smash": {
         tipo: "lanche",
-        nome: "Combo Passaporte",
-        precoRiscado: 26.00,
-        preco: 22.00,
-        descricao: "Passaporte Acompanhado de Batata Frita + Caçulinha",
+        nome: "AGUETONI'S SMASH",
+        precoRiscado: 22.00,
+        preco: 16.00,
+        descricao: "Um Smash Burger único: suculento, crocante e irresistível!",
         ingredientes: [
             "Pão Brioche",
             "Maionese da Casa",
             "Smash Burguer 100g",
             "Mussarela",
             "Cebola Roxa"
-  
         ],
         imagem: "imagens/lanches/AguetonisSmashAlternativo.png"
     },
 
-    "produto-comboburgao": {
-        tipo: "lanche",
-        nome: "Combo Burgão",
-        precoRiscado: 26.00,
-        preco: 20.00,
-        descricao: "X-Burguer Acompanhado de Batata Frita + Caçulinha",
-        ingredientes: [
-        "Hambúrguer",
-        "Queijo",
-        "Presunto",
-        "Tomate",
-        "Molho"
-        ],
-        imagem: "imagens/combos/comboburgao.png"
-    },
 
-    "produto-combofilezao": {
+    "produto-aguetonis-burguer": {
         tipo: "lanche",
-        nome: "Combo FiléZão",
+        nome: "AGUETONI'S BURGUER",
+        precoRiscado: 28.00,
+        preco: 24.00,
+        descricao: "Esse é mais que um burger, uma experiência crocante e irresistível!",
+        ingredientes: ["Pão Brioche", "Maionese da Casa", "Hambúrguer 150g", "Mussarela", "Ovo", "Salsicha", "Bacon", "Alface", "Tomate", "Cebola Roxa"],
+        imagem: "imagens/lanches/AnguetonisburguerAlternativo.png"
+    },
+    "produto-aguetonis-tudo": {
+        tipo: "lanche",
+        nome: "AGUETONI'S TUDO",
+        precoRiscado: 36.00,
+        preco: 32.00,
+        descricao: "Se é pra matar a fome, que seja com Aguetoni's TUDO",
+        ingredientes: ["Pão Brioche", "2x Hambúrguer 150g", "2x Mussarela", "Bacon em Dobro", "Alface", "Tomate", "Cebola Roxa"],
+        imagem: "imagens/lanches/smashTudoalternativa1.png"
+    },
+    "produto-aguetonis-duplo": {
+        tipo: "lanche",
+        nome: "AGUETONI'S DUPLO",
+        precoRiscado: 45.00,
+        preco: 39.00,
+        descricao: "O campeão da fome de verdade! é TUDO e é DUPLO.",
+        ingredientes: ["Pão Brioche", "Duplo Hambúrguer de 150g", "Mussarela em Dobro", "Bacon em Dobro", "Alface", "Tomate", "Cebola Roxa"],
+        imagem: "imagens/lanches/AguetonisduploMelhorado.png"
+    },
+    "produto-aguetonis-bacon": {
+        tipo: "lanche",
+        nome: "AGUETONI'S BACON",
+        precoRiscado: 42.00,
+        preco: 34.00,
+        descricao: "Mais bacon, mais sabor, mais prazer. Esse é o AGUETONI’S BACON.",
+        ingredientes: ["Pão Brioche", "Maionese da Casa", "Hambúrguer 150g", "Mussarela", "Bacon em Dobro", "Alface", "Tomate", "Cebola Roxa"],
+        imagem: "imagens/lanches/AguetonisBaconMelhorado.png"
+    },
+    "produto-aguetonis-frango": {
+        tipo: "lanche",
+        nome: "AGUETONI'S FRANGO",
         precoRiscado: 32.00,
         preco: 27.00,
-        descricao: "X FiléZão Acompanhado de Batata Frita + Caçulinha",
-        ingredientes: [
-        "Filé de Alcatra",
-        "Queijo",
-        "Presunto",
-        "Tomate",
-        "Molho",
-        ],
-        imagem: "imagens/combos/combofile.png"
+        descricao: "Crocante, temperado e no ponto: esse é o AGUETONI’S FRANGO",
+        ingredientes: ["Pão Brioche", "Maionese da Casa", "Filé de Frango", "Mussarela", "Bacon", "Alface", "Tomate", "Cebola Roxa"],
+        imagem: "imagens/lanches/AguetonisFrangoMelhorado.png"
     },
-
-    "produto-filezaofrango": {
+    "produto-aguetonis-kids": {
         tipo: "lanche",
-        nome: "Combo FiléZão de Frango",
-        precoRiscado: 30.00,
-        preco: 18.00,
-        descricao: "FiléZão de Frango Acompanhado de Batata Frita + Caçulinha",
-        ingredientes: [
-            "Filé de Frango",
-            "Tomate Picado Verde",
-            "Queijo",
-            "Presunto",
-            "Molho",
-        ],
-        imagem: "imagens/combos/combofiledefrango.png"
+        nome: "AGUETONI'S KIDS",
+        precoRiscado: 12.99,
+        preco: 9.99,
+        descricao: "AGUETONI’S KIDS: o sabor gigante no tamanho perfeito para os pequenos.",
+        ingredientes: ["Pão de Hot Dog", "Salsicha", "Maionese da Casa", "Katchup", "Batata Palha", "Milho"],
+        imagem: "imagens/lanches/aguetoniskids2.png"
     },
-
-    "produto-combo-segundafeira": {
+    "produto-aguetonis-xegg": {
         tipo: "lanche",
-        nome: "Segunda-Feira",
-        precoRiscado: 29.00,
-        preco: 26.00,
-        descricao: "Delecioso Passaporte + Caçulinha",
-        ingredientes: [
-            "Carne Moída",
-            "Salsicha",
-            "Tomate Picado Verde",
-            "Milho e Ervilha",
-            "Katchup",
-            "Maionese",
-            "Batata Palha"
-        ],
-        imagem: "imagens/combos/combosegunda.png"
-    },
-
-
-    "produto-combo-tercafeira": {
-        tipo: "lanche",
-        nome: "Terça-Feira",
-        precoRiscado: 25.00,
+        nome: "X-EGG",
+        precoRiscado: 22.99,
         preco: 19.00,
-        descricao: "X-Burguer + Caçulinha",
-        ingredientes: [ 
-        "Hambúrguer",
-        "Queijo",
-        "Presunto",
-        "Ovo",
-        "Tomea",
-        "Molho"
-        ],
-        imagem: "imagens/combos/combotercafeira.png"
+        descricao: "X-EGG: clássico de respeito, com ovo no ponto!",
+        ingredientes: ["Pão de Hambúrguer", "Hambúrguer Caseiro 90g", "Mussarela", "Presunto", "Ovo", "Alface", "Maionese", "Tomate"],
+        imagem: "imagens/lanches/x-eggAlternativo2.png"
     },
-
-    "produto-combo-quartafeira": {
-      tipo: "lanche",
-      nome: "Quarta-Feira",
-      precoRiscado: 26.00,
-      preco: 22.00,
-      descricao: "Filé de Carne + Caçulinha",
-      ingredientes: [
-        "Filé de Alcatra",
-        "Queijo",
-        "Presunto",
-        "Tomate",
-        "Molho",
-      ],
-      imagem: "imagens/combos/comboquarta.png"
-    },
-
-    "produto-combo-quintafeira": {
-      tipo: "lanche",
-      nome: "Quinta-Feira",
-      precoRiscado: 25.00,
-      preco: 20.00,
-      descricao: "Filé de Frango + Caçulinha",
-      ingredientes: [
-            "Filé de Frango",
-            "Tomate Picado Verde",
-            "Queijo",
-            "Presunto",
-            "Molho",
-      ],
-      imagem: "imagens/combos/comboquinta.png"
-    },
-
-    "produto-garotoVIP": {
-      tipo: "lanche",
-      nome: "Garoto VIP",
-      precoRiscado: 37.00,
-      preco: 33.00,
-      descricao: "Garoto VIP naquele modelo",
-      ingredientes: [
-        "Queijo",
-        "Presunto",
-        "Filé de Frango",
-        "Filé de Alcatra",
-        "Bacon",
-        "Ovo",
-        "Hambúrguer",
-        "Tomate",
-        "Molho"
-      ],
-      imagem: "imagens/lanches/arthurbabyatt.png"
-    },
-
-    "produto-garotoVIPEspecial": {
-      tipo: "lanche",
-      nome: "Garoto VIP Especial",
-      precoRiscado: 40.00,
-      preco: 36.00,
-      descricao: "Queijo Quente naquele padrão",
-      ingredientes: [
-        "Queijo",
-        "Presunto",
-        "Filé de Frango",
-        "Filé de Alcatra",
-        "Bacon",
-        "2x Ovos",
-        "2x Hambúrguer's",
-        "Tomate",
-        "Molho"
-      ],
-      imagem: "imagens/lanches/especial4grande.png"
-    },
-
-    "produto-passaporte-carne": {
-      tipo: "lanche",
-      nome: "Passaporte de Carne",
-      precoRiscado: 20.00,
-      preco: 17.00,
-      descricao: "Passaporte de carne super recheado",
-      ingredientes: [ 
-            "Carne Moída",
-            "Salsicha",
-            "Tomate",
-            "Batata Palha"
-      ],
-      imagem: "imagens/lanches/passaportecarnealternativo.png"
-    },
-
-    "produto-passaporte-frango": {
-      tipo: "lanche",
-      nome: "Passaporte de Frango recheadão",
-      precoRiscado: 24.00,
-      preco: 19.00,
-      descricao: "Baurú daquele jeito",
-      ingredientes: [
-            "Frango Desfiado",
-            "Salsicha",
-            "Tomate",
-            "Batata Palha"
-    ],
-      imagem: "imagens/lanches/passaportefrangoalternativo.png"
-    },
-
-    "produto-passaporte-misto": {
-      tipo: "lanche",
-      nome: "Passaporte de Misto",
-      precoRiscado: 26.00,
-      preco: 21.00,
-      descricao: "Passaporte de Misto topado daquele jeito",
-      ingredientes: [
-            "Carne Moída",
-            "Frango Desfiado",
-            "Salsicha",
-            "Tomate",
-            "Batata Palha"
-    ],
-      imagem: "imagens/lanches/sanduichemistoalternativo.png"
-    },
-
-    "produto-passaporte-bacon": {
-      tipo: "lanche",
-      nome: "Passaporte de Bacon",
-      precoRiscado: 26.00,
-      preco: 21.00,
-      descricao: "Passaporte de Bacon topado demais",
-      ingredientes: [
-            "Carne Moída ou Frango Desfiado",
-            "Bacon",
-            "Tomate",
-            "Batata Palha"
-    ],
-      imagem: "imagens/lanches/passaportebaconatt.png"
-    },
-
-    "produto-passaporte-calabresa": {
-      tipo: "lanche",
-      nome: "Passaporte de Calabresa",
-      precoRiscado: 26.00,
-      preco: 21.00,
-      descricao: "Passaporte de Calabresa super recheado",
-      ingredientes: [
-            "Frango Desfiado",
-            "Calabresa",
-            "Milho e Ervilha",
-            "Tomate",
-            "Batata Palha"
-    ],
-      imagem: "imagens/lanches/passaportecalabresaalternativo.png"
-    },
-
-    "produto-xburguer": {
+    "produto-aguetonis-xtudo": {
         tipo: "lanche",
-        nome: "X-Burguer",
-        precoRiscado: 20.00,
-        preco: 15.00,
-        descricao: "X-Burguersão super recheado.",
-        ingredientes: [
-        "Hambúrguer",
-        "Queijo",
-        "Presunto",
-        "Tomate",
-        "Molho"
-        ],
-        imagem: "imagens/lanches/hamburgueratt.png"
+        nome: "X-TUDO",
+        precoRiscado: 25.99,
+        preco: 22.00,
+        descricao: "X-TUDO: quando a fome pede tudo de uma vez!",
+        ingredientes: ["Pão de Hambúrguer", "Hambúrguer Caseiro 90g", "Salsicha", "Mussarela", "Presunto", "Milho", "Batata Palha", "Ovo", "Alface", "Tomate"],
+        imagem: "imagens/lanches/xtudoAlternativo.png"
     },
-
-    "produto-xbacon": {
-      tipo: "lanche",
-      nome: "X-Bacon",
-      precoRiscado: 22.00,
-      preco: 18.00,
-      descricao: "X-Bacon topadão daquele jeito",
-      ingredientes: [
-        "Hambúrguer",
-        "Queijo",
-        "Presunto",
-        "Bacon",
-        "Tomate",
-        "Molho"
-      ],
-      imagem: "imagens/lanches/x-bacon.png"
+    "produto-aguetonis-xsalada": {
+        tipo: "lanche",
+        nome: "X-SALADA",
+        precoRiscado: 25.99,
+        preco: 22.00,
+        descricao: "X-SALADA: leve, fresco e saboroso.",
+        ingredientes: ["Pão de hambúrguer", "Hambúrguer caseiro 90g", "Mussarela", "Presunto", "Milho", "Alface", "Tomate", "Maionese"],
+        imagem: "imagens/lanches/X-salada2.png"
     },
-
-    "produto-minuano": {
-      tipo: "lanche",
-      nome: "Minuano",
-      precoRiscado: 20.00,
-      preco: 17.00,
-      descricao: "Minuano clássico naquele padrão",
-      ingredientes: [
-        "Hambúrguer",
-        "Ovo",
-        "Hambúrguer",
-        "Queijo",
-        "Tomate",
-        "Molho"
-    ],
-      imagem: "imagens/lanches/minuano1.png"
+    "produto-aguetonis-xbacon": {
+        tipo: "lanche",
+        nome: "X-BACON",
+        precoRiscado: 24.99,
+        preco: 20.00,
+        descricao: "X-BACON: o clássico que nunca falha.",
+        ingredientes: ["Pão de Hambúrguer", "Hambúrguer Caseiro 90g", "Mussarela", "Presunto", "Bacon", "Alface", "Maionese"],
+        imagem: "imagens/lanches/xbaconatualizado.png"
     },
-
-        "produto-xcalabresa": {
-      tipo: "lanche",
-      nome: "X-Calabresa",
-      precoRiscado: 26.00,
-      preco: 20.00,
-      descricao: "X-Calabresa topadão",
-      ingredientes: [
-        "Calabresa",
-        "Ovo",
-        "Queijo",
-        "Presunto",
-        "Molho Rosé",
-        "Salada"
-      ],
-      imagem: "imagens/lanches/xcalabresa.png"
-    },
-
-    "produto-xalcatra": {
-      tipo: "lanche",
-      nome: "X-Alcatra",
-      precoRiscado: 30.00,
-      preco: 27.00,
-      descricao: "X-Alcatra topadão",
-      ingredientes: [
-        "Filé de Carne",
-        "Ovo",
-        "Queijo",
-        "Presunto",
-        "Bacon",
-        "Tomate",
-        "Molho",
-    ],
-      imagem: "imagens/lanches/Xalcatra.png"
-    },
-
-      "produto-xfile": {
-      tipo: "lanche",
-      nome: "X-Filé",
-      precoRiscado: 28.00,
-      preco: 25.00,
-      descricao: "X-Filé topadão",
-      ingredientes: [
-        "Filé de Carne",
-        "Queijo",
-        "Presunto",
-        "Tomate",
-        "Molho"
-      ],
-      imagem: "imagens/lanches/xfile.png"
-    },
-
-      "produto-xfile-especial": {
-      tipo: "lanche",
-      nome: "X-Filé",
-      precoRiscado: 32.00,
-      preco: 28.00,
-      descricao: "X-Filé topadão",
-      ingredientes: [
-        "Filé de Carne",
-        "Ovo",
-        "Queijo",
-        "Presunto",
-        "Bacon",
-        "Calabresa",
-        "Tomate",
-        "Molho"
-      ],
-      imagem: "imagens/lanches/xfileespecial.jpg"
-    },
-
-      "produto-xcoracao": {
-      tipo: "lanche",
-      nome: "X-Coração",
-      precoRiscado: 34.00,
-      preco: 30.00,
-      descricao: "X-Coração naquele padrão",
-      ingredientes: [
-        "Coração",
-        "Ovo",
-        "Queijo",
-        "Presunto",
-        "Bacon",
-        "Hambúrguer",
-        "Tomate",
-        "Molho"
-      ],
-      imagem: "imagens/lanches/xcoracaoatt.png"
-    },
-
-      "produto-filefrango": {
-      tipo: "lanche",
-      nome: "Filé de Frango",
-      precoRiscado: 26.00,
-      preco: 22.00,
-      descricao: "Filé-Frango topadão",
-      ingredientes: [
-        "Filé de Frango",
-        "Queijo",
-        "Presunto",
-        "Ovos",
-        "Molho",
-        "Tomate"
-      ],
-      imagem: "imagens/lanches/filefrango.jpg"
-    },
-
-      "produto-filefrango-especial": {
-      tipo: "lanche",
-      nome: "Filé de Frango Especial",
-      precoRiscado: 30.00,
-      preco: 27.00,
-      descricao: "Filé-Frango Especial topadão",
-      ingredientes: [
-        "Filé de Frango",
-        "Queijo",
-        "Presunto",
-        "Ovos",
-        "Bacon",
-        "Hambúrguer",
-        "Molho",
-        "Tomate"
-      ],
-      imagem: "imagens/lanches/filefrangoespecial.jpg"
-    },
-
-
-
-    "produto-eggbacon": {
-      tipo: "lanche",
-      nome: "Egg-Bacon",
-      precoRiscado: 26.00,
-      preco: 22.00,
-      descricao: "Egg-Bacon topadão",
-      ingredientes: [
-        "Bacon",
-        "Ovo",
-        "Queijo",
-        "Presunto",
-        "Molho",
-        "Tomate"
-      ],
-      imagem: "imagens/lanches/xeggbacon.jpeg"
+    "produto-porcao-batatafrita": {
+        tipo: "porcao",
+        nome: "Batata Frita 800g",
+        precoRiscado: 40.00,
+        preco: 36.00,
+        descricao: "X-Coração naquele padrão",
+        ingredientes: ["800g de pura perdição: batata crocante", "Catupiry cremoso", "Bacon crocante", "Mussarela derretida"],
+        imagem: "imagens/lanches/porcoesmelhoradas.png"
     },
 
 
@@ -1552,7 +1225,7 @@ if (textoFormaPagamento === 'Dinheiro' && valorTroco > 0) {
         } else {
 
             let p2 = document.createElement('p')
-            p2.textContent = 'Fechado!'
+            p2.textContent = 'No momento estamos fechados. Você pode agendar seu pedido!'
             p2.classList.add('btn-fechado-horarios')
             openClose.appendChild(p2)
             let novoP2 = document.createElement('p')
@@ -1570,7 +1243,7 @@ if (textoFormaPagamento === 'Dinheiro' && valorTroco > 0) {
             divFuncionamento.appendChild(p3)
 
             let p4 = document.createElement('p')
-            p4.textContent = '👈 Visualizar os dias'
+            p4.textContent = '👈 Visualize os dias'
             p4.classList.add('msgverhorarios')
             divFuncionamento.appendChild(p4)
 
