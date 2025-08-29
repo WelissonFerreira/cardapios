@@ -84,75 +84,67 @@
 
     <div id="destaques">
         
-        <div class="card-destaque">
+        <div class="card-destaque" data-produto-id="produto-aguetonis-duplo">
             <div class="divimage-destaque"><img class="fotodestaques" src="imagens/lanches/AguetonisduploMelhorado.png" alt=""></div>
             <div class="conteudo-destaque">
                 <h4 class="h4destaque">AGUETONI'S DUPLO</h4>
                 <p class="descricao-destaque">O campeão da fome de verdade! é TUDO e é DUPLO.</p>              
             </div>
-            <div>
+            <div class="divPrecosDest">
                 <span class="span-riscado-destaque">R$ 45,00</span>
                 <span class="span-destaque">R$ 39,00</span>
-                <button class="AdicionarCarrinho destaqueAdicionar" data-produto-id="produto-aguetonis-duplo"><i
-                            class="fa-solid fa-cart-plus"></i> Adicionar</button>
             </div>
             
         </div>
 
-        <div class="card-destaque">
+        <div class="card-destaque" data-produto-id="produto-aguetonis-tudo">
             <div class="divimage-destaque"><img class="fotodestaques" src="imagens/lanches/smashTudoalternativa1.png" alt=""></div>
             <div class="conteudo-destaque">
                 <h4 class="h4destaque">AGUETONI'S TUDO</h4>
                 <p class="descricao-destaque">Se é pra matar a fome, que seja com Aguetoni's TUDO</p>
             </div>
-            <div>
+            <div class="divPrecosDest">
                 <span class="span-riscado-destaque">R$ 36,00</span>
                 <span class="span-destaque">R$ 32,00</span>
-                <button class="AdicionarCarrinho destaqueAdicionar" data-produto-id="produto-aguetonis-tudo"><i
-                        class="fa-solid fa-cart-plus"></i> Adicionar</button>
             </div>
         </div>
 
-        <div class="card-destaque">
+        <div class="card-destaque" data-produto-id="produto-porcao-batatafrita">
             <div class="divimage-destaque"><img class="fotodestaques" src="imagens/lanches/porcoesmelhoradas.png" alt=""></div>
             <div class="conteudo-destaque">
                 <h4 class="h4destaque">Batata Frita 800g</h4>
                 <p class="descricao-destaque">800g de pura perdição: batata crocante, catupiry cremoso, bacon crocante e mussarela derretida. </p>
             </div>
-            <div>
+            <div class="divPrecosDest">
                 <span class="span-riscado-destaque">R$ 40,00</span>
                 <span class="span-destaque">R$ 36,00</span>
-                <button class="AdicionarCarrinho destaqueAdicionar" data-produto-id="produto-porcao-batatafrita"><i
-                            class="fa-solid fa-cart-plus"></i> Adicionar</button>
             </div>
         </div>
 
-        <div class="card-destaque">
+        <div class="card-destaque" data-produto-id="produto-aguetonis-kids">
             <div class="divimage-destaque"><img class="fotodestaques" src="imagens/lanches/aguetoniskids2.png" alt=""></div>
             <div class="conteudo-destaque">
                 <h4 class="h4destaque">AGUETONI'S KIDS</h4>
                 <p class="descricao-destaque">AGUETONI’S KIDS: o sabor gigante no tamanho perfeito para os pequenos.</p>
             </div>
-            <div>
+            <div class="divPrecosDest">
                 <span class="span-riscado-destaque">R$ 12,99</span>
                 <span class="span-destaque">R$ 9,99</span>
-                <button class="AdicionarCarrinho destaqueAdicionar" data-produto-id="produto-aguetonis-kids"><i
-                            class="fa-solid fa-cart-plus"></i> Adicionar</button>
             </div>
         </div>
     </div>
 
     <div id="menu-opcoes">
         <!--<button class="botoesCategorias" data-categoria="combos-do-dia">COMBOS DO DIA</button> -->
-        <button class="botoesCategorias" data-categoria="especiais-categoria">AGUETONI's GOURMET</button>
-        <button class="botoesCategorias" data-categoria="passaportes-categoria">PASSAPORTES</button>
-        <button class="botoesCategorias" data-categoria="sanduiches-categoria">SANDUICHES & BURGUER'S</button>
+        <button class="botoesCategorias" data-categoria="gourmet-categoria">AGUETONI's GOURMET</button>
+        <button class="botoesCategorias" data-categoria="tradicionais-categoria">AGUETONI'S TRADICIONAIS</button>
+            <button class="botoesCategorias" data-categoria="porcoes-categoria">PORÇÕES</button>
         <button class="botoesCategorias" data-categoria="bebidas-categoria">BEBIDAS</button>
     </div>
 
     <!-- PRODUTO E MODAL - PASSAPORTE + CAÇULINHA -->
 
-   <!-- <div id="combos-do-dia" class="divTitulos">
+    <!-- <div id="combos-do-dia" class="divTitulos">
         <h4 id="titulo-especiais">COMBOS DO DIA</h4>
     </div>
 
@@ -168,8 +160,6 @@
                 <div id="botoes-produto">
                     <span class="preco-riscado">R$ 25,00</span>
                     <span>R$ 18,00</span>
-                    <button class="AdicionarCarrinho" data-produto-id="produto-combo-segundafeira"><i
-                            class="fa-solid fa-cart-plus"></i> Adicionar</button>
                 </div>
             </div>
         </div>
@@ -192,8 +182,6 @@
                 <div id="botoes-produto">
                     <span class="preco-riscado">R$ 25,00</span>
                     <span>R$ 19,00</span>
-                    <button class="AdicionarCarrinho" data-produto-id="produto-combo-tercafeira"><i
-                            class="fa-solid fa-cart-plus"></i> Adicionar</button>
                 </div>
             </div>
         </div>
@@ -211,8 +199,6 @@
                 <div id="botoes-produto">
                     <span class="preco-riscado">R$ 26,00</span>
                     <span>R$ 22,00</span>
-                    <button class="AdicionarCarrinho" data-produto-id="produto-combo-quartafeira"><i
-                            class="fa-solid fa-cart-plus"></i> Adicionar</button>
                 </div>
             </div>
         </div>
@@ -235,20 +221,18 @@
                 <div id="botoes-produto">
                     <span class="preco-riscado">R$ 25,00</span>
                     <span>R$ 20,00</span>
-                    <button class="AdicionarCarrinho" data-produto-id="produto-combo-quintafeira"><i
-                            class="fa-solid fa-cart-plus"></i> Adicionar</button>
                 </div>
             </div>
         </div>
     </section> -->
 
-    <div id="especiais-categoria" class="divTitulos">
+  <!--  <div id="especiais-categoria" class="divTitulos">
         <h4 id="titulo-passaporte">ESPECIAIS</h4>
     </div>
-
+-->
 
         <!-- GAROTO VIP ESPECIAL -->
-    <section class="item-pai">
+  <!--  <section class="item-pai">
         <div class="card-pai">
             <div class="card-image">
                 <img class="fotosanduba"
@@ -262,18 +246,16 @@
                 <div id="botoes-produto">
                     <span class="preco-riscado">R$ 40,00</span>
                     <span>R$ 36,00</span>
-                    <button class="AdicionarCarrinho" data-produto-id="produto-garotoVIPEspecial"><i
-                            class="fa-solid fa-cart-plus"></i> Adicionar</button>
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
 
 
     <!-- AGUETONI'S GOURMET -->
 
-    <div id="sanduiches-categoria" class="divTitulos">
+    <div id="gourmet-categoria" class="divTitulos">
             <h4 id="titulo-sanduiches">AGUETONI'S GOURMET</h4>
         </div>
 
@@ -281,7 +263,7 @@
 
 
     <section class="item-pai">
-        <div class="card-pai">
+        <div class="card-pai" data-produto-id="produto-aguetonis-smash">
             <div class="card-image">
                 <img class="fotosanduba"
                     src="imagens/lanches/AguetonisSmashAlternativo.png">
@@ -294,8 +276,6 @@
                     <div id="botoes-produto">
                         <span class="preco-riscado">R$ 22,00</span>
                         <span>R$ 16,00</span>
-                        <button class="AdicionarCarrinho" data-produto-id="produto-aguetonis-smash"><i
-                        class="fa-solid fa-cart-plus"></i> Adicionar</button>
                     </div>
             </div>
         </div>
@@ -303,7 +283,7 @@
 
         <!-- AGUETONI'S BURGUER -->
     <section class="item-pai">
-        <div class="card-pai">
+        <div class="card-pai" data-produto-id="produto-aguetonis-burguer">
             <div class="card-image">
                 <img class="fotosanduba"
                     src="imagens/lanches/AnguetonisburguerAlternativo.png">
@@ -316,8 +296,6 @@
                 <div id="botoes-produto">
                     <span class="preco-riscado">R$ 28,00</span>
                     <span>R$ 24,00</span>
-                    <button class="AdicionarCarrinho" data-produto-id="produto-aguetonis-burguer"><i
-                    class="fa-solid fa-cart-plus"></i> Adicionar</button>
                 </div>
             </div>
         </div>
@@ -326,7 +304,7 @@
     <!-- PRODUTO E MODAL - AGUETONI'S TUDO -->
 
     <section class="item-pai">
-        <div class="card-pai">
+        <div class="card-pai" data-produto-id="produto-aguetonis-tudo">
             <div class="card-image">
                 <img class="fotosanduba"
                     src="imagens/lanches/smashTudoalternativa1.png">
@@ -334,13 +312,11 @@
 
             <div class="card-conteudo">
                 <h4 class="titulo-produtos">AGUETONI'S TUDO</h4>
-                <p class="descricao-produtos">Se é pra matar a fome, que seja com Aguetoni's TUDO</p>
+                <p class="descricao-produtos">Se é pra <span class="txtPalavraDestaque">matar a fome</span>, que seja <span class="txtPalavraDestaque">com Aguetoni's TUDO</span></p>
                 <p class="descricao-ingredientes">Ingredientes: Pão Brioche | Maionese da Casa | 2x Hambúrguer 150g | 2x Mussarela | Bacon em Dobro | Alface | Tomate | Cebola Roxa</p>
                     <div id="botoes-produto">
                         <span class="preco-riscado">R$ 36,00</span>
                         <span>R$ 32,00</span>
-                        <button class="AdicionarCarrinho" data-produto-id="produto-aguetonis-tudo"><i
-                        class="fa-solid fa-cart-plus"></i> Adicionar</button>
                     </div>
             </div>
         </div>
@@ -349,7 +325,7 @@
 
         <!-- AGUETONI'S DUPLO -->
     <section class="item-pai">
-        <div class="card-pai">
+        <div class="card-pai"  data-produto-id="produto-aguetonis-duplo">
             <div class="card-image">
                 <img class="fotosanduba"
                     src="imagens/lanches/AguetonisduploMelhorado.png">
@@ -357,13 +333,11 @@
 
             <div class="card-conteudo">
                 <h4 class="titulo-produtos">AGUETONI'S DUPLO</h4>
-                <p class="descricao-produtos">O campeão da fome de verdade! é TUDO e é DUPLO.</p>
+                <p class="descricao-produtos">O <span class="txtPalavraDestaque">campeão da fome de verdade!</span> é TUDO e é DUPLO.</p>
                 <p class="descricao-ingredientes">Ingredientes: Pão Brioche | Maionese da Casa | Duplo Hambúrguer de 150g | Mussarela em Dobro | Bacon em Dobro | Alface | Tomae | Cebola Roxa</p>
                 <div id="botoes-produto">
                     <span class="preco-riscado">R$ 45,00</span>
                     <span>R$ 39,00</span>
-                    <button class="AdicionarCarrinho" data-produto-id="produto-aguetonis-duplo"><i
-                            class="fa-solid fa-cart-plus"></i> Adicionar</button>
                 </div>
             </div>
         </div>
@@ -371,7 +345,7 @@
 
     <!-- AGUETONI'S BACON -->
     <section class="item-pai">
-        <div class="card-pai">
+        <div class="card-pai" data-produto-id="produto-aguetonis-bacon">
             <div class="card-image">
                 <img class="fotosanduba"
                     src="imagens/lanches/AguetonisBaconMelhorado.png">
@@ -379,13 +353,11 @@
 
             <div class="card-conteudo">
                 <h4 class="titulo-produtos">AGUETONI'S BACON</h4>
-                <p class="descricao-produtos">Mais bacon, mais sabor, mais prazer. Esse é o AGUETONI’S BACON.</p>
+                <p class="descricao-produtos">Mais <span class="txtPalavraDestaque">bacon</span>, mais <span class="txtPalavraDestaque">sabor</span>, mais <span class="txtPalavraDestaque">prazer</span>. Esse é o AGUETONI’S BACON.</p>
                 <p class="descricao-ingredientes">Ingredientes: Pão Brioche | Maionese da Casa | Hambúrguer 150g | Mussarela | Bacon em Dobro | Alface | Tomate | Cebola Roxa</p>
                 <div id="botoes-produto">
                     <span class="preco-riscado">R$ 42,00</span>
                     <span>R$ 34,00</span>
-                    <button class="AdicionarCarrinho" data-produto-id="produto-aguetonis-bacon"><i
-                            class="fa-solid fa-cart-plus"></i> Adicionar</button>
                 </div>
             </div>
         </div>
@@ -397,7 +369,7 @@
 
     <!-- AGUETONI'S FRANGO -->
     <section class="item-pai">
-        <div class="card-pai">
+        <div class="card-pai" data-produto-id="produto-aguetonis-frango">
             <div class="card-image">
                 <img class="fotosanduba"
                     src="imagens/lanches/AguetonisFrangoMelhorado.png">
@@ -405,13 +377,13 @@
 
             <div class="card-conteudo">
                 <h4 class="titulo-produtos">AGUETONI'S FRANGO</h4>
-                <p class="descricao-produtos">Crocante, temperado e no ponto: esse é o AGUETONI’S FRANGO</p>
+                <p class="descricao-produtos"><span class="txtPalavraDestaque">Crocante</span>, <span class="txtPalavraDestaque">temperado</span> <span class="txtPalavraDestaque">e no ponto</span>: esse é o AGUETONI’S FRANGO</p>
                 <p class="descricao-ingredientes">Ingredientes: Pão Brioche | Maionese da Casa | Filé de Frango | Mussarela | Bacon | Alface | Tomate | Cebola Roxa</p>
-                <div id="botoes-produto">
+                <span>
+                    <div id="botoes-produto">
+                </span>
                     <span class="preco-riscado">R$ 32,00</span>
                     <span>R$ 27,00</span>
-                    <button class="AdicionarCarrinho" data-produto-id="produto-aguetonis-frango"><i
-                    class="fa-solid fa-cart-plus"></i> Adicionar</button>
                 </div>
             </div>
         </div>
@@ -419,7 +391,7 @@
 
     <!-- AGUETONI'S KIDS -->
     <section class="item-pai">
-        <div class="card-pai">
+        <div class="card-pai" data-produto-id="produto-aguetonis-kids">
             <div class="card-image">
                 <img class="fotosanduba"
                     src="imagens/lanches/aguetoniskids2.png">
@@ -427,13 +399,11 @@
 
             <div class="card-conteudo">
                 <h4 class="titulo-produtos">AGUETONI'S KIDS</h4>
-                <p class="descricao-produtos">AGUETONI’S KIDS: o sabor gigante no tamanho perfeito para os pequenos.</p>
+                <p class="descricao-produtos">AGUETONI’S KIDS: o <span class="txtPalavraDestaque">sabor gigante no tamanho perfeito</span> para os pequenos.</p>
                 <p class="descricao-ingredientes">Ingredientes: Pão de Hot Dog | Salsicha | Maionese da Casa | Katchup | Batata Palha | Milho</p>
                 <div id="botoes-produto">
                     <span class="preco-riscado">R$ 12,99</span>
                     <span>R$ 9,99</span>
-                    <button class="AdicionarCarrinho" data-produto-id="produto-aguetonis-kids"><i
-                    class="fa-solid fa-cart-plus"></i> Adicionar</button>
                 </div>
             </div>
         </div>
@@ -441,13 +411,13 @@
 
         <!-- AGUETONI'S TRADICIONAIS -->
 
-    <div id="sanduiches-categoria" class="divTitulos">
+    <div id="tradicionais-categoria" class="divTitulos">
             <h4 id="titulo-sanduiches">AGUETONI'S TRADICIONAIS</h4>
         </div>
 
             <!-- AGUETONI'S X-EGG -->
     <section class="item-pai">
-        <div class="card-pai">
+        <div class="card-pai"  data-produto-id="produto-aguetonis-xegg">
             <div class="card-image">
                 <img class="fotosanduba"
                     src="imagens/lanches/x-eggAlternativo2.png">
@@ -460,8 +430,6 @@
                 <div id="botoes-produto">
                     <span class="preco-riscado">R$ 22,99</span>
                     <span>R$ 19,00</span>
-                    <button class="AdicionarCarrinho" data-produto-id="produto-aguetonis-xegg"><i
-                    class="fa-solid fa-cart-plus"></i> Adicionar</button>
                 </div>
             </div>
         </div>
@@ -469,7 +437,7 @@
 
         <!-- AGUETONI'S X-TUDO -->
     <section class="item-pai">
-        <div class="card-pai">
+        <div class="card-pai" data-produto-id="produto-aguetonis-xtudo">
             <div class="card-image">
                 <img class="fotosanduba"
                     src="imagens/lanches/xtudoAlternativo.png">
@@ -482,8 +450,6 @@
                 <div id="botoes-produto">
                     <span class="preco-riscado">R$ 25,99</span>
                     <span>R$ 22,00</span>
-                    <button class="AdicionarCarrinho" data-produto-id="produto-aguetonis-xtudo"><i
-                    class="fa-solid fa-cart-plus"></i> Adicionar</button>
                 </div>
             </div>
         </div>
@@ -492,7 +458,7 @@
 
             <!-- AGUETONI'S X-SALADA -->
     <section class="item-pai">
-        <div class="card-pai">
+        <div class="card-pai" data-produto-id="produto-aguetonis-xtudo">
             <div class="card-image">
                 <img class="fotosanduba"
                     src="imagens/lanches/X-salada2.png">
@@ -505,8 +471,6 @@
                 <div id="botoes-produto">
                     <span class="preco-riscado">R$ 25,99</span>
                     <span>R$ 22,00</span>
-                    <button class="AdicionarCarrinho" data-produto-id="produto-aguetonis-xtudo"><i
-                    class="fa-solid fa-cart-plus"></i> Adicionar</button>
                 </div>
             </div>
         </div>
@@ -515,7 +479,7 @@
 
         <!-- AGUETONI'S X-BACON -->
     <section class="item-pai">
-        <div class="card-pai">
+        <div class="card-pai" data-produto-id="produto-aguetonis-xbacon">
             <div class="card-image">
                 <img class="fotosanduba"
                     src="imagens/lanches/xbaconatualizado.png">
@@ -528,8 +492,6 @@
                 <div id="botoes-produto">
                     <span class="preco-riscado">R$ 24,99</span>
                     <span>R$ 20,00</span>
-                    <button class="AdicionarCarrinho" data-produto-id="produto-aguetonis-xbacon"><i
-                    class="fa-solid fa-cart-plus"></i> Adicionar</button>
                 </div>
             </div>
         </div>
@@ -545,7 +507,7 @@
 
     <!-- BATATA FRITA -->
     <section class="item-pai">
-        <div class="card-pai">
+        <div class="card-pai" data-produto-id="produto-porcao-batatafrita">
             <div class="card-image">
                 <img class="fotosanduba"
                     src="imagens/lanches/porcoesmelhoradas.png">
@@ -558,8 +520,6 @@
                 <div id="botoes-produto">
                     <span class="preco-riscado">R$ 40,00</span>
                     <span>R$ 36,00</span>
-                    <button class="AdicionarCarrinho" data-produto-id="produto-porcao-batatafrita"><i
-                            class="fa-solid fa-cart-plus"></i> Adicionar</button>
                 </div>
             </div>
         </div>
@@ -576,7 +536,7 @@
 
     <!-- PRODUTO E MODAL - COCA-COLA 250ML -->
     <section class="item-pai">
-        <div class="card-pai">
+        <div class="card-pai" data-produto-id="produto-cocacolalata">
             <div class="card-image-bebidas">
                 <img class="fotobebidas"
                     src="imagens/bebidas/cocacola350ml.png">
@@ -584,35 +544,11 @@
 
             <div class="card-conteudo">
                 <h4 class="titulo-produtos">Coca-Cola</h4>
-                <p class="descricao-produtos">Coca-Cola em lata</p>
+                <p class="descricao-produtos">Refrigerante Coca-Cola em lata</p>
                 <p class="descricao-ingredientes"></p>
                 <div id="botoes-produto">
                     <span class="preco-riscado">R$ 8,00</span>
                     <span>R$ 6,50</span>
-                    <button class="AdicionarCarrinho" data-produto-id="produto-cocacolalata"><i
-                            class="fa-solid fa-cart-plus"></i> Adicionar</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PRODUTO E MODAL - GUARANÁ LATA -->
-    <section class="item-pai">
-        <div class="card-pai">
-            <div class="card-image-bebidas">
-                <img class="fotobebidas"
-                    src="imagens/bebidas/GuaranaLataATTpng.png">
-            </div>
-
-            <div class="card-conteudo">
-                <h4 class="titulo-produtos">Guaraná Lata</h4>
-                <p class="descricao-produtos">Guanará em lata</p>
-                <p class="descricao-ingredientes"></p>
-                <div id="botoes-produto">
-                    <span class="preco-riscado">R$ 8,00</span>
-                    <span>R$ 7,00</span>
-                    <button class="AdicionarCarrinho" data-produto-id="produto-guaranalata"><i
-                            class="fa-solid fa-cart-plus"></i> Adicionar</button>
                 </div>
             </div>
         </div>
@@ -621,25 +557,24 @@
 
 
 
-    <!--REFRIGERANTES 1L-->
 
-    <!-- PRODUTO E MODAL - COCA-COLA 1L -->
+    <!--REFRIGERANTES-->
+
+    <!-- PRODUTO E MODAL - POTY 2L -->
     <section class="item-pai">
-        <div class="card-pai">
+        <div class="card-pai"  data-produto-id="produto-poty2L">
             <div class="card-image-bebidas">
                 <img class="fotobebidas"
                     src="imagens/bebidas/Coca1LA.png">
             </div>
 
             <div class="card-conteudo">
-                <h4 class="titulo-produtos">Coca-Cola 1L</h4>
-                <p class="descricao-produtos">Coca-Cola 1L</p>
+                <h4 class="titulo-produtos">POTY 2L</h4>
+                <p class="descricao-produtos">POTY 2L</p>
                 <p class="descricao-ingredientes"></p>
                 <div id="botoes-produto">
                     <span class="preco-riscado">R$ 12,00</span>
                     <span>R$ 10,00</span>
-                    <button class="AdicionarCarrinho" data-produto-id="produto-cocacola1L"><i
-                            class="fa-solid fa-cart-plus"></i> Adicionar</button>
                 </div>
             </div>
         </div>
@@ -649,7 +584,7 @@
 
     <!-- PRODUTO E MODAL - COCA-COLA 2L -->
     <section class="item-pai">
-        <div class="card-pai">
+        <div class="card-pai"  data-produto-id="produto-cocacola2L">
             <div class="card-image-bebidas">
                 <img class="fotobebidas"
                     src="imagens/bebidas/Coca1LA.png">
@@ -657,13 +592,11 @@
 
             <div class="card-conteudo">
                 <h4 class="titulo-produtos">Coca-Cola 2L</h4>
-                <p class="descricao-produtos">Coca-Cola 2L</p>
+                <p class="descricao-produtos">Refrigerante Coca-Cola de 2L</p>
                 <p class="descricao-ingredientes"></p>
                 <div id="botoes-produto">
-                    <span class="preco-riscado">R$ 12,00</span>
-                    <span>R$ 10,00</span>
-                    <button class="AdicionarCarrinho" data-produto-id="produto-cocacola1L"><i
-                            class="fa-solid fa-cart-plus"></i> Adicionar</button>
+                    <span class="preco-riscado">R$ 16,00</span>
+                    <span>R$ 14,00</span>
                 </div>
             </div>
         </div>
@@ -917,6 +850,14 @@
         </div>  
     </div>
 </div>
+
+    <!-- MODAL PRÉ-CARRINHO -->
+
+    <div id="ModalPreCarrinho" class="modal">
+        <div class="ContModalPreCarrinho">
+
+        </div>
+    </div>
 
     <script src="js.js"></script>
 </body>

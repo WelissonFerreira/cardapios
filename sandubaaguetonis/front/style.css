@@ -323,6 +323,7 @@ span {
 .divimage-destaque {
     display: flex;
     height: 140px;
+    padding: 5px;
     
     
 }
@@ -363,6 +364,11 @@ span {
     margin: 15%;
 }
 
+.divPrecosDest {
+    padding: 5px;
+    
+}
+
 .span-riscado-destaque {
     text-decoration: line-through;
     color: gray;
@@ -387,7 +393,6 @@ span {
     box-shadow: 1px 1px 8px 1px gray;
     border-radius: 10px;
     background-color: white;
-    padding: 10px;
     flex-basis: 200px;
     flex-shrink: 0;
     flex-grow: 0;
@@ -403,6 +408,7 @@ span {
     gap: 10px;
     justify-content: flex-start;
     flex-grow: 1;
+    padding: 10px;
     
 }
 
@@ -515,23 +521,7 @@ span {
     width: 100%;
 }
 
-.AdicionarCarrinho {
-    font-family: "Quicksand", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: bolder;
-    font-style: normal;
-    font-size: 0.7rem;
-    letter-spacing: 0.5px;
-    border: none;
-    border-radius: 15px;
-    background-color: black;
-    color: white;
-    padding: 3px 5px;
-    cursor: pointer;
-    white-space: nowrap;
-    position: relative;
 
-}
 
 .msgAdicionado {
     position: absolute;
@@ -601,7 +591,7 @@ span {
     color: black;
     line-height: 1.3rem;
     letter-spacing: 1px;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     padding: 2px;
     
 }
@@ -1836,6 +1826,66 @@ footer {
 #nome, #cell, #Bairro, #Rua, #Numero, #complemento {
     margin-bottom: 10px;
     margin-top: 3px;
+}
+
+#ModalPreCarrinho {
+    background-color: white;
+    display: none;
+    z-index: 1001;
+}
+
+.ContModalPreCarrinho {
+    background-color: white;
+    color: black;
+    margin: auto; 
+    padding: 20px;
+    width: 100%;
+    max-width: 600px;
+    height: 100%;
+    /*border: 1px solid #888;*/
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 1rem;
+}
+
+.close-button-precarrinho {
+    background-color: red;
+}
+
+.divPrincipalPre {
+    display: flex;
+    flex-direction: column;
+}
+
+.divImagemPre {
+    width: 100%;
+    height: 100%;
+}
+
+.imagemPre {
+    width: 100%;
+    height: 100%;
+}
+
+.AdicionarCarrinho {
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: bolder;
+    font-style: normal;
+    font-size: 0.7rem;
+    letter-spacing: 0.5px;
+    border: none;
+    border-radius: 15px;
+    background-color: black;
+    color: white;
+    padding: 3px 5px;
+    cursor: pointer;
+    white-space: nowrap;
+    
+    
+
 }
 
 

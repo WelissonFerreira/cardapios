@@ -118,122 +118,32 @@ let catalogoDeProdutos = {
 
 
 
-        "produto-aguasemgas": {
-        tipo: "bebida",
-        nome: "Água Mineral" ,
-        precoRiscado: 4.00,
-        preco: 3.00 ,
-        descricao: "Água Mineral sem gás",
-        imagem: "imagens/bebidas/aguamineralgas.png"
-    },
-
-        "produto-aguacomgas": {
-        tipo: "bebida",
-        nome: "Água Mineral" ,
-        precoRiscado: 5.00,
-        preco: 4.00 ,
-        descricao: "Água Mineral com gás",
-        imagem: "imagens/bebidas/aguamineralgas.png"
-    },
-
-        "produto-h2o": {
-        tipo: "bebida",
-        nome: "H2O" ,
-        precoRiscado: 10.00,
-        preco: 8.00 ,
-        descricao: "H2O",
-        imagem: "imagens/bebidas/h20transparent.png"
-    },
-    
-        "produto-cocamenor": {
-        tipo: "bebida",
-        nome: "Coca-Cola Caçulinha" ,
-        precoRiscado: 5.00,
-        preco: 4.00 ,
-        descricao: "Coca-Cola Caçulinha",
-        imagem: "imagens/bebidas/cocacaculinhamodal2.png"
-    },
-
-        "produto-guaranamenor": {
-        tipo: "bebida",
-        nome: "Guaraná Caçulinha" ,
-        precoRiscado: 5.00,
-        preco: 4.00 ,
-        descricao: "Guaraná Caçulinha",
-        imagem: "imagens/bebidas/guaranacaculinhamodal2.png"
-    },
-
-
     "produto-cocacolalata": {
         tipo: "bebida",
         nome: "Coca-Cola em lata" ,
-        precoRiscado: 9.00,
-        preco: 7.00 ,
-        descricao: "Coca-Cola em lata de 250 ml",
+        precoRiscado: 8.00,
+        preco: 6.50 ,
+        descricao: "Refrigerante Coca-Cola em lata",
         imagem: "imagens/bebidas/cocacola350ml.png"
     },
 
-    "produto-guaranalata": {
-      tipo: "bebida",
-      nome: "Guaraná em lata",
-      precoRiscado: 8.00,
-      preco: 7.00,
-      descricao: "Guanará em lata de 250 ml",
-      imagem: "imagens/bebidas/GuaranaLataATTpng.png"
+    
+    "produto-cocacola2L": {
+        tipo: "bebida",
+        nome: "Coca-Cola 2L" ,
+        precoRiscado: 16.00,
+        preco: 14.00 ,
+        descricao: "Refrigerante Coca-Cola de 2L",
+        imagem: "imagens/bebidas/cocacola350ml.png"
     },
 
-    "produto-fantalata": {
-      tipo: "bebida",
-      nome: "Fanta 250ml",
-      precoRiscado: 8.00,
-      preco: 7.00,
-      descricao: "Fanta em lata",
-      imagem: "imagens/bebidas/Fantalata350ml.png"
-    },
-
-    "produto-sodalata": {
-      tipo: "bebida",
-      nome: "Soda 250ml",
-      precoRiscado: 8.00,
-      preco: 7.00,
-      descricao: "Soda em lata",
-      imagem: "imagens/bebidas/sodalata.png"
-    },
-
-    "produto-cocacola1L": {
-      tipo: "bebida",
-      nome: "Coca-Cola 1L",
-      precoRiscado: 12.00,
-      preco: 10.00,
-      descricao: "Coca-Cola 1L",
-      imagem: "imagens/bebidas/Coca1LA.png"
-    },
-
-    "produto-guarana1L": {
-      tipo: "bebida",
-      nome: "Guaraná 1L",
-      precoRiscado: 12.00,
-      preco: 10.00,
-      descricao: "Guaraná 1L",
-      imagem: "imagens/bebidas/guarana1LA.png"
-    },
-
-    "produto-fanta1L": {
-      tipo: "bebida",
-      nome: "Fanta 1L",
-      precoRiscado: 11.00,
-      preco: 10.00,
-      descricao: "Fanta 1L",
-      imagem: "imagens/bebidas/fanta1LA.png"
-    },
-
-    "produto-soda1L": {
-      tipo: "bebida",
-      nome: "Soda 1L",
-      precoRiscado: 11.00,
-      preco: 10.00,
-      descricao: "Soda 1L",
-      imagem: "imagens/bebidas/soda1LA.png"
+        "produto-poty2L": {
+        tipo: "bebida",
+        nome: "Coca-Cola em lata" ,
+        precoRiscado: 12.00,
+        preco: 10.00 ,
+        descricao: "Refrigerante Poty 2L",
+        imagem: "imagens/bebidas/cocacola350ml.png"
     },
 
 }
@@ -253,58 +163,6 @@ const precosEntrega = {
   "Jaraguá": 13
 }
 
-
-/* Botão ver mais programado */
-// 2. Variável para TODOS os botões "Ver mais"
-let btnAbriModal = document.querySelectorAll('.botaomodal');
-
-
-// FUNÇÃO PARA VER DETALHES DOS PRODUTOS
-btnAbriModal.forEach(function(botaoAtual) {
-    botaoAtual.addEventListener('click', function(event) {
-        event.preventDefault();
-    
-        //  Exibir o modal correspondente ao botão clicado
-        let SeletorDoModal = botaoAtual.dataset.modelTarget; // Acessa o valor do atributo data-model-target do HTML
-        let modalParaAbrir = document.querySelector(SeletorDoModal); // Seleciona o modal correspondente
-
-        modalParaAbrir.style.display = 'block'; // Exibe o modal
-        document.body.style.overflow = 'hidden';
-    
-        // 1. Encontrar o botão de fechar DENTRO DESTE modal que abriu
-        let fecharbotaomodal = modalParaAbrir.querySelector('.close-button-vermais')
-
-        
-        // 2. Adicionar um evento de clique a ESTE botão de fechar
-        fecharbotaomodal.addEventListener('click', function() {
-            // 3. Fazer APENAS ESTE modal desaparecer
-            modalParaAbrir.style.display = 'none';
-            document.body.style.overflow = 'auto';
-            
-        })
-
-        
-
-    })
-
-})
-
-// Opcional: Fechar o modal clicando fora dele
-        // Esta parte é um pouco mais avançada, mas muito comum para UX.
-        // Adiciona um ouvinte de clique à janela.
-
-        
-
-        window.addEventListener('click', function(e) {
-            let modalParaAbrir = document.querySelector('.modal[style*="display: block"]')
-            // Se o clique foi NO PRÓPRIO MODAL (na área escura de fundo)
-            // Lembre-se que o 'modalParaAbrir' é o fundo escuro que cobre a tela.
-            if (e.target === modalParaAbrir) {
-                modalParaAbrir.style.display = 'none'; // Fecha o modal
-                document.body.style.overflow = 'auto';
-            }
-
-        })
 
 
 
@@ -1376,8 +1234,109 @@ if (textoFormaPagamento === 'Dinheiro' && valorTroco > 0) {
       })
 
 
+/* MODAL PRÉ-CARRINHO */
+
+// ABRIR MODAL AO CLICAR NO CARD
+
+      const CardProdutos = document.querySelectorAll('.card-pai')
+      const ModalPreCarrinho = document.getElementById('ModalPreCarrinho')
+      const conteudoModal = document.querySelector('.ContModalPreCarrinho')
+
+      CardProdutos.forEach(cardAtual => {
+        cardAtual.addEventListener('click', () => {
+          conteudoModal.textContent = '';
+
+          let botaoFecharPre = document.createElement('button')
+          botaoFecharPre.innerHTML = '&times;'
+          botaoFecharPre.classList.add('botaoFecharPre')
+          conteudoModal.appendChild(botaoFecharPre)
+
+          // EVENTO DE FECHAR BOTÃO
+          botaoFecharPre.addEventListener('click', () => {
+        ModalPreCarrinho.style.display = 'none'
+      })
+
+          // 1. Encontre o ID do produto usando event.currentTarget
+          const seletorPreCarrinho = cardAtual.dataset.produtoId
+          const produtoSelecionado = catalogoDeProdutos[seletorPreCarrinho]
+
+          ModalPreCarrinho.style.display = 'block'
 
 
+          let divPrincipalPre = document.createElement('div')
+          divPrincipalPre.classList.add('divPrincipalPre')
+          conteudoModal.appendChild(divPrincipalPre)
+
+          
+          let divImagemPre = document.createElement('div')
+          divImagemPre.classList.add('divImagemPre')
+          divPrincipalPre.appendChild(divImagemPre)
+          
+          let imagemPre = document.createElement('img')
+          imagemPre.src = `${produtoSelecionado.imagem}`
+          imagemPre.classList.add('imagemPre')
+          divImagemPre.appendChild(imagemPre)
+
+          let divConteudoPre = document.createElement('div')
+          divConteudoPre.classList.add('divConteudoPre')
+          divPrincipalPre.appendChild(divConteudoPre)
+
+          let h3ProdutoPre = document.createElement('h3')
+          h3ProdutoPre.textContent = `${produtoSelecionado.nome}`
+          h3ProdutoPre.classList.add('h3ProdutoPre')
+          divConteudoPre.appendChild(h3ProdutoPre)
+
+          let descricaoPre = document.createElement('p')
+          descricaoPre.textContent = `${produtoSelecionado.descricao}`
+          descricaoPre.classList.add('descricaoPre')
+          divConteudoPre.appendChild(descricaoPre)
+
+          let divPrecos = document.createElement('div')
+          divPrecos.classList.add('divPrecos')
+          divConteudoPre.appendChild(divPrecos)
+
+          let precoRiscadoPre = document.createElement('span')
+          precoRiscadoPre.classList.add('PrecoRiscadoPre')
+          precoRiscadoPre.textContent = `R$ ${produtoSelecionado.precoRiscado.toFixed(2).replace('.', ',')}`
+          divPrecos.appendChild(precoRiscadoPre)
+
+          let precoPre = document.createElement('span')
+          precoPre.classList.add('precoPre')
+          precoPre.textContent = `R$ ${produtoSelecionado.preco.toFixed(2).replace('.', ',')}`
+          divPrecos.appendChild(precoPre)
+
+          let divBotoesAcoes = document.createElement('div')
+          divBotoesAcoes.classList.add('divBotoesAcoes')
+          divPrincipalPre.appendChild(divBotoesAcoes)
+
+          let botaoDiminuirPre = document.createElement('button')
+          botaoDiminuirPre.textContent = `-`
+          botaoDiminuirPre.classList.add('botaoDiminuirPre')
+          divBotoesAcoes.appendChild(botaoDiminuirPre)
+          
+          let inputQuantidadePre = document.createElement('input')
+          inputQuantidadePre.classList.add('inputQuantidadePre')
+          divBotoesAcoes.appendChild(inputQuantidadePre)
+
+          let botaoAumentarPre = document.createElement('button')
+          botaoAumentarPre.textContent = `+`
+          botaoAumentarPre.classList.add('botaoAumentarPre')
+          divBotoesAcoes.appendChild(botaoAumentarPre)
 
 
-    
+          let botaoAdicionar = document.createElement('button')
+          botaoAdicionar.classList.add('AdicionarCarrinho')
+          botaoAdicionar.innerHTML = '<i class="fa-solid fa-cart-plus"></i> Adicionar';
+          conteudoModal.appendChild(botaoAdicionar)
+          
+
+          
+
+
+          
+          
+      
+
+
+        })
+      });
