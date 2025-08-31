@@ -711,21 +711,25 @@ CardProdutos.forEach(cardAtual => {
         
         // DIV PRINCIPAL DO CONTEÚDO (Imagem e texto do produto)
 
-        
+        let divPrincipal = document.createElement('div')
+        divPrincipal.classList.add('divPrincipal')
+        conteudoModal.appendChild(divPrincipal)
 
-        let divPrincipalProdutoInfo = document.createElement('div'); // Renomeei para maior clareza
-        divPrincipalProdutoInfo.classList.add('divPrincipalProdutoInfo');
-        conteudoModal.appendChild(divPrincipalProdutoInfo);
-
-        // DIV para organizar as imagens
+                // DIV para organizar as imagens
         let divImagemPre = document.createElement('div');
         divImagemPre.classList.add('divImagemPre');
-        divPrincipalProdutoInfo.appendChild(divImagemPre);
-        
-        let imagemPre = document.createElement('img');
+        divPrincipal.appendChild(divImagemPre);
+
+       let imagemPre = document.createElement('img');
         imagemPre.src = `${produtoSelecionado.imagem}`;
         imagemPre.classList.add('imagemPre');
         divImagemPre.appendChild(imagemPre);
+
+        let divPrincipalProdutoInfo = document.createElement('div'); // Renomeei para maior clareza
+        divPrincipalProdutoInfo.classList.add('divPrincipalProdutoInfo');
+        divPrincipal.appendChild(divPrincipalProdutoInfo);
+
+
 
         // DIV para organizar conteúdo, nome, preco, descrição
         let divConteudoPre = document.createElement('div');
@@ -759,20 +763,43 @@ CardProdutos.forEach(cardAtual => {
         // DIV PARA SUGESTÃO DE BEBIDAS
         let divSugestaoBebidas = document.createElement('div');
         divSugestaoBebidas.classList.add('divSugestaoBebidas');
-        conteudoModal.appendChild(divSugestaoBebidas);
+        divPrincipal.appendChild(divSugestaoBebidas);
+
+        let divH4eP = document.createElement('div')
+        divH4eP.classList.add('divH4eP')
+        divSugestaoBebidas.appendChild(divH4eP)
+
+        let divControleH4P = document.createElement('div')
+        divControleH4P.classList.add('divControleH4P')
+        divH4eP.appendChild(divControleH4P)
 
         let h4SugestaoBebidas = document.createElement('h4');
         h4SugestaoBebidas.classList.add('h4SugestaoBebidas');
         h4SugestaoBebidas.textContent = `O que você vai beber hoje ?`;
-        divSugestaoBebidas.appendChild(h4SugestaoBebidas);
+        divControleH4P.appendChild(h4SugestaoBebidas);
+
+        let pSugestao = document.createElement('p')
+        pSugestao.classList.add('pSugestao')
+        pSugestao.textContent = `Escolhas até 3 opções`
+        divControleH4P.appendChild(pSugestao)
+
 
         for (const produtoId in catalogoDeProdutos) {
             const produtoAtual = catalogoDeProdutos[produtoId];
             
             if (produtoAtual.tipo === 'bebida') {
+
+                let divDividirItensBebidas = document.createElement('div')
+                divDividirItensBebidas.classList.add('divDividirItensBebidas')
+                divSugestaoBebidas.append(divDividirItensBebidas)
+
+
                 let divItemBebida = document.createElement('div');
                 divItemBebida.classList.add('divItemBebida');
-                divSugestaoBebidas.appendChild(divItemBebida);
+                divDividirItensBebidas.appendChild(divItemBebida);
+
+                
+                
 
                 let divImagemBebida = document.createElement('div');
                 divImagemBebida.classList.add('divImagemBebida');
@@ -810,7 +837,7 @@ CardProdutos.forEach(cardAtual => {
 
                 let divBotoesBebidas = document.createElement('div');
                 divBotoesBebidas.classList.add('divBotoesBebidas');
-                divItemBebida.appendChild(divBotoesBebidas);
+                divDividirItensBebidas.appendChild(divBotoesBebidas);
 
                 let diminuirBebidas = document.createElement('button');
                 diminuirBebidas.classList.add('diminuirBebidas');
@@ -857,23 +884,33 @@ CardProdutos.forEach(cardAtual => {
 
         // LÓGICA PARA OS ADICIONAIS, DOM, OBJECT, EVENTOS...
         let divAdicional = document.createElement('div');
-        conteudoModal.appendChild(divAdicional);
+        divPrincipal.appendChild(divAdicional);
         divAdicional.classList.add('divAdicional');
+
+        let divh4PAdicional = document.createElement('div')
+        divh4PAdicional.classList.add('divh4PAdcicional')
+        divAdicional.appendChild(divh4PAdicional)
 
         let h4Adicional = document.createElement('h4');
         h4Adicional.classList.add('h4Adicional');
         h4Adicional.textContent = `Deseja um adicional ?`;
-        divAdicional.appendChild(h4Adicional);
+        divh4PAdicional.appendChild(h4Adicional);
 
         let txtAdicional = document.createElement('p');
         txtAdicional.classList.add('txtAdicional');
         txtAdicional.textContent = `Escolha até 8 opções`;
-        divAdicional.appendChild(txtAdicional);
+        divh4PAdicional.appendChild(txtAdicional);
 
         produtoSelecionado.adicionais.forEach(adicionalAtual => {
+
+            let divDividirItensAdicionais = document.createElement('div')
+            divDividirItensAdicionais.classList.add('divDividirItensAdicionais')
+            divAdicional.appendChild(divDividirItensAdicionais)
+
+
             let divItemAdicional = document.createElement('div');
             divItemAdicional.classList.add('divItemAdicional');
-            divAdicional.appendChild(divItemAdicional);
+            divDividirItensAdicionais.appendChild(divItemAdicional);
             
             let divNomePrecoAdicional = document.createElement('div');
             divNomePrecoAdicional.classList.add('divNomePrecoAdiconal');
@@ -891,7 +928,7 @@ CardProdutos.forEach(cardAtual => {
 
             let divBotoesAdicionais = document.createElement('div');
             divBotoesAdicionais.classList.add('divBotoesAdicionais');
-            divItemAdicional.appendChild(divBotoesAdicionais);
+            divDividirItensAdicionais.appendChild(divBotoesAdicionais);
             
             // CRIANDO OS ELEMENTOS PRIMEIRO
             let diminuirAdicionais = document.createElement('button');
@@ -1110,7 +1147,7 @@ function mostrarItensDoCarrinho() {
                 let divAdicionaisItem = document.createElement('div');
                 divAdicionaisItem.classList.add('adicionais-item-carrinho');
                 let pAdicionais = document.createElement('p');
-                pAdicionais.textContent = 'Adicionais: ' + adicionaisComprados.map(nome => `${nome} (${item.adicionais[nome]})`).join(', ');
+                pAdicionais.textContent = 'Adicionais: ' + adicionaisComprados.map(nome => `${item.adicionais[nome]}x ${nome} `).join(', ');
                 divAdicionaisItem.appendChild(pAdicionais);
                 divProdutoDescricao.appendChild(divAdicionaisItem);
             }
@@ -1121,7 +1158,7 @@ function mostrarItensDoCarrinho() {
                 let pBebidas = document.createElement('p');
                 pBebidas.textContent = 'Bebidas: ' + bebidasCompradas.map(id => {
                     const bebida = catalogoDeProdutos[id];
-                    return `${bebida.nome} (${item.bebidas[id]})`;
+                    return ` ${item.bebidas[id]}x ${bebida.nome}`;
                 }).join(', ');
                 divBebidasItem.appendChild(pBebidas);
                 divProdutoDescricao.appendChild(divBebidasItem);
@@ -1404,59 +1441,6 @@ function abrirModalPedidoEListarItens() {
     totalPreco.textContent = `Preço Total: R$ ${precoFinal.toFixed(2).replace('.', ',')}`;
     taxaEntrega.textContent = `Taxa de Entrega: R$ ${valorTaxaDeEntrega.toFixed(2).replace('.', ',')}`;
 };
-
-
-
-
-// A função `atualizarPreCarrinho` precisa ser definida para que este código funcione.
-// Se ela ainda não estiver definida, você precisa adicioná-la em algum lugar do seu script.
-// Exemplo básico (adapte conforme sua lógica real):
-function atualizarPreCarrinho(inputQuantidadePre, produtoSelecionado, precoPre, precoRiscadoPre) {
-    let precoBase = produtoSelecionado.preco;
-    let precoRiscadoBase = produtoSelecionado.precoRiscado || 0;
-    let quantidadePrincipal = parseInt(inputQuantidadePre.value);
-
-    let precoTotalAdicionais = 0;
-    for (const adicionalNome in adicionaisSelecionados) {
-        const quantidade = adicionaisSelecionados[adicionalNome];
-        if (quantidade > 0) {
-            const adicional = produtoSelecionado.adicionais.find(a => a.nome === adicionalNome);
-            if (adicional) {
-                precoTotalAdicionais += adicional.preco * quantidade;
-            }
-        }
-    }
-
-    let precoTotalBebidas = 0;
-    for (const bebidaId in bebidasSelecionadas) {
-        const quantidade = bebidasSelecionadas[bebidaId];
-        if (quantidade > 0) {
-            const bebida = catalogoDeProdutos[bebidaId];
-            if (bebida) {
-                precoTotalBebidas += bebida.preco * quantidade;
-            }
-        }
-    }
-
-    let precoFinal = (precoBase * quantidadePrincipal) + precoTotalAdicionais + precoTotalBebidas;
-    let precoRiscadoFinal = (precoRiscadoBase * quantidadePrincipal) + precoTotalAdicionais + precoTotalBebidas; // Adapte se o risco não se aplica a adicionais/bebidas
-
-    // Atualiza os spans de preço
-    precoPre.textContent = `R$ ${precoFinal.toFixed(2).replace('.', ',')}`;
-    if (precoRiscadoBase > 0) { // Mostra o preço riscado apenas se ele existir
-        precoRiscadoPre.textContent = `R$ ${precoRiscadoFinal.toFixed(2).replace('.', ',')}`;
-        precoRiscadoPre.style.display = 'inline'; // Garante que esteja visível
-    } else {
-        precoRiscadoPre.style.display = 'none'; // Esconde se não houver preço riscado
-    }
-
-    // Atualiza o texto do botão Adicionar ao Carrinho
-    const botaoAdicionar = document.querySelector('.AdicionarCarrinho');
-    if (botaoAdicionar) {
-        botaoAdicionar.innerHTML = `<i class="fa-solid fa-cart-plus"></i> Adicionar R$ ${precoFinal.toFixed(2).replace('.', ',')}`;
-    }
-}
-
 
 
 

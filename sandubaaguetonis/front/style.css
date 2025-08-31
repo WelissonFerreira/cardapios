@@ -8,9 +8,11 @@
     box-sizing: border-box;
 }
 
+
+
 /* Corpo do site */
 body {
-    
+    width: 100vw;
     font-size: 10px;
     
 }
@@ -39,13 +41,7 @@ main {
     
 }
 
-span {
-    font-size: 0.9rem;
-    color: black;
-    font-family: "Poppins", sans-serif;
-    font-weight: 700;
-    font-style: normal;
-}
+
 
 
 /* Cabeçalho */
@@ -362,6 +358,11 @@ span {
 
 .span-destaque {
     margin: 15%;
+    font-size: 0.9rem;
+    color: black;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
 }
 
 .divPrecosDest {
@@ -372,6 +373,13 @@ span {
 .span-riscado-destaque {
     text-decoration: line-through;
     color: gray;
+    font-size: 0.8rem;
+    font-weight: bolder;
+    color: rgb(85, 83, 83);
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    text-decoration: line-through;
 }
 
 .botaodestaque {
@@ -594,12 +602,22 @@ span {
     
 }
 
-
+.preco-normal {
+    font-size: 0.9rem;
+    color: black;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
 
 
 .preco-riscado {
+    font-size: 0.8rem;
     font-weight: bolder;
     color: rgb(85, 83, 83);
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
     text-decoration: line-through;
 }
 
@@ -1180,7 +1198,7 @@ footer {
     justify-content: space-around;
     gap: 5px;
     padding: 5px;
-    border: 1px solid gray;
+    border: 1px solid red;
     border-radius: 5px;
     align-self: center;
     width: 40%;
@@ -1368,10 +1386,16 @@ footer {
     margin-left: -2%;
 }
 
-.psugestao, .spansugestao {
+.spansugestao {
     font-family: "Quicksand", sans-serif;
     font-size: 0.8rem;
     font-weight: 700;
+    font-style: normal;
+}
+
+.pSugestao {
+    font-family: "Quicksand", sans-serif;
+    font-size: 0.8rem;
     font-style: normal;
 }
 
@@ -1831,18 +1855,16 @@ footer {
     background-color: white;
     display: none;
     z-index: 1001;
+    width: 100vw;
     
 }
 
 .ContModalPreCarrinho {
-    background: linear-gradient(272deg, #999A9E, #091921);
     color: black;
     margin: auto; 
-    padding: 20px;
     width: 100%;
     max-width: 600px;
     height: 100vh;
-    /*border: 1px solid #888;*/
     position: relative;
     display: flex;
     flex-direction: column;
@@ -1850,17 +1872,70 @@ footer {
     overflow-y: auto;
 }
 
+.divPrincipal {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    
+}
+
+/* A div que envolve a imagem deve ocupar toda a tela */
+
+.divImagemPre {
+    position: relative;
+    z-index: 1;
+    width: 100vw;      
+    height: 30vh;     
+    overflow: hidden;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*margin-bottom: 20px;*/
+}
+
+
+
+
+/* A imagem deve preencher a div mantendo proporção e cobrindo tudo */
+.imagemPre {
+    width: 100%;
+    height: 100%;
+    object-position: cover;  /* cobre toda a área da div, cortando se necessário */
+}
+
 .divPrincipalProdutoInfo {
+    position: relative;
+    margin-top: -20px;
+    z-index: 2;
+    background-color: white;
     display: flex;
     flex-direction: column;
     gap: 15px;
+    border-bottom: 1px solid rgb(209, 204, 204);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
 }
 
 .divConteudoPre {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
+    padding: 10px;
+    border-bottom: 1px solid rgb(209, 204, 204);
+}
 
+.h3ProdutoPre {
+        font-family: "Rubik", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 550;
+}
+
+.descricaoPre {
+    font-family: "Rubik", sans-serif;
+    font-size: 0.9rem;
+    
 }
 
 .close-button-precarrinho {
@@ -1870,53 +1945,168 @@ footer {
 .divPrincipalPre {
     display: flex;
     flex-direction: column;
-    ;
+    
+}
+
+.divH4eP {
+    display: flex;
+    border-bottom: 1px solid  rgb(209, 204, 204);
+    height: 80px;
+}
+
+.divControleH4P {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    padding: 15px;
+
+}
+
+.h4SugestaoBebidas {
+    font-family: "Rubik", sans-serif;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+.pSugestao {
+    font-family: "Rubik", sans-serif;
+    font-weight: bold;
+    font-size: 0.7rem;
 }
 
 .divPrecos {
     display: flex;
     flex-direction: row;
     gap: 10px;
+    align-items: center;
+    
+}
+
+.divPrecosBebida {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.precoPre {
+    font-size: 1rem;
+    color: black;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+
+.PrecoRiscadoPre {
+    font-size: 0.8rem;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    color: grey;
+    text-decoration: line-through;
+    
+}
+
+.precoRiscadoBebida {
+    font-family: "Rubik", sans-serif;
+    font-weight: bold;
+    font-size: 0.7rem;
+    color: gray;
+    text-decoration: line-through;
+}
+
+.precoBebida, .precoAdicional {
+    font-size: 0.8rem;
+    font-family: "Rubik", sans-serif;
+    font-weight: bold;
+}
+
+.divSugestaoBebidas {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: white;
+    
+}
+
+.divDividirItensBebidas {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid rgb(209, 204, 204);
+    align-items: center;
+    justify-content: flex-start;
+    padding: 5px;
+    gap: 130px;
+    
 }
 
 .divItemBebida {
     display: flex;
     flex-direction: row;
-    background-color: white;
-    gap: 15px;
     align-items: center;
-    justify-content: space-around;
+    
+    
+    
 }
 
 .divInfoBebida {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    
 }
 
-/* A div que envolve a imagem deve ocupar toda a tela */
-.divImagemPre {
-    width: 100vw;      /* 100% da largura da viewport */
-    height: 30vh;     /* 100% da altura da viewport */
-    overflow: hidden;  /* evita que a imagem ultrapasse os limites */
+
+
+.divAdicional {
     display: flex;
+    flex-direction: column;
+}
+
+.divDividirItensAdicionais {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid rgb(209, 204, 204);
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 15px;
+    gap: 265px;
+    height: 70px;
+}
+
+.divItemAdicional {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    /*width: 80px;*/
+}
+
+.divh4PAdcicional {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    padding: 15px;
+    border-bottom: 1px solid rgb(209, 204, 204);
+}
+
+.divBotoesAdicionais {
+    display: flex;
+    gap: 10px;
     justify-content: center;
     align-items: center;
-    position: relative;
-    top: -5%;
-    left: -6%;
+    width: 20px;
+    margin-right: 20px;
 }
 
-/* A imagem deve preencher a div mantendo proporção e cobrindo tudo */
-.imagemPre {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;  /* cobre toda a área da div, cortando se necessário */
-}
+
 
 
 .inputQuantidadeAdicionais {
     display: none;
+    width: 10px;
+    height: 25px;
+    border: none;
 }
 
 
@@ -1925,11 +2115,14 @@ footer {
     display: flex;
     width:  100px;
     height: 100px;
+    justify-content: center;
+    
 }
 
 .imgBebidas {
     width: 100%;
     height: 100%;
+    object-fit: cover;
 }
 
 .divbotaoFecharPre {
@@ -1968,12 +2161,48 @@ footer {
 .divBotoesAcoes {
     display: flex;
     align-items: center;
-    gap: 5px; /* Espaço entre os botões de quantidade */
+    gap: 0px; /* Espaço entre os botões de quantidade */
+    padding: 10px;
+}
+
+.botaoDiminuirPre, .botaoAumentarPre {
+    border: none;
+    color: red;
+    font-size: 1.5rem;
+}
+
+.divBotoesBebidas {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputBebidas {
+    display: none;
+    width: 10px;
+    height: auto;
+    border: none;
+}
+
+.aumentarBebidas, .diminuirBebidas {
+    border: none;
+    color: red;
+    font-size: 1.5rem;
+}
+
+.diminuirAdicionais, .aumentarQuantidadeAdicionais {
+    border: none;
+    color: red;
+    font-size: 1.5rem;
 }
 
 .inputQuantidadePre {
-    width: 40px; /* Ajuste o tamanho do input */
+    width: 25px; /* Ajuste o tamanho do input */
+    height: auto;
     text-align: center;
+    border: none;
 }
 
 .AdicionarCarrinho {
@@ -2078,7 +2307,7 @@ footer {
 
 
     .btnDiminuir, .btnAumentar, .btnRemover {
-    color: black;
+    color: red;
     background-Color: white;
     border: 1px solid white;
     cursor: pointer;
@@ -2131,7 +2360,7 @@ footer {
 
 
     .btnDiminuir, .btnAumentar, .btnRemover {
-    color: black;
+    color: red;
     background-Color: white;
     border: 1px solid white;
     cursor: pointer;
@@ -2147,7 +2376,7 @@ footer {
 }
 
     .btnDiminuir:hover, .btnAumentar:hover, .btnRemover:hover {
-        background-color: #EC6418;
+        background-color: black;
         cursor: pointer;
     }
     .btnAumentar {
