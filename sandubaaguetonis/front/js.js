@@ -1878,13 +1878,10 @@ if (textoFormaPagamento === 'Dinheiro' && valorTroco > 0) {
         } else {
 
             let p2 = document.createElement('p')
-            p2.textContent = 'No momento estamos fechados. Você pode agendar seu pedido!'
+            p2.textContent = 'AGENDE SEU PEDIDO!'
             p2.classList.add('btn-fechado-horarios')
             openClose.appendChild(p2)
-            let novoP2 = document.createElement('p')
-            novoP2.textContent = 'Horário de funcionamento: '
-            novoP2.classList.add('msghorariofuncionamento')
-            openClose.appendChild(novoP2)
+
 
             let divFuncionamento = document.createElement('div')
             divFuncionamento.classList.add('divFuncionamento')
