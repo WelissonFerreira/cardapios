@@ -393,7 +393,7 @@ span {
     box-shadow: 1px 1px 8px 1px gray;
     border-radius: 10px;
     background-color: white;
-    flex-basis: 200px;
+    flex-basis: 185px;
     flex-shrink: 0;
     flex-grow: 0;
     
@@ -539,15 +539,13 @@ span {
 }
 
 .close-button-carrinho {
-    /*position: absolute;*/
-    font-size: 2rem;
+    font-size: 1.7rem;
+    font-family: "Rubik", sans-serif;
     font-weight: bold;
-    /*top: 0%;
-    right: 5%; */
-    padding: 5px 10px;
-    cursor: pointer;
-    color: black;
-    background-color: transparent;
+    color: grey;
+    border-radius: 50px;
+    width: 30px;
+    height: 30px;
     border: none;
 }
 
@@ -982,7 +980,7 @@ footer {
 
 /*  MODAL DO CARRINHO: */
 .modal-content-carrinho {
-    background-color: #FD4B01;
+    background: linear-gradient(272deg, #999A9E, #091921);
     margin: auto; /* Centraliza o modal na tela */
     padding: 10px;
     padding-bottom: 120px;
@@ -1000,7 +998,7 @@ footer {
 
 
 #ModalCarrinho {
-    background-Color: #FD4B01;
+    background: linear-gradient(272deg, #999A9E, #091921);
     width: 100vw;
     height: 100vh;
     position: fixed;
@@ -1406,7 +1404,7 @@ footer {
 
 
 
-/* MODAL DADOS */
+
 
 /* MODAL DADOS - O overlay que cobre a tela toda */
 #ModalDados {
@@ -1425,7 +1423,7 @@ footer {
 
 /* Conteúdo do Modal de Dados - Onde está o formulário */
 .ConteudoModalDados {
-    background-color: #FD4B01; /* O fundo que você quer para o formulário */
+    background: linear-gradient(272deg, #999A9E, #091921);
     color: black;
     margin: 0;           /* Sem margens externas, preenche o pai */
     padding: 20px;       /* Padding interno para o conteúdo do formulário */
@@ -1468,7 +1466,7 @@ footer {
     margin: 0;  /* Remova qualquer margem que possa existir aqui por padrão */
     overflow-y: auto; /* Se o formulário for muito longo, ele rola internamente */
     box-sizing: border-box;
-    background-color: #FD4B01;
+    
 }
 
 
@@ -1529,14 +1527,14 @@ footer {
 /* MODAL FINALIZAR PEDIDO */
 
 #ModalFazerPedido {
-    background-color: #FD4B01;
+    background: linear-gradient(272deg, #999A9E, #091921);
     display: none;
     z-index: 1001;
     /*border: solid 1px;*/
 }
 
 .ContModalFazerPedido {
-    background-color: #FD4B01;
+    background: linear-gradient(272deg, #999A9E, #091921);
     color: black;
     margin: auto; 
     padding: 20px;
@@ -1567,17 +1565,19 @@ footer {
 
 
 #voltarPedido {
-    background-color: #FD4B01;
+    background-color: white;
     position: absolute;
     left: 5px;
     top: 0px;
-    font-size: 2rem;
+    margin: 5px;
+    font-size: 1.2rem;
+    font-family: "Rubik", sans-serif;
     font-weight: bold;
-    padding: 1px 10px;
+    color: grey;
+    border-radius: 50px;
+    width: 30px;
+    height: 30px;
     border: none;
-    cursor: pointer;
-    color: black;
-    border-radius: 15px;
 }
 
 .seuPedidoNome {
@@ -1795,31 +1795,30 @@ footer {
     position: absolute;
     top: 15px;
     right: 10px;
-    font-size: 2rem;
     font-weight: bold;
-    width: 50px;
-    padding: 5px 10px;
-    cursor: pointer;
-    color: black;
-    background-color: transparent;
+    font-size: 1.7rem;
+    font-family: "Rubik", sans-serif;
+    color: grey;
+    border-radius: 50px;
+    width: 30px;
+    height: 30px;
     border: none;
-    margin-bottom: 20px;
 }
 
 .close-button-pedido {
     position: absolute;
-    font-size: 0.5rem;
-    font-weight: bolder;
     top: 0px;
     right: 10px;
-    font-size: 2rem;
+    margin: 5px;
+    font-size: 1.7rem;
+    font-family: "Rubik", sans-serif;
     font-weight: bold;
-    width: 50px;
-    padding: 5px 10px;
-    cursor: pointer;
-    color: black;
-    background-color: transparent;
+    color: grey;
+    border-radius: 50px;
+    width: 30px;
+    height: 30px;
     border: none;
+    
     
 }
 
@@ -1832,22 +1831,36 @@ footer {
     background-color: white;
     display: none;
     z-index: 1001;
+    
 }
 
 .ContModalPreCarrinho {
-    background-color: white;
+    background: linear-gradient(272deg, #999A9E, #091921);
     color: black;
     margin: auto; 
     padding: 20px;
     width: 100%;
     max-width: 600px;
-    height: 100%;
+    height: 100vh;
     /*border: 1px solid #888;*/
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     font-size: 1rem;
+    overflow-y: auto;
+}
+
+.divPrincipalProdutoInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.divConteudoPre {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
 }
 
 .close-button-precarrinho {
@@ -1857,37 +1870,135 @@ footer {
 .divPrincipalPre {
     display: flex;
     flex-direction: column;
+    ;
 }
 
+.divPrecos {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.divItemBebida {
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    gap: 15px;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.divInfoBebida {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* A div que envolve a imagem deve ocupar toda a tela */
 .divImagemPre {
-    width: 100%;
-    height: 100%;
+    width: 100vw;      /* 100% da largura da viewport */
+    height: 30vh;     /* 100% da altura da viewport */
+    overflow: hidden;  /* evita que a imagem ultrapasse os limites */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: -5%;
+    left: -6%;
 }
 
+/* A imagem deve preencher a div mantendo proporção e cobrindo tudo */
 .imagemPre {
     width: 100%;
     height: 100%;
+    object-fit: cover;  /* cobre toda a área da div, cortando se necessário */
+}
+
+
+.inputQuantidadeAdicionais {
+    display: none;
+}
+
+
+
+.divImagemBebida {
+    display: flex;
+    width:  100px;
+    height: 100px;
+}
+
+.imgBebidas {
+    width: 100%;
+    height: 100%;
+}
+
+.divbotaoFecharPre {
+    position: absolute;
+    left: 90%;
+    top: 0;
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+    z-index: 1001;
+}
+
+.botaoFecharPre {
+    font-size: 1.7rem;
+    font-family: "Rubik", sans-serif;
+    color: grey;
+    border-radius: 50px;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+
+
+
+.divFinalAcoes {
+    display: flex;
+    justify-content: space-between; /* Espaça os elementos */
+    align-items: center; /* Alinha verticalmente no centro */
+    padding: 10px 0; /* Ajuste o espaçamento conforme necessário */
+    width: 100%; /* Garante que ocupe toda a largura */
+    /* Talvez um background-color para destacar como na imagem */
+    /* position: sticky; bottom: 0; se quiser que fique fixo no fundo */
+}
+
+.divBotoesAcoes {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Espaço entre os botões de quantidade */
+}
+
+.inputQuantidadePre {
+    width: 40px; /* Ajuste o tamanho do input */
+    text-align: center;
 }
 
 .AdicionarCarrinho {
+    /* Estilos para o botão adicionar, largura, cor, etc. */
     font-family: "Quicksand", sans-serif;
     font-optical-sizing: auto;
     font-weight: bolder;
     font-style: normal;
     font-size: 0.7rem;
     letter-spacing: 0.5px;
-    border: none;
-    border-radius: 15px;
-    background-color: black;
+    background-color: red; /* Exemplo, use a cor do seu tema */
     color: white;
-    padding: 3px 5px;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
     cursor: pointer;
-    white-space: nowrap;
-    
-    
-
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Espaço entre o ícone e o texto */
 }
 
+.AdicionarCarrinho i {
+    font-size: 1.2em;
+}
 
 
  /* ======================================= */

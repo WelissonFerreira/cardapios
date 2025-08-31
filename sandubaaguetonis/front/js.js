@@ -12,7 +12,38 @@ let catalogoDeProdutos = {
             "Mussarela",
             "Cebola Roxa"
         ],
-        imagem: "imagens/lanches/AguetonisSmashAlternativo.png"
+        imagem: "imagens/lanches/AguetonisSmashAlternativo.png",
+        adicionais: [
+    {
+      nome: 'Catupiry',
+      preco: 6.00,
+    },
+    {
+      nome: 'Ovo',
+      preco: 2.00,
+    },
+    {
+      nome: 'Mussarela',
+      preco: 4.00,
+    },
+    {
+      nome: 'Bacon',
+      preco: 5.00,
+    },
+    {
+      nome: 'Cheddar',
+      preco: 5.00,
+    },
+    {
+      nome: 'Hambúrguer 150g',
+      preco: 8.00,
+    },
+    {
+      nome: 'Alho Frito',
+      preco: 2.50,
+    }
+      
+        ]
     },
 
 
@@ -23,8 +54,41 @@ let catalogoDeProdutos = {
         preco: 24.00,
         descricao: "Esse é mais que um burger, uma experiência crocante e irresistível!",
         ingredientes: ["Pão Brioche", "Maionese da Casa", "Hambúrguer 150g", "Mussarela", "Ovo", "Salsicha", "Bacon", "Alface", "Tomate", "Cebola Roxa"],
-        imagem: "imagens/lanches/AnguetonisburguerAlternativo.png"
+        imagem: "imagens/lanches/AnguetonisburguerAlternativo.png",
+        adicionais: [
+    {
+      nome: 'Catupiry',
+      preco: 6.00,
     },
+    {
+      nome: 'Ovo',
+      preco: 2.00,
+    },
+    {
+      nome: 'Mussarela',
+      preco: 4.00,
+    },
+    {
+      nome: 'Bacon',
+      preco: 5.00,
+    },
+    {
+      nome: 'Cheddar',
+      preco: 5.00,
+    },
+    {
+      nome: 'Hambúrguer 150g',
+      preco: 8.00,
+    },
+    {
+      nome: 'Alho Frito',
+      preco: 2.50,
+    }
+      
+        ]
+    },
+
+
     "produto-aguetonis-tudo": {
         tipo: "lanche",
         nome: "AGUETONI'S TUDO",
@@ -32,8 +96,41 @@ let catalogoDeProdutos = {
         preco: 32.00,
         descricao: "Se é pra matar a fome, que seja com Aguetoni's TUDO",
         ingredientes: ["Pão Brioche", "2x Hambúrguer 150g", "2x Mussarela", "Bacon em Dobro", "Alface", "Tomate", "Cebola Roxa"],
-        imagem: "imagens/lanches/smashTudoalternativa1.png"
+        imagem: "imagens/lanches/smashTudoalternativa1.png",
+        adicionais: [
+    {
+      nome: 'Catupiry',
+      preco: 6.00,
     },
+    {
+      nome: 'Ovo',
+      preco: 2.00,
+    },
+    {
+      nome: 'Mussarela',
+      preco: 4.00,
+    },
+    {
+      nome: 'Bacon',
+      preco: 5.00,
+    },
+    {
+      nome: 'Cheddar',
+      preco: 5.00,
+    },
+    {
+      nome: 'Hambúrguer 150g',
+      preco: 8.00,
+    },
+    {
+      nome: 'Alho Frito',
+      preco: 2.50,
+    }
+      
+        ]
+    },
+
+
     "produto-aguetonis-duplo": {
         tipo: "lanche",
         nome: "AGUETONI'S DUPLO",
@@ -41,8 +138,41 @@ let catalogoDeProdutos = {
         preco: 39.00,
         descricao: "O campeão da fome de verdade! é TUDO e é DUPLO.",
         ingredientes: ["Pão Brioche", "Duplo Hambúrguer de 150g", "Mussarela em Dobro", "Bacon em Dobro", "Alface", "Tomate", "Cebola Roxa"],
-        imagem: "imagens/lanches/AguetonisduploMelhorado.png"
+        imagem: "imagens/lanches/AguetonisduploMelhorado.png",
+        adicionais: [
+    {
+      nome: 'Catupiry',
+      preco: 6.00,
     },
+    {
+      nome: 'Ovo',
+      preco: 2.00,
+    },
+    {
+      nome: 'Mussarela',
+      preco: 4.00,
+    },
+    {
+      nome: 'Bacon',
+      preco: 5.00,
+    },
+    {
+      nome: 'Cheddar',
+      preco: 5.00,
+    },
+    {
+      nome: 'Hambúrguer 150g',
+      preco: 8.00,
+    },
+    {
+      nome: 'Alho Frito',
+      preco: 2.50,
+    }
+      
+        ]
+    },
+
+
     "produto-aguetonis-bacon": {
         tipo: "lanche",
         nome: "AGUETONI'S BACON",
@@ -50,8 +180,41 @@ let catalogoDeProdutos = {
         preco: 34.00,
         descricao: "Mais bacon, mais sabor, mais prazer. Esse é o AGUETONI’S BACON.",
         ingredientes: ["Pão Brioche", "Maionese da Casa", "Hambúrguer 150g", "Mussarela", "Bacon em Dobro", "Alface", "Tomate", "Cebola Roxa"],
-        imagem: "imagens/lanches/AguetonisBaconMelhorado.png"
+        imagem: "imagens/lanches/AguetonisBaconMelhorado.png",
+        adicionais: [
+    {
+      nome: 'Catupiry',
+      preco: 6.00,
     },
+    {
+      nome: 'Ovo',
+      preco: 2.00,
+    },
+    {
+      nome: 'Mussarela',
+      preco: 4.00,
+    },
+    {
+      nome: 'Bacon',
+      preco: 5.00,
+    },
+    {
+      nome: 'Cheddar',
+      preco: 5.00,
+    },
+    {
+      nome: 'Hambúrguer 150g',
+      preco: 8.00,
+    },
+    {
+      nome: 'Alho Frito',
+      preco: 2.50,
+    }
+      
+        ]
+    },
+
+
     "produto-aguetonis-frango": {
         tipo: "lanche",
         nome: "AGUETONI'S FRANGO",
@@ -59,8 +222,41 @@ let catalogoDeProdutos = {
         preco: 27.00,
         descricao: "Crocante, temperado e no ponto: esse é o AGUETONI’S FRANGO",
         ingredientes: ["Pão Brioche", "Maionese da Casa", "Filé de Frango", "Mussarela", "Bacon", "Alface", "Tomate", "Cebola Roxa"],
-        imagem: "imagens/lanches/AguetonisFrangoMelhorado.png"
+        imagem: "imagens/lanches/AguetonisFrangoMelhorado.png",
+        adicionais: [
+    {
+      nome: 'Catupiry',
+      preco: 6.00,
     },
+    {
+      nome: 'Ovo',
+      preco: 2.00,
+    },
+    {
+      nome: 'Mussarela',
+      preco: 4.00,
+    },
+    {
+      nome: 'Bacon',
+      preco: 5.00,
+    },
+    {
+      nome: 'Cheddar',
+      preco: 5.00,
+    },
+    {
+      nome: 'Hambúrguer 150g',
+      preco: 8.00,
+    },
+    {
+      nome: 'Alho Frito',
+      preco: 2.50,
+    }
+      
+        ]
+    },
+
+
     "produto-aguetonis-kids": {
         tipo: "lanche",
         nome: "AGUETONI'S KIDS",
@@ -68,8 +264,41 @@ let catalogoDeProdutos = {
         preco: 9.99,
         descricao: "AGUETONI’S KIDS: o sabor gigante no tamanho perfeito para os pequenos.",
         ingredientes: ["Pão de Hot Dog", "Salsicha", "Maionese da Casa", "Katchup", "Batata Palha", "Milho"],
-        imagem: "imagens/lanches/aguetoniskids2.png"
+        imagem: "imagens/lanches/aguetoniskids2.png",
+        adicionais: [
+    {
+      nome: 'Catupiry',
+      preco: 6.00,
     },
+    {
+      nome: 'Ovo',
+      preco: 2.00,
+    },
+    {
+      nome: 'Mussarela',
+      preco: 4.00,
+    },
+    {
+      nome: 'Bacon',
+      preco: 5.00,
+    },
+    {
+      nome: 'Cheddar',
+      preco: 5.00,
+    },
+    {
+      nome: 'Hambúrguer 150g',
+      preco: 8.00,
+    },
+    {
+      nome: 'Alho Frito',
+      preco: 2.50,
+    }
+      
+        ]
+    },
+
+
     "produto-aguetonis-xegg": {
         tipo: "lanche",
         nome: "X-EGG",
@@ -77,8 +306,41 @@ let catalogoDeProdutos = {
         preco: 19.00,
         descricao: "X-EGG: clássico de respeito, com ovo no ponto!",
         ingredientes: ["Pão de Hambúrguer", "Hambúrguer Caseiro 90g", "Mussarela", "Presunto", "Ovo", "Alface", "Maionese", "Tomate"],
-        imagem: "imagens/lanches/x-eggAlternativo2.png"
+        imagem: "imagens/lanches/x-eggAlternativo2.png",
+        adicionais: [
+    {
+      nome: 'Catupiry',
+      preco: 6.00,
     },
+    {
+      nome: 'Ovo',
+      preco: 2.00,
+    },
+    {
+      nome: 'Mussarela',
+      preco: 4.00,
+    },
+    {
+      nome: 'Bacon',
+      preco: 5.00,
+    },
+    {
+      nome: 'Cheddar',
+      preco: 5.00,
+    },
+    {
+      nome: 'Hambúrguer 150g',
+      preco: 8.00,
+    },
+    {
+      nome: 'Alho Frito',
+      preco: 2.50,
+    }
+      
+        ]
+    },
+
+
     "produto-aguetonis-xtudo": {
         tipo: "lanche",
         nome: "X-TUDO",
@@ -86,8 +348,41 @@ let catalogoDeProdutos = {
         preco: 22.00,
         descricao: "X-TUDO: quando a fome pede tudo de uma vez!",
         ingredientes: ["Pão de Hambúrguer", "Hambúrguer Caseiro 90g", "Salsicha", "Mussarela", "Presunto", "Milho", "Batata Palha", "Ovo", "Alface", "Tomate"],
-        imagem: "imagens/lanches/xtudoAlternativo.png"
+        imagem: "imagens/lanches/xtudoAlternativo.png",
+        adicionais: [
+    {
+      nome: 'Catupiry',
+      preco: 6.00,
     },
+    {
+      nome: 'Ovo',
+      preco: 2.00,
+    },
+    {
+      nome: 'Mussarela',
+      preco: 4.00,
+    },
+    {
+      nome: 'Bacon',
+      preco: 5.00,
+    },
+    {
+      nome: 'Cheddar',
+      preco: 5.00,
+    },
+    {
+      nome: 'Hambúrguer 150g',
+      preco: 8.00,
+    },
+    {
+      nome: 'Alho Frito',
+      preco: 2.50,
+    }
+      
+        ]
+    },
+
+
     "produto-aguetonis-xsalada": {
         tipo: "lanche",
         nome: "X-SALADA",
@@ -95,8 +390,41 @@ let catalogoDeProdutos = {
         preco: 22.00,
         descricao: "X-SALADA: leve, fresco e saboroso.",
         ingredientes: ["Pão de hambúrguer", "Hambúrguer caseiro 90g", "Mussarela", "Presunto", "Milho", "Alface", "Tomate", "Maionese"],
-        imagem: "imagens/lanches/X-salada2.png"
+        imagem: "imagens/lanches/X-salada2.png",
+        adicionais: [
+    {
+      nome: 'Catupiry',
+      preco: 6.00,
     },
+    {
+      nome: 'Ovo',
+      preco: 2.00,
+    },
+    {
+      nome: 'Mussarela',
+      preco: 4.00,
+    },
+    {
+      nome: 'Bacon',
+      preco: 5.00,
+    },
+    {
+      nome: 'Cheddar',
+      preco: 5.00,
+    },
+    {
+      nome: 'Hambúrguer 150g',
+      preco: 8.00,
+    },
+    {
+      nome: 'Alho Frito',
+      preco: 2.50,
+    }
+      
+        ]
+    },
+
+
     "produto-aguetonis-xbacon": {
         tipo: "lanche",
         nome: "X-BACON",
@@ -104,8 +432,41 @@ let catalogoDeProdutos = {
         preco: 20.00,
         descricao: "X-BACON: o clássico que nunca falha.",
         ingredientes: ["Pão de Hambúrguer", "Hambúrguer Caseiro 90g", "Mussarela", "Presunto", "Bacon", "Alface", "Maionese"],
-        imagem: "imagens/lanches/xbaconatualizado.png"
+        imagem: "imagens/lanches/xbaconatualizado.png",
+        adicionais: [
+    {
+      nome: 'Catupiry',
+      preco: 6.00,
     },
+    {
+      nome: 'Ovo',
+      preco: 2.00,
+    },
+    {
+      nome: 'Mussarela',
+      preco: 4.00,
+    },
+    {
+      nome: 'Bacon',
+      preco: 5.00,
+    },
+    {
+      nome: 'Cheddar',
+      preco: 5.00,
+    },
+    {
+      nome: 'Hambúrguer 150g',
+      preco: 8.00,
+    },
+    {
+      nome: 'Alho Frito',
+      preco: 2.50,
+    }
+      
+        ]
+    },
+
+
     "produto-porcao-batatafrita": {
         tipo: "porcao",
         nome: "Batata Frita 800g",
@@ -113,7 +474,38 @@ let catalogoDeProdutos = {
         preco: 36.00,
         descricao: "X-Coração naquele padrão",
         ingredientes: ["800g de pura perdição: batata crocante", "Catupiry cremoso", "Bacon crocante", "Mussarela derretida"],
-        imagem: "imagens/lanches/porcoesmelhoradas.png"
+        imagem: "imagens/lanches/porcoesmelhoradas.png",
+        adicionais: [
+    {
+      nome: 'Catupiry',
+      preco: 6.00,
+    },
+    {
+      nome: 'Ovo',
+      preco: 2.00,
+    },
+    {
+      nome: 'Mussarela',
+      preco: 4.00,
+    },
+    {
+      nome: 'Bacon',
+      preco: 5.00,
+    },
+    {
+      nome: 'Cheddar',
+      preco: 5.00,
+    },
+    {
+      nome: 'Hambúrguer 150g',
+      preco: 8.00,
+    },
+    {
+      nome: 'Alho Frito',
+      preco: 2.50,
+    }
+      
+        ]
     },
 
 
@@ -134,16 +526,17 @@ let catalogoDeProdutos = {
         precoRiscado: 16.00,
         preco: 14.00 ,
         descricao: "Refrigerante Coca-Cola de 2L",
-        imagem: "imagens/bebidas/cocacola350ml.png"
+        imagem: "imagens/bebidas/cocacola2lTransparent.png"
     },
+
 
         "produto-poty2L": {
         tipo: "bebida",
-        nome: "Coca-Cola em lata" ,
+        nome: "Poty 2L" ,
         precoRiscado: 12.00,
         preco: 10.00 ,
         descricao: "Refrigerante Poty 2L",
-        imagem: "imagens/bebidas/cocacola350ml.png"
+        imagem: "imagens/bebidas/potys2L.png"
     },
 
 }
@@ -166,352 +559,663 @@ const precosEntrega = {
 
 
 
- // Configurando botão do carrinnho para o contador do carrinho e para pegar os objetos
-let btnCarrinhoContador = document.querySelectorAll('.AdicionarCarrinho')
-let contadorCarrinho = document.querySelector('.contcarrinho')
-let valorCarrinho = 0
-let itensCarrinho = [];
-let sugestaoBebidas = document.querySelector('#sugestaoBebidas')
+function atualizarContadorCarrinho() {
+    let contador = document.querySelector(".contcarrinho");
 
+    if (!contador) return; // se não existir no HTML, não dá erro
 
-// FUNÇÃO CONTADOR DO CARRINHO
-// Para cada botão de adicionar ao carrinho, adicione um 'click listener'
-btnCarrinhoContador.forEach(function(botaoCarrinho) {
-    botaoCarrinho.addEventListener('click', function() {
-        // Incrementa o valor do contador do carrinho (este pode continuar)
-      
-        let msgAdicionado = document.createElement('span')
-        msgAdicionado.textContent = `Adicionado com sucesso!`
-        msgAdicionado.classList.add('msgAdicionado')
-      
-      // Anexa a mensagem ao botão, não ao body.
-      botaoCarrinho.appendChild(msgAdicionado)
-      
-      // Torna a mensagem visível
-      msgAdicionado.style.opacity = '1';
+    // Soma todas as quantidades
+    let total = itensCarrinho.reduce((soma, item) => soma + item.quantidade, 0);
 
+    contador.textContent = total;
+}
 
-        // Usa o setTimeout para esconder a mensagem depois de 1.5 segundos
-        setTimeout(function() {
-            msgAdicionado.style.opacity = '0';
-        }, 1500);
-
-    
-    
-        // Pega o ID único do produto a partir do atributo 'data-produto-id' do botão clicado
-        let seletorDoCarrinho = botaoCarrinho.dataset.produtoId;
-    
-        // Usa o ID para encontrar e obter o objeto completo do produto no 'catalogoDeProdutos'
-        let produtoSelecionado = catalogoDeProdutos[seletorDoCarrinho];
-
-        // *** A PARTIR DAQUI É O NOVO CÓDIGO QUE SUBSTITUI O SEU `itensCarrinho.push(...)` ***
-        // 1. Procurar se o item já existe no carrinho
-        let itemExistente = itensCarrinho.find(function(item) {
-            return item.produtoId === seletorDoCarrinho;
-});
-
-        if (itemExistente) {
-            // 2. Se o item já existe, incrementa a quantidade dele
-            itemExistente.quantidade++;
-        } else {
-            // 3. Se o item NÃO existe, adiciona ele ao carrinho com quantidade 1
-            itensCarrinho.push({
-                produtoId: seletorDoCarrinho, // Adicione o ID para fácil referência
-                produto: produtoSelecionado,
-                quantidade: 1
-            });
-        }
-
-
-
-
-        // *** FIM DO NOVO CÓDIGO ***
-        // Chama a Função atualizar o carrinho este pode continuar
-        atualizarCarrinho();
-        
-        // --- NOVA LÓGICA A SER ADICIONADA ---
-        // 1. Encontra o modal de detalhes do produto pai do botão clicado
-        let modalDeProdutoAtivo = botaoCarrinho.closest('.modal');
-
-        // 2. Verifica se encontrou e esconde o modal
-        if (modalDeProdutoAtivo) {
-            modalDeProdutoAtivo.style.display = 'none';
-        }
-
-        // 3. Restaura a rolagem do body
-        document.body.style.overflow = 'auto';
-        // --- FIM DA NOVA LÓGICA ---
-        console.log(itensCarrinho); // Verifique o novo formato do carrinho
-    });
-});
-
-    // FUNÇÃO ADICIONAR BEBIDAS NO MODAL DE SUGESTÃO
-
-    let adicionarBebida = document.querySelectorAll('.adicionar-bebida')
-    adicionarBebida.forEach(function(botaoBebida) {
-      botaoBebida.addEventListener('click', function() {
-        seletorBebida = botaoBebida.dataset.produtoId
-        bebidaCompleta = catalogoDeProdutos[seletorBebida]
-
-        let bebidaExistente = itensCarrinho.find(function(bebida) {
-            return bebida.produtoId === seletorBebida
-        })
-
-        if (bebidaExistente) {
-          bebidaExistente.quantidade = bebidaExistente.quantidade + 1
-        } else {
-          itensCarrinho.push ({
-            produtoId: seletorBebida,
-            produto: bebidaCompleta,
-            quantidade: 1
-          });
-        }
-
-        atualizarCarrinho()
-
-      })
-    })
 
 
 // ==========================================================================================
+// SELETORES GLOBAIS
 let abrirCarrinho = document.querySelector('#botaoCarrinho')
 let modalCarrinho = document.querySelector('#ModalCarrinho')
 let fecharCarrinho = document.querySelector('.close-button-carrinho')
 let mensagemCarrinhoVazioDiv = document.querySelector('#mensagem-carrinho-vazio');
+let itensCarrinho = [];
 
-let scrollPosition = 0
-    // FUNÇÃO FECHAR CARRINHO
+let scrollPosition = 0;
 
-        fecharCarrinho.addEventListener('click', function() {
-        modalCarrinho.style.display = 'none';
+// ==========================================================================================
+// FUNÇÃO DE COMPARAÇÃO DE OBJETOS PARA ADICIONAIS E BEBIDAS
+// Esta função verifica se dois objetos são idênticos em chaves e valores.
+function saoObjetosIguais(obj1, obj2) {
+    const keys1 = Object.keys(obj1).sort();
+    const keys2 = Object.keys(obj2).sort();
 
-        document.body.style.overflow = 'auto'
-        document.body.style.position = '';
-        document.body.style.top = '';
-        document.body.style.width = '';
-        window.scrollTo(0, scrollPosition);
+    if (keys1.length !== keys2.length) {
+        return false;
+    }
+
+    for (let i = 0; i < keys1.length; i++) {
+        const key = keys1[i];
+        if (obj1[key] !== obj2[key]) {
+            return false;
+        }
+    }
+    return true;
+}
+// ==========================================================================================
+// FUNÇÃO ADICIONAR ITEM AO CARRINHO PRINCIPAL
+function adicionarAoCarrinho(produto, quantidade, adicionais, bebidas) {
+    // Procura por um item existente no carrinho com as mesmas características
+    let itemExistente = itensCarrinho.find(item =>
+    item.produto.nome === produto.nome &&
+    saoObjetosIguais(item.adicionais, adicionaisSelecionados) &&
+    saoObjetosIguais(item.bebidas, bebidasSelecionadas)
+);
+
+
+    if (itemExistente) {
+        // Se o item já existe, apenas aumenta a quantidade
+        itemExistente.quantidade += parseInt(quantidade);
+    } else {
+        // Se não, adiciona um novo item ao carrinho
+        itensCarrinho.push({
+            produto: produto,
+            quantidade: parseInt(quantidade),
+            adicionais: { ...adicionais }, 
+            bebidas: { ...bebidas }  
+        });
+    }
+
+    // A cada adição, o carrinho é atualizado para refletir as mudanças
+    atualizarCarrinho();
+    atualizarContadorCarrinho();
+  
+}
+
+
+// ... O restante do código vem aqui, logo abaixo.
+        fecharCarrinho.addEventListener('click', function() {
+        modalCarrinho.style.display = 'none';
+
+        document.body.style.overflow = 'auto'
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.width = '';
+        window.scrollTo(0, scrollPosition);
+        });
+
+        // FUNÇÃO ABRIR CARRINHO
+abrirCarrinho.addEventListener('click', function(event) {
+    event.preventDefault();
+
+    // Remove a verificação de carrinho vazio e o 'if/else' completo
+    scrollPosition = window.scrollY;
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollPosition}px`;
+    document.body.style.width = '100%';
+    document.body.style.overflow = 'hidden';
+
+    // Garante que o modal de dados e o de pedido estejam escondidos
+    // Isso evita o problema de um modal estar aberto em cima do outro
+    if (exibirModalDados) exibirModalDados.style.display = 'none';
+    if (exibirModalPedido) exibirModalPedido.style.display = 'none';
+    
+    // Agora, sempre abre o modal do carrinho
+    modalCarrinho.style.display = 'block';
+
+    // A função `atualizarCarrinho` já trata se o carrinho está vazio ou não
+    atualizarCarrinho();
+});
+
+// ==========================================================================================
+
+/* MODAL PRÉ-CARRINHO */
+
+// ABRIR MODAL AO CLICAR NO CARD
+const CardProdutos = document.querySelectorAll('.card-pai')
+const ModalPreCarrinho = document.getElementById('ModalPreCarrinho')
+const conteudoModal = document.querySelector('.ContModalPreCarrinho')
+
+CardProdutos.forEach(cardAtual => {
+    cardAtual.addEventListener('click', () => {
+        conteudoModal.textContent = '';
+        
+        // AGORA AS VARIÁVEIS SÃO LOCAIS E SÃO REINICIADAS A CADA CLIQUE
+        const adicionaisSelecionados = {};
+        const bebidasSelecionadas = {};
+
+        let divbotaoFecharPre = document.createElement('div')
+        divbotaoFecharPre.classList.add('divbotaoFecharPre')
+        conteudoModal.appendChild(divbotaoFecharPre)
+
+
+        let botaoFecharPre = document.createElement('button');
+        botaoFecharPre.innerHTML = '&times;';
+        botaoFecharPre.classList.add('botaoFecharPre');
+        divbotaoFecharPre.appendChild(botaoFecharPre);
+
+        // EVENTO DE FECHAR BOTÃO
+        botaoFecharPre.addEventListener('click', () => {
+            ModalPreCarrinho.style.display = 'none';
+        });
+
+        const seletorPreCarrinho = cardAtual.dataset.produtoId;
+        const produtoSelecionado = catalogoDeProdutos[seletorPreCarrinho];
+
+        ModalPreCarrinho.style.display = 'block';
+
+
+
+        // ====================================================================
+        // Conteúdo Principal do Produto (Imagem, Nome, Descrição, Preços)
+        // ====================================================================
+        
+        // DIV PRINCIPAL DO CONTEÚDO (Imagem e texto do produto)
+
+        
+
+        let divPrincipalProdutoInfo = document.createElement('div'); // Renomeei para maior clareza
+        divPrincipalProdutoInfo.classList.add('divPrincipalProdutoInfo');
+        conteudoModal.appendChild(divPrincipalProdutoInfo);
+
+        // DIV para organizar as imagens
+        let divImagemPre = document.createElement('div');
+        divImagemPre.classList.add('divImagemPre');
+        divPrincipalProdutoInfo.appendChild(divImagemPre);
+        
+        let imagemPre = document.createElement('img');
+        imagemPre.src = `${produtoSelecionado.imagem}`;
+        imagemPre.classList.add('imagemPre');
+        divImagemPre.appendChild(imagemPre);
+
+        // DIV para organizar conteúdo, nome, preco, descrição
+        let divConteudoPre = document.createElement('div');
+        divConteudoPre.classList.add('divConteudoPre');
+        divPrincipalProdutoInfo.appendChild(divConteudoPre);
+
+        let h3ProdutoPre = document.createElement('h3');
+        h3ProdutoPre.textContent = `${produtoSelecionado.nome}`;
+        h3ProdutoPre.classList.add('h3ProdutoPre');
+        divConteudoPre.appendChild(h3ProdutoPre);
+
+        let descricaoPre = document.createElement('p');
+        descricaoPre.textContent = `${produtoSelecionado.descricao}`;
+        descricaoPre.classList.add('descricaoPre');
+        divConteudoPre.appendChild(descricaoPre);
+
+        let divPrecos = document.createElement('div');
+        divPrecos.classList.add('divPrecos');
+        divConteudoPre.appendChild(divPrecos);
+
+        let precoRiscadoPre = document.createElement('span');
+        precoRiscadoPre.classList.add('PrecoRiscadoPre');
+        precoRiscadoPre.textContent = `R$ ${produtoSelecionado.precoRiscado.toFixed(2).replace('.', ',')}`;
+        divPrecos.appendChild(precoRiscadoPre);
+
+        let precoPre = document.createElement('span');
+        precoPre.classList.add('precoPre');
+        precoPre.textContent = `R$ ${produtoSelecionado.preco.toFixed(2).replace('.', ',')}`;
+        divPrecos.appendChild(precoPre);
+
+        // DIV PARA SUGESTÃO DE BEBIDAS
+        let divSugestaoBebidas = document.createElement('div');
+        divSugestaoBebidas.classList.add('divSugestaoBebidas');
+        conteudoModal.appendChild(divSugestaoBebidas);
+
+        let h4SugestaoBebidas = document.createElement('h4');
+        h4SugestaoBebidas.classList.add('h4SugestaoBebidas');
+        h4SugestaoBebidas.textContent = `O que você vai beber hoje ?`;
+        divSugestaoBebidas.appendChild(h4SugestaoBebidas);
+
+        for (const produtoId in catalogoDeProdutos) {
+            const produtoAtual = catalogoDeProdutos[produtoId];
+            
+            if (produtoAtual.tipo === 'bebida') {
+                let divItemBebida = document.createElement('div');
+                divItemBebida.classList.add('divItemBebida');
+                divSugestaoBebidas.appendChild(divItemBebida);
+
+                let divImagemBebida = document.createElement('div');
+                divImagemBebida.classList.add('divImagemBebida');
+                divItemBebida.appendChild(divImagemBebida);
+
+                let imgBebida = document.createElement('img');
+                imgBebida.src = `${produtoAtual.imagem}`;
+                imgBebida.classList.add('imgBebida')
+                divImagemBebida.appendChild(imgBebida);
+
+                let divInfoBebida = document.createElement('div');
+                divInfoBebida.classList.add('divInfoBebida');
+                divItemBebida.appendChild(divInfoBebida);
+
+                let h4Bebida = document.createElement('h4');
+                h4Bebida.classList.add('h4Bebida');
+                h4Bebida.textContent = `${produtoAtual.nome}`;
+                divInfoBebida.appendChild(h4Bebida);
+                
+                let divPrecosBebida = document.createElement('div');
+                divPrecosBebida.classList.add('divPrecosBebida');
+                divInfoBebida.appendChild(divPrecosBebida);
+
+                if (produtoAtual.precoRiscado) {
+                    let precoRiscadoBebida = document.createElement('span');
+                    precoRiscadoBebida.classList.add('precoRiscadoBebida');
+                    precoRiscadoBebida.textContent = `R$ ${produtoAtual.precoRiscado.toFixed(2).replace('.', ',')}`;
+                    divPrecosBebida.appendChild(precoRiscadoBebida);
+                }
+
+                let precoBebida = document.createElement('span');
+                precoBebida.classList.add('precoBebida');
+                precoBebida.textContent = `+ R$ ${produtoAtual.preco.toFixed(2).replace('.', ',')}`;
+                divPrecosBebida.appendChild(precoBebida);
+
+                let divBotoesBebidas = document.createElement('div');
+                divBotoesBebidas.classList.add('divBotoesBebidas');
+                divItemBebida.appendChild(divBotoesBebidas);
+
+                let diminuirBebidas = document.createElement('button');
+                diminuirBebidas.classList.add('diminuirBebidas');
+                diminuirBebidas.textContent = `-`;
+                divBotoesBebidas.appendChild(diminuirBebidas);
+
+                let inputBebidas = document.createElement('input');
+                inputBebidas.classList.add('inputBebidas');
+                inputBebidas.value = 0;
+                divBotoesBebidas.appendChild(inputBebidas);
+                
+                let aumentarBebidas = document.createElement('button');
+                aumentarBebidas.classList.add('aumentarBebidas');
+                aumentarBebidas.textContent = `+`;
+                divBotoesBebidas.appendChild(aumentarBebidas);
+
+                // LÓGICA DE OCULTAR E EXIBIR + EVENTOS DAS BEBIDAS
+                inputBebidas.style.display = 'none';
+                diminuirBebidas.style.display = 'none';
+
+                aumentarBebidas.addEventListener('click', () => {
+                    inputBebidas.style.display = 'block';
+                    diminuirBebidas.style.display = 'block';
+                    inputBebidas.value = parseInt(inputBebidas.value) + 1;
+                    bebidasSelecionadas[produtoId] = parseInt(inputBebidas.value);
+                    atualizarPreCarrinho(inputQuantidadePre, produtoSelecionado, precoPre, precoRiscadoPre, adicionaisSelecionados, bebidasSelecionadas);
+                    atualizarContadorCarrinho()
+                });
+
+                diminuirBebidas.addEventListener('click', () => {
+                    if (parseInt(inputBebidas.value) > 0) {
+                        inputBebidas.value = parseInt(inputBebidas.value) - 1;
+                    }
+                    bebidasSelecionadas[produtoId] = parseInt(inputBebidas.value);
+                    atualizarPreCarrinho(inputQuantidadePre, produtoSelecionado, precoPre, precoRiscadoPre, adicionaisSelecionados, bebidasSelecionadas);
+                    atualizarContadorCarrinho()
+                    if (parseInt(inputBebidas.value) === 0) {
+                        inputBebidas.style.display = 'none';
+                        diminuirBebidas.style.display = 'none';
+                    }
+                });
+            }
+        }
+
+        // LÓGICA PARA OS ADICIONAIS, DOM, OBJECT, EVENTOS...
+        let divAdicional = document.createElement('div');
+        conteudoModal.appendChild(divAdicional);
+        divAdicional.classList.add('divAdicional');
+
+        let h4Adicional = document.createElement('h4');
+        h4Adicional.classList.add('h4Adicional');
+        h4Adicional.textContent = `Deseja um adicional ?`;
+        divAdicional.appendChild(h4Adicional);
+
+        let txtAdicional = document.createElement('p');
+        txtAdicional.classList.add('txtAdicional');
+        txtAdicional.textContent = `Escolha até 8 opções`;
+        divAdicional.appendChild(txtAdicional);
+
+        produtoSelecionado.adicionais.forEach(adicionalAtual => {
+            let divItemAdicional = document.createElement('div');
+            divItemAdicional.classList.add('divItemAdicional');
+            divAdicional.appendChild(divItemAdicional);
+            
+            let divNomePrecoAdicional = document.createElement('div');
+            divNomePrecoAdicional.classList.add('divNomePrecoAdiconal');
+            divItemAdicional.appendChild(divNomePrecoAdicional);
+
+            let nomeAdicional = document.createElement('p');
+            nomeAdicional.classList.add('nomeAdicional');
+            nomeAdicional.textContent = `${adicionalAtual.nome}`;
+            divNomePrecoAdicional.appendChild(nomeAdicional);
+            
+            let precoAdicional = document.createElement('span');
+            precoAdicional.classList.add('precoAdicional');
+            precoAdicional.textContent = `R$ ${adicionalAtual.preco.toFixed(2).replace('.', ',')}`;
+            divNomePrecoAdicional.appendChild(precoAdicional);
+
+            let divBotoesAdicionais = document.createElement('div');
+            divBotoesAdicionais.classList.add('divBotoesAdicionais');
+            divItemAdicional.appendChild(divBotoesAdicionais);
+            
+            // CRIANDO OS ELEMENTOS PRIMEIRO
+            let diminuirAdicionais = document.createElement('button');
+            diminuirAdicionais.classList.add('diminuirAdicionais');
+            diminuirAdicionais.textContent = `-`;
+            
+            let inputQuantidadeAdicionais = document.createElement('input'); 
+            inputQuantidadeAdicionais.classList.add('inputQuantidadeAdicionais');
+            inputQuantidadeAdicionais.value = 0;
+            
+            let aumentarQuantidadeAdicionais = document.createElement('button');
+            aumentarQuantidadeAdicionais.classList.add('aumentarQuantidadeAdicionais');
+            aumentarQuantidadeAdicionais.textContent = `+`;
+
+            // AGORA ANEXANDO AO HTML
+            divBotoesAdicionais.appendChild(diminuirAdicionais);
+            divBotoesAdicionais.appendChild(inputQuantidadeAdicionais);
+            divBotoesAdicionais.appendChild(aumentarQuantidadeAdicionais);
+            
+            // Lógica de exibir/esconder
+            if (!adicionaisSelecionados[adicionalAtual.nome] || adicionaisSelecionados[adicionalAtual.nome] === 0) {
+                diminuirAdicionais.style.display = 'none';
+                inputQuantidadeAdicionais.style.display = 'none';
+            }
+
+            // ADICIONANDO OS EVENTOS AGORA
+            diminuirAdicionais.addEventListener('click', () => {
+                let valorAtual = parseInt(inputQuantidadeAdicionais.value);
+                if (valorAtual > 0) {
+                    inputQuantidadeAdicionais.value = valorAtual - 1;
+                }
+                if (parseInt(inputQuantidadeAdicionais.value) === 0) {
+                    diminuirAdicionais.style.display = 'none';
+                    inputQuantidadeAdicionais.style.display = 'none';
+                }
+                adicionaisSelecionados[adicionalAtual.nome] = parseInt(inputQuantidadeAdicionais.value);
+                atualizarPreCarrinho(inputQuantidadePre, produtoSelecionado, precoPre, precoRiscadoPre, adicionaisSelecionados, bebidasSelecionadas);
+                atualizarContadorCarrinho()
+
+            });
+            
+            aumentarQuantidadeAdicionais.addEventListener('click', () => {
+                diminuirAdicionais.style.display = 'block';
+                inputQuantidadeAdicionais.style.display = 'block';
+                inputQuantidadeAdicionais.value = parseInt(inputQuantidadeAdicionais.value) + 1;
+                adicionaisSelecionados[adicionalAtual.nome] = parseInt(inputQuantidadeAdicionais.value);
+                atualizarPreCarrinho(inputQuantidadePre, produtoSelecionado, precoPre, precoRiscadoPre, adicionaisSelecionados, bebidasSelecionadas);
+                atualizarContadorCarrinho()
+            });
+        });
+
+// ====================================================================
+        // NOVA DIV PARA OS BOTÕES FINAIS (QUANTIDADE DO PRINCIPAL E ADICIONAR)
+        // ====================================================================
+        let divFinalAcoes = document.createElement('div');
+        divFinalAcoes.classList.add('divFinalAcoes'); // Adicione uma classe para estilizar com CSS
+        conteudoModal.appendChild(divFinalAcoes);
+
+        // DIV para organizar os botões de quantidade do produto principal
+        let divBotoesAcoes = document.createElement('div'); // Esta já existia, mas vamos movê-la
+        divBotoesAcoes.classList.add('divBotoesAcoes');
+        divFinalAcoes.appendChild(divBotoesAcoes); // Anexado à nova divFinalAcoes
+
+        // Botão Diminuir
+        let botaoDiminuirPre = document.createElement('button');
+        botaoDiminuirPre.textContent = `-`;
+        botaoDiminuirPre.classList.add('botaoDiminuirPre');
+        divBotoesAcoes.appendChild(botaoDiminuirPre);
+
+        // INPUT DE QUANTIDADE
+        let inputQuantidadePre = document.createElement('input');
+        inputQuantidadePre.classList.add('inputQuantidadePre');
+        divBotoesAcoes.appendChild(inputQuantidadePre);
+        inputQuantidadePre.value = 1;
+        
+        // Botão Aumentar Quantidade
+        let botaoAumentarPre = document.createElement('button');
+        botaoAumentarPre.textContent = `+`;
+        botaoAumentarPre.classList.add('botaoAumentarPre');
+        divBotoesAcoes.appendChild(botaoAumentarPre);
+
+        // EVENTOS para botões do produto principal (mantidos aqui)
+        botaoDiminuirPre.addEventListener('click', () => {
+            if (inputQuantidadePre.value > 1) {
+                inputQuantidadePre.value = parseInt(inputQuantidadePre.value) - 1;
+                atualizarPreCarrinho(inputQuantidadePre, produtoSelecionado, precoPre, precoRiscadoPre, adicionaisSelecionados, bebidasSelecionadas);
+                atualizarContadorCarrinho()
+            }
+        });
+        
+        botaoAumentarPre.addEventListener('click', () => {
+            inputQuantidadePre.value = parseInt(inputQuantidadePre.value) + 1;
+            atualizarPreCarrinho(inputQuantidadePre, produtoSelecionado, precoPre, precoRiscadoPre, adicionaisSelecionados, bebidasSelecionadas);
+            atualizarContadorCarrinho()
+        });
+
+        // Botão Adicionar ao Carrinho
+        let botaoAdicionar = document.createElement('button');
+        botaoAdicionar.classList.add('AdicionarCarrinho');
+        botaoAdicionar.innerHTML = `<i class="fa-solid fa-cart-plus"></i> Adicionar R$ ${produtoSelecionado.preco.toFixed(2).replace('.', ',')}`;
+        divFinalAcoes.appendChild(botaoAdicionar); // Anexado à nova divFinalAcoes
+
+        // EVENTO DE ADICIONAR AO CARRINHO E FECHAR MODAL
+        botaoAdicionar.addEventListener('click', () => {
+            adicionarAoCarrinho(produtoSelecionado, inputQuantidadePre.value, adicionaisSelecionados, bebidasSelecionadas);
+            ModalPreCarrinho.style.display = 'none';
+            atualizarCarrinho();
+            atualizarContadorCarrinho()
+        });
+
+        // Chamar atualizarPreCarrinho para garantir que os preços iniciais estejam corretos
+        atualizarPreCarrinho(inputQuantidadePre, produtoSelecionado, precoPre, precoRiscadoPre, adicionaisSelecionados, bebidasSelecionadas);
+        atualizarContadorCarrinho()
+    });
+});
+
+
+
+
+
+// FUNÇÃO ATUALIZAR PRÉ CARRINHO
+function atualizarPreCarrinho(inputQuantidadePre, produtoSelecionado, precoPre, precoRiscadoPre, adicionaisSelecionados, bebidasSelecionadas) {
+    let precoPreCarrinho = produtoSelecionado.preco * parseInt(inputQuantidadePre.value);
+    
+    let precoRiscadoPreCarrinho = produtoSelecionado.precoRiscado * parseInt(inputQuantidadePre.value);
+
+    let precoTotalAdicionais = 0; // <-- Recebe o valor dos itens adicionais
+
+    // Percorrendo os adicionais selecionados com Object.keys()
+    Object.keys(adicionaisSelecionados).forEach(nomeDoAdicional => {
+        // Procurando o objeto completo do adicional
+        let objetoAdicional = produtoSelecionado.adicionais.find(function(adicional) {
+            return adicional.nome === nomeDoAdicional;
         });
 
-        // FUNÇÃO ABRIR CARRINHO
-    
-        abrirCarrinho.addEventListener('click', function(event) {
-        event.preventDefault();
+        if (objetoAdicional) {
+            // Pega a quantidade do adicional que o usuário escolheu
+            let quantidadeAdicional = adicionaisSelecionados[nomeDoAdicional];
+            // Pega o preço unitário do adicional
+            let precoUnitario = objetoAdicional.preco;
+            precoTotalAdicionais += quantidadeAdicional * precoUnitario;
+        }
+    });
 
-        if (itensCarrinho.length === 0) {
-        // Exibe a mensagem de carrinho vazio
-        mensagemCarrinhoVazioDiv.textContent = "Seu carrinho está vazio!";
-        mensagemCarrinhoVazioDiv.style.display = 'block';
+    // NOVO: Adiciona o cálculo para as bebidas selecionadas
+    let precoTotalBebidas = 0;
+    Object.keys(bebidasSelecionadas).forEach(idBebida => {
+        const quantidadeBebida = bebidasSelecionadas[idBebida];
+        const bebida = catalogoDeProdutos[idBebida];
+        if (bebida) {
+            precoTotalBebidas += quantidadeBebida * bebida.preco;
+        }
+    });
 
-        // Opcional: Adicionar um temporizador para a mensagem desaparecer
-        setTimeout(function() {
-            mensagemCarrinhoVazioDiv.style.display = 'none';
-            mensagemCarrinhoVazioDiv.textContent = ""; // Limpa o texto
-        }, 1500); // A mensagem desaparece após 1.5 segundos (3000 milissegundos)
+    let precoTotalFinal = precoPreCarrinho + precoTotalAdicionais + precoTotalBebidas;
+    let precoRiscadoTotalFinal = precoRiscadoPreCarrinho + precoTotalAdicionais + precoTotalBebidas;
 
-        // Garante que o modal do carrinho NÃO abra se estiver vazio
-        modalCarrinho.style.display = 'none'; 
-        document.body.style.overflow = 'auto'; // Garante que a rolagem esteja liberada
+    // Atualiza os preços na tela
+    precoRiscadoPre.textContent = `R$ ${precoRiscadoTotalFinal.toFixed(2).replace('.', ',')}`;
+    precoPre.textContent = `R$ ${precoTotalFinal.toFixed(2).replace('.', ',')}`;
+
+    // Atualiza o preço no botão "Adicionar"
+    const botaoAdicionar = document.querySelector('.AdicionarCarrinho');
+    if (botaoAdicionar) {
+        botaoAdicionar.innerHTML = `<i class="fa-solid fa-cart-plus"></i> Adicionar R$ ${precoTotalFinal.toFixed(2).replace('.', ',')}`;
+    }
+}
+
+
+
+
+    // FUNÇÃO EXIBIR ITENS DO CARRINHO
+let itensDoCarrinhoDiv = document.querySelector('#itens-do-carrinho');
+
+function mostrarItensDoCarrinho() {
+    itensDoCarrinhoDiv.textContent = "" // Limpa o conteúdo atual
+
+    if (itensCarrinho.length === 0) {
+        itensDoCarrinhoDiv.innerHTML = "<p>Seu carrinho está vazio</p>";
     } else {
-        
-        scrollPosition = window.scrollY;
-        document.body.style.position = 'fixed'
-        document.body.style.top = `-${scrollPosition}px`
-        document.body.style.width = '100%'
-        document.body.style.overflow = 'hidden'
+        itensCarrinho.forEach(function(item) {
+            let divItemCarrinho = document.createElement('div');
+            divItemCarrinho.classList.add('item-do-carrinho');
 
-        modalCarrinho.style.display = 'block';
-        
+            let h3NomeProduto = document.createElement('h3');
+            h3NomeProduto.textContent = item.produto.nome;
+            h3NomeProduto.classList.add('nomeProduto');
 
-        // Se houver itens, esconde a mensagem e abre o modal
-        mensagemCarrinhoVazioDiv.style.display = 'none'; // Esconde a mensagem caso estivesse visível
-        atualizarCarrinho();
-        
+            let descricaoProduto = document.createElement('p');
+            descricaoProduto.textContent = `${item.produto.descricao}`;
+            descricaoProduto.classList.add('descricaoProduto');
 
-        
-    }
-});
+            let spanPrecoProduto = document.createElement('span');
+            spanPrecoProduto.textContent = `R$ ${item.produto.preco.toFixed(2).replace('.',',')}`;
+            spanPrecoProduto.classList.add('precoCarrinho');
 
+            let imagemProduto = document.createElement('img');
+            imagemProduto.src = `${item.produto.imagem}`;
+            imagemProduto.classList.add('imagemProduto');
 
+            let divImagem = document.createElement('div');
+            divImagem.classList.add('divImagem');
+            divImagem.appendChild(imagemProduto);
 
+            let divProdutoDescricao = document.createElement('div');
+            divProdutoDescricao.classList.add('divProdutoDescricao');
 
-
-     //FUNÇÃO EXIBIR ITENS DO CARRINHO
-    let itensDoCarrinhoDiv = document.querySelector('#itens-do-carrinho')
-
-    function mostrarItensDoCarrinho() {
-        itensDoCarrinhoDiv.textContent = "" // Limpa o conteúdo atual
-        // Próximo passo: verificar se o carrinho está vazio
-        if (itensCarrinho.length === 0) {
-            sugestaoBebidas.style.display = 'none';
+            divProdutoDescricao.appendChild(h3NomeProduto);
+            divProdutoDescricao.appendChild(descricaoProduto);
             
+            // NOVO: Adiciona adicionais e bebidas ao HTML
+            const adicionaisComprados = Object.keys(item.adicionais).filter(key => item.adicionais[key] > 0);
+            const bebidasCompradas = Object.keys(item.bebidas).filter(key => item.bebidas[key] > 0);
 
-        } else {
-
-            let temLancheNoCarrinho = itensCarrinho.some(item => item.produto.tipo === 'lanche');
-            let temBebidaNoCarrinho = itensCarrinho.some(item => item.produto.tipo === 'bebida');
-
-            if (temLancheNoCarrinho) {
-            sugestaoBebidas.style.display = 'flex'; // Ou 'flex'
-            // Você pode querer esconder as sugestões se elas já estiverem abertas
-            // para evitar que fiquem visíveis o tempo todo se o usuário abrir e fechar o carrinho
-            } else {
-              sugestaoBebidas.style.display = 'none'
+            if (adicionaisComprados.length > 0) {
+                let divAdicionaisItem = document.createElement('div');
+                divAdicionaisItem.classList.add('adicionais-item-carrinho');
+                let pAdicionais = document.createElement('p');
+                pAdicionais.textContent = 'Adicionais: ' + adicionaisComprados.map(nome => `${nome} (${item.adicionais[nome]})`).join(', ');
+                divAdicionaisItem.appendChild(pAdicionais);
+                divProdutoDescricao.appendChild(divAdicionaisItem);
             }
-            itensCarrinho.forEach(function(item) {
+            
+            if (bebidasCompradas.length > 0) {
+                let divBebidasItem = document.createElement('div');
+                divBebidasItem.classList.add('bebidas-item-carrinho');
+                let pBebidas = document.createElement('p');
+                pBebidas.textContent = 'Bebidas: ' + bebidasCompradas.map(id => {
+                    const bebida = catalogoDeProdutos[id];
+                    return `${bebida.nome} (${item.bebidas[id]})`;
+                }).join(', ');
+                divBebidasItem.appendChild(pBebidas);
+                divProdutoDescricao.appendChild(divBebidasItem);
+            }
 
-    // 1. Criar a DIV principal do item do carrinho
-    let divItemCarrinho = document.createElement('div');
-    divItemCarrinho.classList.add('item-do-carrinho');
+            if (item.produto.tipo === 'lanche') {
+                let ingredientesProdutos = document.createElement('p');
+                ingredientesProdutos.textContent = `Ingredientes: ${item.produto.ingredientes.join(', ')}`;
+                ingredientesProdutos.classList.add('ingredientesProdutos');
+                divProdutoDescricao.appendChild(ingredientesProdutos);
 
-    // 2. Criar os elementos que SEMPRE existem para qualquer produto (lanche ou bebida)
-    let h3NomeProduto = document.createElement('h3');
-    h3NomeProduto.textContent = item.produto.nome;
-    h3NomeProduto.classList.add('nomeProduto');
+                let divObs = document.createElement('div');
+                divObs.classList.add('divObs');
+                let labelObs = document.createElement('label');
+                labelObs.textContent = 'Observação: '
+                labelObs.classList.add('labelObs')
+                let inputObs = document.createElement('input');
+                inputObs.placeholder = 'Ex: sem maionese, sem tomate, etc';
+                inputObs.classList.add('inputObs');
+                inputObs.addEventListener('input', function() {
+                    item.observacao = inputObs.value;
+                });
+                if (item.observacao) {
+                    inputObs.value = item.observacao;
+                }
 
-    let descricaoProduto = document.createElement('p');
-    descricaoProduto.textContent = `${item.produto.descricao}`;
-    descricaoProduto.classList.add('descricaoProduto');
+                divObs.appendChild(labelObs);
+                divObs.appendChild(inputObs);
+                divProdutoDescricao.appendChild(divObs);
+            }
 
-    let spanPrecoProduto = document.createElement('span');
-    spanPrecoProduto.textContent = `R$ ${item.produto.preco.toFixed(2).replace('.',',')}`;
-    spanPrecoProduto.classList.add('precoCarrinho');
+            let divControleDeQuantidade = document.createElement('div');
+            divControleDeQuantidade.classList.add('controles-quantidade');
 
-    let imagemProduto = document.createElement('img');
-    imagemProduto.src = `${item.produto.imagem}`;
-    imagemProduto.classList.add('imagemProduto');
+            let divControleBotoes = document.createElement('div');
+            divControleBotoes.classList.add('divControleBotoes');
 
-    // Crie a div para a imagem (será filha de divItemCarrinho)
-    let divImagem = document.createElement('div');
-    divImagem.classList.add('divImagem');
-    divImagem.appendChild(imagemProduto); // Anexe a imagem à sua div
+            let botaoAumentar = document.createElement('button');
+            botaoAumentar.textContent = `+`;
+            botaoAumentar.classList.add('btnAumentar');
+            botaoAumentar.addEventListener('click', function() {
+                item.quantidade++;
+                atualizarCarrinho();
+                atualizarContadorCarrinho()
+            });
 
-    
+            let spanQuantidade = document.createElement('span');
+            spanQuantidade.textContent = item.quantidade;
+            spanQuantidade.classList.add('quantidade-item');
 
+            let botaoDiminuir = document.createElement('button');
+            botaoDiminuir.textContent = `-`;
+            botaoDiminuir.classList.add('btnDiminuir');
+            botaoDiminuir.addEventListener('click', function() {
+                if (item.quantidade === 1) {
+                    let encontrarItem = itensCarrinho.indexOf(item);
+                    itensCarrinho.splice(encontrarItem, 1);
+                } else {
+                    item.quantidade--;
+                }
+                atualizarCarrinho();
+            });
 
-    // 3. Criar a DIV pai 'divProdutoDescricao'
-    // Ela precisa ser criada AQUI porque vai receber o nome, descrição, e talvez ingredientes
-    let divProdutoDescricao = document.createElement('div');
-    divProdutoDescricao.classList.add('divProdutoDescricao');
+            let botaoRemover = document.createElement('button');
+            let iconeRemover = document.createElement('i');
+            iconeRemover.classList.add('fa-solid', 'fa-trash-can');
+            botaoRemover.classList.add('btnRemover');
+            botaoRemover.addEventListener('click', function() {
+                let encontrarItem = itensCarrinho.indexOf(item);
+                itensCarrinho.splice(encontrarItem, 1);
+                atualizarCarrinho();
+            });
 
-    // Adicione os elementos comuns (nome, descrição, observação) à divProdutoDescricao
-    divProdutoDescricao.appendChild(h3NomeProduto);
-    divProdutoDescricao.appendChild(descricaoProduto);
+            divControleBotoes.appendChild(botaoAumentar);
+            divControleBotoes.appendChild(spanQuantidade);
+            divControleBotoes.appendChild(botaoDiminuir);
+            botaoRemover.appendChild(iconeRemover);
+            divControleBotoes.appendChild(botaoRemover);
 
-    
+            divControleDeQuantidade.appendChild(spanPrecoProduto);
+            divControleDeQuantidade.appendChild(divControleBotoes);
 
-    // 4. Lógica CONDICIONAL para ingredientes (só para lanches)
-    if (item.produto.tipo === 'lanche') {
-        let ingredientesProdutos = document.createElement('p');
-        ingredientesProdutos.textContent = `Ingredientes: ${item.produto.ingredientes.join(', ')}`;
-        ingredientesProdutos.classList.add('ingredientesProdutos');
-        divProdutoDescricao.appendChild(ingredientesProdutos); // Anexe ingredientes se for lanche
+            let divInfoProdutos = document.createElement('div');
+            divInfoProdutos.classList.add('divInfoProdutos');
+            divInfoProdutos.appendChild(divProdutoDescricao);
+            divInfoProdutos.appendChild(divControleDeQuantidade);
 
-        // Crie a div para observações e seus elementos (será filha de divProdutoDescricao)
-        let divObs = document.createElement('div');
-        divObs.classList.add('divObs');
-        let labelObs = document.createElement('label');
-        labelObs.textContent = 'Observação: '
-        labelObs.classList.add('labelObs')
-        let inputObs = document.createElement('input');
-        inputObs.placeholder = 'Ex: sem maionese, sem tomate, etc';
-        inputObs.classList.add('inputObs');
-        inputObs.addEventListener('input', function() {
-        item.observacao = inputObs.value;
-      });
+            divItemCarrinho.appendChild(divImagem);
+            divItemCarrinho.appendChild(divInfoProdutos);
 
-      divObs.appendChild(labelObs);
-      divObs.appendChild(inputObs);
-      divProdutoDescricao.appendChild(divObs); // Adicione a div de observações APÓS os ingredientes, se houver
-
-      
-
-      
-
+            itensDoCarrinhoDiv.appendChild(divItemCarrinho);
+        });
     }
-
-    
-
-
-    // 5. Criar e preencher as divs de controle de quantidade e botões
-    let divControleDeQuantidade = document.createElement('div');
-    divControleDeQuantidade.classList.add('controles-quantidade');
-
-    let divControleBotoes = document.createElement('div');
-    divControleBotoes.classList.add('divControleBotoes');
-
-    let botaoAumentar = document.createElement('button');
-    botaoAumentar.textContent = `+`;
-    botaoAumentar.classList.add('btnAumentar');
-    botaoAumentar.addEventListener('click', function() {
-        let quantidadeTotal = item.quantidade + 1;
-        item.quantidade = quantidadeTotal;
-        spanQuantidade.textContent = `${quantidadeTotal}`;
-        atualizarCarrinho();
-    });
-
-    let spanQuantidade = document.createElement('span');
-    spanQuantidade.textContent = item.quantidade;
-    spanQuantidade.classList.add('quantidade-item');
-
-    let botaoDiminuir = document.createElement('button');
-    botaoDiminuir.textContent = `-`;
-    botaoDiminuir.classList.add('btnDiminuir');
-    botaoDiminuir.addEventListener('click', function() {
-        if (item.quantidade === 1) {
-            let encontrarItem = itensCarrinho.indexOf(item);
-            itensCarrinho.splice(encontrarItem, 1);
-            atualizarCarrinho();
-        } else {
-            let quantidadeTotal = item.quantidade - 1;
-            item.quantidade = quantidadeTotal;
-            spanQuantidade.textContent = `${quantidadeTotal}`;
-            atualizarCarrinho();
-        }
-    });
-
-    let botaoRemover = document.createElement('button');
-    let iconeRemover = document.createElement('i');
-    iconeRemover.classList.add('fa-solid', 'fa-trash-can');
-    botaoRemover.classList.add('btnRemover');
-    botaoRemover.addEventListener('click', function() {
-        let encontrarItem = itensCarrinho.indexOf(item);
-        itensCarrinho.splice(encontrarItem, 1);
-        atualizarCarrinho();
-        document.body.style.overflow = 'auto'
-    });
-
-    // Anexar botões e span de quantidade à divControleBotoes
-    divControleBotoes.appendChild(botaoAumentar);
-    divControleBotoes.appendChild(spanQuantidade);
-    divControleBotoes.appendChild(botaoDiminuir);
-    botaoRemover.appendChild(iconeRemover); // Ícone no botão
-    divControleBotoes.appendChild(botaoRemover); // Botão à div de botões
-
-
-
-    // Anexar o preço e os controles de botões à divControleDeQuantidade
-    divControleDeQuantidade.appendChild(spanPrecoProduto);
-    divControleDeQuantidade.appendChild(divControleBotoes);
-
-
-    // 6. Criar e preencher a divInfoProdutos
-    let divInfoProdutos = document.createElement('div');
-    divInfoProdutos.classList.add('divInfoProdutos');
-    divInfoProdutos.appendChild(divProdutoDescricao); // divProdutoDescricao é filha
-    divInfoProdutos.appendChild(divControleDeQuantidade); // divControleDeQuantidade é filha
-
-
-    // 7. Anexar divImagem e divInfoProdutos à divItemCarrinho
-    divItemCarrinho.appendChild(divImagem);
-    divItemCarrinho.appendChild(divInfoProdutos);
-
-    // 8. Anexar a divItemCarrinho à div principal do carrinho
-    itensDoCarrinhoDiv.appendChild(divItemCarrinho);
-});
-        
-        }
-    
-    }
+}
 
 
 
@@ -519,53 +1223,245 @@ let scrollPosition = 0
 
 // ==========================================================================================
 
-    // FUNÇÃO ATUALIZAR CARRINHO
-    function atualizarCarrinho() {
-        mostrarItensDoCarrinho() // Garante que a lista de itens seja exibida e atualizada
+// ==========================================================================================
+// FUNÇÃO ATUALIZAR CARRINHO
+let contadorCarrinho = document.querySelector('#contador-carrinho');
 
-        if (itensCarrinho.length === 0) {
-            modalCarrinho.style.display = 'none'
-            document.body.style.position = '';
-            document.body.style.top = '';
-            document.body.style.width = '';
-            document.body.style.overflow = 'auto'; // Reabilita a rolagem
-            window.scrollTo(0, scrollPosition);
-          // Certifique-se de que a mensagem de carrinho vazio temporária não esteja visível aqui
-        mensagemCarrinhoVazioDiv.style.display = 'none'; 
+function atualizarCarrinho() {
+    // Primeiro, mostra os itens no modal para refletir as quantidades e valores
+    mostrarItensDoCarrinho();
+
+    let valorTotalCarrinho = document.querySelector('#total-carrinho');
+    let somaDoTotal = 0;
+    let totalItensCarrinho = 0;
+
+    itensCarrinho.forEach(function(item) {
+        // Soma a quantidade de todos os produtos para o contador do carrinho
+        totalItensCarrinho += item.quantidade;
+        
+        // Calcula o preço do item principal
+        let precoItem = item.produto.preco * item.quantidade;
+        
+        // Calcula o preço dos adicionais
+        let precoAdicionais = 0;
+        for (const nomeAdicional in item.adicionais) {
+            const quantidadeAdicional = item.adicionais[nomeAdicional];
+            if (quantidadeAdicional > 0) {
+                const adicional = item.produto.adicionais.find(a => a.nome === nomeAdicional);
+                if (adicional) {
+                    precoAdicionais += adicional.preco * quantidadeAdicional;
+                }
+            }
+        }
+        
+        // Calcula o preço das bebidas
+        let precoBebidas = 0;
+        for (const idBebida in item.bebidas) {
+            const quantidadeBebida = item.bebidas[idBebida];
+            if (quantidadeBebida > 0) {
+                const bebida = catalogoDeProdutos[idBebida];
+                if (bebida) {
+                    precoBebidas += bebida.preco * quantidadeBebida;
+                }
+            }
+        }
+        
+        // Soma todos os preços para o total final do carrinho
+        somaDoTotal += (precoItem + precoAdicionais + precoBebidas);
+    });
+
+    // Atualiza o contador de itens no topo do carrinho
+    if (contadorCarrinho) {
+        contadorCarrinho.textContent = `${totalItensCarrinho}`;
+    }
+
+    // NOVO: Cria o <h3> se ele não existir
+    let h3Total = valorTotalCarrinho.querySelector('h3');
+    if (!h3Total) {
+        h3Total = document.createElement('h3');
+        valorTotalCarrinho.appendChild(h3Total);
+    }
+    // Atualiza o valor total no modal do carrinho
+    h3Total.textContent = `TOTAL: R$ ${somaDoTotal.toFixed(2).replace('.', ',')}`;
+    h3Total.classList.add('precoCarrinhoTotal');
+
+    // Se o carrinho estiver vazio, fecha o modal.
+    if (itensCarrinho.length === 0) {
+        if (modalCarrinho.style.display === 'block') {
+            modalCarrinho.style.display = 'none';
+            document.body.style.position = '';
+            document.body.style.top = '';
+            document.body.style.width = '';
+            document.body.style.overflow = 'auto'; 
+            window.scrollTo(0, scrollPosition);
+        }
+    }
+}
+
+
+ // FUNÇÃO ABRIR MODAL PEDIDO E LISTAR ITENS
+function abrirModalPedidoEListarItens() {
+    // 1. Salva a posição de rolagem e "congela" a página ANTES de abrir
+    scrollPosition = window.scrollY;
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollPosition}px`;
+    document.body.style.width = '100%';
+    document.body.style.overflow = 'hidden';
+
+    exibirModalDados.style.display = 'none';
+    exibirModalPedido.style.display = 'block';
+    divItensListaPedido.innerHTML = '';
+    
+    let precoItens = 0; // Usando o nome que você já usava
+
+    const bairroSelecionado = document.getElementById('Bairro').value;
+    const valorTaxaDeEntrega = precosEntrega[bairroSelecionado] || 0;
+
+    itensCarrinho.forEach(function(item) {
+        let divControleItemIndividual = document.createElement('div');
+        divControleItemIndividual.classList.add('divControleItemIndividual');
+        
+        let addPedido = document.createElement('li');
+        addPedido.textContent = `Item: ${item.quantidade}x ${item.produto.nome}`;
+        addPedido.classList.add('appPedido');
+        divControleItemIndividual.appendChild(addPedido);
+
+        let pedidoImagem = document.createElement('img');
+        pedidoImagem.src = `${item.produto.imagem}`;
+        pedidoImagem.classList.add('imagemPedidoFinal');
+        divControleItemIndividual.appendChild(pedidoImagem);
+        
+        // NOVO: Exibe os adicionais de forma simples, sem .slice()
+        let listaAdicionais = [];
+        let precoAdicionais = 0;
+        
+        for (let nomeAdicional in item.adicionais) {
+            let quantidadeAdicional = item.adicionais[nomeAdicional];
+            if (quantidadeAdicional > 0) {
+                let adicional = item.produto.adicionais.find(a => a.nome === nomeAdicional);
+                if (adicional) {
+                    listaAdicionais.push(`${nomeAdicional} (${quantidadeAdicional})`);
+                    precoAdicionais += adicional.preco * quantidadeAdicional;
+                }
+            }
+        }
+        
+        if (listaAdicionais.length > 0) {
+            let pAdicionais = document.createElement('p');
+            pAdicionais.textContent = `Adicionais: ${listaAdicionais.join(', ')}`;
+            divControleItemIndividual.appendChild(pAdicionais);
+            pAdicionais.classList.add('addAdicionais');
         }
 
-        let valorTotalCarrinho = document.querySelector('#total-carrinho')
-        let somaDoTotal = 0
-
-        let totalItensCarrinho = 0
-
-        itensCarrinho.forEach(function(item) {
-
-        totalItensCarrinho = totalItensCarrinho + item.quantidade
-    
-
-    
-        })
-
-        contadorCarrinho.textContent = `${totalItensCarrinho}`
-
-    
-
-
-        itensCarrinho.forEach(function(item) {
-            somaDoTotal = (item.produto.preco * item.quantidade) + somaDoTotal
+        // NOVO: Exibe as bebidas de forma simples, sem .slice()
+        let listaBebidas = [];
+        let precoBebidas = 0;
         
-        })
-
-
-
-
-        let h3Total = valorTotalCarrinho.querySelector('h3');
-            h3Total.textContent = `TOTAL: R$ ${somaDoTotal.toFixed(2).replace('.',',')}`;
-            h3Total.classList.add('precoCarrinhoTotal')
-
+        for (let idBebida in item.bebidas) {
+            let quantidadeBebida = item.bebidas[idBebida];
+            if (quantidadeBebida > 0) {
+                let bebida = catalogoDeProdutos[idBebida];
+                if (bebida) {
+                    listaBebidas.push(`${bebida.nome} (${quantidadeBebida})`);
+                    precoBebidas += bebida.preco * quantidadeBebida;
+                }
+            }
+        }
         
+        if (listaBebidas.length > 0) {
+            let pBebidas = document.createElement('p');
+            pBebidas.textContent = `Bebidas: ${listaBebidas.join(', ')}`;
+            divControleItemIndividual.appendChild(pBebidas);
+            pBebidas.classList.add('addBebidas');
+        }
+
+        if (item.produto.tipo === 'lanche') {
+            let addIngredientes = document.createElement('p');
+            addIngredientes.textContent = `Ingredientes: ${item.produto.ingredientes.join(', ')}`;
+            addIngredientes.classList.add('addIngredientes');
+            divControleItemIndividual.appendChild(addIngredientes);
+
+            if (item.observacao) {
+                let addObservacao = document.createElement('p');
+                addObservacao.textContent = `Observação: ${item.observacao}`;
+                addObservacao.classList.add('addObservacao');
+                divControleItemIndividual.appendChild(addObservacao);
+            }
+        }
+        
+        let precoItemIndividual = (item.produto.preco * item.quantidade) + precoAdicionais + precoBebidas;
+        let addPreco = document.createElement('span');
+        addPreco.textContent = `Preço: R$ ${precoItemIndividual.toFixed(2).replace('.', ',')}`;
+        addPreco.classList.add('precoFazerPedido');
+        divControleItemIndividual.appendChild(addPreco);
+        
+        precoItens += precoItemIndividual;
+        divItensListaPedido.appendChild(divControleItemIndividual);
+    });
+
+    const precoFinal = precoItens + valorTaxaDeEntrega;
+
+    totalPreco.textContent = `Preço Total: R$ ${precoFinal.toFixed(2).replace('.', ',')}`;
+    taxaEntrega.textContent = `Taxa de Entrega: R$ ${valorTaxaDeEntrega.toFixed(2).replace('.', ',')}`;
+};
+
+
+
+
+// A função `atualizarPreCarrinho` precisa ser definida para que este código funcione.
+// Se ela ainda não estiver definida, você precisa adicioná-la em algum lugar do seu script.
+// Exemplo básico (adapte conforme sua lógica real):
+function atualizarPreCarrinho(inputQuantidadePre, produtoSelecionado, precoPre, precoRiscadoPre) {
+    let precoBase = produtoSelecionado.preco;
+    let precoRiscadoBase = produtoSelecionado.precoRiscado || 0;
+    let quantidadePrincipal = parseInt(inputQuantidadePre.value);
+
+    let precoTotalAdicionais = 0;
+    for (const adicionalNome in adicionaisSelecionados) {
+        const quantidade = adicionaisSelecionados[adicionalNome];
+        if (quantidade > 0) {
+            const adicional = produtoSelecionado.adicionais.find(a => a.nome === adicionalNome);
+            if (adicional) {
+                precoTotalAdicionais += adicional.preco * quantidade;
+            }
+        }
     }
+
+    let precoTotalBebidas = 0;
+    for (const bebidaId in bebidasSelecionadas) {
+        const quantidade = bebidasSelecionadas[bebidaId];
+        if (quantidade > 0) {
+            const bebida = catalogoDeProdutos[bebidaId];
+            if (bebida) {
+                precoTotalBebidas += bebida.preco * quantidade;
+            }
+        }
+    }
+
+    let precoFinal = (precoBase * quantidadePrincipal) + precoTotalAdicionais + precoTotalBebidas;
+    let precoRiscadoFinal = (precoRiscadoBase * quantidadePrincipal) + precoTotalAdicionais + precoTotalBebidas; // Adapte se o risco não se aplica a adicionais/bebidas
+
+    // Atualiza os spans de preço
+    precoPre.textContent = `R$ ${precoFinal.toFixed(2).replace('.', ',')}`;
+    if (precoRiscadoBase > 0) { // Mostra o preço riscado apenas se ele existir
+        precoRiscadoPre.textContent = `R$ ${precoRiscadoFinal.toFixed(2).replace('.', ',')}`;
+        precoRiscadoPre.style.display = 'inline'; // Garante que esteja visível
+    } else {
+        precoRiscadoPre.style.display = 'none'; // Esconde se não houver preço riscado
+    }
+
+    // Atualiza o texto do botão Adicionar ao Carrinho
+    const botaoAdicionar = document.querySelector('.AdicionarCarrinho');
+    if (botaoAdicionar) {
+        botaoAdicionar.innerHTML = `<i class="fa-solid fa-cart-plus"></i> Adicionar R$ ${precoFinal.toFixed(2).replace('.', ',')}`;
+    }
+}
+
+
+
+
+
+
 
     // MODAL DADOS DINÂMICAMENTE CONFIGURADO A PARTIR DAQUI ATÉ O ======
 
@@ -792,95 +1688,6 @@ let scrollPosition = 0
     
     let taxaEntrega = document.getElementById('taxaEntrega')
     let divModalConteudo = document.querySelector('.ContModalFazerPedido')
-
-
-
-    function abrirModalPedidoEListarItens() {
-
-        
-            
-        // 1. Salva a posição de rolagem e "congela" a página ANTES de abrir
-        scrollPosition = window.scrollY;
-        document.body.style.position = 'fixed';
-        document.body.style.top = `-${scrollPosition}px`;
-        document.body.style.width = '100%';
-        document.body.style.overflow = 'hidden';
-
-          exibirModalDados.style.display = 'none'
-          exibirModalPedido.style.display = 'block'
-          divItensListaPedido.innerHTML = '';
-          precoItens = 0
-
-          const bairroSelecionado = document.getElementById('Bairro').value;
-          valorTaxaDeEntrega = precosEntrega[bairroSelecionado] || 0;
-
-
-        itensCarrinho.forEach(function(item) {
-
-        
-        let divControleItemIndividual = document.createElement('div');
-        divControleItemIndividual.classList.add('divControleItemIndividual')
-
-        if (item.produto.tipo === 'lanche') {
-        
-        let addPedido = document.createElement('li')
-        addPedido.textContent = `Item: ${item.quantidade}x ${item.produto.nome} `;
-        divControleItemIndividual.appendChild(addPedido)
-        addPedido.classList.add('appPedido')
-
-        let pedidoImagem = document.createElement('img')
-        pedidoImagem.src = `${item.produto.imagem}`
-        pedidoImagem.classList.add('imagemPedidoFinal')
-        divControleItemIndividual.appendChild(pedidoImagem)
-
-        let addIngredientes = document.createElement('p')
-        addIngredientes.textContent = `Ingredientes: ${item.produto.ingredientes.join(', ')}`
-        divControleItemIndividual.appendChild(addIngredientes)
-        addIngredientes.classList.add('addIngredientes')
-
-        let addPreco = document.createElement('span')
-        addPreco.textContent = ` Preço: R$ ${item.produto.preco.toFixed(2).replace('.', ',')}`
-        addPreco.classList.add('precoFazerPedido')
-        divControleItemIndividual.appendChild(addPreco)
-        
-        
-        
-        
-
-        } else if (item.produto.tipo === 'bebida') {
-          let addPedido = document.createElement('li')
-          addPedido.textContent = `Item: ${item.quantidade} x ${item.produto.nome} `;
-          divControleItemIndividual.appendChild(addPedido)
-          addPedido.classList.add('appPedido')
-          
-          let pedidoImagem = document.createElement('img')
-          pedidoImagem.src = `${item.produto.imagem}`
-          pedidoImagem.classList.add('imagemPedidoFinal')
-          divControleItemIndividual.appendChild(pedidoImagem)
-
-          let addPreco = document.createElement('span')
-          addPreco.textContent = ` Preço: R$ ${item.produto.preco.toFixed(2).replace('.', ',')} ` 
-          addPreco.classList.add('precoFazerPedido')
-          divControleItemIndividual.appendChild(addPreco)
-
-
-          
-          
-        }
-        
-        precoItens += item.produto.preco * item.quantidade
-          
-        divItensListaPedido.appendChild(divControleItemIndividual)
-
-      });
-
-        const precoFinal = precoItens + valorTaxaDeEntrega
-
-        totalPreco.textContent = `Preço Total: R$ ${precoFinal.toFixed(2).replace('.', ',')}`
-
-        taxaEntrega.textContent = `Taxa de Entrega: R$ ${valorTaxaDeEntrega.toFixed(2).replace('.', ',')}`
-
-    };
 
         
 
@@ -1233,110 +2040,7 @@ if (textoFormaPagamento === 'Dinheiro' && valorTroco > 0) {
 
       })
 
-
-/* MODAL PRÉ-CARRINHO */
-
-// ABRIR MODAL AO CLICAR NO CARD
-
-      const CardProdutos = document.querySelectorAll('.card-pai')
-      const ModalPreCarrinho = document.getElementById('ModalPreCarrinho')
-      const conteudoModal = document.querySelector('.ContModalPreCarrinho')
-
-      CardProdutos.forEach(cardAtual => {
-        cardAtual.addEventListener('click', () => {
-          conteudoModal.textContent = '';
-
-          let botaoFecharPre = document.createElement('button')
-          botaoFecharPre.innerHTML = '&times;'
-          botaoFecharPre.classList.add('botaoFecharPre')
-          conteudoModal.appendChild(botaoFecharPre)
-
-          // EVENTO DE FECHAR BOTÃO
-          botaoFecharPre.addEventListener('click', () => {
-        ModalPreCarrinho.style.display = 'none'
-      })
-
-          // 1. Encontre o ID do produto usando event.currentTarget
-          const seletorPreCarrinho = cardAtual.dataset.produtoId
-          const produtoSelecionado = catalogoDeProdutos[seletorPreCarrinho]
-
-          ModalPreCarrinho.style.display = 'block'
+        
 
 
-          let divPrincipalPre = document.createElement('div')
-          divPrincipalPre.classList.add('divPrincipalPre')
-          conteudoModal.appendChild(divPrincipalPre)
 
-          
-          let divImagemPre = document.createElement('div')
-          divImagemPre.classList.add('divImagemPre')
-          divPrincipalPre.appendChild(divImagemPre)
-          
-          let imagemPre = document.createElement('img')
-          imagemPre.src = `${produtoSelecionado.imagem}`
-          imagemPre.classList.add('imagemPre')
-          divImagemPre.appendChild(imagemPre)
-
-          let divConteudoPre = document.createElement('div')
-          divConteudoPre.classList.add('divConteudoPre')
-          divPrincipalPre.appendChild(divConteudoPre)
-
-          let h3ProdutoPre = document.createElement('h3')
-          h3ProdutoPre.textContent = `${produtoSelecionado.nome}`
-          h3ProdutoPre.classList.add('h3ProdutoPre')
-          divConteudoPre.appendChild(h3ProdutoPre)
-
-          let descricaoPre = document.createElement('p')
-          descricaoPre.textContent = `${produtoSelecionado.descricao}`
-          descricaoPre.classList.add('descricaoPre')
-          divConteudoPre.appendChild(descricaoPre)
-
-          let divPrecos = document.createElement('div')
-          divPrecos.classList.add('divPrecos')
-          divConteudoPre.appendChild(divPrecos)
-
-          let precoRiscadoPre = document.createElement('span')
-          precoRiscadoPre.classList.add('PrecoRiscadoPre')
-          precoRiscadoPre.textContent = `R$ ${produtoSelecionado.precoRiscado.toFixed(2).replace('.', ',')}`
-          divPrecos.appendChild(precoRiscadoPre)
-
-          let precoPre = document.createElement('span')
-          precoPre.classList.add('precoPre')
-          precoPre.textContent = `R$ ${produtoSelecionado.preco.toFixed(2).replace('.', ',')}`
-          divPrecos.appendChild(precoPre)
-
-          let divBotoesAcoes = document.createElement('div')
-          divBotoesAcoes.classList.add('divBotoesAcoes')
-          divPrincipalPre.appendChild(divBotoesAcoes)
-
-          let botaoDiminuirPre = document.createElement('button')
-          botaoDiminuirPre.textContent = `-`
-          botaoDiminuirPre.classList.add('botaoDiminuirPre')
-          divBotoesAcoes.appendChild(botaoDiminuirPre)
-          
-          let inputQuantidadePre = document.createElement('input')
-          inputQuantidadePre.classList.add('inputQuantidadePre')
-          divBotoesAcoes.appendChild(inputQuantidadePre)
-
-          let botaoAumentarPre = document.createElement('button')
-          botaoAumentarPre.textContent = `+`
-          botaoAumentarPre.classList.add('botaoAumentarPre')
-          divBotoesAcoes.appendChild(botaoAumentarPre)
-
-
-          let botaoAdicionar = document.createElement('button')
-          botaoAdicionar.classList.add('AdicionarCarrinho')
-          botaoAdicionar.innerHTML = '<i class="fa-solid fa-cart-plus"></i> Adicionar';
-          conteudoModal.appendChild(botaoAdicionar)
-          
-
-          
-
-
-          
-          
-      
-
-
-        })
-      });
