@@ -2170,6 +2170,7 @@ footer {
 .botaoDiminuirPre, .botaoAumentarPre {
     border: none;
     color: red;
+    background-color: transparent;
     font-size: 1.5rem;
 }
 

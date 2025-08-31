@@ -679,6 +679,8 @@ CardProdutos.forEach(cardAtual => {
     cardAtual.addEventListener('click', () => {
         conteudoModal.textContent = '';
         
+        document.body.style.overflow = 'hidden'
+
         // AGORA AS VARIÁVEIS SÃO LOCAIS E SÃO REINICIADAS A CADA CLIQUE
         const adicionaisSelecionados = {};
         const bebidasSelecionadas = {};
@@ -696,6 +698,7 @@ CardProdutos.forEach(cardAtual => {
         // EVENTO DE FECHAR BOTÃO
         botaoFecharPre.addEventListener('click', () => {
             ModalPreCarrinho.style.display = 'none';
+            document.body.style.overflow = 'auto';
         });
 
         const seletorPreCarrinho = cardAtual.dataset.produtoId;
@@ -1037,6 +1040,7 @@ CardProdutos.forEach(cardAtual => {
             ModalPreCarrinho.style.display = 'none';
             atualizarCarrinho();
             atualizarContadorCarrinho()
+            document.body.style.overflow = 'auto';
         });
 
         // Chamar atualizarPreCarrinho para garantir que os preços iniciais estejam corretos
