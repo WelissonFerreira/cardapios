@@ -2070,7 +2070,7 @@ footer {
     justify-content: flex-start;
     align-items: center;
     padding: 0 15px;
-    gap: 265px;
+    /*gap: 265px;*/
     height: 70px;
 }
 
@@ -2096,7 +2096,7 @@ footer {
     justify-content: center;
     align-items: center;
     width: 20px;
-    margin-right: 20px;
+    margin-right:  40px;
 }
 
 
@@ -2107,6 +2107,8 @@ footer {
     width: 10px;
     height: 25px;
     border: none;
+    user-select: none;
+    pointer-events: none;
 }
 
 
@@ -2174,7 +2176,7 @@ footer {
 .divBotoesBebidas {
     display: flex;
     flex-direction: row;
-    gap: 5px;
+    gap: 15px;
     justify-content: center;
     align-items: center;
 }
@@ -2184,16 +2186,20 @@ footer {
     width: 10px;
     height: auto;
     border: none;
+    user-select: none;
+    pointer-events: none;
 }
 
 .aumentarBebidas, .diminuirBebidas {
     border: none;
+    background-color: transparent;
     color: red;
     font-size: 1.5rem;
 }
 
 .diminuirAdicionais, .aumentarQuantidadeAdicionais {
     border: none;
+    background-color: transparent;
     color: red;
     font-size: 1.5rem;
 }
@@ -2203,6 +2209,8 @@ footer {
     height: auto;
     text-align: center;
     border: none;
+    user-select: none;
+    pointer-events: none;
 }
 
 .AdicionarCarrinho {
