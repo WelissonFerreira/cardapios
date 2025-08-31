@@ -2036,7 +2036,7 @@ footer {
     align-items: center;
     justify-content: flex-start;
     padding: 5px;
-    gap: 130px;
+    gap: 100px;
     
 }
 
@@ -2078,7 +2078,7 @@ footer {
     display: flex;
     flex-direction: row;
     flex: 1;
-    /*width: 80px;*/
+    
 }
 
 .divh4PAdcicional {
@@ -2096,7 +2096,7 @@ footer {
     justify-content: center;
     align-items: center;
     width: 20px;
-    margin-right:  40px;
+    margin-right: 50px;
 }
 
 
