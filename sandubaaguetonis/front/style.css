@@ -1017,7 +1017,7 @@ footer {
     font-size: 1rem;
     width: 100vw;
     overflow-y: auto; /* Permite a rolagem vertical */
-
+    padding-bottom: 120px;
 
 }
 
