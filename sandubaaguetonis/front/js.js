@@ -683,11 +683,7 @@ abrirCarrinho.addEventListener('click', function(event) {
     event.preventDefault();
 
 
-    scrollPosition = window.scrollY;
-    document.body.style.position = 'fixed';
-    document.body.style.top = `-${scrollPosition}px`;
-    document.body.style.width = '100%';
-    document.body.style.overflow = 'auto';
+
 
     // Garante que o modal de dados e o de pedido estejam escondidos
     // Isso evita o problema de um modal estar aberto em cima do outro
@@ -1103,7 +1099,12 @@ CardProdutos.forEach(cardAtual => {
             ModalPreCarrinho.style.display = 'none';
             atualizarCarrinho();
             atualizarContadorCarrinho()
+            // RESTAURA O BODY
+            document.body.style.position = '';
+            document.body.style.top = '';
+            document.body.style.width = '';
             document.body.style.overflow = 'auto';
+            window.scrollTo(0, scrollPosition); // volta para a posição original do scroll
         });
 
         // Chamar atualizarPreCarrinho para garantir que os preços iniciais estejam corretos
