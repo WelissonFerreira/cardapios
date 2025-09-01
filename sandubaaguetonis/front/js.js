@@ -682,7 +682,7 @@ function adicionarAoCarrinho(produto, quantidade, adicionais, bebidas) {
 abrirCarrinho.addEventListener('click', function(event) {
     event.preventDefault();
 
-    // Remove a verificação de carrinho vazio e o 'if/else' completo
+
     scrollPosition = window.scrollY;
     document.body.style.position = 'fixed';
     document.body.style.top = `-${scrollPosition}px`;
@@ -714,7 +714,7 @@ CardProdutos.forEach(cardAtual => {
     cardAtual.addEventListener('click', () => {
         conteudoModal.textContent = '';
         
-        document.body.style.overflow = 'hidden'
+        
 
         // AGORA AS VARIÁVEIS SÃO LOCAIS E SÃO REINICIADAS A CADA CLIQUE
         const adicionaisSelecionados = {};
@@ -733,13 +733,24 @@ CardProdutos.forEach(cardAtual => {
         // EVENTO DE FECHAR BOTÃO
         botaoFecharPre.addEventListener('click', () => {
             ModalPreCarrinho.style.display = 'none';
-            document.body.style.overflow = 'auto';
+            document.body.style.overflow = 'auto'
+            document.body.style.position = '';
+            document.body.style.top = '';
+            document.body.style.width = '';
+             window.scrollTo(0, scrollPosition);
+
+
         });
 
         const seletorPreCarrinho = cardAtual.dataset.produtoId;
         const produtoSelecionado = catalogoDeProdutos[seletorPreCarrinho];
 
         ModalPreCarrinho.style.display = 'block';
+        scrollPosition = window.scrollY;
+        document.body.style.position = 'fixed';
+        document.body.style.top = `-${scrollPosition}px`;
+        document.body.style.width = '100%';
+        document.body.style.overflow = 'hidden';
 
 
 
@@ -1888,7 +1899,7 @@ if (textoFormaPagamento === 'Dinheiro' && valorTroco > 0) {
 }
 
     // --- 8. Envia mensagem para WhatsApp ---
-    const numeroWhatsApp = '5582987165196';
+    const numeroWhatsApp = '5582999261614';
     const linkWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagemWhatsApp)}`;
     window.open(linkWhatsApp, '_blank');
 
