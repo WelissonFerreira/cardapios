@@ -736,7 +736,6 @@ CardProdutos.forEach(cardAtual => {
             document.body.style.overflow = 'auto'; // libera o scroll de fundo
 
 
-/*T */
 
         });
 
