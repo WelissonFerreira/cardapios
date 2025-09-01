@@ -744,11 +744,7 @@ CardProdutos.forEach(cardAtual => {
         const produtoSelecionado = catalogoDeProdutos[seletorPreCarrinho];
 
         ModalPreCarrinho.style.display = 'block';
-        scrollPosition = window.scrollY;
-        document.body.style.position = 'fixed';
-        document.body.style.top = `-${scrollPosition}px`;
-        document.body.style.width = '100%';
-        document.body.style.overflow = 'hidden';
+        document.body.style.overflow = 'hidden'; // bloqueia scroll de fundo
 
 
 
