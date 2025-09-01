@@ -2124,6 +2124,7 @@ footer {
 .divAdicional {
     display: flex;
     flex-direction: column;
+    padding-bottom: 80px;
 }
 
 .divDividirItensAdicionais {
