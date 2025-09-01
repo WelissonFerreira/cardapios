@@ -1810,7 +1810,8 @@ function abrirModalPedidoEListarItens() {
 // BOTÃO DE FINALIZAR PEDIDO
 const btnFinalizarPedidoWhatsApp = document.getElementById('Finalizar-Pedido');
 
-btnFinalizarPedidoWhatsApp.addEventListener('click', function () {
+btnFinalizarPedidoWhatsApp.addEventListener('click', function (e) {
+  e.preventDefault();
     // --- 1. Captura dados do cliente ---
     let nomeCliente = document.querySelector('#nomeUsuario').value;
     let telefoneCliente = document.querySelector('#cellUsuario').value;
@@ -1850,72 +1851,78 @@ btnFinalizarPedidoWhatsApp.addEventListener('click', function () {
         troco: valorTroco
     };
 
-    // --- 6. Envia para o backend para impressão USB ---
-    fetch('arthurlanchesback.duckdns.org/api/pedido', {
+    // --- 6. Envia para o backend ---
+    fetch('https://arthurlanchesback.duckdns.org/api/pedido', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(pedidoParaBackend)
     })
-    .then(res => res.json())
-    .then(data => {
-        console.log(data.mensagem);
+    .then(res => res.text()) // pega como texto
+    .then(text => {
+        // tenta converter para JSON se possível
+        let data;
+        try {
+            data = JSON.parse(text);
+            console.log('Mensagem do backend:', data.mensagem);
+        } catch(e) {
+            console.warn('Resposta não é JSON:', text);
+        }
+
+        // --- 7. Monta mensagem para WhatsApp ---
+        let mensagemWhatsApp = '*-- NOVO PEDIDO - SANDUBA DO GAROTO --*\n\n';
+        mensagemWhatsApp += '*Dados do Cliente:*\n';
+        mensagemWhatsApp += `Nome: ${nomeCliente}\n`;
+        mensagemWhatsApp += `Telefone: ${telefoneCliente}\n`;
+        mensagemWhatsApp += `Tipo de Pedido: ${tipoPedido === 'Entrega' ? 'Entrega' : 'Retirada'}\n`;
+
+        if (tipoPedido === 'Entrega') {
+            mensagemWhatsApp += '\n*Endereço de Entrega:*\n';
+            mensagemWhatsApp += `Bairro: ${endereco.bairro}\n`;
+            mensagemWhatsApp += `Rua: ${endereco.rua}\n`;
+            mensagemWhatsApp += `Número: ${endereco.numero}\n`;
+            if (endereco.complemento) mensagemWhatsApp += `Complemento: ${endereco.complemento}\n`;
+        }
+
+        mensagemWhatsApp += '\n*Itens do Pedido:*\n';
+        let totalFinalParaWhatsApp = 0;
+        if (itensCarrinho.length > 0) {
+            itensCarrinho.forEach((item, index) => {
+                let linhaItem = `${index + 1}. ${item.quantidade}x ${item.produto.nome} (R$ ${(item.produto.preco * item.quantidade).toFixed(2).replace('.', ',')})`;
+                if (item.observacao && item.observacao.trim() !== '') linhaItem += `\n  - Observação: ${item.observacao}`;
+                mensagemWhatsApp += linhaItem + '\n';
+                totalFinalParaWhatsApp += item.produto.preco * item.quantidade;
+            });
+        } else {
+            mensagemWhatsApp += 'Nenhum item adicionado ao carrinho.\n';
+        }
+
+        if (tipoPedido === 'Entrega') {
+            totalFinalParaWhatsApp += valorTaxaDeEntrega;
+            mensagemWhatsApp += `\nTaxa de Entrega: R$ ${valorTaxaDeEntrega.toFixed(2).replace('.', ',')}\n`;
+        }
+
+        mensagemWhatsApp += `\n*Total do Pedido: R$ ${totalFinalParaWhatsApp.toFixed(2).replace('.', ',')}*\n`;
+        mensagemWhatsApp += '\n*Informações de Pagamento:*\n';
+        mensagemWhatsApp += `Forma de Pagamento: ${textoFormaPagamento}\n`;
+
+        if (textoFormaPagamento === 'Dinheiro' && valorTroco > 0) {
+            mensagemWhatsApp += `: | Precisa de R$ ${valorTroco.toFixed(2).replace('.', ',')} de troco. \n`;
+        } else {
+            mensagemWhatsApp += 'Não precisa de troco.\n';
+        }
+
+        // --- 8. Envia para WhatsApp ---
+        const numeroWhatsApp = '5582999261614';
+        const linkWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagemWhatsApp)}`;
+        window.open(linkWhatsApp, '_blank');
+
+        // --- 9. Fecha modal e libera rolagem ---
+        document.querySelector('#ModalFazerPedido').style.display = 'none';
+        document.body.style.overflow = 'auto';
     })
     .catch(err => console.error('Erro ao enviar pedido:', err));
-
-    // --- 7. Monta mensagem para WhatsApp ---
-    let mensagemWhatsApp = '*-- NOVO PEDIDO - SANDUBA DO GAROTO --*\n\n';
-    mensagemWhatsApp += '*Dados do Cliente:*\n';
-    mensagemWhatsApp += `Nome: ${nomeCliente}\n`;
-    mensagemWhatsApp += `Telefone: ${telefoneCliente}\n`;
-    mensagemWhatsApp += `Tipo de Pedido: ${tipoPedido === 'Entrega' ? 'Entrega' : 'Retirada'}\n`;
-
-    // Adiciona o endereço se o tipo de pedido for 'Entrega'
-    if (tipoPedido === 'Entrega') {
-        mensagemWhatsApp += '\n*Endereço de Entrega:*\n';
-        mensagemWhatsApp += `Bairro: ${endereco.bairro}\n`;
-        mensagemWhatsApp += `Rua: ${endereco.rua}\n`;
-        mensagemWhatsApp += `Número: ${endereco.numero}\n`;
-        if (endereco.complemento) mensagemWhatsApp += `Complemento: ${endereco.complemento}\n`;
-    }
-
-    mensagemWhatsApp += '\n*Itens do Pedido:*\n';
-    let totalFinalParaWhatsApp = 0; // Inicializa a variável aqui
-    if (itensCarrinho.length > 0) {
-        itensCarrinho.forEach((item, index) => {
-            let linhaItem = `${index + 1}. ${item.quantidade}x ${item.produto.nome} (R$ ${(item.produto.preco * item.quantidade).toFixed(2).replace('.', ',')})`;
-            if (item.observacao && item.observacao.trim() !== '') linhaItem += `\n  - Observação: ${item.observacao}`;
-            mensagemWhatsApp += linhaItem + '\n';
-            totalFinalParaWhatsApp += item.produto.preco * item.quantidade;
-        });
-    } else {
-        mensagemWhatsApp += 'Nenhum item adicionado ao carrinho.\n';
-    }
-
-    // Adiciona a taxa de entrega e calcula o total APÓS o loop
-    if (tipoPedido === 'Entrega') {
-        totalFinalParaWhatsApp += valorTaxaDeEntrega;
-        mensagemWhatsApp += `\nTaxa de Entrega: R$ ${valorTaxaDeEntrega.toFixed(2).replace('.', ',')}\n`;
-    }
-
-    mensagemWhatsApp += `\n*Total do Pedido: R$ ${totalFinalParaWhatsApp.toFixed(2).replace('.', ',')}*\n`;
-    mensagemWhatsApp += '\n*Informações de Pagamento:*\n';
-    mensagemWhatsApp += `Forma de Pagamento: ${textoFormaPagamento}\n`;
-    // Lógica para o troco: usa o valor digitado diretamente
-if (textoFormaPagamento === 'Dinheiro' && valorTroco > 0) {
-    mensagemWhatsApp += `: | Precisa de R$ ${valorTroco.toFixed(2).replace('.', ',')} de troco. \n`;
-} else {
-    mensagemWhatsApp += 'Não precisa de troco.\n';
-}
-
-    // --- 8. Envia mensagem para WhatsApp ---
-    const numeroWhatsApp = '5582999261614';
-    const linkWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagemWhatsApp)}`;
-    window.open(linkWhatsApp, '_blank');
-
-    // --- 9. Fecha modal e libera rolagem ---
-    document.querySelector('#ModalFazerPedido').style.display = 'none';
-    document.body.style.overflow = 'auto';
 });
+
 
 
 
