@@ -687,7 +687,7 @@ abrirCarrinho.addEventListener('click', function(event) {
     document.body.style.position = 'fixed';
     document.body.style.top = `-${scrollPosition}px`;
     document.body.style.width = '100%';
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = 'auto';
 
     // Garante que o modal de dados e o de pedido estejam escondidos
     // Isso evita o problema de um modal estar aberto em cima do outro
@@ -696,6 +696,11 @@ abrirCarrinho.addEventListener('click', function(event) {
     
     // Agora, sempre abre o modal do carrinho
     modalCarrinho.style.display = 'block';
+    scrollPosition = window.scrollY;
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollPosition}px`;
+    document.body.style.width = '100%';
+    document.body.style.overflow = 'hidden';
 
     // A função `atualizarCarrinho` já trata se o carrinho está vazio ou não
     atualizarCarrinho();
@@ -733,11 +738,12 @@ CardProdutos.forEach(cardAtual => {
         // EVENTO DE FECHAR BOTÃO
         botaoFecharPre.addEventListener('click', () => {
             ModalPreCarrinho.style.display = 'none';
-            document.body.style.overflow = 'auto'
-            document.body.style.position = '';
-            document.body.style.top = '';
-            document.body.style.width = '';
-            window.scrollTo(0, scrollPosition);
+            document.body.style.position = '';
+            document.body.style.top = '';
+            document.body.style.width = '';
+            document.body.style.overflow = 'auto'; 
+            window.scrollTo(0, scrollPosition);
+
 
 
 
