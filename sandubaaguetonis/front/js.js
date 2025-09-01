@@ -466,6 +466,91 @@ let catalogoDeProdutos = {
         ]
     },
 
+    "produto-aguetonis-combo1": {
+      tipo: "lanche",
+      nome: "Combo Mata Fome",
+      precoRiscado: 100.00,
+      preco: 90.00,
+      descricao: "🍔 2 Aguetoni’s TUDO 🍟 Batata 800g recheada com bacon e cheddar. Ideal pra dividir (ou não 😏). Serve bem, mata a fome de verdade.",
+      ingredientes: ["Pão Brioche", " Maionese da Casa", " 2x Hambúrguer 150g", " 2x Mussarela", "Bacon em Dobro", " Alface ", "Tomate", "Cebola Roxa"],
+      imagem: "imagens/combos/ComboMataFomee.jpeg",
+      adicionais: [
+    {
+      nome: 'Catupiry',
+      preco: 6.00,
+    },
+    {
+      nome: 'Ovo',
+      preco: 2.00,
+    },
+    {
+      nome: 'Mussarela',
+      preco: 4.00,
+    },
+    {
+      nome: 'Bacon',
+      preco: 5.00,
+    },
+    {
+      nome: 'Cheddar',
+      preco: 5.00,
+    },
+    {
+      nome: 'Hambúrguer 150g',
+      preco: 8.00,
+    },
+    {
+      nome: 'Alho Frito',
+      preco: 2.50,
+    }
+      
+        ]
+    },
+
+"produto-aguetonis-combo2": {
+      tipo: "lanche",
+      nome: "Combo Fome em Dobro",
+      precoRiscado: 60.00,
+      preco: 52.00,
+      descricao: "🍔 2 X-Tudo 🥤 Refrigerante Poty 2L ➡️ Ideal pra compartilhar.➡️ Combo completo e generoso.",
+      ingredientes: ["Pão de Hambúrguer", "Hambúrguer Caseiro 90g", " Salsicha", "Mussarela", "Presunto", "Milho ", "Batata Palha", "Cebola Roxa"],
+      imagem: "imagens/combos/comboFomeemDobro.png",
+      adicionais: [
+    {
+      nome: 'Catupiry',
+      preco: 6.00,
+    },
+    {
+      nome: 'Ovo',
+      preco: 2.00,
+    },
+    {
+      nome: 'Mussarela',
+      preco: 4.00,
+    },
+    {
+      nome: 'Bacon',
+      preco: 5.00,
+    },
+    {
+      nome: 'Cheddar',
+      preco: 5.00,
+    },
+    {
+      nome: 'Hambúrguer 150g',
+      preco: 8.00,
+    },
+    {
+      nome: 'Alho Frito',
+      preco: 2.50,
+    }
+      
+        ]
+    },
+
+
+    
+
 
     "produto-porcao-batatafrita": {
         tipo: "porcao",
@@ -512,7 +597,7 @@ let catalogoDeProdutos = {
 
     "produto-cocacolalata": {
         tipo: "bebida",
-        nome: "Coca-Cola em lata" ,
+        nome: "Coca-cola em Lata" ,
         precoRiscado: 8.00,
         preco: 6.50 ,
         descricao: "Refrigerante Coca-Cola em lata",
@@ -828,7 +913,7 @@ CardProdutos.forEach(cardAtual => {
 
         let h4SugestaoBebidas = document.createElement('h4');
         h4SugestaoBebidas.classList.add('h4SugestaoBebidas');
-        h4SugestaoBebidas.textContent = `O que você vai beber hoje ?`;
+        h4SugestaoBebidas.textContent = `O que você vai beber hoje?`;
         divControleH4P.appendChild(h4SugestaoBebidas);
 
         let pSugestao = document.createElement('p')
@@ -928,21 +1013,25 @@ CardProdutos.forEach(cardAtual => {
                 });
 
                 diminuirBebidas.addEventListener('click', (event) => {
-                    const idProduto = event.currentTarget.dataset.id;
-                    bebidasSelecionadas[idProduto] = parseInt(inputBebidas.value);
-                    if (parseInt(inputBebidas.value) > 0) {
-                        inputBebidas.value = parseInt(inputBebidas.value) - 1;
-                    }
-             
-                    atualizarPreCarrinho(inputQuantidadePre, produtoSelecionado, precoPre, precoRiscadoPre, adicionaisSelecionados, bebidasSelecionadas);
-                    atualizarContadorCarrinho()
-                    if (parseInt(inputBebidas.value) === 0) {
-                        inputBebidas.style.display = 'none';
-                        diminuirBebidas.style.display = 'none';
-                    }
-                });
-            }
-        }
+    const idProduto = event.currentTarget.dataset.id;
+    let valorAtual = parseInt(inputBebidas.value);
+
+    if (valorAtual > 0) {
+        valorAtual -= 1;               // diminui o valor primeiro
+        inputBebidas.value = valorAtual; 
+        bebidasSelecionadas[idProduto] = valorAtual;  // atualiza o objeto com o novo valor
+    }
+
+    if (valorAtual === 0) {
+        inputBebidas.style.display = 'none';
+        diminuirBebidas.style.display = 'none';
+    }
+
+    atualizarPreCarrinho(inputQuantidadePre, produtoSelecionado, precoPre, precoRiscadoPre, adicionaisSelecionados, bebidasSelecionadas);
+    atualizarContadorCarrinho();
+});
+}
+}
 
         // LÓGICA PARA OS ADICIONAIS, DOM, OBJECT, EVENTOS...
         let divAdicional = document.createElement('div');
@@ -955,7 +1044,7 @@ CardProdutos.forEach(cardAtual => {
 
         let h4Adicional = document.createElement('h4');
         h4Adicional.classList.add('h4Adicional');
-        h4Adicional.textContent = `Deseja um adicional ?`;
+        h4Adicional.textContent = `Deseja um adicional?`;
         divh4PAdicional.appendChild(h4Adicional);
 
         let txtAdicional = document.createElement('p');
@@ -1806,124 +1895,138 @@ function abrirModalPedidoEListarItens() {
 
 // =======================================================================================================
 
+// =======================================================================================================
 
-// BOTÃO DE FINALIZAR PEDIDO
-const btnFinalizarPedidoWhatsApp = document.getElementById('Finalizar-Pedido');
+// Catálogo de produtos e adicionais para WhatsApp
+const catalogoProdutos = {
+    "Combo Mata Fome": { nome: "Combo Mata Fome", preco: 90.00, ingredientes: ["Carne", "Queijo", "Bacon", "Batata"] },
+    "Batata Frita 800g": { nome: "Batata Frita 800g", preco: 36.00, ingredientes: ["Batata crocante", "Catupiry", "Bacon", "Mussarela"] },
+    "produto-cocacolalata": { nome: "Coca-Cola Lata", preco: 7.00 },
+    "produto-cocacola2L": { nome: "Coca-Cola 2L", preco: 14.00 },
+    "produto-poty2L": { nome: "Poty 2L", preco: 10.00 }
+};
 
-btnFinalizarPedidoWhatsApp.addEventListener('click', function (e) {
-  e.preventDefault();
-    // --- 1. Captura dados do cliente ---
-    let nomeCliente = document.querySelector('#nomeUsuario').value;
-    let telefoneCliente = document.querySelector('#cellUsuario').value;
-    let tipoPedido = document.querySelector('input[name="TipoPedido"]:checked').id;
+const catalogoAdicionais = {
+    "Catupiry": { preco: 5.00 },
+    "Ovo": { preco: 2.00 },
+    "Bacon": { preco: 4.00 },
+    "Mussarela": { preco: 4.00 }
+};
 
-    // --- 2. Monta array de itens do pedido ---
-    let itensPedido = itensCarrinho.map(item => ({
-        nome: item.produto.nome,
-        preco: item.produto.preco * item.quantidade,
-        quantidade: item.quantidade,
-        observacoes: item.observacao || ''
-    }));
 
-    // --- 3. Captura endereço se for entrega ---
-    const endereco = tipoPedido === 'Entrega' ? {
-        bairro: document.querySelector('#Bairro').value,
-        rua: document.querySelector('#Rua').value,
-        numero: document.querySelector('#NumeroCasa').value,
-        complemento: document.querySelector('#complemento').value
-    } : null;
 
-    // --- 4. Captura forma de pagamento e troco ---
-    const formaPagamentoSelecionada = document.querySelector('input[name="formaPagamento"]:checked');
-    let textoFormaPagamento = formaPagamentoSelecionada?.id || 'Não especificada';
-    let valorTroco = parseFloat(document.getElementById('inputTroco')?.value || 0);
-
-    // --- 5. Monta objeto completo para o backend ---
-    const pedidoParaBackend = {
-        cliente: {
-            nome: nomeCliente,
-            telefone: telefoneCliente,
-            tipo: tipoPedido === 'Entrega' ? 'Entrega' : 'Retirada',
-        },
-        endereco: endereco,
-        itens: itensPedido,
-        pagamento: textoFormaPagamento,
-        troco: valorTroco
-    };
-
-    // --- 6. Envia para o backend ---
-    fetch('https://arthurlanchesback.duckdns.org/api/pedido', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(pedidoParaBackend)
-    })
-    .then(res => res.text()) // pega como texto
-    .then(text => {
-        // tenta converter para JSON se possível
-        let data;
-        try {
-            data = JSON.parse(text);
-            console.log('Mensagem do backend:', data.mensagem);
-        } catch(e) {
-            console.warn('Resposta não é JSON:', text);
-        }
-
-        // --- 7. Monta mensagem para WhatsApp ---
-        let mensagemWhatsApp = '*-- NOVO PEDIDO - SANDUBA DO GAROTO --*\n\n';
-        mensagemWhatsApp += '*Dados do Cliente:*\n';
-        mensagemWhatsApp += `Nome: ${nomeCliente}\n`;
-        mensagemWhatsApp += `Telefone: ${telefoneCliente}\n`;
-        mensagemWhatsApp += `Tipo de Pedido: ${tipoPedido === 'Entrega' ? 'Entrega' : 'Retirada'}\n`;
-
-        if (tipoPedido === 'Entrega') {
-            mensagemWhatsApp += '\n*Endereço de Entrega:*\n';
-            mensagemWhatsApp += `Bairro: ${endereco.bairro}\n`;
-            mensagemWhatsApp += `Rua: ${endereco.rua}\n`;
-            mensagemWhatsApp += `Número: ${endereco.numero}\n`;
-            if (endereco.complemento) mensagemWhatsApp += `Complemento: ${endereco.complemento}\n`;
-        }
-
-        mensagemWhatsApp += '\n*Itens do Pedido:*\n';
-        let totalFinalParaWhatsApp = 0;
-        if (itensCarrinho.length > 0) {
-            itensCarrinho.forEach((item, index) => {
-                let linhaItem = `${index + 1}. ${item.quantidade}x ${item.produto.nome} (R$ ${(item.produto.preco * item.quantidade).toFixed(2).replace('.', ',')})`;
-                if (item.observacao && item.observacao.trim() !== '') linhaItem += `\n  - Observação: ${item.observacao}`;
-                mensagemWhatsApp += linhaItem + '\n';
-                totalFinalParaWhatsApp += item.produto.preco * item.quantidade;
-            });
+// Mostrar ou esconder input de troco
+const inputTroco = document.querySelector('#inputTroco');
+document.querySelectorAll('input[name="formaPagamento"]').forEach(radio => {
+    radio.addEventListener('change', () => {
+        if (radio.id === 'Dinheiro') {
+            inputTroco.style.display = 'block';
         } else {
-            mensagemWhatsApp += 'Nenhum item adicionado ao carrinho.\n';
+            inputTroco.style.display = 'none';
+            inputTroco.value = '';
         }
-
-        if (tipoPedido === 'Entrega') {
-            totalFinalParaWhatsApp += valorTaxaDeEntrega;
-            mensagemWhatsApp += `\nTaxa de Entrega: R$ ${valorTaxaDeEntrega.toFixed(2).replace('.', ',')}\n`;
-        }
-
-        mensagemWhatsApp += `\n*Total do Pedido: R$ ${totalFinalParaWhatsApp.toFixed(2).replace('.', ',')}*\n`;
-        mensagemWhatsApp += '\n*Informações de Pagamento:*\n';
-        mensagemWhatsApp += `Forma de Pagamento: ${textoFormaPagamento}\n`;
-
-        if (textoFormaPagamento === 'Dinheiro' && valorTroco > 0) {
-            mensagemWhatsApp += `: | Precisa de R$ ${valorTroco.toFixed(2).replace('.', ',')} de troco. \n`;
-        } else {
-            mensagemWhatsApp += 'Não precisa de troco.\n';
-        }
-
-        // --- 8. Envia para WhatsApp ---
-        const numeroWhatsApp = '5582999261614';
-        const linkWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagemWhatsApp)}`;
-        window.open(linkWhatsApp, '_blank');
-
-        // --- 9. Fecha modal e libera rolagem ---
-        document.querySelector('#ModalFazerPedido').style.display = 'none';
-        document.body.style.overflow = 'auto';
-    })
-    .catch(err => console.error('Erro ao enviar pedido:', err));
+    });
 });
 
+// BOTÃO DE FINALIZAR PEDIDO NO WHATSAPP
+const btnFinalizarPedidoWhatsApp = document.getElementById('Finalizar-Pedido');
 
+btnFinalizarPedidoWhatsApp.addEventListener('click', () => {
+    // --- 1. Dados do Cliente ---
+    const nomeCliente = document.querySelector('#nomeUsuario')?.value || 'Não informado';
+    const telefoneCliente = document.querySelector('#cellUsuario')?.value || 'Não informado';
+    const tipoPedido = document.querySelector('input[name="TipoPedido"]:checked')?.id || 'Não informado';
+    const bairro = document.querySelector('#Bairro')?.value || 'Não informado';
+    const rua = document.querySelector('#Rua')?.value || 'Não informado';
+    const numero = document.querySelector('#NumeroCasa')?.value || 'Não informado';
+    const complemento = document.querySelector('#complemento')?.value || '';
+
+    // --- 2. Forma de pagamento e troco ---
+    const formaPagamentoSelecionada = document.querySelector('input[name="formaPagamento"]:checked')?.id || 'Não informado';
+    let troco = '';
+    if (formaPagamentoSelecionada === 'Dinheiro') {
+        const valorTroco = document.querySelector('#inputTroco')?.value;
+        if (valorTroco && parseFloat(valorTroco) > 0) {
+            troco = ` | Troco para R$ ${parseFloat(valorTroco).toFixed(2).replace('.', ',')}`;
+        }
+    }
+    let formaPagamentoMensagem = formaPagamentoSelecionada;
+    if (troco) formaPagamentoMensagem += troco;
+
+    if (!itensCarrinho || itensCarrinho.length === 0) {
+        alert("Selecione pelo menos um produto!");
+        return;
+    }
+
+    // --- 3. Taxa de entrega ---
+    let taxaEntregaValor = precosEntrega[bairro] || 0;
+
+    // --- 4. Montar itens do pedido ---
+    let totalPedido = 0;
+
+    const itensPedido = itensCarrinho.map((item, index) => {
+        const precoBase = item.produto.preco * item.quantidade;
+
+        // Adicionais
+        let adicionaisTexto = '';
+        let precoAdicionais = 0;
+        if (item.adicionais && Object.keys(item.adicionais).length > 0) {
+            adicionaisTexto = Object.entries(item.adicionais)
+                .filter(([nome, qtd]) => qtd > 0)
+                .map(([nome, qtd]) => {
+                    const preco = catalogoAdicionais[nome]?.preco || 0;
+                    precoAdicionais += preco * qtd;
+                    return `${nome} x${qtd} (R$ ${preco.toFixed(2).replace('.', ',')})`;
+                })
+                .join(', ');
+            if (adicionaisTexto) adicionaisTexto = ` | Adicionais: ${adicionaisTexto}`;
+        }
+
+        // Bebidas
+        let bebidasTexto = '';
+        let precoBebidas = 0;
+        if (item.bebidas && Object.keys(item.bebidas).length > 0) {
+            bebidasTexto = Object.entries(item.bebidas)
+                .filter(([nome, qtd]) => qtd > 0)
+                .map(([nome, qtd]) => {
+                    const preco = catalogoProdutos[nome]?.preco || 0;
+                    precoBebidas += preco * qtd;
+                    return `${catalogoProdutos[nome]?.nome || nome} x${qtd} (R$ ${preco.toFixed(2).replace('.', ',')})`;
+                })
+                .join(', ');
+            if (bebidasTexto) bebidasTexto = ` | Bebidas: ${bebidasTexto}`;
+        }
+
+        const precoTotalItem = precoBase + precoAdicionais + precoBebidas;
+        totalPedido += precoTotalItem;
+
+        return `${index + 1}. ${item.quantidade}x ${item.produto.nome} (R$ ${precoBase.toFixed(2).replace('.', ',')})${adicionaisTexto}${bebidasTexto} | Total Item: R$ ${precoTotalItem.toFixed(2).replace('.', ',')}`;
+    }).join('\n');
+
+    // --- 5. Somar taxa de entrega no total ---
+    totalPedido += taxaEntregaValor;
+
+    // --- 6. Montar mensagem final ---
+    const mensagem = `*-- NOVO PEDIDO - AGUETONIS BURGUERS --*\n` +
+                     `*Dados do Cliente:*\n` +
+                     `Nome: ${nomeCliente}\n` +
+                     `Telefone: ${telefoneCliente}\n` +
+                     `Tipo de Pedido: ${tipoPedido}\n` +
+                     `*Endereço de Entrega:*\n` +
+                     `Bairro: ${bairro}\n` +
+                     `Rua: ${rua}\n` +
+                     `Número: ${numero}\n` +
+                     `Complemento: ${complemento}\n` +
+                     `*Itens do Pedido:*\n${itensPedido}\n` +
+                     `*Taxa de Entrega: R$ ${taxaEntregaValor.toFixed(2).replace('.', ',')}*\n` +
+                     `*Total do Pedido (Itens + Taxa): R$ ${totalPedido.toFixed(2).replace('.', ',')}*\n` +
+                     `*Forma de Pagamento:*\n${formaPagamentoMensagem}`;
+
+    // --- 7. Abrir WhatsApp ---
+    const numeroWhatsApp = '5582999261614';
+    const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
+    window.open(url, '_blank');
+});
 
 
 
