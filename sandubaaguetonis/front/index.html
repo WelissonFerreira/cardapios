@@ -538,7 +538,7 @@
 
     <!-- PRODUTO E MODAL - COCA-COLA 250ML -->
     <section class="item-pai">
-        <div class="card-pai" data-produto-id="produto-cocacolalata">
+        <div class="card-bebida" data-produto-id="produto-cocacolalata">
             <div class="card-image-bebidas">
                 <img class="fotobebidas"
                     src="imagens/bebidas/cocacola350ml.png">
@@ -564,7 +564,7 @@
 
     <!-- PRODUTO E MODAL - POTY 2L -->
     <section class="item-pai">
-        <div class="card-pai"  data-produto-id="produto-poty2L">
+        <div class="card-bebida"  data-produto-id="produto-poty2L">
             <div class="card-image-bebidas">
                 <img class="fotobebidas"
                     src="imagens/bebidas/potys2L.png">
@@ -586,7 +586,7 @@
 
     <!-- PRODUTO E MODAL - COCA-COLA 2L -->
     <section class="item-pai">
-        <div class="card-pai"  data-produto-id="produto-cocacola2L">
+        <div class="card-bebida"  data-produto-id="produto-cocacola2L">
             <div class="card-image-bebidas">
                 <img class="fotobebidas"
                     src="imagens/bebidas/cocacola2lTransparent.png">
@@ -604,7 +604,44 @@
         </div>
     </section>
 
+<!--================================PRÉ MODAL BEBIDAS==========================-->
 
+<div id="modal-bebida" class="modal-bebida" style="display: none;">
+    <div class="modal-content-bebida">
+        <span class="fechar-bebida">&times;</span>
+        
+        <div class="conteudo-modal-bebida">
+            <div class="imagem-modal-bebida">
+                <img id="imagem-modal" src="" alt="">
+            </div>
+
+            <div class="detalhes-modal-bebida">
+                <h3 id="nome-modal"></h3>
+                <p id="descricao-modal"></p>
+
+                <div class="preco-modal">
+                    <span id="preco-riscado-modal"></span>
+                    <span id="preco-normal-modal"></span>
+                </div>
+                
+                <div class="quantidade-modal">
+                    <button class="btn-diminuir-modal">-</button>
+                    <span id="quantidade-modal">1</span>
+                    <button class="btn-aumentar-modal">+</button>
+                </div>
+            </div>
+            
+        </div>
+        
+        <div class="adicionar-ao-carrinho-modal">
+            <button id="adicionar-bebida-btn">
+                Adicionar
+                <span id="preco-total-bebida"></span>
+            </button>
+        </div>
+
+    </div>
+</div>
 
 
 
@@ -688,18 +725,53 @@
                 <select name="Bairro" id="Bairro">
                     <optgroup label="Bairros">
                         <option value="Selecionar">Selecionar</option>
-                        <option value="Feitosa">Feitosa</option>
-                        <option value="Farol">Farol</option>
-                        <option value="Jacintinho">Jacintinho</option>
-                        <option value="Peixoto">Peixoto</option>
-                        <option value="Barro Duro">Barro Duro</option>
-                        <option value="Serraria">Serraria</option>
-                        <option value="Cruz das Almas">Cruz das Almas</option>
-                        <option value="Ponta Verde">Ponta Verde</option>
-                        <option value="Jatiúca">Jatiúca</option>
-                        <option value="Gruta">Gruta</option>
-                        <option value="Pajuçara">Pajuçara</option>
-                        <option value="Jaraguá">Jaraguá</option>
+                        <option value="Aeroporto">Aeroporto</option>
+                        <option value="Alto Sumaré">Alto Sumaré</option>
+                        <option value="Bairro - Mais Parque">Bairro - Mais Parque</option>
+                        <option value="Baroni">Baroni</option>
+                        <option value="Barretos 2">Barretos 2</option>
+                        <option value="Bom Jesus">Bom Jesus</option>
+                        <option value="Cecap">Cecap</option>
+                        <option value="Celina">Celina</option>
+                        <option value="Centro">Centro</option>
+                        <option value="Cristiano de Carvalho">Cristiano de Carvalho</option>
+                        <option value="Demais Bairros">Demais Bairros</option>
+                        <option value="Derby Club">Derby Club</option>
+                        <option value="Dr Paulo Prata">Dr Paulo Prata</option>
+                        <option value="Grande Horizonte">Grande Horizonte</option>
+                        <option value="Henriqueta">Henriqueta</option>
+                        <option value="Ibirapuera">Ibirapuera</option>
+                        <option value="Ide Daher">Ide Daher</option>
+                        <option value="Jardim Anastacia">Jardim Anastacia</option>
+                        <option value="Jardim California">Jardim California</option>
+                        <option value="Jardim dos Comerciarios">Jardim dos Comerciarios</option>
+                        <option value="Jardim dos Coqueiros">Jardim dos Coqueiros</option>
+                        <option value="Jardim Europa">Jardim Europa</option>
+                        <option value="Jardim Luiz Spina">Jardim Luiz Spina</option>
+                        <option value="Jardim Soares">Jardim Soares</option>
+                        <option value="Jardim Universitario">Jardim Universitario</option>
+                        <option value="Jockey Club">Jockey Club</option>
+                        <option value="Leda Amendola">Leda Amendola</option>
+                        <option value="Los Angeles">Los Angeles</option>
+                        <option value="Maria Caput">Maria Caput</option>
+                        <option value="Marilia">Marilia</option>
+                        <option value="Nadir Kenan">Nadir Kenan</option>
+                        <option value="Nova Barretos">Nova Barretos</option>
+                        <option value="Nova Barretos 2">Nova Barretos 2</option>
+                        <option value="Nova Barretos 3">Nova Barretos 3</option>
+                        <option value="Oriente">Oriente</option>
+                        <option value="Pereira">Pereira</option>
+                        <option value="Pimenta">Pimenta</option>
+                        <option value="Residencial Minerva">Residencial Minerva</option>
+                        <option value="Santa Cecilia">Santa Cecilia</option>
+                        <option value="Santa Izabel">Santa Izabel</option>
+                        <option value="Santa Rita">Santa Rita</option>
+                        <option value="Santana">Santana</option>
+                        <option value="São Francisco">São Francisco</option>
+                        <option value="São José">São José</option>
+                        <option value="Vida Nova">Vida Nova</option>
+                        <option value="Zequinha Amêndola">Zequinha Amêndola</option>
+
                     </optgroup>
                 </select>
                 <span id="erroBairro" class="mensagem-erro" style="display: none;">* Necessário Preencher</span>

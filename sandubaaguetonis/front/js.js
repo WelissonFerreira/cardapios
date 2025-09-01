@@ -472,7 +472,7 @@ let catalogoDeProdutos = {
         nome: "Batata Frita 800g",
         precoRiscado: 40.00,
         preco: 36.00,
-        descricao: "X-Coração naquele padrão",
+        descricao: "Recheada de pura perdição!",
         ingredientes: ["800g de pura perdição: batata crocante", "Catupiry cremoso", "Bacon crocante", "Mussarela derretida"],
         imagem: "imagens/lanches/porcoesmelhoradas.png",
         adicionais: [
@@ -542,18 +542,52 @@ let catalogoDeProdutos = {
 }
 
 const precosEntrega = {
-  "Feitosa": 3,
-  "Farol": 8,
-  "Jacintinho": 3,
-  "Peixoto": 3,
-  "Barro Duro": 4,
-  "Serraria": 8,
-  "Cruz das Almas": 6,
-  "Ponta Verde": 10,
-  "Jatiúca": 9,
-  "Gruta": 9,
-  "Pajuçara": 12,
-  "Jaraguá": 13
+    "Aeroporto": 10,
+    "Alto Sumaré": 5,
+    "Bairro - Mais Parque": 8,
+    "Baroni": 8,
+    "Barretos 2": 6,
+    "Bom Jesus": 5,
+    "Cecap": 8,
+    "Celina": 7,
+    "Centro": 7,
+    "Cristiano de Carvalho": 5,
+    "Demais Bairros": 9,
+    "Derby Club": 6,
+    "Dr Paulo Prata": 10,
+    "Grande Horizonte": 8,
+    "Henriqueta": 5,
+    "Ibirapuera": 8,
+    "Ide Daher": 5,
+    "Jardim Anastacia": 10,
+    "Jardim California": 5,
+    "Jardim dos Comerciarios": 6,
+    "Jardim dos Coqueiros": 6,
+    "Jardim Europa": 8,
+    "Jardim Luiz Spina": 10,
+    "Jardim Soares": 9,
+    "Jardim Universitario": 9,
+    "Jockey Club": 6,
+    "Leda Amendola": 6,
+    "Los Angeles": 8,
+    "Maria Caput": 6,
+    "Marilia": 7,
+    "Nadir Kenan": 9,
+    "Nova Barretos": 9,
+    "Nova Barretos 2": 9,
+    "Nova Barretos 3": 9,
+    "Oriente": 6,
+    "Pereira": 8,
+    "Pimenta": 5,
+    "Residencial Minerva": 6,
+    "Santa Cecilia": 10,
+    "Santa Izabel": 5,
+    "Santa Rita": 6,
+    "Santana": 5,
+    "São Francisco": 10,
+    "São José": 5,
+    "Vida Nova": 10,
+    "Zequinha Amêndola": 5
 }
 
 
@@ -607,9 +641,10 @@ function adicionarAoCarrinho(produto, quantidade, adicionais, bebidas) {
     // Procura por um item existente no carrinho com as mesmas características
     let itemExistente = itensCarrinho.find(item =>
     item.produto.nome === produto.nome &&
-    saoObjetosIguais(item.adicionais, adicionaisSelecionados) &&
-    saoObjetosIguais(item.bebidas, bebidasSelecionadas)
+    saoObjetosIguais(item.adicionais, adicionais) &&   // ✅ usa o parâmetro
+    saoObjetosIguais(item.bebidas, bebidas)            // ✅ usa o parâmetro
 );
+
 
 
     if (itemExistente) {
@@ -671,7 +706,7 @@ abrirCarrinho.addEventListener('click', function(event) {
 /* MODAL PRÉ-CARRINHO */
 
 // ABRIR MODAL AO CLICAR NO CARD
-const CardProdutos = document.querySelectorAll('.card-pai')
+const CardProdutos = document.querySelectorAll('.card-destaque, .card-pai')
 const ModalPreCarrinho = document.getElementById('ModalPreCarrinho')
 const conteudoModal = document.querySelector('.ContModalPreCarrinho')
 
@@ -845,36 +880,45 @@ CardProdutos.forEach(cardAtual => {
                 let diminuirBebidas = document.createElement('button');
                 diminuirBebidas.classList.add('diminuirBebidas');
                 diminuirBebidas.textContent = `-`;
+                diminuirBebidas.dataset.id = produtoId;
                 divBotoesBebidas.appendChild(diminuirBebidas);
+                
 
                 let inputBebidas = document.createElement('input');
                 inputBebidas.classList.add('inputBebidas');
                 inputBebidas.value = 0;
+                inputBebidas.dataset.id = produtoId;
                 divBotoesBebidas.appendChild(inputBebidas);
+
                 
                 let aumentarBebidas = document.createElement('button');
                 aumentarBebidas.classList.add('aumentarBebidas');
                 aumentarBebidas.textContent = `+`;
+                aumentarBebidas.dataset.id = produtoId;
                 divBotoesBebidas.appendChild(aumentarBebidas);
+
 
                 // LÓGICA DE OCULTAR E EXIBIR + EVENTOS DAS BEBIDAS
                 inputBebidas.style.display = 'none';
                 diminuirBebidas.style.display = 'none';
 
-                aumentarBebidas.addEventListener('click', () => {
+                aumentarBebidas.addEventListener('click', (event) => {
+                    const idProduto = event.currentTarget.dataset.id; // pega o data-id do botão clicado
                     inputBebidas.style.display = 'block';
                     diminuirBebidas.style.display = 'block';
                     inputBebidas.value = parseInt(inputBebidas.value) + 1;
-                    bebidasSelecionadas[produtoId] = parseInt(inputBebidas.value);
+                    bebidasSelecionadas[idProduto] = parseInt(inputBebidas.value);
                     atualizarPreCarrinho(inputQuantidadePre, produtoSelecionado, precoPre, precoRiscadoPre, adicionaisSelecionados, bebidasSelecionadas);
                     atualizarContadorCarrinho()
                 });
 
-                diminuirBebidas.addEventListener('click', () => {
+                diminuirBebidas.addEventListener('click', (event) => {
+                    const idProduto = event.currentTarget.dataset.id;
+                    bebidasSelecionadas[idProduto] = parseInt(inputBebidas.value);
                     if (parseInt(inputBebidas.value) > 0) {
                         inputBebidas.value = parseInt(inputBebidas.value) - 1;
                     }
-                    bebidasSelecionadas[produtoId] = parseInt(inputBebidas.value);
+             
                     atualizarPreCarrinho(inputQuantidadePre, produtoSelecionado, precoPre, precoRiscadoPre, adicionaisSelecionados, bebidasSelecionadas);
                     atualizarContadorCarrinho()
                     if (parseInt(inputBebidas.value) === 0) {
@@ -1104,7 +1148,7 @@ function atualizarPreCarrinho(inputQuantidadePre, produtoSelecionado, precoPre, 
 
 
 
-    // FUNÇÃO EXIBIR ITENS DO CARRINHO
+   // FUNÇÃO EXIBIR ITENS DO CARRINHO
 let itensDoCarrinhoDiv = document.querySelector('#itens-do-carrinho');
 
 function mostrarItensDoCarrinho() {
@@ -1131,7 +1175,18 @@ function mostrarItensDoCarrinho() {
 
             let imagemProduto = document.createElement('img');
             imagemProduto.src = `${item.produto.imagem}`;
-            imagemProduto.classList.add('imagemProduto');
+            
+             // --- CÓDIGO ALTERADO AQUI ---
+            // Verifica o tipo de produto e adiciona a classe correta
+            if (item.produto.tipo === 'lanche') {
+                imagemProduto.classList.add('imagemProduto');
+    } else if (item.produto.tipo === 'bebida') {
+                imagemProduto.classList.add('imagemBebidaCarrinho');
+    } else if (item.produto.tipo === 'porcao') {
+                imagemProduto.classList.add('imagemPorcaoCarrinho');
+    }
+
+            // -----------------------------
 
             let divImagem = document.createElement('div');
             divImagem.classList.add('divImagem');
@@ -1142,11 +1197,9 @@ function mostrarItensDoCarrinho() {
 
             divProdutoDescricao.appendChild(h3NomeProduto);
             divProdutoDescricao.appendChild(descricaoProduto);
-            
-            // NOVO: Adiciona adicionais e bebidas ao HTML
-            const adicionaisComprados = Object.keys(item.adicionais).filter(key => item.adicionais[key] > 0);
-            const bebidasCompradas = Object.keys(item.bebidas).filter(key => item.bebidas[key] > 0);
 
+            // Adiciona adicionais ao HTML (se existirem)
+            const adicionaisComprados = Object.keys(item.adicionais).filter(key => item.adicionais[key] > 0);
             if (adicionaisComprados.length > 0) {
                 let divAdicionaisItem = document.createElement('div');
                 divAdicionaisItem.classList.add('adicionais-item-carrinho');
@@ -1155,19 +1208,8 @@ function mostrarItensDoCarrinho() {
                 divAdicionaisItem.appendChild(pAdicionais);
                 divProdutoDescricao.appendChild(divAdicionaisItem);
             }
-            
-            if (bebidasCompradas.length > 0) {
-                let divBebidasItem = document.createElement('div');
-                divBebidasItem.classList.add('bebidas-item-carrinho');
-                let pBebidas = document.createElement('p');
-                pBebidas.textContent = 'Bebidas: ' + bebidasCompradas.map(id => {
-                    const bebida = catalogoDeProdutos[id];
-                    return ` ${item.bebidas[id]}x ${bebida.nome}`;
-                }).join(', ');
-                divBebidasItem.appendChild(pBebidas);
-                divProdutoDescricao.appendChild(divBebidasItem);
-            }
 
+            // Lógica para lanches, que inclui o campo de observação
             if (item.produto.tipo === 'lanche') {
                 let ingredientesProdutos = document.createElement('p');
                 ingredientesProdutos.textContent = `Ingredientes: ${item.produto.ingredientes.join(', ')}`;
@@ -1192,6 +1234,43 @@ function mostrarItensDoCarrinho() {
                 divObs.appendChild(labelObs);
                 divObs.appendChild(inputObs);
                 divProdutoDescricao.appendChild(divObs);
+            }
+
+            // Lógica para adicionar as bebidas
+            const bebidasCompradas = Object.keys(item.bebidas).filter(key => item.bebidas[key] > 0);
+            if (bebidasCompradas.length > 0) {
+                let divBebidasItem = document.createElement('div');
+                divBebidasItem.classList.add('divBebidasItem');
+
+                bebidasCompradas.forEach(id => {
+                    const bebida = catalogoDeProdutos[id];
+                    
+                    // Contêiner para a imagem e o nome da bebida
+                    let divBebidaInfo = document.createElement('div');
+                    divBebidaInfo.classList.add('divBebidaInfo');
+
+                    // Cria e adiciona a imagem da bebida
+                    let imagemBebida = document.createElement('img');
+                    imagemBebida.src = `${bebida.imagem}`;
+                    imagemBebida.classList.add('imagemBebidaCarrinho');
+                    divBebidaInfo.appendChild(imagemBebida);
+
+                    // Cria e adiciona o texto da bebida (quantidade e nome)
+                    let pBebida = document.createElement('p');
+                    pBebida.textContent = `${item.bebidas[id]}x ${bebida.nome}`;
+                    divBebidaInfo.appendChild(pBebida);
+
+                    // Adiciona o preço da bebida
+                    let spanPrecoBebida = document.createElement('span');
+                    spanPrecoBebida.textContent = `R$ ${bebida.preco.toFixed(2).replace('.',',')}`;
+                    spanPrecoBebida.classList.add('precoCarrinhoBebida');
+                    divBebidaInfo.appendChild(spanPrecoBebida);
+
+                    // Adiciona o contêiner de info da bebida ao divBebidasItem
+                    divBebidasItem.appendChild(divBebidaInfo);
+                });
+                
+                divProdutoDescricao.appendChild(divBebidasItem);
             }
 
             let divControleDeQuantidade = document.createElement('div');
@@ -1224,6 +1303,7 @@ function mostrarItensDoCarrinho() {
                     item.quantidade--;
                 }
                 atualizarCarrinho();
+                atualizarContadorCarrinho()
             });
 
             let botaoRemover = document.createElement('button');
@@ -1234,6 +1314,7 @@ function mostrarItensDoCarrinho() {
                 let encontrarItem = itensCarrinho.indexOf(item);
                 itensCarrinho.splice(encontrarItem, 1);
                 atualizarCarrinho();
+                atualizarContadorCarrinho()
             });
 
             divControleBotoes.appendChild(botaoAumentar);
@@ -1260,8 +1341,6 @@ function mostrarItensDoCarrinho() {
 
 
 
-
-
 // ==========================================================================================
 
 // ==========================================================================================
@@ -1279,6 +1358,7 @@ function atualizarCarrinho() {
     itensCarrinho.forEach(function(item) {
         // Soma a quantidade de todos os produtos para o contador do carrinho
         totalItensCarrinho += item.quantidade;
+
         
         // Calcula o preço do item principal
         let precoItem = item.produto.preco * item.quantidade;
@@ -2028,4 +2108,90 @@ if (textoFormaPagamento === 'Dinheiro' && valorTroco > 0) {
         
 
 
+//======================== MODAL DE BEBIDAS ========================
 
+// Elementos do modal
+const modalBebida = document.getElementById('modal-bebida');
+const fecharBebida = document.querySelector('.fechar-bebida');
+
+const imagemModalBebida = document.querySelector('#modal-bebida #imagem-modal');
+const nomeModalBebida = document.querySelector('#modal-bebida #nome-modal');
+const descricaoModalBebida = document.querySelector('#modal-bebida #descricao-modal');
+const precoRiscadoBebida = document.querySelector('#modal-bebida #preco-riscado-modal');
+const precoNormalBebida = document.querySelector('#modal-bebida #preco-normal-modal');
+const quantidadeModalBebida = document.querySelector('#modal-bebida #quantidade-modal');
+const btnDiminuirBebida = document.querySelector('#modal-bebida .btn-diminuir-modal');
+const btnAumentarBebida = document.querySelector('#modal-bebida .btn-aumentar-modal');
+const btnAdicionarBebida = document.querySelector('#adicionar-bebida-btn');
+const precoTotalBebida = document.querySelector('#preco-total-bebida');
+
+let quantidadeAtualBebida = 1;
+
+// Função para abrir o modal de bebida
+function abrirModalBebida(produtoId) {
+    const produto = catalogoDeProdutos[produtoId];
+    if (!produto) {
+        console.error('Produto não encontrado:', produtoId);
+        return;
+    }
+
+    // Reset quantidade do modal
+    quantidadeAtualBebida = 1;
+
+    // Preenche o modal
+    imagemModalBebida.src = produto.imagem;
+    nomeModalBebida.textContent = produto.nome;
+    descricaoModalBebida.textContent = produto.descricao;
+    precoRiscadoBebida.textContent = produto.precoAntigo ? `R$ ${produto.precoAntigo.toFixed(2).replace('.', ',')}` : '';
+    precoNormalBebida.textContent = `R$ ${produto.preco.toFixed(2).replace('.', ',')}`;
+    quantidadeModalBebida.textContent = quantidadeAtualBebida;
+    precoTotalBebida.textContent = `R$ ${produto.preco.toFixed(2).replace('.', ',')}`;
+
+    modalBebida.style.display = 'flex';
+
+    // Botão aumentar
+    btnAumentarBebida.onclick = function() {
+        quantidadeAtualBebida++;
+        quantidadeModalBebida.textContent = quantidadeAtualBebida;
+        precoTotalBebida.textContent = `R$ ${(produto.preco * quantidadeAtualBebida).toFixed(2).replace('.', ',')}`;
+    };
+
+    // Botão diminuir
+    btnDiminuirBebida.onclick = function() {
+        if (quantidadeAtualBebida > 1) {
+            quantidadeAtualBebida--;
+            quantidadeModalBebida.textContent = quantidadeAtualBebida;
+            precoTotalBebida.textContent = `R$ ${(produto.preco * quantidadeAtualBebida).toFixed(2).replace('.', ',')}`;
+        }
+    };
+
+    // Limpa qualquer onclick antigo do botão
+    btnAdicionarBebida.onclick = null;
+
+    // Adicionar ao carrinho
+    btnAdicionarBebida.onclick = function() {
+        // Cria uma cópia do produto para evitar referência compartilhada
+        const novoItem = {
+            produto: { ...produto },
+            quantidade: quantidadeAtualBebida,
+            adicionais: {},
+            observacao: '',
+            bebidas: {}
+        };
+
+        itensCarrinho.push(novoItem);
+
+        atualizarCarrinho(); 
+        atualizarContadorCarrinho();
+
+        modalBebida.style.display = 'none';
+    };
+}
+
+// Eventos para abrir modal de bebida
+document.querySelectorAll('.card-bebida').forEach(card => {
+    card.addEventListener('click', function() {
+        const produtoId = this.getAttribute('data-produto-id');
+        abrirModalBebida(produtoId);
+    });
+});

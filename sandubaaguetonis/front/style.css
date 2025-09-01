@@ -445,6 +445,14 @@ main {
     width: 100%;
 }
 
+.card-bebida {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    padding-left: 7px;
+    width: 100%;
+}
+
 
 
 
@@ -1088,10 +1096,48 @@ footer {
 
 
 .imagemProduto {
-    width: 90px;
-    height: 90px;
+    width: 120px;
+    height: 100px;
     border-radius: 10px;
     margin-top: 10px;
+}
+
+.imagemProdutoBebida {
+    width: 50px;
+    height: 100px;
+}
+
+.imagemPorcaoCarrinho {
+    width: 100px;   /* ou o tamanho que quiser */
+    height: 100px;  /* altura fixa para não deformar */
+    object-fit: cover;  /* mantém proporção da imagem */
+    border-radius: 10px;
+}
+
+
+.divBebidasItem {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+.divBebidaInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Exemplo de estilo para a imagem da bebida no carrinho */
+.imagemBebidaCarrinho {
+
+    height: 100px;
+    object-fit: cover;
+    margin-right: 10px; /* Espaçamento entre a imagem e o texto */
+    border-radius: 5px; /* Bordas arredondadas, se desejar */
 }
 
 
@@ -1157,6 +1203,7 @@ footer {
     font-optical-sizing: auto;
     font-style: normal;
     font-weight: 400;
+    margin: auto;
 
 }
 
@@ -1743,12 +1790,17 @@ footer {
 }
 
 .imagemPedidoFinal {
-    width: 100px;
+    
     height: 100px;
     border-radius: 10px;
 }
 
 /* FORMULÁRIO */
+
+.CformEntrega, #formEntrega {
+    overflow: visible;
+}
+
 
 .CformEntrega {
 
@@ -1844,6 +1896,11 @@ footer {
     border: none;
     
     
+}
+
+#Bairro {
+    max-height: 200px; /* altura máxima do dropdown */
+    overflow-y: auto;  /* ativa a rolagem vertical */
 }
 
 #nome, #cell, #Bairro, #Rua, #Numero, #complemento {
@@ -2240,6 +2297,149 @@ footer {
 
 
  /* ======================================= */
+
+        /*PRÉ-MODAL BEBIDAS */
+
+        /* Estilos para o Modal de Bebidas */
+.modal-bebida {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content-bebida {
+    background-color: #fefefe;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    text-align: center;
+}
+
+.fechar-bebida {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.fechar-bebida:hover,
+.fechar-bebida:focus {
+    color: black;
+    text-decoration: none;
+}
+
+.conteudo-modal-bebida {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.imagem-modal-bebida img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.detalhes-modal-bebida {
+    text-align: left;
+    width: 100%;
+}
+
+.detalhes-modal-bebida h3 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #333;
+}
+
+.detalhes-modal-bebida p {
+    margin: 5px 0;
+    color: #666;
+}
+
+.preco-modal {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.preco-modal #preco-riscado-modal {
+    color: #888;
+    text-decoration: line-through;
+}
+
+.preco-modal #preco-normal-modal {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #e67e22;
+}
+
+.quantidade-modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.quantidade-modal button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+}
+
+.quantidade-modal button:hover {
+    background-color: #d35400;
+}
+
+.adicionar-ao-carrinho-modal {
+    margin-top: 20px;
+}
+
+#adicionar-bebida-btn {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-size: 1.2em;
+    cursor: pointer;
+    width: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+#adicionar-bebida-btn:hover {
+    background-color: #229954;
+}
+
+#preco-total-bebida {
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+
+
+
 
  /* ======================================= */
 /* Responsividade para telas pequenas */
