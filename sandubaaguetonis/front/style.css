@@ -241,7 +241,7 @@ main {
 .divpmenu {
     display: block;
     list-style: none;
-    
+    margin-bottom: 20px;
     
 }
 
@@ -915,8 +915,8 @@ footer {
     border-radius: 2px;
     margin: 2%;
     padding: 3px 5px;
-    left: 0%;
-    top: 23%;
+    left: 35%;
+    top: 85%;
 }
 
 
@@ -2218,8 +2218,10 @@ footer {
     align-items: center; /* Alinha verticalmente no centro */
     padding: 10px 0; /* Ajuste o espaçamento conforme necessário */
     width: 100%; /* Garante que ocupe toda a largura */
-    /* Talvez um background-color para destacar como na imagem */
-    /* position: sticky; bottom: 0; se quiser que fique fixo no fundo */
+    position: sticky;
+    bottom: 0;
+    background: white; /* mantém visível */
+    z-index: 10; /* acima dos itens roláveis */
 }
 
 .divBotoesAcoes {
