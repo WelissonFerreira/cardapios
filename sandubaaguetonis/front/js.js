@@ -733,11 +733,9 @@ CardProdutos.forEach(cardAtual => {
         // EVENTO DE FECHAR BOTÃO
         botaoFecharPre.addEventListener('click', () => {
             ModalPreCarrinho.style.display = 'none';
-            document.body.style.overflow = 'auto'
-            document.body.style.position = '';
-            document.body.style.top = '';
-            document.body.style.width = '';
-             window.scrollTo(0, scrollPosition);
+            document.body.style.overflow = 'auto'; // libera o scroll de fundo
+
+
 
 
         });
