@@ -2091,7 +2091,7 @@ btnFinalizarPedidoWhatsApp.addEventListener('click', () => {
     let data = new Date()
     let hora = data.getHours()
     let dia = data.getDay()
-    //let hora = 10
+    //let hora = 18
 
     function AbertoFechado() {
 
