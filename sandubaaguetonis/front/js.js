@@ -2072,7 +2072,7 @@ btnFinalizarPedidoWhatsApp.addEventListener('click', () => {
                     `*Forma de Pagamento:*\n${formaPagamentoMensagem}`;
 
     // --- 7. Abrir WhatsApp ---
-    const numeroWhatsApp = '5582999261614';
+    const numeroWhatsApp = '5517981321172';
     const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
     window.open(url, '_blank');
 
