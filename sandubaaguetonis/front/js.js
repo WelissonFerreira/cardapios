@@ -2230,7 +2230,7 @@ btnFinalizarPedidoWhatsApp.addEventListener('click', () => {
           } */
 
           // Como abre todo santo dia, fizemos só a condição do horário.
-          if (hora >= 18  && hora < 24 ) {
+          if (hora >= 19  && hora < 24 ) {
             return true
         } else {
             return false
@@ -2274,7 +2274,7 @@ btnFinalizarPedidoWhatsApp.addEventListener('click', () => {
             openClose.appendChild(divFuncionamento)
             
             let p3 = document.createElement('p')
-            p3.textContent = '18:00 - 23:59'
+            p3.textContent = '19:00 - 23:59'
             p3.classList.add('msgfuncionamento')
             divFuncionamento.appendChild(p3)
 
