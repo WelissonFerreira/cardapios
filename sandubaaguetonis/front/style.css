@@ -89,7 +89,7 @@ main {
 
 
 .bannermenu {
-    background-image: url(imagens/geral/bannerAguetonis.png);
+    background-image: url(imagens/geral/bannerNovo.jpeg);
     background-size: cover;
     background-position: center;
     height: 200px;
@@ -195,6 +195,18 @@ main {
     font-style: normal;
     font-size: 0.7rem;
     cursor: pointer;
+}
+
+.novoP {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 0.8rem;
+    line-height: 1.2;
+    color: white;
+    border-radius: 3px;
+    cursor: pointer;
+    text-shadow: 2px 2px 2px #091921;
+    letter-spacing: 2px;
 }
 
 
@@ -954,7 +966,7 @@ footer {
     margin: 2%;
     padding: 3px 5px;
     left: 35%;
-    top: 80%;
+    top: 85%;
 }
 
 
@@ -1478,11 +1490,6 @@ footer {
     font-style: normal;
 }
 
-.pSugestao {
-    font-family: "Quicksand", sans-serif;
-    font-size: 0.8rem;
-    font-style: normal;
-}
 
 .adicionar-bebida {
     font-family: "Quicksand", sans-serif;
@@ -1986,7 +1993,7 @@ footer {
     position: relative;
     z-index: 1;
     width: 100vw;      
-    height: 30vh;     
+    height: 45vh;    
     overflow: hidden;  
     display: flex;
     justify-content: center;
@@ -2039,6 +2046,13 @@ footer {
     
 }
 
+.ingredientesPre {
+    font-family: var(--body-font); /* usa a fonte definida no :root */
+    font-size: 0.9rem;
+    letter-spacing: 0.1rem;
+    
+}
+
 .close-button-precarrinho {
     background-color: red;
 }
@@ -2065,13 +2079,14 @@ footer {
 }
 
 .h4SugestaoBebidas {
-    font-family: "Rubik", sans-serif;
-    font-weight: bold;
-    font-size: 0.9rem;
+    font-family: var(--title-font);
+    font-weight: 700;
+    font-size: var(--title-size);
+    line-height: 1.2;
+    letter-spacing: 0.2px;
 }
-.pSugestao {
+.pSugestao, .txtAdicional {
     font-family: "Rubik", sans-serif;
-    font-weight: bold;
     font-size: 0.7rem;
 }
 
@@ -2116,7 +2131,22 @@ footer {
     text-decoration: line-through;
 }
 
-.precoBebida, .precoAdicional {
+.nomeAdicional {
+    font-family: var(--title-font);
+    font-weight: 700;
+    font-size: 0.8rem;
+    line-height: 1.2;
+    letter-spacing: 0.2px;
+}
+
+.precoAdicional {
+    font-family: var(--title-font);
+    font-size: 0.8rem;
+    line-height: 1.2;
+    letter-spacing: 0.2px;
+}
+
+.precoBebida {
     font-size: 0.8rem;
     font-family: "Rubik", sans-serif;
     font-weight: bold;
@@ -2366,13 +2396,7 @@ footer {
     letter-spacing: 0.2px;
 }
 
-.nomeAdiciona, .precoAdicional {
-    font-family: var(--title-font);
-    font-weight: 700;
-    font-size: 0.9rem;
-    line-height: 1.2;
-    letter-spacing: 0.2px;
-}
+
 
 
 

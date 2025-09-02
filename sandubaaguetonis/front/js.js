@@ -6,11 +6,11 @@ let catalogoDeProdutos = {
         preco: 16.00,
         descricao: "Um Smash Burger único: suculento, crocante e irresistível!",
         ingredientes: [
-            "Pão Brioche",
-            "Maionese da Casa",
-            "Smash Burguer 100g",
-            "Mussarela",
-            "Cebola Roxa"
+            "Pão Brioche  ",
+            "Maionese da Casa  ",
+            "Smash Burguer 100g  ",
+            "Mussarela  ",
+            "Cebola Roxa  "
         ],
         imagem: "imagens/lanches/AguetonisSmashAlternativo.png",
         adicionais: [
@@ -53,7 +53,7 @@ let catalogoDeProdutos = {
         precoRiscado: 28.00,
         preco: 24.00,
         descricao: "Esse é mais que um burger, uma experiência crocante e irresistível!",
-        ingredientes: ["Pão Brioche", "Maionese da Casa", "Hambúrguer 150g", "Mussarela", "Ovo", "Salsicha", "Bacon", "Alface", "Tomate", "Cebola Roxa"],
+        ingredientes: ["Pão Brioche" , "Maionese da Casa" , "Hambúrguer 150g" , "Mussarela" , "Ovo" , "Salsicha" , "Bacon" , "Alface" , "Tomate" , "Cebola Roxa"],
         imagem: "imagens/lanches/AnguetonisburguerAlternativo.png",
         adicionais: [
     {
@@ -95,7 +95,7 @@ let catalogoDeProdutos = {
         precoRiscado: 36.00,
         preco: 32.00,
         descricao: "Se é pra matar a fome, que seja com Aguetoni's TUDO",
-        ingredientes: ["Pão Brioche", "2x Hambúrguer 150g", "2x Mussarela", "Bacon em Dobro", "Alface", "Tomate", "Cebola Roxa"],
+        ingredientes: ["Pão Brioche " , "2x Hambúrguer 150g " , "2x Mussarela " , "Bacon em Dobro " , "Alface " , "Tomate " , "Cebola Roxa"],
         imagem: "imagens/lanches/smashTudoalternativa1.png",
         adicionais: [
     {
@@ -223,6 +223,47 @@ let catalogoDeProdutos = {
         descricao: "Crocante, temperado e no ponto: esse é o AGUETONI’S FRANGO",
         ingredientes: ["Pão Brioche", "Maionese da Casa", "Filé de Frango", "Mussarela", "Bacon", "Alface", "Tomate", "Cebola Roxa"],
         imagem: "imagens/lanches/AguetonisFrangoMelhorado.png",
+        adicionais: [
+    {
+      nome: 'Catupiry',
+      preco: 6.00,
+    },
+    {
+      nome: 'Ovo',
+      preco: 2.00,
+    },
+    {
+      nome: 'Mussarela',
+      preco: 4.00,
+    },
+    {
+      nome: 'Bacon',
+      preco: 5.00,
+    },
+    {
+      nome: 'Cheddar',
+      preco: 5.00,
+    },
+    {
+      nome: 'Hambúrguer 150g',
+      preco: 8.00,
+    },
+    {
+      nome: 'Alho Frito',
+      preco: 2.50,
+    }
+      
+        ]
+    },
+
+    "produto-aguetonis-supremo": {
+        tipo: "lanche",
+        nome: "AGUETONI'S FRANGO",
+        precoRiscado: 32.00,
+        preco: 27.00,
+        descricao: "Crocante, temperado e no ponto: esse é o AGUETONI’S FRANGO",
+        ingredientes: ["Pão Brioche", "Maionese da Casa", "Bacon", "3x Smash Burguer 90g", "3x Fatias de Chedar", "Cebola Roxa"],
+        imagem: "imagens/lanches/AguetonisSupremoAtt.png",
         adicionais: [
     {
       nome: 'Catupiry',
@@ -883,6 +924,11 @@ CardProdutos.forEach(cardAtual => {
         descricaoPre.textContent = `${produtoSelecionado.descricao}`;
         descricaoPre.classList.add('descricaoPre');
         divConteudoPre.appendChild(descricaoPre);
+
+        let ingredientesPre = document.createElement('p')
+        ingredientesPre.classList.add('ingredientesPre')
+        ingredientesPre.textContent = `${produtoSelecionado.ingredientes}`
+        divConteudoPre.appendChild(ingredientesPre)
 
         let divPrecos = document.createElement('div');
         divPrecos.classList.add('divPrecos');
@@ -2011,19 +2057,19 @@ btnFinalizarPedidoWhatsApp.addEventListener('click', () => {
 
     // --- 6. Montar mensagem final ---
     const mensagem = `*-- NOVO PEDIDO - AGUETONIS BURGUERS --*\n` +
-                     `*Dados do Cliente:*\n` +
-                     `Nome: ${nomeCliente}\n` +
-                     `Telefone: ${telefoneCliente}\n` +
-                     `Tipo de Pedido: ${tipoPedido}\n` +
-                     `*Endereço de Entrega:*\n` +
-                     `Bairro: ${bairro}\n` +
-                     `Rua: ${rua}\n` +
-                     `Número: ${numero}\n` +
-                     `Complemento: ${complemento}\n` +
-                     `*Itens do Pedido:*\n${itensPedido}\n` +
-                     `*Taxa de Entrega: R$ ${taxaEntregaValor.toFixed(2).replace('.', ',')}*\n` +
-                     `*Total do Pedido (Itens + Taxa): R$ ${totalPedido.toFixed(2).replace('.', ',')}*\n` +
-                     `*Forma de Pagamento:*\n${formaPagamentoMensagem}`;
+                    `*Dados do Cliente:*\n` +
+                    `Nome: ${nomeCliente}\n` +
+                    `Telefone: ${telefoneCliente}\n` +
+                    `Tipo de Pedido: ${tipoPedido}\n` +
+                    `*Endereço de Entrega:*\n` +
+                    `Bairro: ${bairro}\n` +
+                    `Rua: ${rua}\n` +
+                    `Número: ${numero}\n` +
+                    `Complemento: ${complemento}\n` +
+                    `*Itens do Pedido:*\n${itensPedido}\n` +
+                    `*Taxa de Entrega: R$ ${taxaEntregaValor.toFixed(2).replace('.', ',')}*\n` +
+                    `*Total do Pedido (Itens + Taxa): R$ ${totalPedido.toFixed(2).replace('.', ',')}*\n` +
+                    `*Forma de Pagamento:*\n${formaPagamentoMensagem}`;
 
     // --- 7. Abrir WhatsApp ---
     const numeroWhatsApp = '5582999261614';
@@ -2088,6 +2134,7 @@ btnFinalizarPedidoWhatsApp.addEventListener('click', () => {
 
             let novoP = document.createElement('p')
             novoP.textContent = 'Estamos funcionando!'
+            novoP.classList.add('novoP')
             openClose.appendChild(novoP)
 
 
@@ -2331,3 +2378,12 @@ document.querySelectorAll('.card-bebida').forEach(card => {
         abrirModalBebida(produtoId);
     });
 });
+
+
+let btnfecharModalBebidas = document.querySelector('.fechar-bebida')
+
+btnfecharModalBebidas.addEventListener('click', ()  => {
+
+  modalBebida.style.display = 'none';
+
+})
