@@ -2565,21 +2565,6 @@ footer {
 
 
 
-.msgAdicionado {
-    position: absolute;
-    bottom: 120%;
-    left: 25%;
-    transform: translateX(-50%); /* Ajusta para centralizar de fato */
-    opacity: 0; /* Começa invisível */
-    transition: opacity 0.5s ease-in-out; /* Adiciona uma transição suave */
-    pointer-events: none; /* Garante que a mensagem não interfere com cliques */
-    z-index: 1000; /* Garante que a mensagem fique acima de outros elementos */
-    font-family: "Quicksand", sans-serif;
-    font-size: 0.6rem;
-    color: black; /* Escolha uma cor para a mensagem */
-    /* Outros estilos, como background, padding, etc. */
-
-    }
 
     #menu-opcoes {
         display: flex;
@@ -2647,9 +2632,7 @@ footer {
     .msgfuncionamento {
         width: 80px;
     }
-    .msgverhorarios {
-        width: 150px;
-    }
+
 
 }
 
