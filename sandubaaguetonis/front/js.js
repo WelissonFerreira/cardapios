@@ -258,10 +258,10 @@ let catalogoDeProdutos = {
 
     "produto-aguetonis-supremo": {
         tipo: "lanche",
-        nome: "AGUETONI'S FRANGO",
-        precoRiscado: 32.00,
-        preco: 27.00,
-        descricao: "Crocante, temperado e no ponto: esse é o AGUETONI’S FRANGO",
+        nome: "AGUETONI'S SUPREMO",
+        precoRiscado: 34.00,
+        preco: 30.00,
+        descricao: "🔥 Uma explosão de sabor em cada mordida, perfeito para quem gosta de um hambúrguer realmente completo!",
         ingredientes: ["Pão Brioche", "Maionese da Casa", "Bacon", "3x Smash Burguer 90g", "3x Fatias de Chedar", "Cebola Roxa"],
         imagem: "imagens/lanches/AguetonisSupremoAtt.png",
         adicionais: [
