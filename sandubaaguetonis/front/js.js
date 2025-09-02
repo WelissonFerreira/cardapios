@@ -1965,7 +1965,8 @@ btnFinalizarPedidoWhatsApp.addEventListener('click', () => {
     let totalPedido = 0;
 
     const itensPedido = itensCarrinho.map((item, index) => {
-        const precoBase = item.produto.preco * item.quantidade;
+        const produtoInfo = catalogoDeProdutos[item.produto.id] || item.produto; // pega info do catálogo principal
+        const precoBase = produtoInfo.preco * item.quantidade;
 
         // Adicionais
         let adicionaisTexto = '';
@@ -1974,7 +1975,8 @@ btnFinalizarPedidoWhatsApp.addEventListener('click', () => {
             adicionaisTexto = Object.entries(item.adicionais)
                 .filter(([nome, qtd]) => qtd > 0)
                 .map(([nome, qtd]) => {
-                    const preco = catalogoAdicionais[nome]?.preco || 0;
+                    const adicionalInfo = produtoInfo.adicionais?.find(a => a.nome === nome);
+                    const preco = adicionalInfo ? adicionalInfo.preco : 0;
                     precoAdicionais += preco * qtd;
                     return `${nome} x${qtd} (R$ ${preco.toFixed(2).replace('.', ',')})`;
                 })
@@ -1989,9 +1991,10 @@ btnFinalizarPedidoWhatsApp.addEventListener('click', () => {
             bebidasTexto = Object.entries(item.bebidas)
                 .filter(([nome, qtd]) => qtd > 0)
                 .map(([nome, qtd]) => {
-                    const preco = catalogoProdutos[nome]?.preco || 0;
+                    const bebidaInfo = catalogoDeProdutos[nome];
+                    const preco = bebidaInfo ? bebidaInfo.preco : 0;
                     precoBebidas += preco * qtd;
-                    return `${catalogoProdutos[nome]?.nome || nome} x${qtd} (R$ ${preco.toFixed(2).replace('.', ',')})`;
+                    return `${bebidaInfo?.nome || nome} x${qtd} (R$ ${preco.toFixed(2).replace('.', ',')})`;
                 })
                 .join(', ');
             if (bebidasTexto) bebidasTexto = ` | Bebidas: ${bebidasTexto}`;
@@ -2000,10 +2003,10 @@ btnFinalizarPedidoWhatsApp.addEventListener('click', () => {
         const precoTotalItem = precoBase + precoAdicionais + precoBebidas;
         totalPedido += precoTotalItem;
 
-        return `${index + 1}. ${item.quantidade}x ${item.produto.nome} (R$ ${precoBase.toFixed(2).replace('.', ',')})${adicionaisTexto}${bebidasTexto} | Total Item: R$ ${precoTotalItem.toFixed(2).replace('.', ',')}`;
+        return `${index + 1}. ${item.quantidade}x ${produtoInfo.nome} (R$ ${precoBase.toFixed(2).replace('.', ',')})${adicionaisTexto}${bebidasTexto} | Total Item: R$ ${precoTotalItem.toFixed(2).replace('.', ',')}`;
     }).join('\n');
 
-    // --- 5. Somar taxa de entrega no total ---
+    // --- 5. Somar taxa de entrega ---
     totalPedido += taxaEntregaValor;
 
     // --- 6. Montar mensagem final ---
@@ -2026,8 +2029,11 @@ btnFinalizarPedidoWhatsApp.addEventListener('click', () => {
     const numeroWhatsApp = '5582999261614';
     const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
     window.open(url, '_blank');
-});
 
+     // --- 9. Fecha modal e libera rolagem ---
+    document.querySelector('#ModalFazerPedido').style.display = 'none';
+    document.body.style.overflow = 'auto';
+});
 
 
 
