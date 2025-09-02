@@ -1758,20 +1758,71 @@ function abrirModalPedidoEListarItens() {
       let possoAvancar = false
 
       if (opcaoRetirada.checked) {
-        possoAvancar = verificarCamposRetirada();
-      } else if (opcaoEntrega.checked) {
-        possoAvancar = verificarCamposEntrega();
-      }
+    possoAvancar = verificarCamposRetirada();
+} else if (opcaoEntrega.checked) {
+    possoAvancar = verificarCamposEntrega();
+} else if (opcaoAgendamento.checked) {
+    possoAvancar = verificarCamposAgendamento();
+}
 
-      if (possoAvancar) {
-        //Apenas uma linha para abrir o Modal Junto com os itens.
-        abrirModalPedidoEListarItens()
-      } else {
+if (possoAvancar) {
+    abrirModalPedidoEListarItens();
+}
 
-      }
     
 
     })
+
+
+
+
+
+    // VALIDAR DADOS DE AGENDAMENTO:
+
+    function verificarCamposAgendamento() {
+    const inputNome = document.getElementById('nomeUsuario')?.value || '';
+    const inputCell = document.getElementById('cellUsuario')?.value || '';
+    const selectBairro = document.getElementById('Bairro')?.value || '';
+    const inputRua = document.getElementById('Rua')?.value || '';
+    const inputNumero = document.getElementById('NumeroCasa')?.value || '';
+    const dataAgendamentoSelecionada = document.getElementById('dataSelecionada')?.value || '';
+
+    let todosPreenchidos = true;
+
+    document.getElementById('erroNome')?.style?.setProperty('display', inputNome ? 'none' : 'block');
+    document.getElementById('erroCell')?.style?.setProperty('display', inputCell ? 'none' : 'block');
+    document.getElementById('erroBairro')?.style?.setProperty('display', selectBairro !== 'Selecionar' ? 'none' : 'block');
+    document.getElementById('erroRua')?.style?.setProperty('display', inputRua ? 'none' : 'block');
+    document.getElementById('erroNumero')?.style?.setProperty('display', inputNumero ? 'none' : 'block');
+    document.getElementById('erroData')?.style?.setProperty('display', dataAgendamentoSelecionada ? 'none' : 'block');
+
+    if (!inputNome || !inputCell || selectBairro === 'Selecionar' || !inputRua || !inputNumero || !dataAgendamentoSelecionada) {
+        todosPreenchidos = false;
+    }
+
+    // NOVA VALIDAÇÃO: bloqueia segunda (1) e terça (2)
+    if (dataAgendamentoSelecionada) {
+    // dataAgendamentoSelecionada = "2025-09-02"
+    const partes = dataAgendamentoSelecionada.split('-'); // [YYYY, MM, DD]
+    const ano = parseInt(partes[0], 10);
+    const mes = parseInt(partes[1], 10) - 1; // JS meses começam do 0
+    const dia = parseInt(partes[2], 10);
+
+    const data = new Date(ano, mes, dia);
+    const diaSemana = data.getDay(); // 0=domingo, 1=segunda, 2=terça, etc.
+
+    if (diaSemana === 1 || diaSemana === 2) {
+        alert('Não trabalhamos às segundas e terças. Escolha outro dia.');
+        todosPreenchidos = false;
+    }
+}
+
+
+    return todosPreenchidos;
+}
+
+
+
 
 
 // OPÇÃO AGENDAMENTO
@@ -1829,10 +1880,21 @@ function gerarCalendario() {
 let opcaoAgendamento = document.querySelector('.CAgendamento')
 
 opcaoAgendamento.addEventListener('click', () => {
-    document.querySelector('#formEntrega').style.display = 'flex'
-    document.querySelector('#formAgendamento').style.display = 'flex'
-    gerarCalendario(); // Chamada para a função gerar o calendário
-})
+    document.querySelector('#formEntrega').style.display = 'flex';
+    document.querySelector('#formAgendamento').style.display = 'flex';
+
+    // Cria input hidden se não existir
+    let inputHidden = document.getElementById('dataSelecionada');
+    if (!inputHidden) {
+        inputHidden = document.createElement('input');
+        inputHidden.type = 'hidden';
+        inputHidden.id = 'dataSelecionada';
+        document.querySelector('#formAgendamento').appendChild(inputHidden);
+    }
+
+    gerarCalendario(); // Chama o calendário
+});
+
       
 
       
@@ -1867,6 +1929,8 @@ opcaoAgendamento.addEventListener('click', () => {
         document.querySelector('#complemento').value = ''
         
     }) 
+
+
 
       // FUNÇÃO QUE VALIDA OS DADOS PARA RETIRADA
       function verificarCamposRetirada() {
