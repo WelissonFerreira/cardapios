@@ -714,6 +714,8 @@
             <div class="opcao-pedido">
                 <input type="radio" name="TipoPedido" class="CEntrega" id="Entrega">
                 <label class="labelEntrega" for="Entrega">Entrega</label>
+                <input type="radio" name="TipoPedido" class="CAgendamento">
+                <label class="labelAgendamento" for="radio">Agendar</label>
                 <input type="radio" name="TipoPedido" class="CRetirada" id="Retirada" checked>
                 <label class="labelRetirada" for="Retirada">Retirada</label>
             </div>
@@ -785,10 +787,16 @@
                 <label class="labelform" for="complemento">Complemento (opcional):</label>
                 <input type="text" name="complemento" id="complemento" placeholder="Ex: Em frente a Padaria">
             </div>
+            <div id="formAgendamento">
+                <div id="calendarioDinamico">
+                    
+                </div>
+            </div>
                 <div id="divBotoesDados">
                 <button id="AvancarPedido" type="button">AVANÇAR</button>
                 <button id="VoltarPedido">VOLTAR</button>
             </div>
+
         </form>
         
     </div>

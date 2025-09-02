@@ -1869,10 +1869,12 @@ footer {
     
 }
 
-.CRetirada, .CEntrega {
+.CRetirada, .CEntrega, .CAgendamento {
     width: 20px;
     height: 20px;
 }
+
+
 
 
 
@@ -1905,7 +1907,7 @@ footer {
 
 .opcao-pedido label {
     flex: 0 0;
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     
 }
 
@@ -1919,6 +1921,90 @@ footer {
     margin-top: 10px; /* Adiciona um espaço acima dos labels */
     
 }
+
+
+#formAgendamento {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* contêiner e grid */
+#calendarioDinamico {
+    width: 100%;
+    max-width: 360px; /* ajuste conforme seu modal */
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+.cabecalho-semana {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.cabecalho { padding: 6px 0; }
+
+.dias {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    justify-items: center;
+}
+
+/* tamanho dos quadrados — sobrescreve o antigo */
+#calendarioDinamico .dia {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    cursor: pointer;
+    background: #7f7f7f;
+    color: white;
+    transition: transform .12s, box-shadow .12s;
+}
+
+#calendarioDinamico .dia:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 6px rgba(0,0,0,.25);
+    background-color: black;
+}
+
+/* estados */
+#calendarioDinamico .dia-disponivel { background: #6c6c6c; }
+#calendarioDinamico .dia-indisponivel {
+  background: #dc3545;
+  cursor: not-allowed;
+  opacity: 0.98;
+}
+#calendarioDinamico .dia.selecionado {
+  box-shadow: 0 0 0 3px rgba(0,0,0,0.25) inset;
+  border-color: rgba(255,255,255,0.18);
+}
+
+/* destaque para hoje (opcional) */
+#calendarioDinamico .hoje {
+  outline: 2px solid rgba(255,255,255,0.08);
+  outline-offset: 1px;
+}
+
+/* responsivo: reduz os quadrados em telas muito pequenas */
+@media (max-width: 420px) {
+  #calendarioDinamico .dia { width: 38px; height: 38px; min-width: 38px; min-height: 38px; }
+  .cabecalho-semana { font-size: 12px; }
+}
+
 
 .close-button-dados {
     position: absolute;
