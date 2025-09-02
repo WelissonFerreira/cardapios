@@ -1055,9 +1055,10 @@ footer {
     }
 
     .close-button-horarios {
+        font-size: 2rem;
         position: absolute;
-        top: 10px;
-        right: 15px;
+        top: 0%;
+        right: 3%;
     }
 /*=================================================== */
 
