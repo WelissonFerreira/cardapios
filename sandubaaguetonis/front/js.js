@@ -2117,7 +2117,7 @@ btnFinalizarPedidoWhatsApp.addEventListener('click', () => {
     const nomePIX = document.getElementById('inputNomePIX').value;
     const bancoPIX = document.getElementById('inputBancoPIX').value;
 
-    formaPagamentoMensagem =  `*PIX - Chave CPF: ${chavePIX}*\n` +
+    formaPagamentoMensagem =  `*PIX - Chave CPNJ: ${chavePIX}*\n` +
                               `Nome: *${nomePIX}*\n` +
                               `Banco: ${bancoPIX}\n` + 
                               `----------- ENVIE O COMPROVANTE ABAIXO, POR GENTILEZA. -------------`;
