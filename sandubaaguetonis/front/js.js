@@ -1796,6 +1796,9 @@ if (possoAvancar) {
     document.getElementById('erroNumero')?.style?.setProperty('display', inputNumero ? 'none' : 'block');
     document.getElementById('erroData')?.style?.setProperty('display', dataAgendamentoSelecionada ? 'none' : 'block');
 
+    document.querySelector("#dataSelecionada").value = "";
+
+
     if (!inputNome || !inputCell || selectBairro === 'Selecionar' || !inputRua || !inputNumero || !dataAgendamentoSelecionada) {
         todosPreenchidos = false;
     }
@@ -1829,59 +1832,56 @@ if (possoAvancar) {
 let dataAtual = new Date()
 const diasDaSemana = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado']
 
-function gerarCalendario() {
+function gerarDiasSemana() {
   const hoje = new Date();
-  // Inicia a semana no domingo (0). Se preferir começar na segunda, veja nota abaixo.
   const startOfWeek = new Date(hoje);
   startOfWeek.setHours(0,0,0,0);
   startOfWeek.setDate(hoje.getDate() - hoje.getDay());
 
-  const diasAbrev = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
-
-  let calendarioHTML = '<div class="cabecalho-semana">';
-  diasAbrev.forEach(d => calendarioHTML += `<div class="cabecalho">${d}</div>`);
-  calendarioHTML += '</div><div class="dias">';
-
   for (let i = 0; i < 7; i++) {
     const dia = new Date(startOfWeek);
     dia.setDate(startOfWeek.getDate() + i);
-    const diaSemana = dia.getDay(); // 0..6
-    const numeroDoDia = dia.getDate();
 
-    // classes: segunda (1) e terça (2) marcadas como indisponíveis
-    let classes = 'dia';
-    classes += (diaSemana === 1 || diaSemana === 2) ? ' dia-indisponivel' : ' dia-disponivel';
+    const botao = document.getElementById("dia" + i);
+    const diaSemana = dia.getDay();
 
-    if (dia.toDateString() === hoje.toDateString()) classes += ' hoje';
+    botao.textContent = dia.getDate();
+    botao.dataset.date = dia.toISOString().split("T")[0];
 
-    // uso <button> para acessibilidade; data-date para capturar escolha
-    calendarioHTML += `<button type="button" class="${classes}" data-date="${dia.toISOString().split('T')[0]}">${numeroDoDia}</button>`;
+    // classes
+    botao.className = "dia";
+    if (diaSemana === 1 || diaSemana === 2) {
+      botao.classList.add("dia-indisponivel");
+      botao.disabled = true;
+    } else {
+      botao.classList.add("dia-disponivel");
+    }
+
+    if (dia.toDateString() === hoje.toDateString()) {
+      botao.classList.add("hoje");
+    }
+
+    // clique só se disponível
+    if (!botao.disabled) {
+      botao.addEventListener("click", () => {
+        document.querySelectorAll("#calendarioDinamico .dia").forEach(d => d.classList.remove("selecionado"));
+        botao.classList.add("selecionado");
+        document.querySelector("#dataSelecionada").value = botao.dataset.date;
+      });
+    }
   }
-
-  calendarioHTML += '</div>';
-  document.querySelector('#calendarioDinamico').innerHTML = calendarioHTML;
-
-  // adiciona listener só aos dias disponíveis
-  document.querySelectorAll('#calendarioDinamico .dia-disponivel').forEach(btn => {
-    btn.addEventListener('click', () => {
-      // remove seleção anterior
-      document.querySelectorAll('#calendarioDinamico .dia').forEach(d => d.classList.remove('selecionado'));
-      btn.classList.add('selecionado');
-
-      // exemplo: grava a data num input hidden (crie esse input no seu form se quiser)
-      const inputHidden = document.querySelector('#dataSelecionada');
-      if (inputHidden) inputHidden.value = btn.dataset.date;
-    });
-  });
 }
 
+gerarDiasSemana();
 
 
-let opcaoAgendamento = document.querySelector('.CAgendamento')
+
+
+let opcaoAgendamento = document.querySelector('.CAgendamento');
 
 opcaoAgendamento.addEventListener('click', () => {
-    document.querySelector('#formEntrega').style.display = 'flex';
-    document.querySelector('#formAgendamento').style.display = 'flex';
+    document.querySelector('#formEntrega').style.display = 'flex';  // <- MOSTRA ENTREGA
+    document.querySelector('#formAgendamento').style.display = 'flex'; // <- MOSTRA AGENDAMENTO
 
     // Cria input hidden se não existir
     let inputHidden = document.getElementById('dataSelecionada');
@@ -1895,7 +1895,10 @@ opcaoAgendamento.addEventListener('click', () => {
     gerarCalendario(); // Chama o calendário
 });
 
-      
+
+      // ao abrir o modal
+      document.querySelector('#formAgendamento').style.display = 'none'; // esconde agendamento por padrão
+      document.querySelector('#formEntrega').style.display = 'none'; // opcional: se quiser esconder entrega também
 
       
       // EVENTO OPÇÃO ENTREGA
@@ -2107,6 +2110,15 @@ btnFinalizarPedidoWhatsApp.addEventListener('click', () => {
     }
     let formaPagamentoMensagem = formaPagamentoSelecionada;
     if (troco) formaPagamentoMensagem += troco;
+
+    // --- NOVO: se for PIX, coloca a chave ---
+      if (formaPagamentoSelecionada.toUpperCase() === 'PIX') {
+        formaPagamentoMensagem = `*PIX - Chave CPF: 12345678900*\n` +
+        `Nome: *Bruno Aguetonis*\n` +
+        `Banco XXXX\n` + 
+        `----------- ENVIE O COMPROVANTE ABAIXO, POR GENTILEZA. -------------`;
+    }
+
 
     if (!itensCarrinho || itensCarrinho.length === 0) {
         alert("Selecione pelo menos um produto!");
