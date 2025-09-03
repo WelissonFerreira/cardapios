@@ -2352,7 +2352,7 @@ btnFinalizarPedidoWhatsApp.addEventListener('click', () => {
     let btnZap = document.getElementById('botaozap')
     btnZap.addEventListener('click', function() {
 
-    const numeroWhatsApp = '5582987165196'; // Exemplo: 55 = Brasil, 82 = DDD, 999261614 = número
+    const numeroWhatsApp = '5517981321172'; // Exemplo: 55 = Brasil, 82 = DDD, 999261614 = número
 
     // 2. Crie a mensagem (opcional, mas muito útil)
     const mensagemPadrao = 'Olá, gostaria de fazer um pedido!';
