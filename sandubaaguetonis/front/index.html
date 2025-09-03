@@ -714,7 +714,7 @@
             <div class="opcao-pedido">
                 <input type="radio" name="TipoPedido" class="CEntrega" id="Entrega">
                 <label class="labelEntrega" for="Entrega">Entrega</label>
-                <input type="radio" name="TipoPedido" class="CAgendamento">
+                <input type="radio" name="TipoPedido" class="CAgendamento" id="Agendamento">
                 <label class="labelAgendamento" for="radio">Agendar</label>
                 <input type="radio" name="TipoPedido" class="CRetirada" id="Retirada" checked>
                 <label class="labelRetirada" for="Retirada">Retirada</label>
@@ -849,6 +849,10 @@
                     <label class="pagamentoCartao" for="pagamentoCartao">Cartão</label>
                 </div>
             </div>
+                <!-- Inputs hidden para PIX (dinâmico) -->
+                    <input type="hidden" id="inputChavePIX" value="12345678900">
+                    <input type="hidden" id="inputNomePIX" value="Bruno Aguetonis">
+                    <input type="hidden" id="inputBancoPIX" value="Banco XXXX">
             <div class="divTroco">
                 <input type="number" name="inputTroco" id="inputTroco" placeholder="Quanto de troco? Se não precisar, deixe vazio..." style="display: none;">
                         <label for="inputTroco"></label>

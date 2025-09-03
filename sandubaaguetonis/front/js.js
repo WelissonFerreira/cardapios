@@ -2112,12 +2112,16 @@ btnFinalizarPedidoWhatsApp.addEventListener('click', () => {
     if (troco) formaPagamentoMensagem += troco;
 
     // --- NOVO: se for PIX, coloca a chave ---
-      if (formaPagamentoSelecionada.toUpperCase() === 'PIX') {
-        formaPagamentoMensagem = `*PIX - Chave CPF: 12345678900*\n` +
-        `Nome: *Bruno Aguetonis*\n` +
-        `Banco XXXX\n` + 
-        `----------- ENVIE O COMPROVANTE ABAIXO, POR GENTILEZA. -------------`;
-    }
+      if (formaPagamentoSelecionada === 'Pix') {
+    const chavePIX = document.getElementById('inputChavePIX').value;
+    const nomePIX = document.getElementById('inputNomePIX').value;
+    const bancoPIX = document.getElementById('inputBancoPIX').value;
+
+    formaPagamentoMensagem =  `*PIX - Chave CPF: ${chavePIX}*\n` +
+                              `Nome: *${nomePIX}*\n` +
+                              `Banco: ${bancoPIX}\n` + 
+                              `----------- ENVIE O COMPROVANTE ABAIXO, POR GENTILEZA. -------------`;
+}
 
 
     if (!itensCarrinho || itensCarrinho.length === 0) {
@@ -2173,6 +2177,14 @@ btnFinalizarPedidoWhatsApp.addEventListener('click', () => {
         return `${index + 1}. ${item.quantidade}x ${produtoInfo.nome} (R$ ${precoBase.toFixed(2).replace('.', ',')})${adicionaisTexto}${bebidasTexto} | Total Item: R$ ${precoTotalItem.toFixed(2).replace('.', ',')}`;
     }).join('\n');
 
+    // Data de agendamento (se aplicável)
+    // --- 1b. Data de agendamento (se aplicável) ---
+    let dataAgendamento = '';
+      if (tipoPedido === 'Agendamento') {
+        dataAgendamento = document.querySelector('#dataSelecionada')?.value || 'Não selecionada';
+    }
+
+
     // --- 5. Somar taxa de entrega ---
     totalPedido += taxaEntregaValor;
 
@@ -2182,6 +2194,7 @@ btnFinalizarPedidoWhatsApp.addEventListener('click', () => {
                     `Nome: ${nomeCliente}\n` +
                     `Telefone: ${telefoneCliente}\n` +
                     `Tipo de Pedido: ${tipoPedido}\n` +
+                    (tipoPedido === 'Agendamento' ? ` | Data de Agendamento: ${dataAgendamento}\n` : '') +
                     `*Endereço de Entrega:*\n` +
                     `Bairro: ${bairro}\n` +
                     `Rua: ${rua}\n` +
