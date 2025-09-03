@@ -2066,21 +2066,7 @@ opcaoAgendamento.addEventListener('click', () => {
 
 // =======================================================================================================
 
-// Catálogo de produtos e adicionais para WhatsApp
-const catalogoProdutos = {
-    "Combo Mata Fome": { nome: "Combo Mata Fome", preco: 90.00, ingredientes: ["Carne", "Queijo", "Bacon", "Batata"] },
-    "Batata Frita 800g": { nome: "Batata Frita 800g", preco: 36.00, ingredientes: ["Batata crocante", "Catupiry", "Bacon", "Mussarela"] },
-    "produto-cocacolalata": { nome: "Coca-Cola Lata", preco: 7.00 },
-    "produto-cocacola2L": { nome: "Coca-Cola 2L", preco: 14.00 },
-    "produto-poty2L": { nome: "Poty 2L", preco: 10.00 }
-};
 
-const catalogoAdicionais = {
-    "Catupiry": { preco: 5.00 },
-    "Ovo": { preco: 2.00 },
-    "Bacon": { preco: 4.00 },
-    "Mussarela": { preco: 4.00 }
-};
 
 
 
@@ -2216,29 +2202,25 @@ btnFinalizarPedidoWhatsApp.addEventListener('click', () => {
     let dia = data.getDay()
     //let hora = 18
 
+    
+
     function AbertoFechado() {
 
         /*Exemplo de código se fecha-se algum dia o estabelecimento */
 
-        /* if (dia === 1) {
+        if (dia === 1 || dia === 2) {
           return false
-        } else {
-          if (hora >= 18 && hora < 24) {
-          return true
-          } else {
-            return false
-          } */
-
-          // Como abre todo santo dia, fizemos só a condição do horário.
-          if (hora >= 19  && hora < 24 ) {
-            return true
-        } else {
-            return false
-        }
-
-        }
-        
+        } 
     
+        if (hora >= 19 && hora < 24) {
+          return true
+        } else {
+          return false
+        }
+
+        
+        
+      }
 
 
 
