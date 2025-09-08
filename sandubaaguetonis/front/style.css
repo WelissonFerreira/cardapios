@@ -1608,6 +1608,8 @@ footer {
 
 .labelform {
     font-size: 1.4rem;
+    color: white;
+    padding: 5px;
 }
 
 
@@ -1919,7 +1921,7 @@ footer {
 .opcao-pedido label {
     width: 100%; /* Garante que o label ocupe a largura completa */
     margin-top: 10px; /* Adiciona um espaço acima dos labels */
-    
+    color: white;
 }
 
 
