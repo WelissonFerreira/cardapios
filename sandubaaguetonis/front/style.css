@@ -1598,7 +1598,7 @@ footer {
 
 
 #nomeUsuario, #cellUsuario, #Bairro, #Rua, #NumeroCasa, #complemento {
-    width: 100%; /* Inputs devem preencher a largura de sua div pai */
+    width: 95%; /* Inputs devem preencher a largura de sua div pai */
     height: 50px;
     box-sizing: border-box; /* Essencial para inputs com padding/border */
     padding: 8px; /* Adicione um padding para que o texto não cole nas bordas do input */
