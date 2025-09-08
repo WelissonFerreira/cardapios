@@ -589,7 +589,87 @@ let catalogoDeProdutos = {
         ]
     },
 
+"produto-aguetonis-combo3": {
+      tipo: "lanche",
+      nome: "Combo Dupla Fome",
+      precoRiscado: 49.99,
+      preco: 45.99,
+      descricao: "Chegou o combo Aguetoni’s Dupla Fome 🍔 traz dois super X-Tudo com tudo o que você tem direito",
+      ingredientes: ["Pão de Hambúrguer", "Hambúrguer Caseiro 90g", " Salsicha", "Mussarela", "Presunto", "Milho ", "Batata Palha", "Cebola Roxa"],
+      imagem: "imagens/combos/comboDuplaFOme.png",
+      adicionais: [
+    {
+      nome: 'Catupiry',
+      preco: 6.00,
+    },
+    {
+      nome: 'Ovo',
+      preco: 2.00,
+    },
+    {
+      nome: 'Mussarela',
+      preco: 4.00,
+    },
+    {
+      nome: 'Bacon',
+      preco: 5.00,
+    },
+    {
+      nome: 'Cheddar',
+      preco: 5.00,
+    },
+    {
+      nome: 'Hambúrguer 150g',
+      preco: 8.00,
+    },
+    {
+      nome: 'Alho Frito',
+      preco: 2.50,
+    }
+      
+        ]
+    },
 
+    "produto-aguetonis-combo4": {
+      tipo: "lanche",
+      nome: "Aguetoni's Combo Família",
+      precoRiscado: 80.00,
+      preco: 75.00,
+      descricao: "2 X-Tudo + 1 Hambúrguer + 1 Refri Poty. Perfeito pra dividir (ou não 😏). Muito lanche, muito sabor!",
+      ingredientes: ["Pão de Hambúrguer", "Hambúrguer Caseiro 90g", " Salsicha", "Mussarela", "Presunto", "Milho ", "Batata Palha", "Cebola Roxa"],
+      imagem: "imagens/combos/AguetonisComboFamilia.png",
+      adicionais: [
+    {
+      nome: 'Catupiry',
+      preco: 6.00,
+    },
+    {
+      nome: 'Ovo',
+      preco: 2.00,
+    },
+    {
+      nome: 'Mussarela',
+      preco: 4.00,
+    },
+    {
+      nome: 'Bacon',
+      preco: 5.00,
+    },
+    {
+      nome: 'Cheddar',
+      preco: 5.00,
+    },
+    {
+      nome: 'Hambúrguer 150g',
+      preco: 8.00,
+    },
+    {
+      nome: 'Alho Frito',
+      preco: 2.50,
+    }
+      
+        ]
+    },
     
 
 
