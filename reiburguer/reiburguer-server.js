@@ -142,6 +142,7 @@ function imprimirPedido(pedido, tipoComanda) {
     }
 }
     dadosParaImpressao += "--------------------\n\n\n\n";
+    dadosParaImpressao += "=========================FIM DO PEDIDO========================="
 
     // Adicione esta parte do código para imprimir de verdade
     // Remove o "Simulado" no console.log final para evitar confusão
