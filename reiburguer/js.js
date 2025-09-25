@@ -2130,6 +2130,9 @@ document.querySelectorAll('input[name="formaPagamento"]').forEach(radio => {
 const btnFinalizarPedidoWhatsApp = document.getElementById('Finalizar-Pedido');
 
 btnFinalizarPedidoWhatsApp.addEventListener('click', async () => {
+
+    
+    
     // --- 1. Dados do Cliente ---
     const nomeCliente = document.querySelector('#nomeUsuario')?.value || 'Não informado';
     const telefoneCliente = document.querySelector('#cellUsuario')?.value || 'Não informado';
@@ -2336,14 +2339,29 @@ try {
 }
 
 
-    // --- 7. Abrir WhatsApp ---
-    const numeroWhatsApp = '5595991699523';
-    const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
-    window.open(url, '_blank');
+   // --- 9. Abrir WhatsApp para o Cliente --- 
+const numeroWhatsAppCliente = '5595991699523'; // número que aparece no botão
+const urlCliente = `https://wa.me/${numeroWhatsAppCliente}?text=${encodeURIComponent(mensagem)}`;
+window.open(urlCliente, '_blank');
 
-     // --- 9. Fecha modal e libera rolagem ---
+
+
+    document.getElementById('ModalConfirmacaoPedido').style.display = 'block';
+
+     // --- 12. Limpar carrinho ---
+    itensCarrinho = [];
+    atualizarCarrinho(); // (função que você já deve ter para renderizar carrinho)
+    // Atualiza o contador para 0
+    atualizarContadorCarrinho();
+
+     // --- . Fecha modal e libera rolagem ---
     document.querySelector('#ModalFazerPedido').style.display = 'none';
     document.body.style.overflow = 'auto';
+});
+
+  // Fechar modal de confirmação
+document.getElementById('btnOkConfirmacao').addEventListener('click', () => {
+  document.getElementById('ModalConfirmacaoPedido').style.display = 'none';
 });
 
 
