@@ -931,7 +931,7 @@ function adicionarAoCarrinho(produto, quantidade, adicionais, bebidas) {
     const agora = new Date();
     const horaAtual = agora.getHours();
 
-    if (horaAtual >= 10 || horaAtual <= 1) {
+    if (horaAtual >= 18 || horaAtual <= 1) {
         
 
 
