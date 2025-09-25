@@ -927,7 +927,15 @@ function saoObjetosIguais(obj1, obj2) {
 // ==========================================================================================
 // FUNÇÃO ADICIONAR ITEM AO CARRINHO PRINCIPAL
 function adicionarAoCarrinho(produto, quantidade, adicionais, bebidas) {
-    // Procura por um item existente no carrinho com as mesmas características
+
+    const agora = new Date();
+    const horaAtual = agora.getHours();
+
+    if (horaAtual >= 10 || horaAtual <= 1) {
+        
+
+
+          // Procura por um item existente no carrinho com as mesmas características
     let itemExistente = itensCarrinho.find(item =>
     item.produto.nome === produto.nome &&
     saoObjetosIguais(item.adicionais, adicionais) &&   // ✅ usa o parâmetro
@@ -952,6 +960,25 @@ function adicionarAoCarrinho(produto, quantidade, adicionais, bebidas) {
     // A cada adição, o carrinho é atualizado para refletir as mudanças
     atualizarCarrinho();
     atualizarContadorCarrinho();
+
+
+
+
+
+
+
+
+
+
+    } else {
+      alert("Desculpe, estamos fechados. Nosso horário de atendimento é das 18:00 às 00:00.")
+        return; // Interrompe a função, impedindo que o item seja adicionado ao carrinho
+
+    }
+
+
+
+
   
 }
 
@@ -970,6 +997,8 @@ function adicionarAoCarrinho(produto, quantidade, adicionais, bebidas) {
         // FUNÇÃO ABRIR CARRINHO
 abrirCarrinho.addEventListener('click', function(event) {
     event.preventDefault();
+
+
 
 
 
@@ -2131,7 +2160,10 @@ const btnFinalizarPedidoWhatsApp = document.getElementById('Finalizar-Pedido');
 
 btnFinalizarPedidoWhatsApp.addEventListener('click', async () => {
 
-    
+    if (btnFinalizarPedidoWhatsApp) {
+      btnFinalizarPedidoWhatsApp.disabled = true // Desabilita o botão
+      btnFinalizarPedidoWhatsApp.textContent = 'Enviando Pedido...'
+    }
     
     // --- 1. Dados do Cliente ---
     const nomeCliente = document.querySelector('#nomeUsuario')?.value || 'Não informado';
@@ -2315,8 +2347,10 @@ const pedidoParaFirebase = {
     pagamento: formaPagamentoSelecionada,
     troco: formaPagamentoSelecionada === 'Dinheiro' ? (document.querySelector('#inputTroco')?.value || 0) : 0,
     data: new Date(),
-    status: 'pendente_impressao',
-    impressoraDestino: ['cozinha', 'entregador']
+    // status: 'pendente_impressao',
+    //impressoraDestino: ['cozinha', 'entregador']
+    status: 'teste_web',
+    impressoraDestino: [],
 };
 
 if (tipoPedido === "Entrega") {
@@ -2336,6 +2370,12 @@ try {
     console.log("Pedido enviado para o Firestore com sucesso!");
 } catch (error) {
     console.error("Erro ao enviar o pedido para o Firestore:", error);
+    alert("Ocorreu um erro ao enviar o pedido. Tente novamente ou verifique sua conexão.");
+
+    if (btnFinalizarPedidoWhatsApp) {
+      btnFinalizarPedidoWhatsApp.disabled = false;
+      btnFinalizarPedidoWhatsApp.textContent = `Finalizar Pedido`
+    }
 }
 
 
