@@ -2344,10 +2344,10 @@ const pedidoParaFirebase = {
     pagamento: formaPagamentoSelecionada,
     troco: formaPagamentoSelecionada === 'Dinheiro' ? (document.querySelector('#inputTroco')?.value || 0) : 0,
     data: new Date(),
-    // status: 'pendente_impressao',
-    //impressoraDestino: ['cozinha', 'entregador']
-    status: 'teste_web',
-    impressoraDestino: [],
+    status: 'pendente_impressao',
+    impressoraDestino: ['cozinha', 'entregador']
+    //status: 'teste_web',
+    //impressoraDestino: [],
 };
 
 if (tipoPedido === "Entrega") {
