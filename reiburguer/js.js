@@ -928,14 +928,9 @@ function saoObjetosIguais(obj1, obj2) {
 // FUNÇÃO ADICIONAR ITEM AO CARRINHO PRINCIPAL
 function adicionarAoCarrinho(produto, quantidade, adicionais, bebidas) {
 
-    const agora = new Date();
-    const horaAtual = agora.getHours();
+    if (AbertoFechado()) {
 
-    if (horaAtual >= 18 || horaAtual <= 1) {
-        
-
-
-          // Procura por um item existente no carrinho com as mesmas características
+              // Procura por um item existente no carrinho com as mesmas características
     let itemExistente = itensCarrinho.find(item =>
     item.produto.nome === produto.nome &&
     saoObjetosIguais(item.adicionais, adicionais) &&   // ✅ usa o parâmetro
@@ -970,14 +965,16 @@ function adicionarAoCarrinho(produto, quantidade, adicionais, bebidas) {
 
 
 
+
     } else {
-      alert("Desculpe, estamos fechados. Nosso horário de atendimento é das 18:00 às 00:00.")
-        return; // Interrompe a função, impedindo que o item seja adicionado ao carrinho
-
+      // Se a função retornar 'false' (fechado por hora ou dia)
+        alert("Desculpe, estamos fechados. Nosso horário de atendimento é das 18:00h à 01:00h, exceto nas Segundas-Feiras.");
+        return; 
     }
+        
 
 
-
+  
 
   
 }
@@ -2426,7 +2423,7 @@ document.getElementById('btnOkConfirmacao').addEventListener('click', () => {
           return false
         } 
     
-        if (hora >= 18 && hora < 24) {
+        if (hora >= 18 || hora <= 2) {
           return true
         } else {
           return false

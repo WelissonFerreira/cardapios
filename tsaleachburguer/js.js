@@ -1027,7 +1027,10 @@ function saoObjetosIguais(obj1, obj2) {
 // ==========================================================================================
 // FUNÇÃO ADICIONAR ITEM AO CARRINHO PRINCIPAL
 function adicionarAoCarrinho(produto, quantidade, adicionais, bebidas) {
-    // Procura por um item existente no carrinho com as mesmas características
+
+    if (AbertoFechado()) {
+
+     // Procura por um item existente no carrinho com as mesmas características
     let itemExistente = itensCarrinho.find(item =>
     item.produto.nome === produto.nome &&
     saoObjetosIguais(item.adicionais, adicionais) &&   // ✅ usa o parâmetro
@@ -1052,7 +1055,25 @@ function adicionarAoCarrinho(produto, quantidade, adicionais, bebidas) {
     // A cada adição, o carrinho é atualizado para refletir as mudanças
     atualizarCarrinho();
     atualizarContadorCarrinho();
-  
+    
+
+
+
+
+
+
+    } else {
+    // Se a função retornar 'false' (fechado por hora ou dia)
+        alert("Desculpe, estamos fechados. Nosso horário de atendimento é das 18:00h à 01:00h, exceto nas Segundas e Terças.");
+        return; 
+    }
+
+
+
+
+
+
+
 }
 
 
@@ -2230,6 +2251,15 @@ document.querySelectorAll('input[name="formaPagamento"]').forEach(radio => {
 const btnFinalizarPedidoWhatsApp = document.getElementById('Finalizar-Pedido');
 
 btnFinalizarPedidoWhatsApp.addEventListener('click', async () => {
+
+    if (btnFinalizarPedidoWhatsApp) {
+        btnFinalizarPedidoWhatsApp.disabled = true;
+        btnFinalizarPedidoWhatsApp.textContent = `Enviando Pedido...`;
+    }
+
+
+
+
     // --- 1. Dados do Cliente ---
     const nomeCliente = document.querySelector('#nomeUsuario')?.value || 'Não informado';
     const telefoneCliente = document.querySelector('#cellUsuario')?.value || 'Não informado';
@@ -2433,6 +2463,13 @@ try {
     console.log("Pedido enviado para o Firestore com sucesso!");
 } catch (error) {
     console.error("Erro ao enviar o pedido para o Firestore:", error);
+    alert("Ocorreu um erro ao enviar o pedido. Tente novamente ou verifique sua conexão.");
+
+
+    if (btnFinalizarPedidoWhatsApp) {
+            btnFinalizarPedidoWhatsApp.disabled = false;
+            btnFinalizarPedidoWhatsApp.textContent = `Finalizar Pedido`;
+        }
 }
 
 
@@ -2464,11 +2501,11 @@ try {
 
         /*Exemplo de código se fecha-se algum dia o estabelecimento */
 
-        if (dia === 1) {
-          return false
+        if (dia === 1 || dia === 2) {
+            return false
         } 
     
-        if (hora >= 18 && hora < 24) {
+        if (hora >= 18 && hora <= 1) {
           return true
         } else {
           return false
