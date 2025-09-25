@@ -587,8 +587,8 @@ let catalogoDeProdutos = {
     nome: "ESPETINHO COMPLETO",
     precoRiscado: 19.00,
     preco: 15.00,
-    descricao: "O espetinho completo para uma refeição de verdade! Um espetinho de sua escolha com todas as guarnições.",
-    ingredientes: ["Carne", " Frango", " Misto", " Linguiça de Frango", " Guarnições: Arroz", " Vatapá", " Batatonese", " Farofa", " Vinagrete"],
+    descricao: "O espetinho completo para uma refeição de verdade! Um espetinho de sua escolha com todas as guarnições: Arroz, Vatapá, Batatonese, Farofa, Vinagrete.",
+    ingredientes: ["Carne", " Frango", " Misto", " Linguiça de Frango"],
     imagem: "imagens/espetinhos/espetinho-completo.jpg",
     adicionais: [
     { nome: "Bacon", preco: 3.00 },
@@ -605,12 +605,12 @@ let catalogoDeProdutos = {
 
 
 "produto-espetinhos-especiais": {
-    tipo: "espetinho-especial",
+    tipo: "espetinho",
     nome: "ESPETINHOS ESPECIAIS",
     precoRiscado: 29.00,
     preco: 25.00,
-    descricao: "Espetinhos com cortes nobres e o sabor inigualável de carne, frango, ou misto. Todos acompanhados de todas as guarnições.",
-    ingredientes: ["Costela Suína", " Isca de Carne", " Fraldão", " Misto (Fraldão, Linguiça de Frango e Calabresa)", " Guarnições: Arroz", " Vatapá", " Batatonese", " Farofa", " Vinagrete", " Batata"],
+    descricao: "Espetinhos com cortes nobres e o sabor inigualável de carne, frango, ou misto. Todos acompanhados de todas as guarnições: Arroz, Vatapá, Batatonese, Farofa, Vinagrete, Batata ",
+    ingredientes: ["Costela Suína", " Isca de Carne", " Fraldão", " Misto (Fraldão, Linguiça de Frango e Calabresa)"],
     imagem: "imagens/espetinhos/espetinho-especial.jpg",
     adicionais: [
     { nome: "Bacon", preco: 3.00 },
@@ -1026,7 +1026,7 @@ function saoObjetosIguais(obj1, obj2) {
 }
 // ==========================================================================================
 // FUNÇÃO ADICIONAR ITEM AO CARRINHO PRINCIPAL
-function adicionarAoCarrinho(produto, quantidade, adicionais, bebidas) {
+function adicionarAoCarrinho(produto, quantidade, adicionais, bebidas, saborPrincipal = null) {
 
     if (AbertoFechado()) {
 
@@ -1034,7 +1034,8 @@ function adicionarAoCarrinho(produto, quantidade, adicionais, bebidas) {
     let itemExistente = itensCarrinho.find(item =>
     item.produto.nome === produto.nome &&
     saoObjetosIguais(item.adicionais, adicionais) &&   // ✅ usa o parâmetro
-    saoObjetosIguais(item.bebidas, bebidas)            // ✅ usa o parâmetro
+    saoObjetosIguais(item.bebidas, bebidas)    &&         // ✅ usa o parâmetro
+    item.sabor === saborPrincipal
 );
 
 
@@ -1048,7 +1049,9 @@ function adicionarAoCarrinho(produto, quantidade, adicionais, bebidas) {
             produto: produto,
             quantidade: parseInt(quantidade),
             adicionais: { ...adicionais }, 
-            bebidas: { ...bebidas }  
+            bebidas: { ...bebidas },
+            // 🚨 MUDANÇA CRÍTICA 2: Salva o novo campo 'sabor'
+            sabor: saborPrincipal 
         });
     }
 
@@ -1067,11 +1070,6 @@ function adicionarAoCarrinho(produto, quantidade, adicionais, bebidas) {
         alert("Desculpe, estamos fechados. Nosso horário de atendimento é das 18:00h à 01:00h, exceto nas Segundas e Terças.");
         return; 
     }
-
-
-
-
-
 
 
 }
@@ -1112,63 +1110,10 @@ abrirCarrinho.addEventListener('click', function(event) {
     atualizarCarrinho();
 });
 
-// ==========================================================================================
+//=================== FUNÇÃO QUE RENDERIZA O MODAL LANCHE ==============================
+function modalLanche(produtoSelecionado, adicionaisSelecionados, bebidasSelecionadas, conteudoModal, scrollPosition) {
 
-/* MODAL PRÉ-CARRINHO */
-
-// ABRIR MODAL AO CLICAR NO CARD
-const CardProdutos = document.querySelectorAll('.card-destaque, .card-pai')
-const ModalPreCarrinho = document.getElementById('ModalPreCarrinho')
-const conteudoModal = document.querySelector('.ContModalPreCarrinho')
-
-CardProdutos.forEach(cardAtual => {
-    cardAtual.addEventListener('click', () => {
-        conteudoModal.textContent = '';
-        
-        
-
-        // AGORA AS VARIÁVEIS SÃO LOCAIS E SÃO REINICIADAS A CADA CLIQUE
-        const adicionaisSelecionados = {};
-        const bebidasSelecionadas = {};
-
-        let divbotaoFecharPre = document.createElement('div')
-        divbotaoFecharPre.classList.add('divbotaoFecharPre')
-        conteudoModal.appendChild(divbotaoFecharPre)
-
-
-        let botaoFecharPre = document.createElement('button');
-        botaoFecharPre.innerHTML = '&times;';
-        botaoFecharPre.classList.add('botaoFecharPre');
-        divbotaoFecharPre.appendChild(botaoFecharPre);
-
-        // EVENTO DE FECHAR BOTÃO
-        botaoFecharPre.addEventListener('click', () => {
-            ModalPreCarrinho.style.display = 'none';
-            document.body.style.position = '';
-            document.body.style.top = '';
-            document.body.style.width = '';
-            document.body.style.overflow = 'auto'; 
-            window.scrollTo(0, scrollPosition);
-
-
-
-
-
-        });
-
-        const seletorPreCarrinho = cardAtual.dataset.produtoId;
-        const produtoSelecionado = catalogoDeProdutos[seletorPreCarrinho];
-
-        ModalPreCarrinho.style.display = 'block';
-        scrollPosition = window.scrollY;
-        document.body.style.position = 'fixed';
-        document.body.style.top = `-${scrollPosition}px`;
-        document.body.style.width = '100%';
-        document.body.style.overflow = 'hidden';
-
-
-
-        // ====================================================================
+     // ====================================================================
         // Conteúdo Principal do Produto (Imagem, Nome, Descrição, Preços)
         // ====================================================================
         
@@ -1523,13 +1468,334 @@ CardProdutos.forEach(cardAtual => {
             document.body.style.top = '';
             document.body.style.width = '';
             document.body.style.overflow = 'auto';
-            window.scrollTo(0, scrollPosition); // volta para a posição original do scroll
+            window.scrollTo(0, scrollPosition)
         });
 
         // Chamar atualizarPreCarrinho para garantir que os preços iniciais estejam corretos
         atualizarPreCarrinho(inputQuantidadePre, produtoSelecionado, precoPre, precoRiscadoPre, adicionaisSelecionados, bebidasSelecionadas);
         atualizarContadorCarrinho()
-    });
+        
+}
+
+//=================== FIM DA FUNÇÃO QUE RENDERIZA O MODAL LANCHE ==============================
+
+
+
+
+//=================== FUNÇÃO QUE RENDERIZA O MODAL ESPETINHOS ==============================
+
+
+// Crie esta função FORA do seu loop de eventos
+function modalEspetinho(produtoSelecionado, adicionaisSelecionados, bebidasSelecionadas, conteudoModal, scrollPosition) {
+    
+     // ====================================================================
+     // 1. CONTEÚDO PRINCIPAL (DOM DO PRODUTO) - COPIADO DO modalLanche
+     // ====================================================================
+
+     // DIV PRINCIPAL DO CONTEÚDO (Imagem e texto do produto)
+    let divPrincipal = document.createElement('div')
+    divPrincipal.classList.add('divPrincipal')
+    conteudoModal.appendChild(divPrincipal)
+
+     // DIV para organizar as imagens
+    let divImagemPre = document.createElement('div');
+    divImagemPre.classList.add('divImagemPre');
+    divPrincipal.appendChild(divImagemPre);
+
+    let imagemPre = document.createElement('img');
+    imagemPre.src = `${produtoSelecionado.imagem}`;
+    imagemPre.classList.add('imagemPre');
+    divImagemPre.appendChild(imagemPre);
+
+     let divPrincipalProdutoInfo = document.createElement('div');
+     divPrincipalProdutoInfo.classList.add('divPrincipalProdutoInfo');
+     divPrincipal.appendChild(divPrincipalProdutoInfo);
+
+     // DIV para organizar conteúdo, nome, preco, descrição
+     let divConteudoPre = document.createElement('div');
+     divConteudoPre.classList.add('divConteudoPre');
+     divPrincipalProdutoInfo.appendChild(divConteudoPre);
+
+     let h3ProdutoPre = document.createElement('h3');
+     h3ProdutoPre.textContent = `${produtoSelecionado.nome}`;
+     h3ProdutoPre.classList.add('h3ProdutoPre');
+     divConteudoPre.appendChild(h3ProdutoPre);
+
+     let descricaoPre = document.createElement('p');
+     descricaoPre.textContent = `${produtoSelecionado.descricao}`;
+     descricaoPre.classList.add('descricaoPre');
+     divConteudoPre.appendChild(descricaoPre);
+
+     let ingredientesPre = document.createElement('p')
+     ingredientesPre.classList.add('ingredientesPre')
+     // No Espetinho Simples, vamos omitir essa linha ou mudar o texto
+     // ingredientesPre.textContent = `${produtoSelecionado.ingredientes}` 
+     // divConteudoPre.appendChild(ingredientesPre)
+
+     let divPrecos = document.createElement('div');
+     divPrecos.classList.add('divPrecos');
+     divConteudoPre.appendChild(divPrecos);
+
+     let precoRiscadoPre = document.createElement('span');
+     precoRiscadoPre.classList.add('PrecoRiscadoPre');
+     precoRiscadoPre.textContent = `R$ ${produtoSelecionado.precoRiscado.toFixed(2).replace('.', ',')}`;
+     divPrecos.appendChild(precoRiscadoPre);
+
+     let precoPre = document.createElement('span');
+     precoPre.classList.add('precoPre');
+     precoPre.textContent = `R$ ${produtoSelecionado.preco.toFixed(2).replace('.', ',')}`;
+     divPrecos.appendChild(precoPre);
+    
+     // ====================================================================
+     // 2. SEÇÃO ESPECÍFICA: ESCOLHA DE SABOR (CHECKBOXES)
+     // ====================================================================
+
+    let saborPrincipalSelecionado = null; // 👈 NOVA VARIÁVEL AQUI!
+
+
+     let divSabores = document.createElement('div');
+     divSabores.classList.add('divEscolhaSabores');
+     divPrincipal.appendChild(divSabores);
+
+     let h4Sabores = document.createElement('h4');
+     h4Sabores.textContent = 'Escolha o sabor do seu Espetinho:';
+     divSabores.appendChild(h4Sabores);
+     
+     // 🚨 ADICIONANDO REQUISITO DE UMA ÚNICA ESCOLHA
+     let pRequisito = document.createElement('p');
+     pRequisito.textContent = 'Escolha exatamente 1 opção de sabor.'
+     divSabores.appendChild(pRequisito);
+
+
+     // Usando o array 'ingredientes' para os sabores
+     let saboresDisponiveis = produtoSelecionado.ingredientes; 
+     
+     saboresDisponiveis.forEach(saborSuco => {
+         // Trim para remover espaços indesejados no início/fim, se houver
+         const saborLimpo = saborSuco.trim();
+         
+         let divItemSabor = document.createElement('div');
+         divItemSabor.classList.add('divItemSabor');
+         divSabores.appendChild(divItemSabor);
+         
+         let label = document.createElement('label');
+         label.textContent = saborLimpo;
+         
+         let checkbox = document.createElement('input');
+         checkbox.type = 'radio'; // 👈 MUDAMOS PARA RADIO para garantir 1 escolha
+         checkbox.name = 'saborEspetinho'; // 👈 Nome do grupo do Radio Button
+         checkbox.value = saborLimpo;
+         
+         divItemSabor.appendChild(checkbox);
+         divItemSabor.appendChild(label);
+
+         // LÓGICA DO RADIO BUTTON: Adiciona o sabor selecionado.
+         checkbox.addEventListener('change', () => {
+             // Limpa o objeto 'adicionaisSelecionados' antes de adicionar o novo sabor.
+             // Isso garante que apenas um Radio Button esteja ativo no objeto.
+             for (const key in adicionaisSelecionados) {
+                 delete adicionaisSelecionados[key];
+             }
+             
+             if (checkbox.checked) {
+                 // Armazena o sabor selecionado com a quantidade 1 (ou true)
+                 saborPrincipalSelecionado = saborLimpo;
+             } else {
+                saborPrincipalSelecionado = null
+             }
+             
+             // Aqui você pode chamar a função para atualizar o botão de adicionar, 
+             // se tiver lógica de preço/total a ser ajustada.
+             // atualizarPreCarrinho(inputQuantidadePre, produtoSelecionado, precoPre, precoRiscadoPre, adicionaisSelecionados, bebidasSelecionadas);
+         });
+     });
+
+     // ====================================================================
+     // 3. BOTÕES FINAIS (QUANTIDADE DO PRINCIPAL E ADICIONAR) - COPIADO DO modalLanche
+     // ====================================================================
+     
+     let divFinalAcoes = document.createElement('div');
+     divFinalAcoes.classList.add('divFinalAcoes');
+     conteudoModal.appendChild(divFinalAcoes);
+
+     let divBotoesAcoes = document.createElement('div');
+     divBotoesAcoes.classList.add('divBotoesAcoes');
+     divFinalAcoes.appendChild(divBotoesAcoes);
+
+     let botaoDiminuirPre = document.createElement('button');
+     botaoDiminuirPre.textContent = `-`;
+     botaoDiminuirPre.classList.add('botaoDiminuirPre');
+     divBotoesAcoes.appendChild(botaoDiminuirPre);
+
+     let inputQuantidadePre = document.createElement('input');
+     inputQuantidadePre.classList.add('inputQuantidadePre');
+     divBotoesAcoes.appendChild(inputQuantidadePre);
+     inputQuantidadePre.value = 1;
+
+     let botaoAumentarPre = document.createElement('button');
+     botaoAumentarPre.textContent = `+`;
+     botaoAumentarPre.classList.add('botaoAumentarPre');
+     divBotoesAcoes.appendChild(botaoAumentarPre);
+
+     // Eventos de Quantidade (Você precisará de 'inputQuantidadePre' declarado acima)
+     botaoDiminuirPre.addEventListener('click', () => {
+         if (inputQuantidadePre.value > 1) {
+             inputQuantidadePre.value = parseInt(inputQuantidadePre.value) - 1;
+             atualizarPreCarrinho(inputQuantidadePre, produtoSelecionado, precoPre, precoRiscadoPre, adicionaisSelecionados, bebidasSelecionadas);
+             atualizarContadorCarrinho()
+         }
+     });
+
+     botaoAumentarPre.addEventListener('click', () => {
+         inputQuantidadePre.value = parseInt(inputQuantidadePre.value) + 1;
+         atualizarPreCarrinho(inputQuantidadePre, produtoSelecionado, precoPre, precoRiscadoPre, adicionaisSelecionados, bebidasSelecionadas);
+         atualizarContadorCarrinho()
+     });
+
+     let botaoAdicionar = document.createElement('button');
+     botaoAdicionar.classList.add('AdicionarCarrinho');
+     botaoAdicionar.innerHTML = `<i class="fa-solid fa-cart-plus"></i> Adicionar R$ ${produtoSelecionado.preco.toFixed(2).replace('.', ',')}`;
+     divFinalAcoes.appendChild(botaoAdicionar);
+
+     // EVENTO DE ADICIONAR AO CARRINHO E FECHAR MODAL
+     botaoAdicionar.addEventListener('click', () => {
+
+        // =======================================================
+    // 🚨 NOVA VALIDAÇÃO: CHECAR SE HÁ UM SABOR SELECIONADO
+    // =======================================================
+    
+    
+    if (!saborPrincipalSelecionado) {
+        // Alerta o usuário e impede o avanço
+        alert('Por favor, escolha ao menos 1 sabor de espetinho para adicionar ao carrinho.');
+        return; // 🛑 IMPORTANTE: Para a execução da função aqui.
+    }
+
+
+
+
+
+
+    // =======================================================
+
+
+         adicionarAoCarrinho(produtoSelecionado, inputQuantidadePre.value, adicionaisSelecionados, bebidasSelecionadas, saborPrincipalSelecionado);
+         ModalPreCarrinho.style.display = 'none';
+         atualizarCarrinho();
+         atualizarContadorCarrinho()
+         
+         // RESTAURA O BODY
+         document.body.style.position = '';
+         document.body.style.top = '';
+         document.body.style.width = '';
+         document.body.style.overflow = 'auto';
+         window.scrollTo(0, scrollPosition); 
+     });
+     
+     // Chamar o atualizador inicial
+     atualizarPreCarrinho(inputQuantidadePre, produtoSelecionado, precoPre, precoRiscadoPre, adicionaisSelecionados, bebidasSelecionadas);
+     atualizarContadorCarrinho()
+}
+
+
+//=================== FIM DA FUNÇÃO QUE RENDERIZA O MODAL ESPETINHO ==============================
+
+
+// ==========================================================================================
+
+/* MODAL PRÉ-CARRINHO */
+
+// ABRIR MODAL AO CLICAR NO CARD
+const CardProdutos = document.querySelectorAll('.card-destaque, .card-pai')
+const ModalPreCarrinho = document.getElementById('ModalPreCarrinho')
+const conteudoModal = document.querySelector('.ContModalPreCarrinho')
+
+CardProdutos.forEach(cardAtual => {
+    cardAtual.addEventListener('click', () => {
+
+      const seletorPreCarrinho = cardAtual.dataset.produtoId;
+      const produtoSelecionado = catalogoDeProdutos[seletorPreCarrinho];
+    // AGORA AS VARIÁVEIS SÃO LOCAIS E SÃO REINICIADAS A CADA CLIQUE
+      const adicionaisSelecionados = {};
+      const bebidasSelecionadas = {};
+
+        // 2. PREPARAÇÃO DO MODAL (Comum a todos os tipos)
+        conteudoModal.textContent = ''; // 💥 ESSENCIAL: Limpa o conteúdo antigo
+        let scrollPosition = 0
+        let modalConstruido = false
+        
+
+        // --- CRIAÇÃO DO BOTÃO FECHAR (COMO VOCÊ TINHA) ---
+        let divbotaoFecharPre = document.createElement('div');
+        divbotaoFecharPre.classList.add('divbotaoFecharPre');
+        conteudoModal.appendChild(divbotaoFecharPre);
+
+        let botaoFecharPre = document.createElement('button');
+        botaoFecharPre.innerHTML = '&times;';
+        botaoFecharPre.classList.add('botaoFecharPre');
+        divbotaoFecharPre.appendChild(botaoFecharPre);
+
+        // EVENTO DE FECHAR BOTÃO
+        botaoFecharPre.addEventListener('click', () => {
+             // ... Lógica de fechar o modal e restaurar o scroll (como você tinha) ...
+            ModalPreCarrinho.style.display = 'none';
+            document.body.style.position = '';
+            document.body.style.top = '';
+            document.body.style.width = '';
+            document.body.style.overflow = 'auto'; 
+            window.scrollTo(0, scrollPosition);
+        });
+        // ---------------------------------------------------
+
+    
+
+
+    
+        if (produtoSelecionado.tipo === 'espetinho') {
+
+            modalEspetinho(produtoSelecionado, adicionaisSelecionados, bebidasSelecionadas, conteudoModal, scrollPosition)
+            modalConstruido = true;
+
+
+
+        } else if (produtoSelecionado.tipo === 'lanche') {
+             // 💥 CHAMADA DO MODAL DE LANCHE 💥
+            modalLanche(produtoSelecionado, adicionaisSelecionados, bebidasSelecionadas, conteudoModal, scrollPosition)    
+        
+            modalConstruido = true
+
+        } else if (produtoSelecionado.tipo === 'yakissoba') {
+
+
+            modalConstruido = true
+
+        } else {
+            // 🚨 SE CAIR AQUI, É UM PRODUTO SEM MODAL CONFIGURADO
+        console.warn(`Tipo de produto '${produtoSelecionado.tipo}' não tem modal configurado. Modal não será aberto.`);
+        // modalConstruido CONTINUA false
+        }
+
+
+    
+        
+         // 4. 🚀 LÓGICA DE ABERTURA: SÓ ABRE SE ALGO FOI CONSTRUÍDO 🚀
+        if (modalConstruido) {
+            ModalPreCarrinho.style.display = 'block';
+            scrollPosition = window.scrollY;
+            document.body.style.position = 'fixed';
+            document.body.style.top = `-${scrollPosition}px`;
+            document.body.style.width = '100%';
+            document.body.style.overflow = 'hidden';
+        }
+
+       
+
+      
+
+
+
+       
+    }); 
 });
 
 
@@ -1636,6 +1902,22 @@ function mostrarItensDoCarrinho() {
 
             divProdutoDescricao.appendChild(h3NomeProduto);
             divProdutoDescricao.appendChild(descricaoProduto);
+
+
+            // 🚨 NOVA LÓGICA DE EXIBIÇÃO PARA O SABOR PRINCIPAL DO ESPETINHO
+            if (item.sabor) {
+                let divSabor = document.createElement('div');
+                divSabor.classList.add('div-sabor-principal'); // Para CSS
+                let pSabor = document.createElement('p');
+    
+                // Exibe o sabor de forma limpa: "Sabor: Carne"
+                pSabor.textContent = `Sabor: ${item.sabor}`; 
+                pSabor.classList.add('sabor-selecionado');
+    
+                divSabor.appendChild(pSabor);
+                divProdutoDescricao.appendChild(divSabor);
+}
+
 
             // Adiciona adicionais ao HTML (se existirem)
             const adicionaisComprados = Object.keys(item.adicionais).filter(key => item.adicionais[key] > 0);
@@ -1890,6 +2172,14 @@ function abrirModalPedidoEListarItens() {
         pedidoImagem.src = `${item.produto.imagem}`;
         pedidoImagem.classList.add('imagemPedidoFinal');
         divControleItemIndividual.appendChild(pedidoImagem);
+
+        // 🚨 NOVO: Exibe o Sabor (para itens como Espetinho)
+        if (item.sabor) {
+            let pSabor = document.createElement('p');
+            pSabor.textContent = `Sabor: ${item.sabor}`;
+            pSabor.classList.add('addSaborPrincipal'); // Nova classe para estilizar
+            divControleItemIndividual.appendChild(pSabor);
+}
         
         // NOVO: Exibe os adicionais de forma simples, sem .slice()
         let listaAdicionais = [];
@@ -2490,22 +2780,25 @@ try {
 
     //FUNÇÃO TOPO (OPEN-CLOSE)
     let openClose = document.getElementById('open-close')
-    let data = new Date()
-    let hora = data.getHours()
-    let dia = data.getDay()
-    //let hora = 18
+    
 
     
 
     function AbertoFechado() {
 
+
+    let data = new Date()
+    let hora = data.getHours()
+    let dia = data.getDay()
+    //let hora = 18
+
         /*Exemplo de código se fecha-se algum dia o estabelecimento */
 
-        if (dia === 1 || dia === 2) {
+        if (dia === 1) {
             return false
         } 
     
-        if (hora >= 18 && hora <= 1) {
+        if (hora >= 10 || hora <= 1) {
           return true
         } else {
           return false
