@@ -450,14 +450,14 @@ main {
 .span-destaque {
     margin: 15%;
     font-size: 0.9rem;
-    color: black;
+    color: rgb(2, 123, 2);
     font-family: "Poppins", sans-serif;
     font-weight: 700;
     font-style: normal;
 }
 
 .divPrecosDest {
-    padding: 5px;
+    padding: 4px;
     
 }
 
@@ -751,7 +751,7 @@ main {
 
 .preco-normal {
     font-size: 0.9rem;
-    color: black;
+    color: rgb(2, 123, 2);
     font-family: "Poppins", sans-serif;
     font-weight: 700;
     font-style: normal;
@@ -964,6 +964,24 @@ footer {
 
 .modal-content li {
     list-style-type: square;
+}
+
+.modal-content-final {
+    
+    background-color: white;
+    color: black;
+    margin: 15% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 500px;
+    border: 1px solid #888;
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
 }
 
 /* BOTÃO USADO PARA ABRIR O MODAL */
@@ -2242,7 +2260,7 @@ footer {
 
 .precoPre {
     font-size: 1rem;
-    color: black;
+    color: green;
     font-family: "Poppins", sans-serif;
     font-weight: 700;
     font-style: normal;
@@ -2597,7 +2615,7 @@ footer {
 
 .imagem-modal-bebida img {
     max-width: 100%;
-    height: auto;
+    height: 250px;
     border-radius: 8px;
 }
 

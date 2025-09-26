@@ -1,5 +1,5 @@
 // Importa a configuração do Firebase e as funções que você precisa do seu arquivo central.
-/*import { db, collection, addDoc } from "./firebase-config.js";*/
+import { db, collection, addDoc } from "./firebase-config.js";
 
 
 let catalogoDeProdutos = {
@@ -28,13 +28,13 @@ let catalogoDeProdutos = {
 },
 
 "produto-combotsaleachindividual": {
-    tipo: "lanche",
+    tipo: "combo",
     nome: "COMBO TSÁLÊACH INDIVIDUAL",
     precoRiscado: 44.00,
     preco: 40.00,
     descricao: "Nosso hambúrguer artesanal duplo com queijo mussarela, cheddar e ovo, acompanhado de batata frita média e Coca-Cola Lata.",
     ingredientes: ["1 Hambúrguer Artesanal Duplo", " Coca Lata", " Batata Média", " Pão Brioche", " 2 Carnes", " Ovo", " Queijo Mussarela", " Queijo Cheddar", " Molho da Casa"],
-    imagem: "imagens/lanches/combo-individual.jpg",
+    imagem: "imagens/lanches/comboartesanalindividual.jpg",
     adicionais: [
     { nome: "Bacon", preco: 3.00 },
     { nome: "Calabresa", preco: 3.00 },
@@ -49,13 +49,13 @@ let catalogoDeProdutos = {
 },
 
 "produto-combotsaleachsanduiches": {
-    tipo: "lanche",
+    tipo: "combo",
     nome: "COMBO TSÁLÊACH SANDUÍCHES",
     precoRiscado: 74.00,
     preco: 70.00,
     descricao: "O combo perfeito para compartilhar: 3 hambúrgueres artesanais, acompanhados de batata grande e Coca-Cola 1L.",
     ingredientes: ["3 Sanduíches Artesanais", " Batata G", " Coca 1L", " Carne", " Ovo", " Molho da Casa"],
-    imagem: "imagens/lanches/combo-familia.jpg",
+    imagem: "imagens/lanches/comtsaleachsanduiches.jpg",
     adicionais: [
     { nome: "Bacon", preco: 3.00 },
     { nome: "Calabresa", preco: 3.00 },
@@ -76,7 +76,7 @@ let catalogoDeProdutos = {
     preco: 15.00,
     descricao: "Nosso hambúrguer artesanal com o sabor clássico de ovo, mussarela e presunto, com nosso molho da casa.",
     ingredientes: ["Pão Brioche", " Carne Artesanal", " Ovo", " Mussarela", " Presunto", " Molho da Casa"],
-    imagem: "imagens/lanches/tsaleach.jpg",
+    imagem: "imagens/lanches/tsaleachartesanal.jpg",
     adicionais: [
     { nome: "Bacon", preco: 3.00 },
     { nome: "Calabresa", preco: 3.00 },
@@ -97,7 +97,7 @@ let catalogoDeProdutos = {
     preco: 18.00,
     descricao: "Nosso hambúrguer artesanal com um toque especial de calabresa, ovo, mussarela e presunto, finalizado com nosso molho da casa.",
     ingredientes: ["Pão Brioche", " Carne Artesanal", " Calabresa", " Ovo", " Mussarela", " Presunto", " Molho da Casa"],
-    imagem: "imagens/lanches/calabresa.jpg",
+    imagem: "imagens/lanches/tsaleachcalabresa.png",
     adicionais: [
     { nome: "Bacon", preco: 3.00 },
     { nome: "Calabresa", preco: 3.00 },
@@ -118,7 +118,7 @@ let catalogoDeProdutos = {
     preco: 22.00,
     descricao: "Delicioso hambúrguer artesanal com fatias crocantes de bacon, ovo, mussarela e presunto, tudo harmonizado com nosso molho da casa.",
     ingredientes: ["Pão Brioche", " Carne Artesanal", " Bacon", " Ovo", " Mussarela", " Presunto", " Molho da Casa"],
-    imagem: "imagens/lanches/bacon.jpg",
+    imagem: "imagens/lanches/tsaleachbacon.png",
     adicionais: [
     { nome: "Bacon", preco: 3.00 },
     { nome: "Calabresa", preco: 3.00 },
@@ -140,7 +140,7 @@ let catalogoDeProdutos = {
     preco: 13.00,
     descricao: "O clássico que não pode faltar: nossa suculenta carne artesanal e o delicioso queijo derretido em um pão brioche macio.",
     ingredientes: ["Pão Brioche", " Carne Artesanal", " Queijo"],
-    imagem: "imagens/lanches/burguer.jpg",
+    imagem: "imagens/lanches/tsaleachburguer.png",
     adicionais: [
     { nome: "Bacon", preco: 3.00 },
     { nome: "Calabresa", preco: 3.00 },
@@ -162,7 +162,7 @@ let catalogoDeProdutos = {
     preco: 25.00,
     descricao: "Uma explosão de sabor: carne filé, cebola caramelizada, mussarela e presunto, com nosso molho da casa, em um pão super macio.",
     ingredientes: ["Pão Brioche", " Carne Artesanal", " Filé Carne", " Cebola Caramelizada", " Mussarela", " Presunto", " Molho da Casa"],
-    imagem: "imagens/lanches/carne-file.jpg",
+    imagem: "imagens/lanches/tsaleachfiledecarne.jpg",
     adicionais: [
     { nome: "Bacon", preco: 3.00 },
     { nome: "Calabresa", preco: 3.00 },
@@ -183,7 +183,7 @@ let catalogoDeProdutos = {
     preco: 30.00,
     descricao: "Para quem não abre mão de nada: nosso hambúrguer artesanal com filé de carne, calabresa, bacon, salsicha e mais, tudo com queijo cheddar e molho da casa.",
     ingredientes: ["Pão Brioche", " Carne Artesanal", " 2 Fatias de Pão de Forma", " Filé de Carne", " Calabresa", " Bacon", " Salsicha", " Cebola Caramelizada", " Queijo Cheddar", " Presunto", " Molho da Casa"],
-    imagem: "imagens/lanches/tudao.jpg",
+    imagem: "imagens/lanches/tsaleachtudo.jpg",
     adicionais: [
     { nome: "Bacon", preco: 3.00 },
     { nome: "Calabresa", preco: 3.00 },
@@ -204,7 +204,7 @@ let catalogoDeProdutos = {
     preco: 10.00,
     descricao: "Um clássico leve e saboroso com carne de hambúrguer, ovo, queijo, presunto e nossa salada fresca de alface e tomate.",
     ingredientes: ["Pão Bola", " Carne de Hambúrguer", " Ovo", " Queijo", " Presunto", " Alface", " Tomate"],
-    imagem: "imagens/lanches/x-salada.jpg",
+    imagem: "imagens/lanches/X-salada.png",
     adicionais: [
     { nome: "Bacon", preco: 3.00 },
     { nome: "Calabresa", preco: 3.00 },
@@ -226,7 +226,7 @@ let catalogoDeProdutos = {
     preco: 18.00,
     descricao: "O hambúrguer mais completo com carne de hambúrguer, calabresa, bacon, salsicha e a combinação perfeita de ovo, queijo e salada fresca.",
     ingredientes: ["Pão Bola", " Carne de Hambúrguer", " Calabresa", " Bacon", " Salsicha", " Ovo", " Queijo", " Presunto", " Alface", " Tomate"],
-    imagem: "imagens/lanches/x-tudo.jpg",
+    imagem: "imagens/lanches/X-Tudo.png",
     adicionais: [
     { nome: "Bacon", preco: 3.00 },
     { nome: "Calabresa", preco: 3.00 },
@@ -247,7 +247,7 @@ let catalogoDeProdutos = {
     preco: 15.00,
     descricao: "O lanche ideal para os amantes de carne, com a combinação perfeita de carne de hambúrguer, bacon crocante e a frescura do alface e tomate.",
     ingredientes: ["Pão Bola", " Carne de Hambúrguer", " Bacon", " Queijo", "Presunto", " Alface", " Tomate"],
-    imagem: "imagens/lanches/x-bacon.jpg",
+    imagem: "imagens/lanches/X-Bacon.png",
     adicionais: [
     { nome: "Bacon", preco: 3.00 },
     { nome: "Calabresa", preco: 3.00 },
@@ -268,7 +268,7 @@ let catalogoDeProdutos = {
     preco: 16.00,
     descricao: "Uma explosão de sabor com calabresa, ovo, queijo e presunto, com a finalização de alface e tomate.",
     ingredientes: ["Pão Bola", " Calabresa", " Ovo", " Queijo", " Presunto", " Alface", " Tomate"],
-    imagem: "imagens/lanches/x-calabresa.jpg",
+    imagem: "imagens/lanches/burguercalabresa.png",
     adicionais: [
     { nome: "Bacon", preco: 3.00 },
     { nome: "Calabresa", preco: 3.00 },
@@ -289,7 +289,7 @@ let catalogoDeProdutos = {
     preco: 16.00,
     descricao: "Um lanche delicioso com salsicha, ovo, queijo e presunto, com a frescura do alface e tomate.",
     ingredientes: ["Pão Bola", " Salsicha", " Ovo", " Queijo", " Presunto", " Alface", " Tomate"],
-    imagem: "imagens/lanches/x-salsicha.jpg",
+    imagem: "imagens/lanches/X-Salsicha.png",
     adicionais: [
     { nome: "Bacon", preco: 3.00 },
     { nome: "Calabresa", preco: 3.00 },
@@ -311,7 +311,7 @@ let catalogoDeProdutos = {
     preco: 15.00,
     descricao: "Uma opção diferente e cheia de sabor: a combinação de carne de hambúrguer, queijo e o toque agridoce da banana frita.",
     ingredientes: ["Pão Bola", " Carne de Hambúrguer", " Banana Frita", " Queijo", " Presunto", " Alface", " Tomate"],
-    imagem: "imagens/lanches/x-banana.jpg",
+    imagem: "imagens/lanches/tsaleachbanana.jpg",
     adicionais: [
     { nome: "Bacon", preco: 3.00 },
     { nome: "Calabresa", preco: 3.00 },
@@ -332,7 +332,7 @@ let catalogoDeProdutos = {
     preco: 9.00,
     descricao: "O lanche mais clássico e simples, com suculenta carne de hambúrguer, queijo derretido e a leveza da salada.",
     ingredientes: ["Pão Bola", " Carne de Hambúrguer", " Queijo", " Alface", " Tomate"],
-    imagem: "imagens/lanches/x-burguer.jpg",
+    imagem: "imagens/lanches/X-Burguer.png",
     adicionais: [
     { nome: "Bacon", preco: 3.00 },
     { nome: "Calabresa", preco: 3.00 },
@@ -353,7 +353,7 @@ let catalogoDeProdutos = {
     preco: 8.00,
     descricao: "O clássico da chapa, com o delicioso queijo e presunto derretidos no pão de forma.",
     ingredientes: ["Pão de Forma", " Queijo", " Presunto"],
-    imagem: "imagens/lanches/misto-quente.jpg",
+    imagem: "imagens/lanches/MistoQuente.png",
     adicionais: [
     { nome: "Bacon", preco: 3.00 },
     { nome: "Calabresa", preco: 3.00 },
@@ -374,7 +374,7 @@ let catalogoDeProdutos = {
     preco: 10.00,
     descricao: "Simples e irresistível: 3 fatias de queijo derretidas no pão de forma, perfeitas para qualquer momento.",
     ingredientes: ["Pão de Forma", " 3 Fatias de Queijo"],
-    imagem: "imagens/lanches/queijo-quente.jpg",
+    imagem: "imagens/lanches/queijoquente.png",
     adicionais: [
     { nome: "Bacon", preco: 3.00 },
     { nome: "Calabresa", preco: 3.00 },
@@ -395,7 +395,7 @@ let catalogoDeProdutos = {
     preco: 10.00,
     descricao: "Nosso misto mais robusto, com 3 fatias de queijo e presunto, perfeito para quem busca mais sabor.",
     ingredientes: ["Pão de Forma", " 3 Fatias de Queijo", " Presunto"],
-    imagem: "imagens/lanches/mistao-quente.jpg",
+    imagem: "imagens/lanches/MistaoQuente.png",
     adicionais: [
     { nome: "Bacon", preco: 3.00 },
     { nome: "Calabresa", preco: 3.00 },
@@ -417,7 +417,7 @@ let catalogoDeProdutos = {
     preco: 11.00,
     descricao: "Uma versão mais completa do misto quente, com 3 fatias de queijo, presunto e o toque fresco de ovo, alface e tomate.",
     ingredientes: ["Pão de Forma", " 3 Fatias de Queijo", " Presunto", " Ovo", " Alface", " Tomate"],
-    imagem: "imagens/lanches/americano.jpg",
+    imagem: "imagens/lanches/americano.png",
     adicionais: [
     { nome: "Bacon", preco: 3.00 },
     { nome: "Calabresa", preco: 3.00 },
@@ -433,13 +433,13 @@ let catalogoDeProdutos = {
 
 
 "produto-3x-salada": {
-    tipo: "lanche",
+    tipo: "combo",
     nome: "3 X-SALADA",
-    precoRiscado: 24.00,
-    preco: 20.00,
+    precoRiscado: 26.00,
+    preco: 22.00,
     descricao: "Leve 3 hambúrgueres clássicos com ovo, queijo, presunto e salada, ideal para a família ou amigos.",
     ingredientes: ["3 X-Saladas", " Pão Bola", " Carne de Hambúrguer", " Ovo", " Queijo", " Presunto", " Alface", " Tomate"],
-    imagem: "imagens/lanches/combo-3x-salada.jpg",
+    imagem: "imagens/lanches/3xSalada.jpg",
     adicionais: [
     { nome: "Bacon", preco: 3.00 },
     { nome: "Calabresa", preco: 3.00 },
@@ -455,13 +455,13 @@ let catalogoDeProdutos = {
 
 
 "produto-4x-salada-refri": {
-    tipo: "lanche",
+    tipo: "combo",
     nome: "4 X-SALADA + REFRIGERANTE 1L",
-    precoRiscado: 34.00,
-    preco: 30.00,
+    precoRiscado: 38.00,
+    preco: 33.00,
     descricao: "Combo completo com 4 X-Saladas e um refrigerante de 1L, perfeito para matar a fome de toda a turma.",
     ingredientes: ["4 X-Saladas", " Refrigerante 1L", " Pão Bola", " Carne de Hambúrguer", " Ovo", " Queijo", " Presunto", " Alface", " Tomate"],
-    imagem: "imagens/lanches/combo-4x-salada.jpg",
+    imagem: "imagens/lanches/4xSalada.jpg",
     adicionais: [
     { nome: "Bacon", preco: 3.00 },
     { nome: "Calabresa", preco: 3.00 },
@@ -477,13 +477,13 @@ let catalogoDeProdutos = {
 
 
 "produto-5x-salada-refri": {
-    tipo: "lanche",
+    tipo: "combo",
     nome: "5 X-SALADA + REFRIGERANTE 1L",
     precoRiscado: 44.00,
     preco: 40.00,
     descricao: "Para a galera toda: 5 X-Saladas completos e saborosos, mais um refrigerante de 1L para acompanhar.",
     ingredientes: ["5 X-Saladas", " Refrigerante 1L", " Pão Bola", " Carne de Hambúrguer", " Ovo", " Queijo", " Presunto", " Alface", " Tomate"],
-    imagem: "imagens/lanches/combo-5x-salada.jpg",
+    imagem: "imagens/lanches/5xSalada.jpg",
     adicionais: [
     { nome: "Bacon", preco: 3.00 },
     { nome: "Calabresa", preco: 3.00 },
@@ -491,7 +491,6 @@ let catalogoDeProdutos = {
     { nome: "Ovo", preco: 3.00 },
     { nome: "Queijo", preco: 3.00 },
     { nome: "Molho Cheddar", preco: 3.00 },
-    { nome: "Bacon", preco: 3.00 },
     { nome: "Cebola Caramelizada", preco: 3.00 },
     { nome: "Maionese Caseira", preco: 3.00 }
     ]
@@ -499,15 +498,14 @@ let catalogoDeProdutos = {
 
 
 "produto-porcao-media": {
-    tipo: "porcao",
+    tipo: "lanche",
     nome: "PORÇÃO MÉDIA",
     precoRiscado: 19.00,
     preco: 15.00,
     descricao: "Nossa porção individual de batata frita, ideal para acompanhar seu lanche.",
     ingredientes: ["Batata Frita"],
-    imagem: "imagens/lanches/porcao-media.jpg",
+    imagem: "imagens/lanches/porcaomediabatata.png",
     adicionais: [
-    { nome: "Bacon", preco: 3.00 },
     { nome: "Calabresa", preco: 3.00 },
     { nome: "Cheddar", preco: 3.00 },
     { nome: "Ovo", preco: 3.00 },
@@ -520,13 +518,13 @@ let catalogoDeProdutos = {
 },
 
 "produto-porcao-grande": {
-    tipo: "porcao",
+    tipo: "lanche",
     nome: "PORÇÃO GRANDE",
     precoRiscado: 24.00,
     preco: 20.00,
     descricao: "Uma porção generosa de batata frita, perfeita para a galera.",
     ingredientes: ["Batata Frita"],
-    imagem: "imagens/lanches/porcao-grande.jpg",
+    imagem: "imagens/lanches/porcaograndebatata.png",
     adicionais: [
     { nome: "Bacon", preco: 3.00 },
     { nome: "Calabresa", preco: 3.00 },
@@ -534,20 +532,19 @@ let catalogoDeProdutos = {
     { nome: "Ovo", preco: 3.00 },
     { nome: "Queijo", preco: 3.00 },
     { nome: "Molho Cheddar", preco: 3.00 },
-    { nome: "Bacon", preco: 3.00 },
     { nome: "Cebola Caramelizada", preco: 3.00 },
     { nome: "Maionese Caseira", preco: 3.00 }
     ]
 },
 
 "produto-especial-cheddar-bacon": {
-    tipo: "porcao",
+    tipo: "lanche",
     nome: "ESPECIAL CHEDDAR BACON",
     precoRiscado: 29.00,
     preco: 25.00,
     descricao: "A nossa batata frita especial, coberta com o cremoso queijo cheddar e o inconfundível bacon crocante.",
     ingredientes: ["Batata Frita", " Queijo Cheddar", " Bacon"],
-    imagem: "imagens/lanches/porcao-especial-cheddar-bacon.jpg",
+    imagem: "imagens/lanches/porcaoespecialcheddar.jpg",
     adicionais: [
     { nome: "Bacon", preco: 3.00 },
     { nome: "Calabresa", preco: 3.00 },
@@ -555,7 +552,6 @@ let catalogoDeProdutos = {
     { nome: "Ovo", preco: 3.00 },
     { nome: "Queijo", preco: 3.00 },
     { nome: "Molho Cheddar", preco: 3.00 },
-    { nome: "Bacon", preco: 3.00 },
     { nome: "Cebola Caramelizada", preco: 3.00 },
     { nome: "Maionese Caseira", preco: 3.00 }
     ]
@@ -568,7 +564,7 @@ let catalogoDeProdutos = {
     preco: 10.00,
     descricao: "Um espetinho de sua escolha, simples e suculento. Escolha entre os sabores de carne, frango, misto ou linguiça de frango.",
     ingredientes: ["Carne", " Frango", " Misto", " Linguiça de Frango"],
-    imagem: "imagens/espetinhos/espetinho-simples.jpg",
+    imagem: "imagens/lanches/espetinhocompleto.jpg",
     adicionais: [
     { nome: "Bacon", preco: 3.00 },
     { nome: "Calabresa", preco: 3.00 },
@@ -576,7 +572,6 @@ let catalogoDeProdutos = {
     { nome: "Ovo", preco: 3.00 },
     { nome: "Queijo", preco: 3.00 },
     { nome: "Molho Cheddar", preco: 3.00 },
-    { nome: "Bacon", preco: 3.00 },
     { nome: "Cebola Caramelizada", preco: 3.00 },
     { nome: "Maionese Caseira", preco: 3.00 }
     ]
@@ -589,7 +584,7 @@ let catalogoDeProdutos = {
     preco: 15.00,
     descricao: "O espetinho completo para uma refeição de verdade! Um espetinho de sua escolha com todas as guarnições: Arroz, Vatapá, Batatonese, Farofa, Vinagrete.",
     ingredientes: ["Carne", " Frango", " Misto", " Linguiça de Frango"],
-    imagem: "imagens/espetinhos/espetinho-completo.jpg",
+    imagem: "imagens/lanches/especialmisto.jpg",
     adicionais: [
     { nome: "Bacon", preco: 3.00 },
     { nome: "Calabresa", preco: 3.00 },
@@ -597,7 +592,6 @@ let catalogoDeProdutos = {
     { nome: "Ovo", preco: 3.00 },
     { nome: "Queijo", preco: 3.00 },
     { nome: "Molho Cheddar", preco: 3.00 },
-    { nome: "Bacon", preco: 3.00 },
     { nome: "Cebola Caramelizada", preco: 3.00 },
     { nome: "Maionese Caseira", preco: 3.00 }
     ]
@@ -611,7 +605,7 @@ let catalogoDeProdutos = {
     preco: 25.00,
     descricao: "Espetinhos com cortes nobres e o sabor inigualável de carne, frango, ou misto. Todos acompanhados de todas as guarnições: Arroz, Vatapá, Batatonese, Farofa, Vinagrete, Batata ",
     ingredientes: ["Costela Suína", " Isca de Carne", " Fraldão", " Misto (Fraldão, Linguiça de Frango e Calabresa)"],
-    imagem: "imagens/espetinhos/espetinho-especial.jpg",
+    imagem: "imagens/lanches/iscadecarne.jpg",
     adicionais: [
     { nome: "Bacon", preco: 3.00 },
     { nome: "Calabresa", preco: 3.00 },
@@ -619,7 +613,6 @@ let catalogoDeProdutos = {
     { nome: "Ovo", preco: 3.00 },
     { nome: "Queijo", preco: 3.00 },
     { nome: "Molho Cheddar", preco: 3.00 },
-    { nome: "Bacon", preco: 3.00 },
     { nome: "Cebola Caramelizada", preco: 3.00 },
     { nome: "Maionese Caseira", preco: 3.00 }
     ]
@@ -628,13 +621,13 @@ let catalogoDeProdutos = {
 
 
 "produto-yakissoba-medio": {
-    tipo: "prato",
+    tipo: "yakissoba",
     nome: "Yakissoba Médio",
-    precoRiscado: 25.00,
-    preco: 20.00,
+    precoRiscado: 26.00,
+    preco: 22.00,
     descricao: "Tradicional prato oriental com macarrão, legumes e carne preparados no molho shoyu.",
     ingredientes: ["Macarrão Oriental", "Carne em Tiras", "Brócolis", "Cenoura", "Couve-Flor", "Repolho", "Molho Shoyu"],
-    imagem: "imagens/pratos/yakissoba.jpg",
+    imagem: "imagens/lanches/yakissobamedio.png",
     adicionais: [
         { nome: "Frango Extra", preco: 5.00 },
         { nome: "Carne Extra", preco: 6.00 },
@@ -644,13 +637,13 @@ let catalogoDeProdutos = {
 },
 
 "produto-yakissoba-grande": {
-    tipo: "prato",
+    tipo: "yakissoba",
     nome: "Yakissoba Grande",
     precoRiscado: 35.00,
     preco: 30.00,
     descricao: "Versão maior do nosso yakissoba tradicional, ideal para compartilhar.",
     ingredientes: ["Macarrão Oriental", "Carne em Tiras", "Legumes Variados", "Molho Shoyu"],
-    imagem: "imagens/pratos/yakissoba.jpg",
+    imagem: "imagens/lanches/yakissobagrandee.png",
     adicionais: [
         { nome: "Frango Extra", preco: 5.00 },
         { nome: "Carne Extra", preco: 6.00 },
@@ -660,13 +653,13 @@ let catalogoDeProdutos = {
 },
 
 "produto-yakissoba-mista-media": {
-    tipo: "prato",
+    tipo: "yakissoba",
     nome: "Yakissoba Mista Média",
     precoRiscado: 35.00,
     preco: 30.00,
     descricao: "Combinação de carnes e frango salteados com macarrão e legumes no molho oriental.",
     ingredientes: ["Macarrão Oriental", "Frango", "Carne Bovina", "Legumes Variados", "Molho Shoyu"],
-    imagem: "imagens/pratos/yakissoba.jpg",
+    imagem: "imagens/lanches/yakissobamistamediaa.png",
     adicionais: [
         { nome: "Frango Extra", preco: 5.00 },
         { nome: "Carne Extra", preco: 6.00 },
@@ -676,13 +669,13 @@ let catalogoDeProdutos = {
 },
 
 "produto-yakissoba-familia": {
-    tipo: "prato",
+    tipo: "yakissoba",
     nome: "Yakissoba Família",
     precoRiscado: 105.00,
     preco: 97.00,
     descricao: "Serve até 5 pessoas. Uma opção perfeita para dividir em família ou com amigos.",
     ingredientes: ["Macarrão Oriental", "Carnes Variadas", "Legumes", "Molho Shoyu"],
-    imagem: "imagens/pratos/yakissoba.jpg",
+    imagem: "imagens/lanches/yakisobafamilia.jpg",
     adicionais: [
         { nome: "Frango Extra", preco: 10.00 },
         { nome: "Carne Extra", preco: 12.00 },
@@ -692,13 +685,13 @@ let catalogoDeProdutos = {
 },
 
 "produto-kikao-simples": {
-    tipo: "hot-dog",
+    tipo: "lanche",
     nome: "KIKÃO SIMPLES",
     precoRiscado: 12.00,
     preco: 8.00,
     descricao: "O clássico hot dog com salsicha, molho, queijo ralado e batata palha. Simples e delicioso.",
     ingredientes: ["Pão", " Molho", " Salsicha", " Catchup", " Maionese", " Queijo Ralado", " Batata Palha"],
-    imagem: "imagens/lanches/kikao-simples.jpg",
+    imagem: "imagens/lanches/kikaosimpless.png",
     adicionais: [
     { nome: "Bacon", preco: 3.00 },
     { nome: "Calabresa", preco: 3.00 },
@@ -713,13 +706,13 @@ let catalogoDeProdutos = {
 },
 
 "produto-kikao-especial": {
-    tipo: "hot-dog",
+    tipo: "lanche",
     nome: "KIKÃO ESPECIAL",
     precoRiscado: 16.00,
     preco: 12.00,
     descricao: "O hot dog especial com o acréscimo de queijo mussarela e fatias crocantes de bacon.",
     ingredientes: ["Pão", " Molho", " Salsicha", " Catchup", " Maionese", " Queijo Ralado", " Batata Palha", " Queijo Mussarela", " Bacon"],
-    imagem: "imagens/lanches/kikao-especial.jpg",
+    imagem: "imagens/lanches/kikaoespecial.jpg",
     adicionais: [
     { nome: "Bacon", preco: 3.00 },
     { nome: "Calabresa", preco: 3.00 },
@@ -734,13 +727,13 @@ let catalogoDeProdutos = {
 },
 
 "produto-kikao-cheddar-bacon": {
-    tipo: "hot-dog",
+    tipo: "lanche",
     nome: "KIKÃO CHEDDAR BACON",
     precoRiscado: 19.00,
     preco: 15.00,
     descricao: "Hot dog com o irresistível creme cheddar e fatias de bacon, perfeito para quem ama essa combinação.",
     ingredientes: ["Pão", " Molho", " Salsicha", " Catchup", " Maionese", " Queijo Ralado", " Batata Palha", " Creme Cheddar", " Bacon"],
-    imagem: "imagens/lanches/kikao-cheddar-bacon.jpg",
+    imagem: "imagens/lanches/kikaocheddar.png",
     adicionais: [
     { nome: "Bacon", preco: 3.00 },
     { nome: "Calabresa", preco: 3.00 },
@@ -763,56 +756,65 @@ let catalogoDeProdutos = {
     "produto-cocacolalata": {
         tipo: "bebida",
         nome: "Coca-cola em Lata" ,
-        precoRiscado: 9.00,
-        preco: 7.00 ,
+        precoRiscado: 8.00,
+        preco: 6.00 ,
         descricao: "Refrigerante Coca-Cola em lata",
         imagem: "imagens/bebidas/cocacola350ml.png"
     },
 
-        "produto-cocacolalatazero": {
+   /*     "produto-cocacolalatazero": {
         tipo: "bebida",
         nome: "Coca-cola Zero em Lata" ,
         precoRiscado: 9.00,
         preco: 7.00 ,
         descricao: "Refrigerante Coca-Cola em lata",
         imagem: "imagens/bebidas/cocacolaLataZERO.png"
-    },
+    }, */
 
-      "produto-guarana250ml": {
+   /*   "produto-guarana250ml": {
         tipo: "bebida",
         nome: "Guaraná em lata",
         precoRiscado: 9.00,
         preco: 7.00,
         descricao: "Guanará em lata",
         imagem: "imagens/bebidas/GuaranaLataATTpngSFundo.png"
-    },
+    }, */
 
-          "produto-guaranabarelata": {
+       /* "produto-guaranabarelata": {
         tipo: "bebida",
         nome: "Guaraná Baré em lata",
         precoRiscado: 9.00,
         preco: 7.00,
         descricao: "Guanará Baré em lata",
         imagem: "imagens/bebidas/guaranabaresemfundo.png"
-    },
+    }, */
 
     "produto-fanta250ml": {
       tipo: "bebida",
       nome: "Fanta em Lata",
-      precoRiscado: 9.00,
-      preco: 7.00,
+      precoRiscado: 8.00,
+      preco: 6.00,
       descricao: "Fanta em lata",
       imagem: "imagens/bebidas/Fantalata350ml.png"
     },
 
-      "produto-fantauvalata": {
+        "produto-pepsilata": {
+      tipo: "bebida",
+      nome: "Pepsi em Lata",
+      precoRiscado: 8.00,
+      preco: 6.00,
+      descricao: "Pepsi em lata",
+      imagem: "imagens/bebidas/pepsilata.png"
+    },
+
+     /* "produto-fantauvalata": {
       tipo: "bebida",
       nome: "Fanta Uva em Lata",
       precoRiscado: 9.00,
       preco: 7.00,
       descricao: "Fanta Sabor Uva em lata",
       imagem: "imagens/bebidas/fantauvalata.png"
-    },
+    }, */
 
       "produto-cocacola1L": {
       tipo: "bebida",
@@ -823,14 +825,14 @@ let catalogoDeProdutos = {
       imagem: "imagens/bebidas/Coca1LA.png"
     },
 
-    "produto-cocacola1LZero": {
+ /*  "produto-cocacola1LZero": {
       tipo: "bebida",
       nome: "Coca-Cola Zero 1L",
       precoRiscado: 12.00,
       preco: 10.00,
       descricao: "Coca-Cola 1L",
       imagem: "imagens/bebidas/cocacola1LZero.png"
-    },
+    }, */
 
     "produto-guarana1L": {
       tipo: "bebida",
@@ -848,6 +850,42 @@ let catalogoDeProdutos = {
       preco: 10.00,
       descricao: "Fanta 1L",
       imagem: "imagens/bebidas/fanta1LA.png"
+    },
+
+    "produto-pepsi1L": {
+      tipo: "bebida",
+      nome: "Pepsi 1L",
+      precoRiscado: 10.00,
+      preco: 8.00,
+      descricao: "Pepsi 1L",
+      imagem: "imagens/bebidas/pepsi1L.png"
+    },
+
+    "produto-bare1L": {
+      tipo: "bebida",
+      nome: "Baré 1L",
+      precoRiscado: 10.00,
+      preco: 8.00,
+      descricao: "Baré 1L",
+      imagem: "imagens/bebidas/bare1L.png"
+    },
+
+     "produto-tuchaua1L": {
+      tipo: "bebida",
+      nome: "Tuchaua 1L",
+      precoRiscado: 10.00,
+      preco: 8.00,
+      descricao: "Tuchaua 1L",
+      imagem: "imagens/bebidas/tachaua1L.png"
+    },
+
+     "produto-aguamineral": {
+      tipo: "bebida",
+      nome: "Água Mineral",
+      precoRiscado: 4.00,
+      preco: 3.00,
+      descricao: "Água Mineral",
+      imagem: "imagens/bebidas/aguamineral.png"
     },
 
     "produto-sucopolpacapuacu500ml": {
@@ -877,20 +915,38 @@ let catalogoDeProdutos = {
       imagem: "imagens/bebidas/polpamaracuja500ml.png"
     },
 
-      "produto-sucoacerola1l": {
+      "produto-sucogoiaba1L": {
       tipo: "suco",
-      nome: "Suco de Polpa de Acerola  – 1L",
-      precoRiscado: 14.00,
-      preco: 12.00,
+      nome: "Suco de Polpa de Goiaba  – 1L",
+      precoRiscado: 20.00,
+      preco: 15.00,
       descricao: "Feitop na hora, 100% fruta. Refrescante, doce e bom demaisss.",
-      imagem: "imagens/bebidas/jarrasucoacerola1l.png"
+      imagem: "imagens/bebidas/sucogoiaba1L.png"
+    },
+
+    "produto-sucograviola1L": {
+      tipo: "suco",
+      nome: "Suco de Polpa de Goiaba  – 1L",
+      precoRiscado: 20.00,
+      preco: 15.00,
+      descricao: "Feitop na hora, 100% fruta. Refrescante, doce e bom demaisss.",
+      imagem: "imagens/bebidas/graviola1L.png"
+    },
+
+    "produto-tabereba1L": {
+      tipo: "suco",
+      nome: "Suco de Polpa de Taperebá  – 1L",
+      precoRiscado: 20.00,
+      preco: 15.00,
+      descricao: "Feitop na hora, 100% fruta. Refrescante, doce e bom demaisss.",
+      imagem: "imagens/bebidas/tapereba1L.png"
     },
 
       "produto-sucomaracuja1l": {
       tipo: "suco",
       nome: "Suco de Polpa de Acerola  – 1L",
-      precoRiscado: 14.00,
-      preco: 12.00,
+      precoRiscado: 22.00,
+      preco: 18.00,
       descricao: "Feitop na hora, 100% fruta. Refrescante, doce e bom demaisss.",
       imagem: "imagens/bebidas/jarrasmaracuja1l.png"
     },
@@ -898,8 +954,8 @@ let catalogoDeProdutos = {
       "produto-sucocapuacu1l": {
       tipo: "suco",
       nome: "Suco de Polpa de Cupuaçu  – 1L",
-      precoRiscado: 14.00,
-      preco: 12.00,
+      precoRiscado: 18.00,
+      preco: 22.00,
       descricao: "Feitop na hora, 100% fruta. Refrescante, doce e bom demaisss.",
       imagem: "imagens/bebidas/capuacu1l.png"
     },
@@ -1026,7 +1082,7 @@ function saoObjetosIguais(obj1, obj2) {
 }
 // ==========================================================================================
 // FUNÇÃO ADICIONAR ITEM AO CARRINHO PRINCIPAL
-function adicionarAoCarrinho(produto, quantidade, adicionais, bebidas, saborPrincipal = null) {
+function adicionarAoCarrinho(produto, quantidade, adicionais, bebidas, saborPrincipal = null, observacao = '') {
 
     if (AbertoFechado()) {
 
@@ -1035,7 +1091,8 @@ function adicionarAoCarrinho(produto, quantidade, adicionais, bebidas, saborPrin
     item.produto.nome === produto.nome &&
     saoObjetosIguais(item.adicionais, adicionais) &&   // ✅ usa o parâmetro
     saoObjetosIguais(item.bebidas, bebidas)    &&         // ✅ usa o parâmetro
-    item.sabor === saborPrincipal
+    item.sabor === saborPrincipal &&
+    (item.observacao || '') === (observacao || '')
 );
 
 
@@ -1051,7 +1108,9 @@ function adicionarAoCarrinho(produto, quantidade, adicionais, bebidas, saborPrin
             adicionais: { ...adicionais }, 
             bebidas: { ...bebidas },
             // 🚨 MUDANÇA CRÍTICA 2: Salva o novo campo 'sabor'
-            sabor: saborPrincipal 
+            sabor: saborPrincipal,
+            observacao: observacao // <-- A variável que armazenou o texto do input
+
         });
     }
 
@@ -1284,7 +1343,7 @@ function modalLanche(produtoSelecionado, adicionaisSelecionados, bebidasSelecion
                     inputBebidas.value = parseInt(inputBebidas.value) + 1;
                     bebidasSelecionadas[idProduto] = parseInt(inputBebidas.value);
                     atualizarPreCarrinho(inputQuantidadePre, produtoSelecionado, precoPre, precoRiscadoPre, adicionaisSelecionados, bebidasSelecionadas);
-                    atualizarContadorCarrinho()
+                    
                 });
 
                 diminuirBebidas.addEventListener('click', (event) => {
@@ -1303,7 +1362,7 @@ function modalLanche(produtoSelecionado, adicionaisSelecionados, bebidasSelecion
     }
 
     atualizarPreCarrinho(inputQuantidadePre, produtoSelecionado, precoPre, precoRiscadoPre, adicionaisSelecionados, bebidasSelecionadas);
-    atualizarContadorCarrinho();
+    
 });
 }
 }
@@ -1392,7 +1451,7 @@ function modalLanche(produtoSelecionado, adicionaisSelecionados, bebidasSelecion
                 }
                 adicionaisSelecionados[adicionalAtual.nome] = parseInt(inputQuantidadeAdicionais.value);
                 atualizarPreCarrinho(inputQuantidadePre, produtoSelecionado, precoPre, precoRiscadoPre, adicionaisSelecionados, bebidasSelecionadas);
-                atualizarContadorCarrinho()
+                
 
             });
             
@@ -1402,9 +1461,44 @@ function modalLanche(produtoSelecionado, adicionaisSelecionados, bebidasSelecion
                 inputQuantidadeAdicionais.value = parseInt(inputQuantidadeAdicionais.value) + 1;
                 adicionaisSelecionados[adicionalAtual.nome] = parseInt(inputQuantidadeAdicionais.value);
                 atualizarPreCarrinho(inputQuantidadePre, produtoSelecionado, precoPre, precoRiscadoPre, adicionaisSelecionados, bebidasSelecionadas);
-                atualizarContadorCarrinho()
+                
             });
         });
+
+
+
+     // Variável local para armazenar o valor da observação
+let observacaoLanche = ''; // 👈 Use o nome da variável local correto para este modal!
+
+// Otimização: Se você estiver reabrindo um item do carrinho, pode carregar a observação salva
+if (produtoSelecionado.observacao) {
+    observacaoLanche = produtoSelecionado.observacao;
+}
+
+
+
+let divObsModal = document.createElement('div');
+divObsModal.classList.add('divObsModal'); // Nova classe para estilizar o bloco no modal
+divPrincipal.appendChild(divObsModal); 
+
+let labelObsModal = document.createElement('label');
+labelObsModal.textContent = 'Observação (Opcional):'
+labelObsModal.classList.add('labelObs') 
+
+let inputObsModal = document.createElement('input');
+inputObsModal.placeholder = 'Ex: sem maionese, sem tomate, etc.';
+inputObsModal.classList.add('inputObs'); 
+
+// 1. Carrega o valor inicial
+inputObsModal.value = observacaoLanche;
+
+// 2. Ouve a digitação e atualiza a variável local
+inputObsModal.addEventListener('input', function() {
+    observacaoLanche = inputObsModal.value;
+});
+
+divObsModal.appendChild(labelObsModal);
+divObsModal.appendChild(inputObsModal);
 
 // ====================================================================
         // NOVA DIV PARA OS BOTÕES FINAIS (QUANTIDADE DO PRINCIPAL E ADICIONAR)
@@ -1441,14 +1535,14 @@ function modalLanche(produtoSelecionado, adicionaisSelecionados, bebidasSelecion
             if (inputQuantidadePre.value > 1) {
                 inputQuantidadePre.value = parseInt(inputQuantidadePre.value) - 1;
                 atualizarPreCarrinho(inputQuantidadePre, produtoSelecionado, precoPre, precoRiscadoPre, adicionaisSelecionados, bebidasSelecionadas);
-                atualizarContadorCarrinho()
+                
             }
         });
         
         botaoAumentarPre.addEventListener('click', () => {
             inputQuantidadePre.value = parseInt(inputQuantidadePre.value) + 1;
             atualizarPreCarrinho(inputQuantidadePre, produtoSelecionado, precoPre, precoRiscadoPre, adicionaisSelecionados, bebidasSelecionadas);
-            atualizarContadorCarrinho()
+            
         });
 
         // Botão Adicionar ao Carrinho
@@ -1459,10 +1553,10 @@ function modalLanche(produtoSelecionado, adicionaisSelecionados, bebidasSelecion
 
         // EVENTO DE ADICIONAR AO CARRINHO E FECHAR MODAL
         botaoAdicionar.addEventListener('click', () => {
-            adicionarAoCarrinho(produtoSelecionado, inputQuantidadePre.value, adicionaisSelecionados, bebidasSelecionadas);
+            adicionarAoCarrinho(produtoSelecionado, inputQuantidadePre.value, adicionaisSelecionados, bebidasSelecionadas, '', observacaoLanche);
             ModalPreCarrinho.style.display = 'none';
             atualizarCarrinho();
-            atualizarContadorCarrinho()
+            
             // RESTAURA O BODY
             document.body.style.position = '';
             document.body.style.top = '';
@@ -1610,6 +1704,43 @@ function modalEspetinho(produtoSelecionado, adicionaisSelecionados, bebidasSelec
          });
      });
 
+
+
+    // Variável local para armazenar o valor da observação
+let observacaoEspetinho = ''; // 👈 Use o nome da variável local correto para este modal!
+
+// Otimização: Se você estiver reabrindo um item do carrinho, pode carregar a observação salva
+if (produtoSelecionado.observacao) {
+    observacaoEspetinho = produtoSelecionado.observacao;
+}
+
+
+
+let divObsModal = document.createElement('div');
+divObsModal.classList.add('divObsModal'); // Nova classe para estilizar o bloco no modal
+divPrincipal.appendChild(divObsModal); 
+
+let labelObsModal = document.createElement('label');
+labelObsModal.textContent = 'Observação (Opcional):'
+labelObsModal.classList.add('labelObs') 
+
+let inputObsModal = document.createElement('input');
+inputObsModal.placeholder = 'Ex: sem maionese, sem tomate, etc.';
+inputObsModal.classList.add('inputObs'); 
+
+// 1. Carrega o valor inicial
+inputObsModal.value = observacaoEspetinho;
+
+// 2. Ouve a digitação e atualiza a variável local
+inputObsModal.addEventListener('input', function() {
+    observacaoEspetinho = inputObsModal.value;
+});
+
+divObsModal.appendChild(labelObsModal);
+divObsModal.appendChild(inputObsModal);
+
+
+
      // ====================================================================
      // 3. BOTÕES FINAIS (QUANTIDADE DO PRINCIPAL E ADICIONAR) - COPIADO DO modalLanche
      // ====================================================================
@@ -1679,7 +1810,7 @@ function modalEspetinho(produtoSelecionado, adicionaisSelecionados, bebidasSelec
     // =======================================================
 
 
-         adicionarAoCarrinho(produtoSelecionado, inputQuantidadePre.value, adicionaisSelecionados, bebidasSelecionadas, saborPrincipalSelecionado);
+         adicionarAoCarrinho(produtoSelecionado, inputQuantidadePre.value, adicionaisSelecionados, bebidasSelecionadas, saborPrincipalSelecionado, observacaoEspetinho);
          ModalPreCarrinho.style.display = 'none';
          atualizarCarrinho();
          atualizarContadorCarrinho()
@@ -1699,6 +1830,655 @@ function modalEspetinho(produtoSelecionado, adicionaisSelecionados, bebidasSelec
 
 
 //=================== FIM DA FUNÇÃO QUE RENDERIZA O MODAL ESPETINHO ==============================
+
+
+//=================== FUNÇÃO QUE RENDERIZA O MODAL YAKISSOBA ==============================
+
+// Crie esta função FORA do seu loop de eventos
+function modalYakissoba(produtoSelecionado, adicionaisSelecionados, bebidasSelecionadas, conteudoModal, scrollPosition) {
+    
+    // Variável essencial: O preço base do Yakissoba
+    let precoBaseProduto = produtoSelecionado.preco; 
+
+    // ====================================================================
+    // 1. CONTEÚDO PRINCIPAL (DOM DO PRODUTO) - Estrutura base (Lanche/Espetinho)
+    // ====================================================================
+    
+    // DIV PRINCIPAL DO CONTEÚDO (Imagem e texto do produto)
+    let divPrincipal = document.createElement('div')
+    divPrincipal.classList.add('divPrincipal')
+    conteudoModal.appendChild(divPrincipal)
+
+    // Divs de Imagem, Info e Conteúdo
+    let divImagemPre = document.createElement('div');
+    divImagemPre.classList.add('divImagemPre');
+    divPrincipal.appendChild(divImagemPre);
+
+    let imagemPre = document.createElement('img');
+    imagemPre.src = `${produtoSelecionado.imagem}`;
+    imagemPre.classList.add('imagemPre');
+    divImagemPre.appendChild(imagemPre);
+
+    let divPrincipalProdutoInfo = document.createElement('div');
+    divPrincipalProdutoInfo.classList.add('divPrincipalProdutoInfo');
+    divPrincipal.appendChild(divPrincipalProdutoInfo);
+
+    let divConteudoPre = document.createElement('div');
+    divConteudoPre.classList.add('divConteudoPre');
+    divPrincipalProdutoInfo.appendChild(divConteudoPre);
+
+    let h3ProdutoPre = document.createElement('h3');
+    h3ProdutoPre.textContent = `${produtoSelecionado.nome}`;
+    h3ProdutoPre.classList.add('h3ProdutoPre');
+    divConteudoPre.appendChild(h3ProdutoPre);
+
+    let descricaoPre = document.createElement('p');
+    descricaoPre.textContent = `${produtoSelecionado.descricao}`;
+    descricaoPre.classList.add('descricaoPre');
+    divConteudoPre.appendChild(descricaoPre);
+
+    // Divs de Preço
+    let divPrecos = document.createElement('div');
+    divPrecos.classList.add('divPrecos');
+    divConteudoPre.appendChild(divPrecos); 
+
+    let precoRiscadoPre = document.createElement('span');
+    precoRiscadoPre.classList.add('PrecoRiscadoPre');
+    if (produtoSelecionado.precoRiscado) {
+        precoRiscadoPre.textContent = `R$ ${produtoSelecionado.precoRiscado.toFixed(2).replace('.', ',')}`;
+        divPrecos.appendChild(precoRiscadoPre);
+    }
+
+    let precoPre = document.createElement('span');
+    precoPre.classList.add('precoPre');
+    divPrecos.appendChild(precoPre);
+
+    
+    // ====================================================================
+    // 2. SEÇÃO OPICIONAL: ESCOLHA DE ADICIONAIS (COM BOTÕES + / -) - Classes do Lanche
+    // ====================================================================
+
+        // LÓGICA PARA OS ADICIONAIS, DOM, OBJECT, EVENTOS...
+        let divAdicional = document.createElement('div');
+        divPrincipal.appendChild(divAdicional);
+        divAdicional.classList.add('divAdicional');
+
+        let divh4PAdicional = document.createElement('div')
+        divh4PAdicional.classList.add('divh4PAdcicional')
+        divAdicional.appendChild(divh4PAdicional)
+
+        let h4Adicional = document.createElement('h4');
+        h4Adicional.classList.add('h4Adicional');
+        h4Adicional.textContent = `Deseja um adicional?`;
+        divh4PAdicional.appendChild(h4Adicional);
+
+        let txtAdicional = document.createElement('p');
+        txtAdicional.classList.add('txtAdicional');
+        txtAdicional.textContent = `Escolha até 8 opções`;
+        divh4PAdicional.appendChild(txtAdicional);
+
+        produtoSelecionado.adicionais.forEach(adicionalAtual => {
+
+            let divDividirItensAdicionais = document.createElement('div')
+            divDividirItensAdicionais.classList.add('divDividirItensAdicionais')
+            divAdicional.appendChild(divDividirItensAdicionais)
+
+
+            let divItemAdicional = document.createElement('div');
+            divItemAdicional.classList.add('divItemAdicional');
+            divDividirItensAdicionais.appendChild(divItemAdicional);
+            
+            let divNomePrecoAdicional = document.createElement('div');
+            divNomePrecoAdicional.classList.add('divNomePrecoAdiconal');
+            divItemAdicional.appendChild(divNomePrecoAdicional);
+
+            let nomeAdicional = document.createElement('p');
+            nomeAdicional.classList.add('nomeAdicional');
+            nomeAdicional.textContent = `${adicionalAtual.nome}`;
+            divNomePrecoAdicional.appendChild(nomeAdicional);
+            
+            let precoAdicional = document.createElement('span');
+            precoAdicional.classList.add('precoAdicional');
+            precoAdicional.textContent = `R$ ${adicionalAtual.preco.toFixed(2).replace('.', ',')}`;
+            divNomePrecoAdicional.appendChild(precoAdicional);
+
+            let divBotoesAdicionais = document.createElement('div');
+            divBotoesAdicionais.classList.add('divBotoesAdicionais');
+            divDividirItensAdicionais.appendChild(divBotoesAdicionais);
+            
+            // CRIANDO OS ELEMENTOS PRIMEIRO
+            let diminuirAdicionais = document.createElement('button');
+            diminuirAdicionais.classList.add('diminuirAdicionais');
+            diminuirAdicionais.textContent = `-`;
+            
+            let inputQuantidadeAdicionais = document.createElement('input'); 
+            inputQuantidadeAdicionais.classList.add('inputQuantidadeAdicionais');
+            inputQuantidadeAdicionais.value = 0;
+            
+            let aumentarQuantidadeAdicionais = document.createElement('button');
+            aumentarQuantidadeAdicionais.classList.add('aumentarQuantidadeAdicionais');
+            aumentarQuantidadeAdicionais.textContent = `+`;
+
+            // AGORA ANEXANDO AO HTML
+            divBotoesAdicionais.appendChild(diminuirAdicionais);
+            divBotoesAdicionais.appendChild(inputQuantidadeAdicionais);
+            divBotoesAdicionais.appendChild(aumentarQuantidadeAdicionais);
+            
+            // Lógica de exibir/esconder
+            if (!adicionaisSelecionados[adicionalAtual.nome] || adicionaisSelecionados[adicionalAtual.nome] === 0) {
+                diminuirAdicionais.style.display = 'none';
+                inputQuantidadeAdicionais.style.display = 'none';
+            }
+
+            // ADICIONANDO OS EVENTOS AGORA
+            diminuirAdicionais.addEventListener('click', () => {
+                let valorAtual = parseInt(inputQuantidadeAdicionais.value);
+                if (valorAtual > 0) {
+                    inputQuantidadeAdicionais.value = valorAtual - 1;
+                }
+                if (parseInt(inputQuantidadeAdicionais.value) === 0) {
+                    diminuirAdicionais.style.display = 'none';
+                    inputQuantidadeAdicionais.style.display = 'none';
+                }
+                adicionaisSelecionados[adicionalAtual.nome] = parseInt(inputQuantidadeAdicionais.value);
+                atualizarPreCarrinho(inputQuantidadePre, produtoSelecionado, precoPre, precoRiscadoPre, adicionaisSelecionados, bebidasSelecionadas);
+                
+
+            });
+            
+            aumentarQuantidadeAdicionais.addEventListener('click', () => {
+                diminuirAdicionais.style.display = 'block';
+                inputQuantidadeAdicionais.style.display = 'block';
+                inputQuantidadeAdicionais.value = parseInt(inputQuantidadeAdicionais.value) + 1;
+                adicionaisSelecionados[adicionalAtual.nome] = parseInt(inputQuantidadeAdicionais.value);
+                atualizarPreCarrinho(inputQuantidadePre, produtoSelecionado, precoPre, precoRiscadoPre, adicionaisSelecionados, bebidasSelecionadas);
+                
+            });
+        });
+
+
+    // ====================================================================
+    // 3. SEÇÃO OPCIONAL: BEBIDAS/SUCOS - Classes do Lanche
+    // ====================================================================
+    
+    // Supondo que você tenha um `catalogoDeProdutos` global para buscar as bebidas.
+    if (typeof catalogoDeProdutos !== 'undefined') {
+        let divSugestaoBebidas = document.createElement('div');
+        divSugestaoBebidas.classList.add('divSugestaoBebidas'); // Classe do Lanche
+        divPrincipal.appendChild(divSugestaoBebidas);
+
+        let divH4eP = document.createElement('div')
+        divH4eP.classList.add('divH4eP')
+        divSugestaoBebidas.appendChild(divH4eP)
+
+        let divControleH4P = document.createElement('div')
+        divControleH4P.classList.add('divControleH4P')
+        divH4eP.appendChild(divControleH4P)
+
+        let h4SugestaoBebidas = document.createElement('h4');
+        h4SugestaoBebidas.classList.add('h4SugestaoBebidas');
+        h4SugestaoBebidas.textContent = `2. O que você vai beber hoje?`;
+        divControleH4P.appendChild(h4SugestaoBebidas);
+
+        let pSugestao = document.createElement('p')
+        pSugestao.classList.add('pSugestao')
+        pSugestao.textContent = `Escolhas até 3 opções` // Mantendo o texto do Lanche
+        divControleH4P.appendChild(pSugestao)
+
+        for (const produtoId in catalogoDeProdutos) {
+            const produtoAtual = catalogoDeProdutos[produtoId];
+            
+            if (produtoAtual.tipo === 'bebida') {
+                
+                let divDividirItensBebidas = document.createElement('div')
+                divDividirItensBebidas.classList.add('divDividirItensBebidas')
+                divSugestaoBebidas.append(divDividirItensBebidas)
+
+                let divItemBebida = document.createElement('div');
+                divItemBebida.classList.add('divItemBebida');
+                divDividirItensBebidas.appendChild(divItemBebida);
+
+                let divImagemBebida = document.createElement('div');
+                divImagemBebida.classList.add('divImagemBebida');
+                divItemBebida.appendChild(divImagemBebida);
+
+                let imgBebida = document.createElement('img');
+                imgBebida.src = `${produtoAtual.imagem}`;
+                imgBebida.classList.add('imgBebida')
+                divImagemBebida.appendChild(imgBebida);
+
+                let divInfoBebida = document.createElement('div');
+                divInfoBebida.classList.add('divInfoBebida');
+                divItemBebida.appendChild(divInfoBebida);
+
+                let h4Bebida = document.createElement('h4');
+                h4Bebida.classList.add('h4Bebida');
+                h4Bebida.textContent = `${produtoAtual.nome}`;
+                divInfoBebida.appendChild(h4Bebida);
+                
+                let divPrecosBebida = document.createElement('div');
+                divPrecosBebida.classList.add('divPrecosBebida');
+                divInfoBebida.appendChild(divPrecosBebida);
+
+                if (produtoAtual.precoRiscado) {
+                    let precoRiscadoBebida = document.createElement('span');
+                    precoRiscadoBebida.classList.add('precoRiscadoBebida');
+                    precoRiscadoBebida.textContent = `R$ ${produtoAtual.precoRiscado.toFixed(2).replace('.', ',')}`;
+                    divPrecosBebida.appendChild(precoRiscadoBebida);
+                }
+
+                let precoBebida = document.createElement('span');
+                precoBebida.classList.add('precoBebida');
+                precoBebida.textContent = `+ R$ ${produtoAtual.preco.toFixed(2).replace('.', ',')}`;
+                divPrecosBebida.appendChild(precoBebida);
+
+                let divBotoesBebidas = document.createElement('div');
+                divBotoesBebidas.classList.add('divBotoesBebidas');
+                divDividirItensBebidas.appendChild(divBotoesBebidas);
+
+                let diminuirBebidas = document.createElement('button');
+                diminuirBebidas.classList.add('diminuirBebidas');
+                diminuirBebidas.textContent = `-`;
+                diminuirBebidas.dataset.id = produtoId;
+                divBotoesBebidas.appendChild(diminuirBebidas);
+                
+                let inputBebidas = document.createElement('input');
+                inputBebidas.classList.add('inputBebidas');
+                inputBebidas.readOnly = true;
+                inputBebidas.value = bebidasSelecionadas[produtoId] || 0;
+                inputBebidas.dataset.id = produtoId;
+                divBotoesBebidas.appendChild(inputBebidas);
+
+                let aumentarBebidas = document.createElement('button');
+                aumentarBebidas.classList.add('aumentarBebidas');
+                aumentarBebidas.textContent = `+`;
+                aumentarBebidas.dataset.id = produtoId;
+                divBotoesBebidas.appendChild(aumentarBebidas);
+
+                // LÓGICA DE OCULTAR E EXIBIR + EVENTOS DAS BEBIDAS
+                if (inputBebidas.value == 0) {
+                    inputBebidas.style.display = 'none';
+                    diminuirBebidas.style.display = 'none';
+                }
+
+                aumentarBebidas.addEventListener('click', (event) => {
+                    const idProduto = event.currentTarget.dataset.id;
+                    inputBebidas.style.display = 'block';
+                    diminuirBebidas.style.display = 'block';
+                    inputBebidas.value = parseInt(inputBebidas.value) + 1;
+                    bebidasSelecionadas[idProduto] = parseInt(inputBebidas.value);
+                    calcularPrecoInline(); 
+                    atualizarContadorCarrinho()
+                });
+
+                diminuirBebidas.addEventListener('click', (event) => {
+                    const idProduto = event.currentTarget.dataset.id;
+                    let valorAtual = parseInt(inputBebidas.value);
+
+                    if (valorAtual > 0) {
+                        valorAtual -= 1;
+                        inputBebidas.value = valorAtual; 
+                        bebidasSelecionadas[idProduto] = valorAtual;
+                    }
+
+                    if (valorAtual === 0) {
+                        inputBebidas.style.display = 'none';
+                        diminuirBebidas.style.display = 'none';
+                        delete bebidasSelecionadas[idProduto]; // Remove do objeto se for 0
+                    }
+
+
+
+                    calcularPrecoInline();
+                    atualizarContadorCarrinho();
+                });
+            }
+        }
+    }
+
+
+
+
+        // Variável local para armazenar o valor da observação
+let observacaoYakissoba = ''; // 👈 Use o nome da variável local correto para este modal!
+
+// Otimização: Se você estiver reabrindo um item do carrinho, pode carregar a observação salva
+if (produtoSelecionado.observacao) {
+    observacaoYakissoba = produtoSelecionado.observacao;
+}
+
+
+
+let divObsModal = document.createElement('div');
+divObsModal.classList.add('divObsModal'); // Nova classe para estilizar o bloco no modal
+divPrincipal.appendChild(divObsModal); 
+
+let labelObsModal = document.createElement('label');
+labelObsModal.textContent = 'Observação (Opcional):'
+labelObsModal.classList.add('labelObs') 
+
+let inputObsModal = document.createElement('input');
+inputObsModal.placeholder = 'Ex: sem maionese, sem tomate, etc.';
+inputObsModal.classList.add('inputObs'); 
+
+// 1. Carrega o valor inicial
+inputObsModal.value = observacaoYakissoba;
+
+// 2. Ouve a digitação e atualiza a variável local
+inputObsModal.addEventListener('input', function() {
+    observacaoYakissoba = inputObsModal.value;
+});
+
+divObsModal.appendChild(labelObsModal);
+divObsModal.appendChild(inputObsModal);
+
+
+    
+    // ====================================================================
+    // 4. BOTÕES FINAIS (QUANTIDADE DO PRINCIPAL E ADICIONAR) - Classes do Lanche
+    // ====================================================================
+    
+    let divFinalAcoes = document.createElement('div');
+    divFinalAcoes.classList.add('divFinalAcoes');
+    conteudoModal.appendChild(divFinalAcoes);
+
+    let divBotoesAcoes = document.createElement('div');
+    divBotoesAcoes.classList.add('divBotoesAcoes');
+    divFinalAcoes.appendChild(divBotoesAcoes);
+
+    // Variáveis de Ação Principal
+    let botaoDiminuirPre = document.createElement('button');
+    botaoDiminuirPre.textContent = `-`;
+    botaoDiminuirPre.classList.add('botaoDiminuirPre');
+    divBotoesAcoes.appendChild(botaoDiminuirPre);
+
+    let inputQuantidadePre = document.createElement('input');
+    inputQuantidadePre.classList.add('inputQuantidadePre');
+    divBotoesAcoes.appendChild(inputQuantidadePre);
+    inputQuantidadePre.value = 1; 
+    inputQuantidadePre.readOnly = true;
+
+    let botaoAumentarPre = document.createElement('button');
+    botaoAumentarPre.textContent = `+`;
+    botaoAumentarPre.classList.add('botaoAumentarPre');
+    divBotoesAcoes.appendChild(botaoAumentarPre);
+
+    let botaoAdicionar = document.createElement('button');
+    botaoAdicionar.classList.add('AdicionarCarrinho');
+    divFinalAcoes.appendChild(botaoAdicionar);
+
+    // ====================================================================
+    // 5. LÓGICA DE CÁLCULO (FUNÇÃO AUXILIAR INTERNA)
+    // ====================================================================
+    
+    const calcularPrecoInline = () => {
+        const qtdPrincipal = parseInt(inputQuantidadePre.value) || 1; 
+        let precoAdicionaisUnitario = 0;
+        let precoBebidasUnitario = 0;
+        
+        // CÁLCULO DE ADICIONAIS
+        for (const nomeAdicional in adicionaisSelecionados) {
+            // Verifica se o adicional existe e tem preço para evitar erros
+            if (adicionaisSelecionados[nomeAdicional].preco) {
+               precoAdicionaisUnitario += adicionaisSelecionados[nomeAdicional].preco * adicionaisSelecionados[nomeAdicional].quantidade;
+            }
+        }
+        
+        // CÁLCULO DE BEBIDAS
+        for (const produtoId in bebidasSelecionadas) {
+             // Busca o preço da bebida no catálogo (você pode precisar ajustar a busca)
+            const precoBebida = catalogoDeProdutos[produtoId] ? catalogoDeProdutos[produtoId].preco : 0;
+            precoBebidasUnitario += precoBebida * bebidasSelecionadas[produtoId];
+        }
+
+        const precoUnitarioTotal = precoBaseProduto + precoAdicionaisUnitario + precoBebidasUnitario;
+        const precoTotalCarrinho = precoUnitarioTotal * qtdPrincipal;
+
+        precoPre.textContent = `R$ ${precoTotalCarrinho.toFixed(2).replace('.', ',')}`;
+        botaoAdicionar.innerHTML = `<i class="fa-solid fa-cart-plus"></i> Adicionar R$ ${precoTotalCarrinho.toFixed(2).replace('.', ',')}`;
+    };
+
+
+    // Eventos de Quantidade PRINCIPAL
+    botaoDiminuirPre.addEventListener('click', () => {
+        if (inputQuantidadePre.value > 1) {
+            inputQuantidadePre.value = parseInt(inputQuantidadePre.value) - 1;
+            calcularPrecoInline();
+            atualizarContadorCarrinho()
+        }
+    });
+
+    botaoAumentarPre.addEventListener('click', () => {
+        inputQuantidadePre.value = parseInt(inputQuantidadePre.value) + 1;
+        calcularPrecoInline();
+        atualizarContadorCarrinho()
+    });
+
+    // Evento de Adicionar
+    botaoAdicionar.addEventListener('click', () => {
+        
+        adicionarAoCarrinho(
+            produtoSelecionado, 
+            inputQuantidadePre.value, 
+            adicionaisSelecionados, 
+            bebidasSelecionadas, 
+            '', // Sabor Principal é vazio para o Yakissoba
+            observacaoYakissoba
+            
+        ); 
+
+        ModalPreCarrinho.style.display = 'none';
+        atualizarCarrinho();
+        atualizarContadorCarrinho()
+        
+        // RESTAURA O BODY
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.width = '';
+        document.body.style.overflow = 'auto';
+        window.scrollTo(0, scrollPosition); 
+    });
+    
+    // Chamada inicial para configurar o preço e o botão ao abrir
+    calcularPrecoInline();
+    atualizarContadorCarrinho()
+}
+
+// ============================== FUNÇÃO COMBOS ============================================
+
+// Crie esta função FORA do seu loop de eventos
+function modalCombo(produtoSelecionado, adicionaisSelecionados, bebidasSelecionadas, conteudoModal, scrollPosition) {
+    
+    // Variável essencial: O preço base do Combo
+    let precoBaseProduto = produtoSelecionado.preco; 
+
+    // ====================================================================
+    // 1. CONTEÚDO PRINCIPAL (DOM DO PRODUTO) - Estrutura base do Lanche/Yakissoba
+    // ====================================================================
+    
+    // DIV PRINCIPAL DO CONTEÚDO (Imagem e texto do produto)
+    let divPrincipal = document.createElement('div')
+    divPrincipal.classList.add('divPrincipal')
+    conteudoModal.appendChild(divPrincipal)
+
+    // Divs de Imagem, Info e Conteúdo
+    let divImagemPre = document.createElement('div');
+    divImagemPre.classList.add('divImagemPre');
+    divPrincipal.appendChild(divImagemPre);
+
+    let imagemPre = document.createElement('img');
+    imagemPre.src = `${produtoSelecionado.imagem}`;
+    imagemPre.classList.add('imagemPre');
+    divImagemPre.appendChild(imagemPre);
+
+    let divPrincipalProdutoInfo = document.createElement('div');
+    divPrincipalProdutoInfo.classList.add('divPrincipalProdutoInfo');
+    divPrincipal.appendChild(divPrincipalProdutoInfo);
+
+    let divConteudoPre = document.createElement('div');
+    divConteudoPre.classList.add('divConteudoPre');
+    divPrincipalProdutoInfo.appendChild(divConteudoPre);
+
+    let h3ProdutoPre = document.createElement('h3');
+    h3ProdutoPre.textContent = `${produtoSelecionado.nome}`;
+    h3ProdutoPre.classList.add('h3ProdutoPre');
+    divConteudoPre.appendChild(h3ProdutoPre);
+
+    let descricaoPre = document.createElement('p');
+    descricaoPre.textContent = `${produtoSelecionado.descricao}`;
+    descricaoPre.classList.add('descricaoPre');
+    divConteudoPre.appendChild(descricaoPre);
+
+    // Divs de Preço
+    let divPrecos = document.createElement('div');
+    divPrecos.classList.add('divPrecos');
+    divConteudoPre.appendChild(divPrecos); 
+
+    let precoRiscadoPre = document.createElement('span');
+    precoRiscadoPre.classList.add('PrecoRiscadoPre');
+    if (produtoSelecionado.precoRiscado) {
+        precoRiscadoPre.textContent = `R$ ${produtoSelecionado.precoRiscado.toFixed(2).replace('.', ',')}`;
+        divPrecos.appendChild(precoRiscadoPre);
+    }
+
+    let precoPre = document.createElement('span');
+    precoPre.classList.add('precoPre');
+    divPrecos.appendChild(precoPre);
+
+    // Variável local para armazenar o valor da observação
+let observacaoCombo = ''; 
+
+// Otimização: Se você estiver reabrindo um item do carrinho, pode carregar a observação salva
+if (produtoSelecionado.observacao) {
+    observacaoCombo = produtoSelecionado.observacao;
+}
+
+let divObsModal = document.createElement('div');
+divObsModal.classList.add('divObsModal'); // Nova classe para estilizar o bloco no modal
+divPrincipal.appendChild(divObsModal); 
+
+let labelObsModal = document.createElement('label');
+labelObsModal.textContent = 'Observação (Opcional):'
+labelObsModal.classList.add('labelObs') 
+
+let inputObsModal = document.createElement('input');
+inputObsModal.placeholder = 'Ex: sem maionese, sem tomate, etc.';
+inputObsModal.classList.add('inputObs'); 
+
+// 1. Carrega o valor inicial
+inputObsModal.value = observacaoCombo;
+
+// 2. Ouve a digitação e atualiza a variável local
+inputObsModal.addEventListener('input', function() {
+    observacaoCombo = inputObsModal.value;
+});
+
+divObsModal.appendChild(labelObsModal);
+divObsModal.appendChild(inputObsModal);
+
+    
+    // ====================================================================
+    // 2. SEÇÃO DE ADICIONAIS/BEBIDAS - AUSENTE (É UM COMBO FECHADO)
+    // ====================================================================
+
+    // As seções de Adicionais e Bebidas são omitidas para manter o combo padrão.
+    
+    
+    // ====================================================================
+    // 3. BOTÕES FINAIS (QUANTIDADE DO PRINCIPAL E ADICIONAR)
+    // ====================================================================
+    
+    let divFinalAcoes = document.createElement('div');
+    divFinalAcoes.classList.add('divFinalAcoes');
+    conteudoModal.appendChild(divFinalAcoes);
+
+    let divBotoesAcoes = document.createElement('div');
+    divBotoesAcoes.classList.add('divBotoesAcoes');
+    divFinalAcoes.appendChild(divBotoesAcoes);
+
+    // Variáveis de Ação Principal
+    let botaoDiminuirPre = document.createElement('button');
+    botaoDiminuirPre.textContent = `-`;
+    botaoDiminuirPre.classList.add('botaoDiminuirPre');
+    divBotoesAcoes.appendChild(botaoDiminuirPre);
+
+    let inputQuantidadePre = document.createElement('input');
+    inputQuantidadePre.classList.add('inputQuantidadePre');
+    divBotoesAcoes.appendChild(inputQuantidadePre);
+    inputQuantidadePre.value = 1; 
+    inputQuantidadePre.readOnly = true;
+
+    let botaoAumentarPre = document.createElement('button');
+    botaoAumentarPre.textContent = `+`;
+    botaoAumentarPre.classList.add('botaoAumentarPre');
+    divBotoesAcoes.appendChild(botaoAumentarPre);
+
+    let botaoAdicionar = document.createElement('button');
+    botaoAdicionar.classList.add('AdicionarCarrinho');
+    divFinalAcoes.appendChild(botaoAdicionar);
+
+    // ====================================================================
+    // 4. LÓGICA DE CÁLCULO (FUNÇÃO AUXILIAR INTERNA)
+    // ====================================================================
+    
+    const calcularPrecoInline = () => {
+        const qtdPrincipal = parseInt(inputQuantidadePre.value) || 1; 
+        
+        // No combo, o preço unitário total é apenas o preço base, já que não há adicionais.
+        const precoUnitarioTotal = precoBaseProduto; 
+        const precoTotalCarrinho = precoUnitarioTotal * qtdPrincipal;
+
+        precoPre.textContent = `R$ ${precoTotalCarrinho.toFixed(2).replace('.', ',')}`;
+        botaoAdicionar.innerHTML = `<i class="fa-solid fa-cart-plus"></i> Adicionar R$ ${precoTotalCarrinho.toFixed(2).replace('.', ',')}`;
+    };
+
+
+    // Eventos de Quantidade PRINCIPAL
+    botaoDiminuirPre.addEventListener('click', () => {
+        if (inputQuantidadePre.value > 1) {
+            inputQuantidadePre.value = parseInt(inputQuantidadePre.value) - 1;
+            calcularPrecoInline();
+            
+        }
+    });
+
+    botaoAumentarPre.addEventListener('click', () => {
+        inputQuantidadePre.value = parseInt(inputQuantidadePre.value) + 1;
+        calcularPrecoInline();
+        
+    });
+
+    // Evento de Adicionar
+    botaoAdicionar.addEventListener('click', () => {
+        
+        // No combo, adicionais e bebidas são passados vazios (ou nulos)
+        adicionarAoCarrinho(
+            produtoSelecionado, 
+            inputQuantidadePre.value, 
+            {}, // Adicionais vazios
+            {}, // Bebidas vazias
+            '',  // Sabor Principal vazio
+            observacaoCombo
+
+        ); 
+
+        ModalPreCarrinho.style.display = 'none';
+        atualizarCarrinho();
+        atualizarContadorCarrinho()
+        
+        // RESTAURA O BODY
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.width = '';
+        document.body.style.overflow = 'auto';
+        window.scrollTo(0, scrollPosition); 
+    });
+    
+    // Chamada inicial para configurar o preço e o botão ao abrir
+    calcularPrecoInline();
+    atualizarContadorCarrinho()
+}
+
 
 
 // ==========================================================================================
@@ -1765,9 +2545,18 @@ CardProdutos.forEach(cardAtual => {
             modalConstruido = true
 
         } else if (produtoSelecionado.tipo === 'yakissoba') {
-
+            modalYakissoba(produtoSelecionado, adicionaisSelecionados, bebidasSelecionadas, conteudoModal, scrollPosition)
 
             modalConstruido = true
+
+        } else if(produtoSelecionado.tipo === 'combo') {
+            modalCombo(produtoSelecionado, {}, {}, conteudoModal, scrollPosition) 
+            // os dois {} vazio é adicionais e bebidas
+
+            modalConstruido = true
+
+
+
 
         } else {
             // 🚨 SE CAIR AQUI, É UM PRODUTO SEM MODAL CONFIGURADO
@@ -1863,6 +2652,15 @@ function mostrarItensDoCarrinho() {
         itensDoCarrinhoDiv.innerHTML = "<p>Seu carrinho está vazio</p>";
     } else {
         itensCarrinho.forEach(function(item) {
+
+            // 💡 NOVO CÓDIGO DE DEBUG AQUI:
+                if (item.produto.tipo === 'yakissoba') {
+                    console.log("Item Yakissoba:", item);
+                    console.log("Adicionais Yakissoba:", item.adicionais);
+                }
+                // FIM DO CÓDIGO DE DEBUG
+
+
             let divItemCarrinho = document.createElement('div');
             divItemCarrinho.classList.add('item-do-carrinho');
 
@@ -1880,6 +2678,8 @@ function mostrarItensDoCarrinho() {
 
             let imagemProduto = document.createElement('img');
             imagemProduto.src = `${item.produto.imagem}`;
+
+            
             
              // --- CÓDIGO ALTERADO AQUI ---
             // Verifica o tipo de produto e adiciona a classe correta
@@ -1904,18 +2704,18 @@ function mostrarItensDoCarrinho() {
             divProdutoDescricao.appendChild(descricaoProduto);
 
 
-            // 🚨 NOVA LÓGICA DE EXIBIÇÃO PARA O SABOR PRINCIPAL DO ESPETINHO
-            if (item.sabor) {
-                let divSabor = document.createElement('div');
-                divSabor.classList.add('div-sabor-principal'); // Para CSS
-                let pSabor = document.createElement('p');
-    
-                // Exibe o sabor de forma limpa: "Sabor: Carne"
-                pSabor.textContent = `Sabor: ${item.sabor}`; 
-                pSabor.classList.add('sabor-selecionado');
-    
-                divSabor.appendChild(pSabor);
-                divProdutoDescricao.appendChild(divSabor);
+           // LÓGICA DE EXIBIÇÃO PARA SABOR PRINCIPAL (Somente se não for um lanche)
+// Lanche usa o 5º argumento como "sabor", mas deve ser ignorado.
+if (item.produto.tipo !== 'lanche' && item.sabor && String(item.sabor).trim() !== '') {
+    let divSabor = document.createElement('div');
+    divSabor.classList.add('div-sabor-principal');
+    let pSabor = document.createElement('p');
+
+    pSabor.textContent = `Sabor: ${item.sabor}`; 
+    pSabor.classList.add('sabor-selecionado');
+
+    divSabor.appendChild(pSabor);
+    divProdutoDescricao.appendChild(divSabor);
 }
 
 
@@ -1930,32 +2730,31 @@ function mostrarItensDoCarrinho() {
                 divProdutoDescricao.appendChild(divAdicionaisItem);
             }
 
-            // Lógica para lanches, que inclui o campo de observação
-            if (item.produto.tipo === 'lanche') {
-                let ingredientesProdutos = document.createElement('p');
-                ingredientesProdutos.textContent = `Ingredientes: ${item.produto.ingredientes.join(', ')}`;
-                ingredientesProdutos.classList.add('ingredientesProdutos');
-                divProdutoDescricao.appendChild(ingredientesProdutos);
 
-                let divObs = document.createElement('div');
-                divObs.classList.add('divObs');
-                let labelObs = document.createElement('label');
-                labelObs.textContent = 'Observação: '
-                labelObs.classList.add('labelObs')
-                let inputObs = document.createElement('input');
-                inputObs.placeholder = 'Ex: sem maionese, sem tomate, etc';
-                inputObs.classList.add('inputObs');
-                inputObs.addEventListener('input', function() {
-                    item.observacao = inputObs.value;
-                });
-                if (item.observacao) {
-                    inputObs.value = item.observacao;
-                }
+            
 
-                divObs.appendChild(labelObs);
-                divObs.appendChild(inputObs);
-                divProdutoDescricao.appendChild(divObs);
-            }
+           /// Lógica para lanches: exibe ingredientes
+if (item.produto.tipo === 'lanche') {
+    let ingredientesProdutos = document.createElement('p');
+    if (item.produto.ingredientes && Array.isArray(item.produto.ingredientes)) {
+        ingredientesProdutos.textContent = `Ingredientes: ${item.produto.ingredientes.join(', ')}`;
+    } else {
+        ingredientesProdutos.textContent = `Ingredientes: N/A`;
+    }
+    ingredientesProdutos.classList.add('ingredientesProdutos');
+    divProdutoDescricao.appendChild(ingredientesProdutos);
+}
+
+
+
+// 🚀 Lógica para exibir observação
+if (item.observacao && item.observacao.trim() !== '') { // <--- Esta condição está correta
+    let pObservacao = document.createElement('p');
+    pObservacao.textContent = `Observação: ${item.observacao}`; // <--- Esta leitura está correta
+    pObservacao.classList.add('observacao-item-carrinho');
+    divProdutoDescricao.appendChild(pObservacao);
+}
+
 
             // Lógica para adicionar as bebidas
             const bebidasCompradas = Object.keys(item.bebidas).filter(key => item.bebidas[key] > 0);
@@ -2225,7 +3024,7 @@ function abrirModalPedidoEListarItens() {
             pBebidas.classList.add('addBebidas');
         }
 
-        if (item.produto.tipo === 'lanche') {
+        if (item.produto.tipo === 'lanche' || item.produto.tipo === 'yakissoba' || item.produto.tipo === 'espetinho') {
             let addIngredientes = document.createElement('p');
             addIngredientes.textContent = `Ingredientes: ${item.produto.ingredientes.join(', ')}`;
             addIngredientes.classList.add('addIngredientes');
@@ -2290,7 +3089,7 @@ function abrirModalPedidoEListarItens() {
         
         btnVoltar.classList.add('clicado')
         setTimeout(() => {
-          btnVoltar.classList.remove('clicado')
+            btnVoltar.classList.remove('clicado')
         }, 300);
         exibirModalDados.style.display = 'none'
         modalCarrinho.style.display = 'block'
@@ -2599,10 +3398,18 @@ btnFinalizarPedidoWhatsApp.addEventListener('click', async () => {
         const produtoInfo = catalogoDeProdutos[item.produto.id] || item.produto; // pega info do catálogo principal
         const precoBase = produtoInfo.preco * item.quantidade;
 
-      let observacaoTexto = '';
-      if (item.observacao) {
+    //  (Correto para Observação!):
+    let observacaoTexto = '';
+    if (item.observacao) {
         observacaoTexto = ` | Observação: ${item.observacao}`
-      }
+    }
+
+    // 💡 NOVO: Incluir Sabor Principal para Yakissobá/Espetinho, se existir
+
+    let saborTexto = '';
+    if (item.sabor && String(item.sabor).trim() !== '') {
+        saborTexto = ` (${item.sabor})`
+    }
 
 
         // Adicionais
@@ -2640,7 +3447,7 @@ btnFinalizarPedidoWhatsApp.addEventListener('click', async () => {
         const precoTotalItem = precoBase + precoAdicionais + precoBebidas;
         totalPedido += precoTotalItem;
 
-        return `${index + 1}. ${item.quantidade}x ${produtoInfo.nome} ${observacaoTexto} (R$ ${precoBase.toFixed(2).replace('.', ',')})${adicionaisTexto}${bebidasTexto} | Total Item: R$ ${precoTotalItem.toFixed(2).replace('.', ',')}`;
+        return `${index + 1}. ${item.quantidade}x ${produtoInfo.nome} ${saborTexto} ${observacaoTexto} (R$ ${precoBase.toFixed(2).replace('.', ',')})${adicionaisTexto}${bebidasTexto} | Total Item: R$ ${precoTotalItem.toFixed(2).replace('.', ',')}`;
     }).join('\n');
 
 
@@ -2686,7 +3493,8 @@ const itensParaFirebase = itensCarrinho.map(item => {
         nome: item.produto.nome,
         precoBase: item.produto.preco,
         quantidade: item.quantidade,
-        observacoes: item.observacao || ''
+        observacoes: item.observacao || '',
+        saborPrincipal: item.sabor || ''
     };
     
     // Mapeia os adicionais para o novo formato
@@ -2710,6 +3518,8 @@ const itensParaFirebase = itensCarrinho.map(item => {
             // Supondo que você tem um catálogo global de bebidas
             const bebidaInfo = catalogoDeProdutos[nomeBebida]; 
             if (bebidaInfo) {
+                
+
                 itemParaFirebase.bebidas[nomeBebida] = {
                     quantidade: item.bebidas[nomeBebida],
                     preco: bebidaInfo.preco
@@ -2748,7 +3558,7 @@ if (tipoPedido === "Entrega") {
 
 // --- 8. ENVIAR PARA O FIRESTORE E ABRIR WHATSAPP ---
 try {
-    const pedidosRef = collection(db, 'clientes/reiburguer/pedidos');
+    const pedidosRef = collection(db, 'clientes/tsaleach/pedidos');
     await addDoc(pedidosRef, pedidoParaFirebase);
     console.log("Pedido enviado para o Firestore com sucesso!");
 } catch (error) {
@@ -2764,13 +3574,26 @@ try {
 
 
     // --- 7. Abrir WhatsApp ---
-    const numeroWhatsApp = '5595991699523';
+    const numeroWhatsApp = '55999261614';
     const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
     window.open(url, '_blank');
+
+    document.getElementById('ModalConfirmacaoPedido').style.display = 'block';
+
+     // --- 12. Limpar carrinho ---
+    itensCarrinho = [];
+    atualizarCarrinho(); // (função que você já deve ter para renderizar carrinho)
+    // Atualiza o contador para 0
+    atualizarContadorCarrinho();
 
      // --- 9. Fecha modal e libera rolagem ---
     document.querySelector('#ModalFazerPedido').style.display = 'none';
     document.body.style.overflow = 'auto';
+});
+
+  // Fechar modal de confirmação
+document.getElementById('btnOkConfirmacao').addEventListener('click', () => {
+document.getElementById('ModalConfirmacaoPedido').style.display = 'none';
 });
 
 
@@ -2794,11 +3617,11 @@ try {
 
         /*Exemplo de código se fecha-se algum dia o estabelecimento */
 
-        if (dia === 1) {
+        if (dia === 1 || dia === 2) {
             return false
         } 
     
-        if (hora >= 10 || hora <= 1) {
+        if (hora >= 18 || hora <= 6) {
           return true
         } else {
           return false
@@ -2938,7 +3761,7 @@ try {
     let btnZap = document.getElementById('botaozap')
     btnZap.addEventListener('click', function() {
 
-    const numeroWhatsApp = '5595991699523'; // Exemplo: 55 = Brasil, 82 = DDD, 999261614 = número
+    const numeroWhatsApp = '5582999261614'; // Exemplo: 55 = Brasil, 82 = DDD, 999261614 = número
 
     // 2. Crie a mensagem (opcional, mas muito útil)
     const mensagemPadrao = 'Olá, gostaria de fazer um pedido!';

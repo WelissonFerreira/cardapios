@@ -2948,3 +2948,21 @@ footer {
     
     }
 }
+
+/* BREAKPOINT 2: Tablets em Paisagem e Laptops Pequenos (992px a 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+    /* Exemplo: Permite 3 colunas, mas ajusta a margem */
+    .container-principal {
+        max-width: 960px; /* Reduz o container padrão */
+    }
+    
+    .grid-produtos {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+    
+    /* Garante que o texto principal não fique muito grande */
+    h1 {
+        font-size: 2.2em;
+    }
+}
