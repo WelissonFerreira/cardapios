@@ -3655,7 +3655,7 @@ document.getElementById('ModalConfirmacaoPedido').style.display = 'none';
         } else {
 
             let p2 = document.createElement('p')
-            p2.textContent = 'TSÁLÊACH BURGUER'
+            p2.textContent = 'TSÁLÊACH HAMBURGUERIA'
             p2.classList.add('btn-fechado-horarios')
             openClose.appendChild(p2)
 
