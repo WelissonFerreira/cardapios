@@ -1398,7 +1398,7 @@ footer {
     color: black;
     display: inline-block;
     padding-bottom: 7px;
-    font-family: "Poppins", sans-serif;
+    font-family: var(--title-size), sans-serif;
     font-weight: 700;
     font-style: normal;
     
