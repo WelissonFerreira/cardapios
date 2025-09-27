@@ -3417,7 +3417,7 @@ btnFinalizarPedidoWhatsApp.addEventListener('click', async () => {
     totalPedido += taxaEntregaValor;
 
     // --- 6. Montar mensagem final ---
-let mensagem =  `*-- NOVO PEDIDO - REI BURGUERS --*\n` +
+let mensagem =  `*-- NOVO PEDIDO - TSÁLÊACH HAMBURGUERIA --*\n` +
                 `*Dados do Cliente:*\n` +
                 `Nome: ${nomeCliente}\n` +
                 `Telefone: ${telefoneCliente}\n` +
