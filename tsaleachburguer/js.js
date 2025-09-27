@@ -3529,7 +3529,7 @@ try {
 
 
     // --- 7. Abrir WhatsApp ---
-    const numeroWhatsApp = '55999261614';
+    const numeroWhatsApp = '5592984395757';
     const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
     window.open(url, '_blank');
 
@@ -3716,10 +3716,10 @@ document.getElementById('ModalConfirmacaoPedido').style.display = 'none';
     let btnZap = document.getElementById('botaozap')
     btnZap.addEventListener('click', function() {
 
-    const numeroWhatsApp = '5582999261614'; // Exemplo: 55 = Brasil, 82 = DDD, 999261614 = número
+    const numeroWhatsApp = '5592984395757'; // Exemplo: 55 = Brasil, 82 = DDD, 999261614 = número
 
     // 2. Crie a mensagem (opcional, mas muito útil)
-    const mensagemPadrao = 'Olá, gostaria de fazer um pedido!';
+    const mensagemPadrao = 'Olá, vim pelo cardápio digital!';
 
     // 3. Monte o link completo para o WhatsApp
     const linkWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagemPadrao)}`;
