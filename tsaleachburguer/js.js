@@ -911,7 +911,7 @@ let catalogoDeProdutos = {
 
 
       "produto-sucopolpamaracuja500ml": {
-      tipo: "suco",
+      tipo: "bebida",
       nome: "Suco de Polpa de Maracuja  – 500ml",
       precoRiscado: 10.00,
       preco: 7.00,
@@ -920,7 +920,7 @@ let catalogoDeProdutos = {
     },
 
         "produto-sucopolpatapereba500ml": {
-      tipo: "suco",
+      tipo: "bebida",
       nome: "Suco de Polpa de Taperebá  – 500ml",
       precoRiscado: 10.00,
       preco: 7.00,
@@ -929,7 +929,7 @@ let catalogoDeProdutos = {
     },
 
             "produto-sucopolpagoiaba500ml": {
-      tipo: "suco",
+      tipo: "bebida",
       nome: "Suco de Polpa de Goiaba  – 500ml",
       precoRiscado: 10.00,
       preco: 7.00,
@@ -938,7 +938,7 @@ let catalogoDeProdutos = {
     },
 
       "produto-sucogoiaba1L": {
-      tipo: "suco",
+      tipo: "bebida",
       nome: "Suco de Polpa de Goiaba  – 1L",
       precoRiscado: 20.00,
       preco: 15.00,
@@ -950,7 +950,7 @@ let catalogoDeProdutos = {
 
 
       "produto-sucomaracuja1l": {
-      tipo: "suco",
+      tipo: "bebida",
       nome: "Suco de Polpa de Maracuja  – 1L",
       precoRiscado: 22.00,
       preco: 18.00,
@@ -959,7 +959,7 @@ let catalogoDeProdutos = {
     },
 
           "produto-tapereba1L": {
-      tipo: "suco",
+      tipo: "bebida",
       nome: "Suco de Polpa de Taperebá  – 1L",
       precoRiscado: 20.00,
       preco: 15.00,
@@ -2641,9 +2641,13 @@ function mostrarItensDoCarrinho() {
             if (item.produto.tipo === 'lanche') {
                 imagemProduto.classList.add('imagemProduto');
     } else if (item.produto.tipo === 'bebida') {
-                imagemProduto.classList.add('imagemBebidaCarrinho');
+                imagemProduto.classList.add('imagemProduto');
     } else if (item.produto.tipo === 'porcao') {
-                imagemProduto.classList.add('imagemPorcaoCarrinho');
+                imagemProduto.classList.add('imagemProduto');
+    } else if (item.produto.tipo === 'yakissoba') {
+                imagemProduto.classList.add('imagemProduto')
+    } else if (item.produto.tipo === 'espetinho') {
+                imagemProduto.classList.add('imagemProduto')
     }
 
             // -----------------------------
