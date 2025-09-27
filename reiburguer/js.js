@@ -846,6 +846,7 @@ const precosEntrega = {
   "Pérola do Maricá": 20.00,
   "Prainha": 13.00,
   "Royalle Ville": 16.00,
+  "Jardim Santarem": 9.00,
   "Salé": 10.00,
   "Salé 2": 12.00,
   "Salvação": 16.00,
