@@ -2648,6 +2648,8 @@ function mostrarItensDoCarrinho() {
                 imagemProduto.classList.add('imagemProduto')
     } else if (item.produto.tipo === 'espetinho') {
                 imagemProduto.classList.add('imagemProduto')
+    } else if (item.produto.tipo === 'combo') {
+                imagemProduto.classList.add('imagemProduto')
     }
 
             // -----------------------------
