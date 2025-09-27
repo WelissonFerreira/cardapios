@@ -564,7 +564,7 @@ let catalogoDeProdutos = {
     preco: 10.00,
     descricao: "Um espetinho de sua escolha, simples e suculento. Escolha entre os sabores de carne, frango, misto ou linguiça de frango.",
     ingredientes: ["Carne", " Frango", " Misto", " Linguiça de Frango"],
-    imagem: "imagens/lanches/espetinhocompleto.jpg",
+    imagem: "imagens/lanches/espetinhosimples1.png",
     adicionais: [
     { nome: "Bacon", preco: 3.00 },
     { nome: "Calabresa", preco: 3.00 },
@@ -604,8 +604,8 @@ let catalogoDeProdutos = {
     precoRiscado: 29.00,
     preco: 25.00,
     descricao: "Espetinhos com cortes nobres e o sabor inigualável de carne, frango, ou misto. Todos acompanhados de todas as guarnições: Arroz, Vatapá, Batatonese, Farofa, Vinagrete, Batata ",
-    ingredientes: ["Costela Suína", " Isca de Carne", " Fraldão", " Misto (Fraldão, Linguiça de Frango e Calabresa)"],
-    imagem: "imagens/lanches/iscadecarne.jpg",
+    ingredientes: [" Isca de Carne", " Misto (Carne, Linguiça de Frango e Calabresa)"],
+    imagem: "imagens/lanches/iscadetudoatt.jpeg",
     adicionais: [
     { nome: "Bacon", preco: 3.00 },
     { nome: "Calabresa", preco: 3.00 },
@@ -631,7 +631,6 @@ let catalogoDeProdutos = {
     adicionais: [
         { nome: "Frango Extra", preco: 5.00 },
         { nome: "Carne Extra", preco: 6.00 },
-        { nome: "Camarão", preco: 8.00 },
         { nome: "Molho Extra", preco: 2.00 }
     ]
 },
@@ -647,7 +646,6 @@ let catalogoDeProdutos = {
     adicionais: [
         { nome: "Frango Extra", preco: 5.00 },
         { nome: "Carne Extra", preco: 6.00 },
-        { nome: "Camarão", preco: 8.00 },
         { nome: "Molho Extra", preco: 2.00 }
     ]
 },
@@ -663,7 +661,6 @@ let catalogoDeProdutos = {
     adicionais: [
         { nome: "Frango Extra", preco: 5.00 },
         { nome: "Carne Extra", preco: 6.00 },
-        { nome: "Camarão", preco: 8.00 },
         { nome: "Molho Extra", preco: 2.00 }
     ]
 },
@@ -679,10 +676,34 @@ let catalogoDeProdutos = {
     adicionais: [
         { nome: "Frango Extra", preco: 10.00 },
         { nome: "Carne Extra", preco: 12.00 },
-        { nome: "Camarão", preco: 15.00 },
         { nome: "Molho Extra", preco: 4.00 }
     ]
 },
+
+
+
+"produto-kikao-combo3x": {
+    tipo: "lanche",
+    nome: "KIKÃO SIMPLES",
+    precoRiscado: 23.00,
+    preco: 17.00,
+    descricao: "O clássico hot dog com salsicha, molho, queijo ralado e batata palha. Simples e delicioso.",
+    ingredientes: ["Pão", " Molho", " Salsicha", " Catchup", " Maionese", " Queijo Ralado", " Batata Palha"],
+    imagem: "imagens/lanches/combo3kikao.jpeg",
+    adicionais: [
+    { nome: "Bacon", preco: 3.00 },
+    { nome: "Calabresa", preco: 3.00 },
+    { nome: "Cheddar", preco: 3.00 },
+    { nome: "Ovo", preco: 3.00 },
+    { nome: "Queijo", preco: 3.00 },
+    { nome: "Molho Cheddar", preco: 3.00 },
+    { nome: "Bacon", preco: 3.00 },
+    { nome: "Cebola Caramelizada", preco: 3.00 },
+    { nome: "Maionese Caseira", preco: 3.00 }
+    ]
+},
+
+
 
 "produto-kikao-simples": {
     tipo: "lanche",
@@ -888,31 +909,32 @@ let catalogoDeProdutos = {
       imagem: "imagens/bebidas/aguamineral.png"
     },
 
-    "produto-sucopolpacapuacu500ml": {
-      tipo: "suco",
-      nome: "Suco de Polpa de Cupuaçu – 500ml.",
-      precoRiscado: 10.00,
-      preco: 8.00,
-      descricao: "Espremido na hora, 100% fruta. Refrescante, doce e bom demaisss.",
-      imagem: "imagens/bebidas/polpacapuacu500ml.png"
-    },
-
-      "produto-sucopolpaacerola500ml": {
-      tipo: "suco",
-      nome: "Suco de Polpa de Acerola  – 500ml",
-      precoRiscado: 10.00,
-      preco: 8.00,
-      descricao: "Espremido na hora, 100% fruta. Refrescante, doce e bom demaisss.",
-      imagem: "imagens/bebidas/PolpaAcerola500ml.jpg"
-    },
 
       "produto-sucopolpamaracuja500ml": {
       tipo: "suco",
       nome: "Suco de Polpa de Maracuja  – 500ml",
       precoRiscado: 10.00,
-      preco: 8.00,
+      preco: 7.00,
       descricao: "Espremido na hora, 100% fruta. Refrescante, doce e bom demaisss.",
       imagem: "imagens/bebidas/polpamaracuja500ml.png"
+    },
+
+        "produto-sucopolpatapereba500ml": {
+      tipo: "suco",
+      nome: "Suco de Polpa de Taperebá  – 500ml",
+      precoRiscado: 10.00,
+      preco: 7.00,
+      descricao: "Espremido na hora, 100% fruta. Refrescante, doce e bom demaisss.",
+      imagem: "imagens/bebidas/tapereba500ml.png"
+    },
+
+            "produto-sucopolpagoiaba500ml": {
+      tipo: "suco",
+      nome: "Suco de Polpa de Goiaba  – 500ml",
+      precoRiscado: 10.00,
+      preco: 7.00,
+      descricao: "Espremido na hora, 100% fruta. Refrescante, doce e bom demaisss.",
+      imagem: "imagens/bebidas/PolpaGoiaba.jpg"
     },
 
       "produto-sucogoiaba1L": {
@@ -924,40 +946,25 @@ let catalogoDeProdutos = {
       imagem: "imagens/bebidas/sucogoiaba1L.png"
     },
 
-    "produto-sucograviola1L": {
-      tipo: "suco",
-      nome: "Suco de Polpa de Goiaba  – 1L",
-      precoRiscado: 20.00,
-      preco: 15.00,
-      descricao: "Feitop na hora, 100% fruta. Refrescante, doce e bom demaisss.",
-      imagem: "imagens/bebidas/graviola1L.png"
-    },
 
-    "produto-tabereba1L": {
-      tipo: "suco",
-      nome: "Suco de Polpa de Taperebá  – 1L",
-      precoRiscado: 20.00,
-      preco: 15.00,
-      descricao: "Feitop na hora, 100% fruta. Refrescante, doce e bom demaisss.",
-      imagem: "imagens/bebidas/tapereba1L.png"
-    },
+
 
       "produto-sucomaracuja1l": {
       tipo: "suco",
-      nome: "Suco de Polpa de Acerola  – 1L",
+      nome: "Suco de Polpa de Maracuja  – 1L",
       precoRiscado: 22.00,
       preco: 18.00,
       descricao: "Feitop na hora, 100% fruta. Refrescante, doce e bom demaisss.",
       imagem: "imagens/bebidas/jarrasmaracuja1l.png"
     },
 
-      "produto-sucocapuacu1l": {
+          "produto-tapereba1L": {
       tipo: "suco",
-      nome: "Suco de Polpa de Cupuaçu  – 1L",
-      precoRiscado: 18.00,
-      preco: 22.00,
+      nome: "Suco de Polpa de Taperebá  – 1L",
+      precoRiscado: 20.00,
+      preco: 15.00,
       descricao: "Feitop na hora, 100% fruta. Refrescante, doce e bom demaisss.",
-      imagem: "imagens/bebidas/capuacu1l.png"
+      imagem: "imagens/bebidas/jarrasmaracuja1l.png"
     },
 
 
@@ -966,60 +973,8 @@ let catalogoDeProdutos = {
 }
 
 const precosEntrega = {
-  "Aparecida": 9.00,
-  "Aeroporto velho": 9.00,
-  "Aldeia": 9.00,
-  "Alvorada": 16.00,
-  "Amparo": 16.00,
-  "Alcione Barbalho": 16.00,
-  "Área Verde": 17.00,
-  "Caranazal": 10.00,
-  "Caranazal 2": 11.00,
-  "Centro": 10.00,
-  "Conquistas": 15.00,
-  "Diamantino1": 9.00,
-  "Diamantino2": 12.00,
-  "Fátima": 9.00,
-  "Fernando Guilhon 1": 12.00,
-  "Fernando Guilhon 2": 16.00,
-  "Floresta": 12.00,
-  "Interventoria": 9.00,
-  "Ipanema": 20.00,
-  "Jaderlândia": 20.00,
-  "Jutaí": 16.00,
-  "Laguinho": 10.00,
-  "Livramento": 12.00,
-  "Maricá": 20.00,
-  "Mapiri": 10.00,
-  "Maracanã": 12.00,
-  "Maracanã1": 16.00,
-  "Mararu": 30.00,
-  "Mínima": 8.00,
-  "Matinha": 16.00,
-  "Nova República": 16.00,
-  "Nova vitória": 15.00,
-  "Novo horizonte": 15.00,
-  "Pérola do Maricá": 20.00,
-  "Prainha": 13.00,
-  "Royalle Ville": 16.00,
-  "Salé": 10.00,
-  "Salé 2": 12.00,
-  "Salvação": 16.00,
-  "Santa Clara": 10.00,
-  "Santana": 13.00,
-  "Santarenzinho": 15.00,
-  "Santíssimo": 10.00,
-  "Santo André": 16.00,
-  "São Cristóvão": 16.00,
-  "São Francisco": 15.00,
-  "São José operário": 12.00,
-  "Uruará": 12.00,
-  "Urumanduba": 20.00,
-  "Urumari": 16.00,
-  "Vigia": 20.00,
-  "Vista Alegre 1": 16.00,
-  "Vista Alegre 2": 20.00,
-  "Vitória Régia": 16.00
+    
+    "Aguas Claras": 3.00
 };
 
 
@@ -3621,7 +3576,7 @@ document.getElementById('ModalConfirmacaoPedido').style.display = 'none';
             return false
         } 
     
-        if (hora >= 18 || hora <= 6) {
+        if (hora >= 18 || hora <= 2) {
           return true
         } else {
           return false

@@ -136,7 +136,7 @@ main {
 
 
 .bannermenu {
-    background-image: url(imagens/bannerReiBurguerATT.jpg);
+    background-image: url(imagens/testebanner.jpeg);
     background-size: cover;
     background-position: center;
     height: 200px;
@@ -1385,9 +1385,9 @@ footer {
 
 
 .inputObs {
-    width: 100%;
+    width: 90%;
     height: 50px;
-    padding: 5px;
+    padding: 10px;
     font-family: "Poppins", sans-serif;
     font-weight: 700;
     font-style: normal;
@@ -2147,7 +2147,7 @@ footer {
     position: relative;
     z-index: 1;
     width: 100vw;      
-    height: 45vh;    
+    height: 55vh;    
     overflow: hidden;  
     display: flex;
     justify-content: center;
@@ -2529,6 +2529,10 @@ footer {
     bottom: 0;
     background: white; /* mantém visível */
     z-index: 1002; /* acima dos itens roláveis */
+}
+
+.divObsModal {
+    padding: 10px;
 }
 
 .divBotoesAcoes {
