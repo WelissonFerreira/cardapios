@@ -926,6 +926,25 @@ footer {
     list-style-type: square;
 }
 
+.modal-content-final {
+    
+    background-color: white;
+    color: black;
+    margin: 15% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 500px;
+    border: 1px solid #888;
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
 /* BOTÃO USADO PARA ABRIR O MODAL */
 
 .botaomodal {

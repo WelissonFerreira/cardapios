@@ -897,6 +897,10 @@ function saoObjetosIguais(obj1, obj2) {
 // ==========================================================================================
 // FUNÇÃO ADICIONAR ITEM AO CARRINHO PRINCIPAL
 function adicionarAoCarrinho(produto, quantidade, adicionais, bebidas) {
+
+  
+
+
     // Procura por um item existente no carrinho com as mesmas características
     let itemExistente = itensCarrinho.find(item =>
     item.produto.nome === produto.nome &&
@@ -2343,11 +2347,33 @@ btnFinalizarPedidoWhatsApp.addEventListener('click', () => {
     const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
     window.open(url, '_blank');
 
+    document.getElementById('ModalConfirmacaoPedido').style.display = 'block';
+
+     // --- 12. Limpar carrinho ---
+    itensCarrinho = [];
+    atualizarCarrinho(); // (função que você já deve ter para renderizar carrinho)
+    // Atualiza o contador para 0
+    atualizarContadorCarrinho();
+
      // --- 9. Fecha modal e libera rolagem ---
     document.querySelector('#ModalFazerPedido').style.display = 'none';
     document.body.style.overflow = 'auto';
 });
 
+   // Fechar modal de confirmação
+document.getElementById('btnOkConfirmacao').addEventListener('click', () => {
+// 1. Reverte as propriedades de bloqueio
+    document.body.style.position = ''; // Remove 'fixed'
+    document.body.style.top = '';      // Remove o top negativo
+    document.body.style.width = '';    // Remove a largura fixa (se foi definida)
+    document.body.style.overflow = 'auto'; // Reverte o overflow
+
+    // 2. Restaura a posição original da página
+    window.scrollTo(0, scrollPosition);
+
+    // 3. Fecha o modal
+    document.getElementById('ModalConfirmacaoPedido').style.display = 'none';
+});
 
 
 
