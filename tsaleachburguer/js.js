@@ -2490,25 +2490,25 @@ CardProdutos.forEach(cardAtual => {
 
             modalEspetinho(produtoSelecionado, adicionaisSelecionados, bebidasSelecionadas, conteudoModal, scrollPosition)
             modalConstruido = true;
-            ModalPreCarrinho.style.display = 'block';
+            
 
 
         } else if (produtoSelecionado.tipo === 'lanche') {
              // 💥 CHAMADA DO MODAL DE LANCHE 💥
             modalLanche(produtoSelecionado, adicionaisSelecionados, bebidasSelecionadas, conteudoModal, scrollPosition)    
             modalConstruido = true
-            ModalPreCarrinho.style.display = 'block';
+            
 
         } else if (produtoSelecionado.tipo === 'yakissoba') {
             modalYakissoba(produtoSelecionado, adicionaisSelecionados, bebidasSelecionadas, conteudoModal, scrollPosition)
             modalConstruido = true
-            ModalPreCarrinho.style.display = 'block';
+            
         } else if(produtoSelecionado.tipo === 'combo') {
             modalCombo(produtoSelecionado, {}, {}, conteudoModal, scrollPosition) 
             // os dois {} vazio é adicionais e bebidas
 
             modalConstruido = true
-            ModalPreCarrinho.style.display = 'block';
+            
 
 
 
@@ -2523,7 +2523,7 @@ CardProdutos.forEach(cardAtual => {
         
          // 4. 🚀 LÓGICA DE ABERTURA: SÓ ABRE SE ALGO FOI CONSTRUÍDO 🚀
         if (modalConstruido) {
-            
+            ModalPreCarrinho.style.display = 'block';
             scrollPosition = window.scrollY;
             document.body.style.position = 'fixed';
             document.body.style.top = `-${scrollPosition}px`;
