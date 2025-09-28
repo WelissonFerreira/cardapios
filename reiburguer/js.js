@@ -2471,7 +2471,17 @@ window.open(urlCliente, '_blank');
 
   // Fechar modal de confirmação
 document.getElementById('btnOkConfirmacao').addEventListener('click', () => {
-  document.getElementById('ModalConfirmacaoPedido').style.display = 'none';
+// 1. Reverte as propriedades de bloqueio
+    document.body.style.position = ''; // Remove 'fixed'
+    document.body.style.top = '';      // Remove o top negativo
+    document.body.style.width = '';    // Remove a largura fixa (se foi definida)
+    document.body.style.overflow = 'auto'; // Reverte o overflow
+
+    // 2. Restaura a posição original da página
+    window.scrollTo(0, scrollPosition);
+
+    // 3. Fecha o modal
+    document.getElementById('ModalConfirmacaoPedido').style.display = 'none';
 });
 
 
