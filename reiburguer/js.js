@@ -1018,63 +1018,12 @@ abrirCarrinho.addEventListener('click', function(event) {
     atualizarCarrinho();
 });
 
-// ==========================================================================================
-
-/* MODAL PRÉ-CARRINHO */
-
-// ABRIR MODAL AO CLICAR NO CARD
-const CardProdutos = document.querySelectorAll('.card-destaque, .card-pai')
-const ModalPreCarrinho = document.getElementById('ModalPreCarrinho')
-const conteudoModal = document.querySelector('.ContModalPreCarrinho')
-
-CardProdutos.forEach(cardAtual => {
-    cardAtual.addEventListener('click', () => {
-        conteudoModal.textContent = '';
-        
-        
-
-        // AGORA AS VARIÁVEIS SÃO LOCAIS E SÃO REINICIADAS A CADA CLIQUE
-        const adicionaisSelecionados = {};
-        const bebidasSelecionadas = {};
-
-        let divbotaoFecharPre = document.createElement('div')
-        divbotaoFecharPre.classList.add('divbotaoFecharPre')
-        conteudoModal.appendChild(divbotaoFecharPre)
 
 
-        let botaoFecharPre = document.createElement('button');
-        botaoFecharPre.innerHTML = '&times;';
-        botaoFecharPre.classList.add('botaoFecharPre');
-        divbotaoFecharPre.appendChild(botaoFecharPre);
+//=================== FUNÇÃO QUE RENDERIZA O MODAL LANCHE ==============================
+function modalLanche(produtoSelecionado, adicionaisSelecionados, bebidasSelecionadas, conteudoModal, scrollPosition) {
 
-        // EVENTO DE FECHAR BOTÃO
-        botaoFecharPre.addEventListener('click', () => {
-            ModalPreCarrinho.style.display = 'none';
-            document.body.style.position = '';
-            document.body.style.top = '';
-            document.body.style.width = '';
-            document.body.style.overflow = 'auto'; 
-            window.scrollTo(0, scrollPosition);
-
-
-
-
-
-        });
-
-        const seletorPreCarrinho = cardAtual.dataset.produtoId;
-        const produtoSelecionado = catalogoDeProdutos[seletorPreCarrinho];
-
-        ModalPreCarrinho.style.display = 'block';
-        scrollPosition = window.scrollY;
-        document.body.style.position = 'fixed';
-        document.body.style.top = `-${scrollPosition}px`;
-        document.body.style.width = '100%';
-        document.body.style.overflow = 'hidden';
-
-
-
-        // ====================================================================
+     // ====================================================================
         // Conteúdo Principal do Produto (Imagem, Nome, Descrição, Preços)
         // ====================================================================
         
@@ -1245,7 +1194,7 @@ CardProdutos.forEach(cardAtual => {
                     inputBebidas.value = parseInt(inputBebidas.value) + 1;
                     bebidasSelecionadas[idProduto] = parseInt(inputBebidas.value);
                     atualizarPreCarrinho(inputQuantidadePre, produtoSelecionado, precoPre, precoRiscadoPre, adicionaisSelecionados, bebidasSelecionadas);
-                    atualizarContadorCarrinho()
+                    
                 });
 
                 diminuirBebidas.addEventListener('click', (event) => {
@@ -1264,7 +1213,7 @@ CardProdutos.forEach(cardAtual => {
     }
 
     atualizarPreCarrinho(inputQuantidadePre, produtoSelecionado, precoPre, precoRiscadoPre, adicionaisSelecionados, bebidasSelecionadas);
-    atualizarContadorCarrinho();
+    
 });
 }
 }
@@ -1353,7 +1302,7 @@ CardProdutos.forEach(cardAtual => {
                 }
                 adicionaisSelecionados[adicionalAtual.nome] = parseInt(inputQuantidadeAdicionais.value);
                 atualizarPreCarrinho(inputQuantidadePre, produtoSelecionado, precoPre, precoRiscadoPre, adicionaisSelecionados, bebidasSelecionadas);
-                atualizarContadorCarrinho()
+                
 
             });
             
@@ -1363,9 +1312,44 @@ CardProdutos.forEach(cardAtual => {
                 inputQuantidadeAdicionais.value = parseInt(inputQuantidadeAdicionais.value) + 1;
                 adicionaisSelecionados[adicionalAtual.nome] = parseInt(inputQuantidadeAdicionais.value);
                 atualizarPreCarrinho(inputQuantidadePre, produtoSelecionado, precoPre, precoRiscadoPre, adicionaisSelecionados, bebidasSelecionadas);
-                atualizarContadorCarrinho()
+                
             });
         });
+
+
+
+     // Variável local para armazenar o valor da observação
+let observacaoLanche = ''; // 👈 Use o nome da variável local correto para este modal!
+
+// Otimização: Se você estiver reabrindo um item do carrinho, pode carregar a observação salva
+if (produtoSelecionado.observacao) {
+    observacaoLanche = produtoSelecionado.observacao;
+}
+
+
+
+let divObsModal = document.createElement('div');
+divObsModal.classList.add('divObsModal'); // Nova classe para estilizar o bloco no modal
+divPrincipal.appendChild(divObsModal); 
+
+let labelObsModal = document.createElement('label');
+labelObsModal.textContent = 'Observação (Opcional):'
+labelObsModal.classList.add('labelObs') 
+
+let inputObsModal = document.createElement('input');
+inputObsModal.placeholder = 'Ex: sem maionese, sem tomate, etc.';
+inputObsModal.classList.add('inputObs'); 
+
+// 1. Carrega o valor inicial
+inputObsModal.value = observacaoLanche;
+
+// 2. Ouve a digitação e atualiza a variável local
+inputObsModal.addEventListener('input', function() {
+    observacaoLanche = inputObsModal.value;
+});
+
+divObsModal.appendChild(labelObsModal);
+divObsModal.appendChild(inputObsModal);
 
 // ====================================================================
         // NOVA DIV PARA OS BOTÕES FINAIS (QUANTIDADE DO PRINCIPAL E ADICIONAR)
@@ -1402,14 +1386,14 @@ CardProdutos.forEach(cardAtual => {
             if (inputQuantidadePre.value > 1) {
                 inputQuantidadePre.value = parseInt(inputQuantidadePre.value) - 1;
                 atualizarPreCarrinho(inputQuantidadePre, produtoSelecionado, precoPre, precoRiscadoPre, adicionaisSelecionados, bebidasSelecionadas);
-                atualizarContadorCarrinho()
+                
             }
         });
         
         botaoAumentarPre.addEventListener('click', () => {
             inputQuantidadePre.value = parseInt(inputQuantidadePre.value) + 1;
             atualizarPreCarrinho(inputQuantidadePre, produtoSelecionado, precoPre, precoRiscadoPre, adicionaisSelecionados, bebidasSelecionadas);
-            atualizarContadorCarrinho()
+            
         });
 
         // Botão Adicionar ao Carrinho
@@ -1420,23 +1404,111 @@ CardProdutos.forEach(cardAtual => {
 
         // EVENTO DE ADICIONAR AO CARRINHO E FECHAR MODAL
         botaoAdicionar.addEventListener('click', () => {
-            adicionarAoCarrinho(produtoSelecionado, inputQuantidadePre.value, adicionaisSelecionados, bebidasSelecionadas);
+            adicionarAoCarrinho(produtoSelecionado, inputQuantidadePre.value, adicionaisSelecionados, bebidasSelecionadas, '', observacaoLanche);
             ModalPreCarrinho.style.display = 'none';
             atualizarCarrinho();
-            atualizarContadorCarrinho()
+            
             // RESTAURA O BODY
             document.body.style.position = '';
             document.body.style.top = '';
             document.body.style.width = '';
             document.body.style.overflow = 'auto';
-            window.scrollTo(0, scrollPosition); // volta para a posição original do scroll
+            window.scrollTo(0, scrollPosition)
         });
 
         // Chamar atualizarPreCarrinho para garantir que os preços iniciais estejam corretos
         atualizarPreCarrinho(inputQuantidadePre, produtoSelecionado, precoPre, precoRiscadoPre, adicionaisSelecionados, bebidasSelecionadas);
         atualizarContadorCarrinho()
-    });
+        
+}
+
+//=================== FIM DA FUNÇÃO QUE RENDERIZA O MODAL LANCHE ==============================
+
+
+
+/* MODAL PRÉ-CARRINHO */
+
+// ABRIR MODAL AO CLICAR NO CARD
+const CardProdutos = document.querySelectorAll('.card-destaque, .card-pai')
+const ModalPreCarrinho = document.getElementById('ModalPreCarrinho')
+const conteudoModal = document.querySelector('.ContModalPreCarrinho')
+
+CardProdutos.forEach(cardAtual => {
+    cardAtual.addEventListener('click', () => {
+
+      const seletorPreCarrinho = cardAtual.dataset.produtoId;
+      const produtoSelecionado = catalogoDeProdutos[seletorPreCarrinho];
+    // AGORA AS VARIÁVEIS SÃO LOCAIS E SÃO REINICIADAS A CADA CLIQUE
+      const adicionaisSelecionados = {};
+      const bebidasSelecionadas = {};
+
+        // 2. PREPARAÇÃO DO MODAL (Comum a todos os tipos)
+        conteudoModal.textContent = ''; // 💥 ESSENCIAL: Limpa o conteúdo antigo
+        let scrollPosition = 0
+        let modalConstruido = false
+        
+
+        // --- CRIAÇÃO DO BOTÃO FECHAR (COMO VOCÊ TINHA) ---
+        let divbotaoFecharPre = document.createElement('div');
+        divbotaoFecharPre.classList.add('divbotaoFecharPre');
+        conteudoModal.appendChild(divbotaoFecharPre);
+
+        let botaoFecharPre = document.createElement('button');
+        botaoFecharPre.innerHTML = '&times;';
+        botaoFecharPre.classList.add('botaoFecharPre');
+        divbotaoFecharPre.appendChild(botaoFecharPre);
+
+        // EVENTO DE FECHAR BOTÃO
+        botaoFecharPre.addEventListener('click', () => {
+             // ... Lógica de fechar o modal e restaurar o scroll (como você tinha) ...
+            ModalPreCarrinho.style.display = 'none';
+            document.body.style.position = '';
+            document.body.style.top = '';
+            document.body.style.width = '';
+            document.body.style.overflow = 'auto'; 
+            window.scrollTo(0, scrollPosition);
+        });
+        // ---------------------------------------------------
+
+    
+
+
+    
+        if (produtoSelecionado.tipo === 'lanche') {
+
+            modalLanche(produtoSelecionado, adicionaisSelecionados, bebidasSelecionadas, conteudoModal, scrollPosition)
+            modalConstruido = true;
+            ModalPreCarrinho.style.display = 'block';
+        } else {
+            // 🚨 SE CAIR AQUI, É UM PRODUTO SEM MODAL CONFIGURADO
+        console.warn(`Tipo de produto '${produtoSelecionado.tipo}' não tem modal configurado. Modal não será aberto.`);
+        // modalConstruido CONTINUA false
+        }
+
+
+    
+        
+         // 4. 🚀 LÓGICA DE ABERTURA: SÓ ABRE SE ALGO FOI CONSTRUÍDO 🚀
+        if (modalConstruido) {
+            
+            scrollPosition = window.scrollY;
+            document.body.style.position = 'fixed';
+            document.body.style.top = `-${scrollPosition}px`;
+            document.body.style.width = '100%';
+            document.body.style.overflow = 'hidden';
+        }
+
+       
+        
+      
+
+
+
+       
+    }); 
 });
+
+
 
 
 
