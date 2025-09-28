@@ -1478,7 +1478,7 @@ CardProdutos.forEach(cardAtual => {
 
             modalLanche(produtoSelecionado, adicionaisSelecionados, bebidasSelecionadas, conteudoModal, scrollPosition)
             modalConstruido = true;
-            ModalPreCarrinho.style.display = 'block';
+            
         } else {
             // 🚨 SE CAIR AQUI, É UM PRODUTO SEM MODAL CONFIGURADO
         console.warn(`Tipo de produto '${produtoSelecionado.tipo}' não tem modal configurado. Modal não será aberto.`);
@@ -1490,7 +1490,7 @@ CardProdutos.forEach(cardAtual => {
         
          // 4. 🚀 LÓGICA DE ABERTURA: SÓ ABRE SE ALGO FOI CONSTRUÍDO 🚀
         if (modalConstruido) {
-            
+            ModalPreCarrinho.style.display = 'block';
             scrollPosition = window.scrollY;
             document.body.style.position = 'fixed';
             document.body.style.top = `-${scrollPosition}px`;
