@@ -305,6 +305,8 @@ main {
 
 
 
+
+
 #titulo-passaporte, #titulo-sanduiches, #titulo-especiais, #titulo-bebidas, #titulo-porcoes, #titulo-tradicionais, #titulo-smash {
     display: inline-block;
     background: linear-gradient(268deg, #F9BE00, white);
@@ -321,6 +323,8 @@ main {
     text-align: left;
     
 }
+
+
 
 
 
