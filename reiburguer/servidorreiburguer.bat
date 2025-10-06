@@ -1,4 +1,5 @@
 @echo off
 cls
-node reiburguer-server.js
+cd /d C:\Users\Welisson\Documents\Estudo\Cardapio\cardapios\reiburguer
+node server.js
 pause

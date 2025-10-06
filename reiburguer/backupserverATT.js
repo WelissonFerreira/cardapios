@@ -1,8 +1,13 @@
+// server.js - VERSÃO COM WHATSAPP INTEGRADO
 // 1. IMPORTAÇÕES E CONFIGURAÇÃO
 const admin = require('firebase-admin');
 const serviceAccount = require('./serviceAccountKey.json');
 const { Printer } = require('escpos');
 const usb = require('escpos-usb');
+
+// Importa módulos do WhatsApp
+const { connectToWhatsApp, isWhatsAppConnected } = require('./whatsapp-connection');
+const { enviarPedidoWhatsApp } = require('./whatsapp-sender');
 
 const VENDOR_ID = 0x0416;
 const PRODUCT_ID = 0x5011;
@@ -17,7 +22,7 @@ const clienteId = 'reiburguer';
 const pedidosRef = db.collection('clientes').doc(clienteId).collection('pedidos');
 
 // ===============================================================================================
-// 3. FUNÇÃO DE IMPRESSÃO - VERSÃO OTIMIZADA COM TRATAMENTO ROBUSTO
+// 3. FUNÇÃO DE IMPRESSÃO - VERSÃO OTIMIZADA
 // ===============================================================================================
 async function imprimirPedido(pedido, tipoComanda) {
     let device = null;
@@ -28,6 +33,7 @@ async function imprimirPedido(pedido, tipoComanda) {
         const dataEHora = pedido.data && pedido.data.toDate ? pedido.data.toDate() : new Date(pedido.hora);
         const dataFormatada = dataEHora.toLocaleDateString('pt-BR');
         const horaFormatada = dataEHora.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+
         
         let subtotalItens = 0;
         let dadosItensFormatados = "";
@@ -231,6 +237,8 @@ async function imprimirPedido(pedido, tipoComanda) {
                 }
             });
         });
+
+        
         
         console.log(`[IMPRESSÃO USB] Comanda '${tipoComanda}' ENVIADA e CONCLUÍDA com sucesso!`);
         return true;
@@ -253,6 +261,8 @@ async function imprimirPedido(pedido, tipoComanda) {
         
         return false;
     }
+
+    
 }
 
 // ===============================================================================================
@@ -267,6 +277,19 @@ pedidosRef.where('status', '==', 'pendente_impressao')
                 
                 console.log(`\n🔔 Novo pedido detectado (${docId})`);
                 
+                // ===== ENVIA PARA WHATSAPP PRIMEIRO =====
+                try {
+                    const enviouWhatsApp = await enviarPedidoWhatsApp(novoPedido, docId);
+                    if (enviouWhatsApp) {
+                        console.log(`📱 Pedido ${docId} enviado para WhatsApp!`);
+                    } else {
+                        console.warn(`⚠️ Pedido ${docId} não foi enviado para WhatsApp (não conectado ou erro).`);
+                    }
+                } catch (error) {
+                    console.error(`❌ Erro ao enviar WhatsApp (${docId}):`, error.message);
+                }
+                
+                // ===== DEPOIS IMPRIME AS COMANDAS =====
                 if (novoPedido.impressoraDestino && Array.isArray(novoPedido.impressoraDestino)) {
                     // Imprime em série para evitar conflitos
                     for (const destino of novoPedido.impressoraDestino) {
@@ -281,14 +304,11 @@ pedidosRef.where('status', '==', 'pendente_impressao')
                     console.log("⚠️ A propriedade 'impressoraDestino' não existe ou não é um array.");
                 }
                 
-                // TODO: INTEGRAÇÃO WHATSAPP (Próxima fase)
-                // await enviarPedidoWhatsApp(novoPedido, docId);
-                
                 // Atualiza status no Firebase
                 try {
                     await db.collection('clientes').doc(clienteId).collection('pedidos').doc(docId)
                         .update({ status: 'impresso' });
-                    console.log(`✅ Pedido ${docId} atualizado para 'impresso'.`);
+                    console.log(`✅ Pedido ${docId} atualizado para 'impresso'.\n`);
                 } catch (err) {
                     console.error('❌ Erro ao atualizar status do pedido:', err);
                 }
@@ -298,6 +318,31 @@ pedidosRef.where('status', '==', 'pendente_impressao')
         console.error('❌ Erro ao ouvir mudanças no Firestore:', err);
     });
 
-console.log("🚀 Servidor rodando! Ouvindo pedidos online do cardápio digital...");
-console.log(`📍 Cliente: ${clienteId}`);
-console.log(`🖨️ Impressora: VID=${VENDOR_ID.toString(16).toUpperCase()}, PID=${PRODUCT_ID.toString(16).toUpperCase()}\n`);
+// ===============================================================================================
+// 5. INICIALIZAÇÃO
+// ===============================================================================================
+console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+console.log('🍔 REI BURGUER - SISTEMA DE PEDIDOS');
+console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n');
+
+// Inicia conexão com WhatsApp
+console.log('📱 Iniciando conexão com WhatsApp...');
+connectToWhatsApp().catch(err => {
+    console.error('❌ Erro ao iniciar WhatsApp:', err.message);
+});
+
+// Aguarda um pouco e exibe status
+setTimeout(() => {
+    console.log('\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+    console.log('✅ Servidor rodando!');
+    console.log(`📍 Cliente: ${clienteId}`);
+    console.log(`🖨️ Impressora: VID=${VENDOR_ID.toString(16).toUpperCase()}, PID=${PRODUCT_ID.toString(16).toUpperCase()}`);
+    console.log(`📱 WhatsApp: ${isWhatsAppConnected() ? '✅ Conectado' : '⏳ Aguardando conexão...'}`);
+    console.log('👂 Ouvindo pedidos do Firebase...');
+    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n');
+}, 3000);
+
+
+
+
+

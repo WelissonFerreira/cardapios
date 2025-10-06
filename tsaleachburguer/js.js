@@ -3587,11 +3587,11 @@ document.getElementById('btnOkConfirmacao').addEventListener('click', () => {
 
         /*Exemplo de código se fecha-se algum dia o estabelecimento */
 
-        if (dia === 1 || dia === 2) {
+        if (dia === 2) {
             return false
         } 
     
-        if (hora >= 18 || hora <= 2) {
+        if (hora >= 5 || hora <= 2) {
           return true
         } else {
           return false
