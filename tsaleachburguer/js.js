@@ -3280,6 +3280,47 @@ if (possoAvancar) {
 // =======================================================================================================
 
 
+// FUNÇÃO REMOVER ACENTOS:
+
+function removerAcentos(texto) {
+    if (typeof texto !== 'string') {
+        return texto
+    }
+
+    return texto.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+}
+
+function processarObjeto(obj) {
+    const novoObjeto = {};
+
+    for (const chave in obj) {
+
+        // 1️⃣ Se for array
+        if (Array.isArray(obj[chave])) {
+            novoObjeto[chave] = obj[chave].map(item => {
+                if (typeof item === 'string') return removerAcentos(item);
+                if (typeof item === 'object' && item !== null) return processarObjeto(item);
+                return item;
+            });
+        }
+        // 2️⃣ Se for objeto (não null)
+        else if (typeof obj[chave] === 'object' && obj[chave] !== null) {
+            novoObjeto[chave] = processarObjeto(obj[chave]);
+        }
+        // 3️⃣ Se for string
+        else if (typeof obj[chave] === 'string') {
+            novoObjeto[chave] = removerAcentos(obj[chave]);
+        }
+        // 4️⃣ Outros tipos (número, boolean, etc.)
+        else {
+            novoObjeto[chave] = obj[chave];
+        }
+
+    }
+
+    return novoObjeto;
+}
+
 
 
 
@@ -3519,7 +3560,8 @@ if (tipoPedido === "Entrega") {
 // --- 8. ENVIAR PARA O FIRESTORE E ABRIR WHATSAPP ---
 try {
     const pedidosRef = collection(db, 'clientes/tsaleach/pedidos');
-    await addDoc(pedidosRef, pedidoParaFirebase);
+    const pedidoSemAcentos = processarObjeto(pedidoParaFirebase)
+    await addDoc(pedidosRef, pedidoSemAcentos);
     console.log("Pedido enviado para o Firestore com sucesso!");
 } catch (error) {
     console.error("Erro ao enviar o pedido para o Firestore:", error);
@@ -3569,6 +3611,7 @@ document.getElementById('btnOkConfirmacao').addEventListener('click', () => {
 
 
 
+
     
 
     //FUNÇÃO TOPO (OPEN-CLOSE)
@@ -3587,11 +3630,11 @@ document.getElementById('btnOkConfirmacao').addEventListener('click', () => {
 
         /*Exemplo de código se fecha-se algum dia o estabelecimento */
 
-        if (dia === 2) {
+        if (dia === 1) {
             return false
         } 
     
-        if (hora >= 5 || hora <= 2) {
+        if (hora >= 17 || hora <= 2) {
           return true
         } else {
           return false
