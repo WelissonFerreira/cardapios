@@ -179,7 +179,7 @@ let catalogoDeProdutos = {
 "produto-tsaleachtudo": {
     tipo: "lanche",
     nome: "TSALÊACH TUDO",
-    precoRiscado: 34.00,
+    precoRiscado: 33.00,
     preco: 30.00,
     descricao: "Para quem não abre mão de nada: nosso hambúrguer artesanal com filé de carne, calabresa, bacon, salsicha e mais, tudo com queijo cheddar e molho da casa.",
     ingredientes: ["Pão Brioche", " Carne Artesanal", " 2 Fatias de Pão de Forma", " Filé de Carne", " Calabresa", " Bacon", " Salsicha", " Cebola Caramelizada", " Queijo Cheddar", " Presunto", " Molho da Casa"],
