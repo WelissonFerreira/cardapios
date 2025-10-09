@@ -1,8 +1,11 @@
-// server.js - VERSÃO COM WHATSAPP INTEGRADO
+// server.js - VERSÃO COM PDF-TO-PRINTER
 // 1. IMPORTAÇÕES E CONFIGURAÇÃO
 const admin = require('firebase-admin');
 const serviceAccount = require('./serviceAccountKey.json');
-const { ThermalPrinter, PrinterTypes } = require('node-thermal-printer');
+const PDFDocument = require('pdfkit');
+const fs = require('fs');
+const path = require('path');
+const { print } = require('pdf-to-printer');
 
 // Importa módulos do WhatsApp
 const { connectToWhatsApp, isWhatsAppConnected } = require('./whatsapp-connection');
@@ -17,18 +20,161 @@ const db = admin.firestore();
 const clienteId = 'reiburguer';
 const pedidosRef = db.collection('clientes').doc(clienteId).collection('pedidos');
 
+// Cria pasta temp se não existir
+const tempDir = path.join(__dirname, 'temp');
+if (!fs.existsSync(tempDir)) {
+    fs.mkdirSync(tempDir);
+}
+
 // ===============================================================================================
-// 3. FUNÇÃO DE IMPRESSÃO - USANDO NODE-THERMAL-PRINTER PELO NOME
+// 3. FUNÇÃO DE GERAÇÃO DE PDF
+// ===============================================================================================
+function gerarPDF(pedido, tipoComanda, caminhoArquivo) {
+    return new Promise((resolve, reject) => {
+        try {
+            const doc = new PDFDocument({ 
+                size: [226.77, 841.89], // 80mm de largura (tamanho de impressora térmica)
+                margins: { top: 10, bottom: 10, left: 10, right: 10 }
+            });
+
+            const stream = fs.createWriteStream(caminhoArquivo);
+            doc.pipe(stream);
+
+            // CABEÇALHO
+            doc.fontSize(16).font('Helvetica-Bold').text('NOVO PEDIDO', { align: 'center' });
+            doc.fontSize(12).text(`REI BURGUER | ${tipoComanda}`, { align: 'center' });
+            doc.fontSize(10).font('Helvetica').text('--------------------------------', { align: 'center' });
+            doc.moveDown(0.5);
+
+            // DATA E HORA
+            const dataEHora = pedido.data && pedido.data.toDate ? pedido.data.toDate() : new Date(pedido.hora);
+            const dataFormatada = dataEHora.toLocaleDateString('pt-BR');
+            const horaFormatada = dataEHora.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+            
+            doc.fontSize(9).text(`Data: ${dataFormatada} | Hora: ${horaFormatada}`);
+
+            // CLIENTE
+            if (pedido.cliente && pedido.cliente.nome) {
+                doc.text(`Nome: ${pedido.cliente.nome}`);
+                doc.text(`Telefone: ${pedido.cliente.telefone}`);
+                doc.text(`Tipo: ${pedido.cliente.tipo}`);
+            } else {
+                doc.text(`Cliente ID: ${pedido.clienteId || 'N/A'}`);
+            }
+            doc.moveDown(0.5);
+
+            // ENDEREÇO
+            if (pedido.cliente && pedido.cliente.tipo === 'Entrega' && pedido.cliente.endereco) {
+                doc.font('Helvetica-Bold').text('--- ENDEREÇO DE ENTREGA ---');
+                doc.font('Helvetica');
+                doc.text(`Bairro: ${pedido.cliente.endereco.bairro}`);
+                doc.text(`Rua: ${pedido.cliente.endereco.rua}`);
+                doc.text(`Número: ${pedido.cliente.endereco.numero}`);
+                if (pedido.cliente.endereco.complemento) {
+                    doc.text(`Complemento: ${pedido.cliente.endereco.complemento}`);
+                }
+                doc.moveDown(0.5);
+            }
+
+            // ITENS
+            doc.font('Helvetica-Bold').text('--- ITENS DO PEDIDO ---');
+            doc.font('Helvetica');
+            doc.moveDown(0.3);
+
+            let subtotalItens = 0;
+
+            if (pedido.itens && Array.isArray(pedido.itens)) {
+                pedido.itens.forEach(item => {
+                    const precoBase = parseFloat(item.precoBase) || 0;
+                    let precoTotalItem = precoBase;
+
+                    doc.text(`${item.quantidade}x ${item.nome} - R$ ${precoBase.toFixed(2).replace('.', ',')}`);
+
+                    if (item.observacoes) {
+                        doc.fontSize(8).text(` - Obs: ${item.observacoes}`);
+                        doc.fontSize(9);
+                    }
+
+                    if (item.adicionais && Object.keys(item.adicionais).length > 0) {
+                        doc.text(' - Adicionais:');
+                        for (const nomeAdicional in item.adicionais) {
+                            const adicional = item.adicionais[nomeAdicional];
+                            const precoAdicional = parseFloat(adicional.preco || 0);
+                            const quantidadeAdicional = parseInt(adicional.quantidade || 1, 10);
+                            precoTotalItem += precoAdicional * quantidadeAdicional;
+                            doc.text(`  -> ${nomeAdicional} (${quantidadeAdicional}) - R$ ${(precoAdicional * quantidadeAdicional).toFixed(2).replace('.', ',')}`);
+                        }
+                    }
+
+                    if (item.bebidas && Object.keys(item.bebidas).length > 0) {
+                        doc.text(' - Bebidas:');
+                        for (const nomeBebida in item.bebidas) {
+                            const bebida = item.bebidas[nomeBebida];
+                            const quantidadeBebida = parseInt(bebida.quantidade || 1, 10);
+                            const precoBebida = parseFloat(bebida.preco || 0);
+                            precoTotalItem += precoBebida * quantidadeBebida;
+                            doc.text(`  -> ${nomeBebida} (${quantidadeBebida}) - R$ ${(precoBebida * quantidadeBebida).toFixed(2).replace('.', ',')}`);
+                        }
+                    }
+
+                    subtotalItens += precoTotalItem * item.quantidade;
+                    doc.text(`  -> Total do Item: R$ ${(precoTotalItem * item.quantidade).toFixed(2).replace('.', ',')}`);
+                    doc.moveDown(0.3);
+                });
+            }
+
+            // TOTAIS
+            let valorTotal = subtotalItens;
+            doc.text('--------------------------------');
+            doc.text(`Subtotal: R$ ${subtotalItens.toFixed(2).replace('.', ',')}`);
+
+            if (pedido.taxaEntrega > 0) {
+                doc.text(`Taxa de Entrega: R$ ${pedido.taxaEntrega.toFixed(2).replace('.', ',')}`);
+                valorTotal += pedido.taxaEntrega;
+            }
+
+            doc.moveDown(0.5);
+            doc.fontSize(14).font('Helvetica-Bold').text(`TOTAL: R$ ${valorTotal.toFixed(2).replace('.', ',')}`, { align: 'center' });
+            doc.fontSize(9).font('Helvetica');
+            doc.moveDown(0.5);
+
+            // PAGAMENTO
+            if (pedido.pagamento) {
+                doc.text(`Forma de Pagamento: ${pedido.pagamento}`);
+            }
+            if (pedido.troco > 0) {
+                doc.text(`Troco para: R$ ${parseFloat(pedido.troco).toFixed(2).replace('.', ',')}`);
+            }
+
+            doc.text('--------------------------------');
+            doc.moveDown(2);
+
+            doc.end();
+
+            stream.on('finish', () => resolve(caminhoArquivo));
+            stream.on('error', reject);
+
+        } catch (error) {
+            reject(error);
+        }
+    });
+}
+
+// ===============================================================================================
+// 4. FUNÇÃO DE IMPRESSÃO - USANDO PDF-TO-PRINTER
 // ===============================================================================================
 async function imprimirPedido(pedido, tipoComanda) {
+    const timestamp = Date.now();
+    const nomeArquivo = `pedido_${tipoComanda.replace(/\s+/g, '_')}_${timestamp}.pdf`;
+    const caminhoCompleto = path.join(tempDir, nomeArquivo);
+
     try {
-        // 1. GERAÇÃO DOS DADOS E CÁLCULOS
+        // 1. GERAÇÃO DOS DADOS E CÁLCULOS (PARA O CONSOLE.LOG)
         const dataEHora = pedido.data && pedido.data.toDate ? pedido.data.toDate() : new Date(pedido.hora);
         const dataFormatada = dataEHora.toLocaleDateString('pt-BR');
         const horaFormatada = dataEHora.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
 
         let subtotalItens = 0;
-        let dadosItensFormatados = "";
         let dadosParaImpressaoConsole = `--- NOVO PEDIDO | REI BURGUER | ${tipoComanda} ---\n\n`;
 
         // Cabeçalho
@@ -88,7 +234,6 @@ async function imprimirPedido(pedido, tipoComanda) {
 
                 subtotalItens += precoTotalItem * item.quantidade;
                 linhaItem += `  -> Total do Item: R$ ${(precoTotalItem * item.quantidade).toFixed(2).replace('.', ',')}\n`;
-                dadosItensFormatados += linhaItem;
                 dadosParaImpressaoConsole += linhaItem;
             });
         }
@@ -113,67 +258,28 @@ async function imprimirPedido(pedido, tipoComanda) {
         console.log(`\nComanda '${tipoComanda}' gerada para o pedido. (Tentando enviar para impressora)\n`);
         console.log(dadosParaImpressaoConsole);
 
-        // 2. IMPRESSÃO PELO NOME COM NODE-THERMAL-PRINTER
-        const printer = new ThermalPrinter({
-            type: PrinterTypes.EPSON,      // ou STAR, se for outra marca
-            interface: 'POS-58',   // nome da impressora no Windows
-            options: { timeout: 5000 }
-        });
+        // 2. GERA O PDF
+        await gerarPDF(pedido, tipoComanda, caminhoCompleto);
+        console.log(`[PDF] Arquivo gerado: ${nomeArquivo}`);
 
-        printer.alignCenter();
-        printer.bold(true);
-        printer.setTextSize(2, 2);
-        printer.println("NOVO PEDIDO");
-        printer.setTextSize(1, 1);
-        printer.println(`REI BURGUER | ${tipoComanda}`);
-        printer.println('--------------------------------');
-        printer.alignLeft();
-        printer.bold(false);
+        // 3. IMPRIME O PDF
+        const options = {
+            printer: 'POS-58', // Nome da sua impressora (ou remova essa linha para usar a padrão)
+            // scale: 'fit', // Descomente se quiser ajustar o tamanho
+            // silent: true, // Descomente para silenciar erros
+        };
 
-        // Cliente e endereço
-        printer.println(`Data: ${dataFormatada} | Hora: ${horaFormatada}`);
-        if (pedido.cliente && pedido.cliente.nome) {
-            printer.println(`Nome do Cliente: ${pedido.cliente.nome}`);
-            printer.println(`Telefone: ${pedido.cliente.telefone}`);
-            printer.println(`Tipo de Pedido: ${pedido.cliente.tipo}`);
-        }
-
-        if (pedido.cliente && pedido.cliente.tipo === 'Entrega' && pedido.cliente.endereco) {
-            printer.bold(true).println('--- ENDEREÇO DE ENTREGA ---').bold(false);
-            printer.println(`Bairro: ${pedido.cliente.endereco.bairro}`);
-            printer.println(`Rua: ${pedido.cliente.endereco.rua}`);
-            printer.println(`Número: ${pedido.cliente.endereco.numero}`);
-            if (pedido.cliente.endereco.complemento)
-                printer.println(`Complemento: ${pedido.cliente.endereco.complemento}`);
-        }
-
-        printer.bold(true).println('--- ITENS DO PEDIDO ---').bold(false);
-        printer.println(dadosItensFormatados);
-
-        // Totais
-        printer.println("--------------------------------");
-        printer.println(`Subtotal: R$ ${subtotalItens.toFixed(2).replace('.', ',')}`);
-        if (pedido.taxaEntrega > 0)
-            printer.println(`Taxa de Entrega: R$ ${pedido.taxaEntrega.toFixed(2).replace('.', ',')}`);
-
-        printer.alignCenter();
-        printer.bold(true);
-        printer.setTextSize(2, 2);
-        printer.println(`TOTAL: R$ ${valorTotal.toFixed(2).replace('.', ',')}`);
-        printer.setTextSize(1, 1);
-        printer.bold(false);
-        printer.alignLeft();
-
-        if (pedido.pagamento)
-            printer.println(`Forma de Pagamento: ${pedido.pagamento}`);
-        if (pedido.troco > 0)
-            printer.println(`Troco para: R$ ${parseFloat(pedido.troco).toFixed(2).replace('.', ',')}`);
-
-        printer.println('--------------------------------');
-        printer.cut();
-
-        await printer.execute();
+        await print(caminhoCompleto, options);
         console.log(`[IMPRESSÃO] Comanda '${tipoComanda}' ENVIADA e CONCLUÍDA com sucesso!`);
+
+        // 4. APAGA O PDF APÓS 3 SEGUNDOS (tempo para garantir que foi impresso)
+        setTimeout(() => {
+            if (fs.existsSync(caminhoCompleto)) {
+                fs.unlinkSync(caminhoCompleto);
+                console.log(`[LIMPEZA] PDF temporário apagado: ${nomeArquivo}`);
+            }
+        }, 3000);
+
         return true;
 
     } catch (error) {
@@ -181,12 +287,23 @@ async function imprimirPedido(pedido, tipoComanda) {
         console.error(`ERRO DE IMPRESSÃO: Falha na comanda '${tipoComanda}'.`);
         console.error(`Detalhes: ${error.message}`);
         console.error("-----------------------------------------------------------------------------------------------------");
+
+        // Tenta apagar o PDF mesmo em caso de erro
+        if (fs.existsSync(caminhoCompleto)) {
+            try {
+                fs.unlinkSync(caminhoCompleto);
+                console.log(`[LIMPEZA] PDF temporário apagado após erro: ${nomeArquivo}`);
+            } catch (deleteError) {
+                console.error(`[ERRO] Não foi possível apagar o PDF: ${deleteError.message}`);
+            }
+        }
+
         return false;
     }
 }
 
 // ===============================================================================================
-// 4. ESCUTA DOS PEDIDOS DO FIRESTORE
+// 5. ESCUTA DOS PEDIDOS DO FIRESTORE
 // ===============================================================================================
 pedidosRef.where('status', '==', 'pendente_impressao')
     .onSnapshot(snapshot => {
@@ -238,7 +355,7 @@ pedidosRef.where('status', '==', 'pendente_impressao')
     });
 
 // ===============================================================================================
-// 5. INICIALIZAÇÃO
+// 6. INICIALIZAÇÃO
 // ===============================================================================================
 console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
 console.log('🍔 REI BURGUER - SISTEMA DE PEDIDOS');
