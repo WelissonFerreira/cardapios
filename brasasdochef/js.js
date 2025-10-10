@@ -1635,7 +1635,7 @@ btnFinalizarPedidoWhatsApp.addEventListener('click', async () => {
     if (formaPagamentoSelecionada === 'Dinheiro') {
         const valorTroco = document.querySelector('#inputTroco')?.value;
         if (valorTroco && parseFloat(valorTroco) > 0) {
-            troco = ` | Troco para R$ ${parseFloat(valorTroco).toFixed(2).replace('.', ',')}`;
+            troco = ` | R$ ${parseFloat(valorTroco).toFixed(2).replace('.', ',')} de Troco`;
         }
     }
     let formaPagamentoMensagem = formaPagamentoSelecionada;
