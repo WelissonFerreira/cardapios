@@ -255,7 +255,7 @@ const precosEntrega = {
   "Maracanã1": 16.00,
   "Mararu": 30.00,
   "Mínima": 8.00,
-  "Matinha": 16.00,
+  "Matinha": 9.00,
   "Nova República": 16.00,
   "Nova vitória": 15.00,
   "Novo horizonte": 15.00,
