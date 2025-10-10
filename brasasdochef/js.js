@@ -1807,7 +1807,7 @@ try {
 */
 
    // --- 9. Abrir WhatsApp para o Cliente --- 
-const numeroWhatsAppCliente = '5595991699523'; // número que aparece no botão
+const numeroWhatsAppCliente = '5593992283078'; // número que aparece no botão
 const urlCliente = `https://wa.me/${numeroWhatsAppCliente}?text=${encodeURIComponent(mensagem)}`;
 window.open(urlCliente, '_blank');
 
@@ -2003,10 +2003,10 @@ document.getElementById('btnOkConfirmacao').addEventListener('click', () => {
     let btnZap = document.getElementById('botaozap')
     btnZap.addEventListener('click', function() {
 
-    const numeroWhatsApp = '5595991699523'; // Exemplo: 55 = Brasil, 82 = DDD, 999261614 = número
+    const numeroWhatsApp = '5593992283078'; // Exemplo: 55 = Brasil, 82 = DDD, 999261614 = número
 
     // 2. Crie a mensagem (opcional, mas muito útil)
-    const mensagemPadrao = 'Olá, gostaria de fazer um pedido!';
+    const mensagemPadrao = 'Olá, vim pelo cardápio digital';
 
     // 3. Monte o link completo para o WhatsApp
     const linkWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagemPadrao)}`;
