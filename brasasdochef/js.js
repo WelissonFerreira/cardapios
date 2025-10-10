@@ -1869,7 +1869,7 @@ document.getElementById('btnOkConfirmacao').addEventListener('click', () => {
           return false
         } 
     
-        if (hora >= 1 && hora <= 15) {
+        if (hora >= 10 && hora <= 15) {
           return true
         } else {
           return false
