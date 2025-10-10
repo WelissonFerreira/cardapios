@@ -3092,8 +3092,8 @@ function abrirModalPedidoEListarItens() {
 
       if (opcaoRetirada.checked) {
     possoAvancar = verificarCamposRetirada();
-} else if (opcaoEntrega.checked) {
-    possoAvancar = verificarCamposEntrega();
+//} else if (opcaoEntrega.checked) {
+    //possoAvancar = verificarCamposEntrega();
 } else if (opcaoConsumo.checked) {
     possoAvancar = verificarCamposConsumo()
 }
@@ -3112,7 +3112,7 @@ if (possoAvancar) {
 
     
 
-    
+   /* 
       // EVENTO OPÇÃO ENTREGA
     let opcaoEntrega = document.querySelector('.CEntrega')
     let Formul = document.querySelector('#formEntrega')
@@ -3123,19 +3123,19 @@ if (possoAvancar) {
     })
 
 
-
+*/
 
     // EVENTO OPÇÃO CONSUMO
     let opcaoConsumo = document.querySelector('.CConsumo')
     
     opcaoConsumo.addEventListener('click', function() {
-        document.querySelector('#formEntrega').style.display = 'none'
-
+       // document.querySelector('#formEntrega').style.display = 'none'
+        /*
         document.querySelector('#Bairro').value = 'Selecionar'
         document.querySelector('#Rua').value = ''
         document.querySelector('#Numero').value = ''
         document.querySelector('#complemento').value = ''
-        
+        */
     })
 
 
@@ -3145,14 +3145,14 @@ if (possoAvancar) {
     
     opcaoRetirada.addEventListener('click', function() {
 
-        document.querySelector('#formEntrega').style.display = 'none'
+       // document.querySelector('#formEntrega').style.display = 'none'
         
-
+/*
         document.querySelector('#Bairro').value = 'Selecionar'
         document.querySelector('#Rua').value = ''
         document.querySelector('#Numero').value = ''
         document.querySelector('#complemento').value = ''
-        
+        */
     }) 
 
 
@@ -3187,30 +3187,33 @@ if (possoAvancar) {
       
       // FUNÇÃO QUE VALIDA OS DADOS PARA RETIRADA
       function verificarCamposConsumo() {
-        const inputNome = document.getElementById('nomeUsuario')
-        const valorNome = inputNome.value
+  const inputNome = document.getElementById('nomeUsuario')
+  const valorNome = inputNome.value
 
-        const inputCell = document.getElementById('cellUsuario')
-        const valorCell = inputCell.value
+  const inputCell = document.getElementById('cellUsuario')
+  const valorCell = inputCell.value
 
-        let dadosPreenchidos = true
+  const erroNome = document.getElementById('erroNome')
+  const erroCell = document.getElementById('erroCell')
 
-        if (valorNome === "") {
-          erroNome.style.display = 'block';
-          dadosPreenchidos = false;
-        } else {
-          erroNome.style.display = 'none'
-        }
+  let dadosPreenchidos = true
 
-        if (valorCell === "") {
-          erroCell.style.display = 'block';
-          dadosPreenchidos = false;
-        } else {
-          erroCell.style.display = 'none'
-        }
+  if (valorNome === "") {
+    erroNome.style.display = 'block';
+    dadosPreenchidos = false;
+  } else {
+    erroNome.style.display = 'none';
+  }
 
-        return dadosPreenchidos
-      }
+  if (valorCell === "") {
+    erroCell.style.display = 'block';
+    dadosPreenchidos = false;
+  } else {
+    erroCell.style.display = 'none';
+  }
+
+  return dadosPreenchidos;
+}
 
       /*=============*/
 

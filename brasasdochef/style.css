@@ -727,6 +727,7 @@ main {
     color: black;
     margin-right: 3px;
     letter-spacing: 1px;
+    line-height: 1.3;
 }
 
 .txtPalavraDestaque {
@@ -734,6 +735,14 @@ main {
     color: rgba(255, 0, 0, 0.664); /* amarelo dourado */
     font-family: "Playfair Display", serif;
     font-weight: 600;
+}
+
+.txtPalavraAcompanhamento {
+    font-size: 0.8rem;
+    color: black; /* amarelo dourado */
+    font-family: "Playfair Display", serif;
+    font-weight: 600;
+    
 }
 
 .descricao-ingredientes {
@@ -2263,6 +2272,7 @@ footer {
 .descricaoPre {
     font-family: var(--body-font); /* usa a fonte definida no :root */
     font-size: 0.9rem;
+    line-height: 1.6;
     
 }
 

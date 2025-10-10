@@ -9,24 +9,50 @@ let catalogoDeProdutos = {
         nome: "Tambaqui Sem Espinha Grelhado",
         precoRiscado: 80.00,
         preco: 70.00,
-        descricao: "Acompanhamentos: Baião de Dois OU Arroz + Vinagrete | Um delicioso lombo de Tambaqui grelhado e sem espinhas, extremamente saboroso e suculento.",
+        descricao: "Um delicioso lombo de Tambaqui grelhado e sem espinhas, extremamente saboroso e suculento. Acompanha: Baião de Dois OU Arroz, Vinagrete, Farofa e Maionese ",
         // Exemplo de como você pode usar "ingredientes" ou "acompanhamentos" para pratos
         ingredientes: ["Baião de Dois", " Arroz"], 
         imagem: "imagens/pratos/tambaqui4.jpeg", // Caminho da imagem
     },
+
+    "produto-frango-meio": {
+    tipo: "prato", // Assumindo que Frango Assado também é um 'prato'
+    nome: "Frango Assado Meio",
+    precoRiscado: 40.00,
+    preco: 35.00,
+    descricao: "Metade de um frango suculento e macio, temperado com ervas especiais e assado lentamente até o ponto ideal. Pele crocante e sabor inconfundível. Ideal para 2 pessoas. | Baião de Dois OU Arroz, Vinagrete, Farofa e Maionese",
+    // Se o frango também tem a opção de acompanhamento (Baião/Arroz), defina aqui:
+    // ingredientes: ["Baião de Dois", " Arroz"], 
+    // Caso contrário, use uma lista vazia ou remova o campo para evitar a seção de "escolha de sabor" no modal.
+    ingredientes: ['AAAA'], // Ou os acompanhamentos que ele oferece
+    imagem: "imagens/pratos/frangoassado2.jpeg", // Certifique-se de que o caminho da imagem está correto
+},
+
+// Adicione este objeto ao seu catalogoDeProdutos em js.js
+
+"produto-frango-completo": {
+    tipo: "prato", 
+    nome: "Frango na Brasa Completo",
+    precoRiscado: 70.00,
+    preco: 60.00,
+    descricao: "Nosso delicioso frango inteiro, suculento e perfeitamente assado na brasa, garantindo um sabor defumado e irresistível. Tempero especial da casa e pele super crocante! Serve confortavelmente 3 a 4 pessoas. | Baião de Dois OU Arroz, Vinagrete, Farofa e Maionese",
+    // Defina os acompanhamentos ou deixe vazio se não houver escolha obrigatória no modal
+    ingredientes: [], // Ex: ["Baião de Dois", " Arroz"] se houver opção
+    imagem: "imagens/pratos/frangoassado2.jpeg", // Verifique o caminho da sua imagem
+},
 
 
 
 
 
     "produto-combosimples": {
-        tipo: "prato",
+        tipo: "lanche",
         nome: "Combo Simples",
         precoRiscado: 45.50,
         preco: 38.50,
         descricao: "Um hambúrguer artesanal saboroso, acompanhado de batata frita crocante e 1 refrigerante gelado. A opção ideal para quem busca uma refeição completa e deliciosa!",
         ingredientes: ["Pão", " Chedar", " Smash de Carne", " + Batata Frita", " + Refri em Lata"],
-        imagem: "imagens/lanches/combosimples.png",
+        imagem: "imagens/pratos/frangoassado2.jpeg",
     },
 
 
@@ -470,8 +496,9 @@ function modalPrato(produtoSelecionado, bebidasSelecionadas, conteudoModal, scro
 
     let saborPrincipalSelecionado = null; // 👈 NOVA VARIÁVEL AQUI!
 
+    if (produtoSelecionado.ingredientes && produtoSelecionado.ingredientes.length > 0) {
 
-      let divSabores = document.createElement('div');
+            let divSabores = document.createElement('div');
       divSabores.classList.add('divEscolhaSabores');
       divPrincipal.appendChild(divSabores);
 
@@ -523,6 +550,10 @@ function modalPrato(produtoSelecionado, bebidasSelecionadas, conteudoModal, scro
              // atualizarPreCarrinho(inputQuantidadePre, produtoSelecionado, precoPre, precoRiscadoPre, adicionaisSelecionados, bebidasSelecionadas);
         });
     });
+
+    }
+
+
 
 
 
@@ -756,7 +787,7 @@ divObsModal.appendChild(inputObsModal);
     // =======================================================
     
     
-    if (!saborPrincipalSelecionado) {
+    if (produtoSelecionado.ingredientes && produtoSelecionado.ingredientes.length > 0) {
         // Alerta o usuário e impede o avanço
         alert('Por favor, escolha ao menos 1 sabor de espetinho para adicionar ao carrinho.');
         return; // 🛑 IMPORTANTE: Para a execução da função aqui.
@@ -965,13 +996,16 @@ function mostrarItensDoCarrinho() {
 
 
               // LÓGICA DE EXIBIÇÃO PARA SABOR PRINCIPAL (Somente se não for um lanche)
-// Lanche usa o 5º argumento como "sabor", mas deve ser ignorado.
-if (item.produto.tipo !== 'prato' && item.sabor && String(item.sabor).trim() !== '') {
+if (item.sabor && String(item.sabor).trim() !== '') { // Verifica se há sabor/acompanhamento salvo
+
     let divSabor = document.createElement('div');
     divSabor.classList.add('div-sabor-principal');
     let pSabor = document.createElement('p');
+    
+    // Mude o texto dependendo do tipo, se quiser (Ex: Acompanhamento: para Prato, Sabor: para Outros)
+    let prefixo = (item.produto.tipo === 'prato') ? 'Acompanhamento: ' : 'Sabor: '; 
 
-    pSabor.textContent = `Sabor: ${item.sabor}`; 
+    pSabor.textContent = `${prefixo} ${item.sabor} + Vinagrete`; // 🚀 LÊ A PROPRIEDADE SALVA
     pSabor.classList.add('sabor-selecionado');
 
     divSabor.appendChild(pSabor);
@@ -982,10 +1016,7 @@ if (item.produto.tipo !== 'prato' && item.sabor && String(item.sabor).trim() !==
 
             // Lógica para pratos, que inclui o campo de observação
             if (item.produto.tipo === 'prato') {
-                let ingredientesProdutos = document.createElement('p');
-                ingredientesProdutos.textContent = `Ingredientes: ${item.produto.ingredientes.join(', ')}`;
-                ingredientesProdutos.classList.add('ingredientesProdutos');
-                divProdutoDescricao.appendChild(ingredientesProdutos);
+                
 
                 let divObs = document.createElement('div');
                 divObs.classList.add('divObs');
@@ -1202,6 +1233,7 @@ function abrirModalPedidoEListarItens() {
     const valorTaxaDeEntrega = precosEntrega[bairroSelecionado] || 0;
 
     itensCarrinho.forEach(function(item) {
+
         let divControleItemIndividual = document.createElement('div');
         divControleItemIndividual.classList.add('divControleItemIndividual');
         
@@ -1237,11 +1269,21 @@ function abrirModalPedidoEListarItens() {
             pBebidas.classList.add('addBebidas');
         }
 
+
         if (item.produto.tipo === 'prato') {
-            let addIngredientes = document.createElement('p');
-            addIngredientes.textContent = `Ingredientes: ${item.produto.ingredientes.join(', ')}`;
-            addIngredientes.classList.add('addIngredientes');
-            divControleItemIndividual.appendChild(addIngredientes);
+
+            // 🚀 INSERÇÃO DO ACOMPANHAMENTO AQUI 🚀
+            if (item.sabor && String(item.sabor).trim() !== '') {
+                let addAcompanhamento = document.createElement('p');
+                addAcompanhamento.textContent = `Acompanhamento: ${item.sabor} + Vinagrete`; // Lê o item.sabor
+                addAcompanhamento.classList.add('addAcompanhamento'); // Nova classe para estilização
+                divControleItemIndividual.appendChild(addAcompanhamento);
+            }
+            // ----------------------------------------
+
+
+
+
 
             
         }
@@ -1674,7 +1716,7 @@ mensagem += `*Forma de Pagamento: *\n${formaPagamentoMensagem}`;
 
 
 
-
+/*
 
 // --- NOVO: Montar o objeto para o Firebase (Parte adaptada!) ---
 const itensParaFirebase = itensCarrinho.map(item => {
@@ -1719,6 +1761,7 @@ const pedidoParaFirebase = {
     //status: 'teste_web',
     //impressoraDestino: [],
 };
+*/
 
 if (tipoPedido === "Entrega") {
     pedidoParaFirebase.cliente.endereco = {
@@ -1729,10 +1772,10 @@ if (tipoPedido === "Entrega") {
     };
 }
 
-
+/*
 // --- 8. ENVIAR PARA O FIRESTORE E ABRIR WHATSAPP ---
 try {
-    const pedidosRef = collection(db, 'clientes/reiburguer/pedidos');
+    const pedidosRef = collection(db, 'clientes/brasasdochef/pedidos');
     await addDoc(pedidosRef, pedidoParaFirebase);
     console.log("Pedido enviado para o Firestore com sucesso!");
 } catch (error) {
@@ -1744,7 +1787,7 @@ try {
       btnFinalizarPedidoWhatsApp.textContent = `Finalizar Pedido`
     }
 }
-
+*/
 
    // --- 9. Abrir WhatsApp para o Cliente --- 
 const numeroWhatsAppCliente = '5595991699523'; // número que aparece no botão
@@ -1799,11 +1842,11 @@ document.getElementById('btnOkConfirmacao').addEventListener('click', () => {
 
         /*Exemplo de código se fecha-se algum dia o estabelecimento */
 
-        if (dia === 1) {
+        if (dia === 3) {
           return false
         } 
     
-        if (hora >= 15 || hora <= 2) {
+        if (hora >= 1 && hora <= 15) {
           return true
         } else {
           return false
@@ -1847,7 +1890,7 @@ document.getElementById('btnOkConfirmacao').addEventListener('click', () => {
             openClose.appendChild(divFuncionamento)
             
             let p3 = document.createElement('p')
-            p3.textContent = '19:00 - 23:59'
+            p3.textContent = '10:30 - 14:30'
             p3.classList.add('msgfuncionamento')
             divFuncionamento.appendChild(p3)
 
