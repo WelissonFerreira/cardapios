@@ -6,7 +6,7 @@ let catalogoDeProdutos = {
 
     "produto-tambaqui": {
         tipo: "prato", // Alterado para refletir o tipo "prato"
-        nome: "Tambaqui Sem Espinha Grelhado",
+        nome: "Tambaqui Sem Espinha Na Brasa",
         precoRiscado: 80.00,
         preco: 70.00,
         descricao: "Um delicioso lombo de Tambaqui grelhado e sem espinhas, extremamente saboroso e suculento. Acompanha: Baião de Dois OU Arroz, Vinagrete, Farofa e Maionese ",
@@ -17,15 +17,15 @@ let catalogoDeProdutos = {
 
     "produto-frango-meio": {
     tipo: "prato", // Assumindo que Frango Assado também é um 'prato'
-    nome: "Frango Assado Meio",
+    nome: "Frango Assado Na Brasa Meio",
     precoRiscado: 40.00,
     preco: 35.00,
     descricao: "Metade de um frango suculento e macio, temperado com ervas especiais e assado lentamente até o ponto ideal. Pele crocante e sabor inconfundível. Ideal para 2 pessoas. | Baião de Dois OU Arroz, Vinagrete, Farofa e Maionese",
     // Se o frango também tem a opção de acompanhamento (Baião/Arroz), defina aqui:
     // ingredientes: ["Baião de Dois", " Arroz"], 
     // Caso contrário, use uma lista vazia ou remova o campo para evitar a seção de "escolha de sabor" no modal.
-    ingredientes: ['AAAA'], // Ou os acompanhamentos que ele oferece
-    imagem: "imagens/pratos/frangoassado2.jpeg", // Certifique-se de que o caminho da imagem está correto
+    ingredientes: ['Baião de Dois', 'Arroz'], // Ou os acompanhamentos que ele oferece
+    imagem: "imagens/pratos/frangometade.jpg", // Certifique-se de que o caminho da imagem está correto
 },
 
 // Adicione este objeto ao seu catalogoDeProdutos em js.js
@@ -37,23 +37,35 @@ let catalogoDeProdutos = {
     preco: 60.00,
     descricao: "Nosso delicioso frango inteiro, suculento e perfeitamente assado na brasa, garantindo um sabor defumado e irresistível. Tempero especial da casa e pele super crocante! Serve confortavelmente 3 a 4 pessoas. | Baião de Dois OU Arroz, Vinagrete, Farofa e Maionese",
     // Defina os acompanhamentos ou deixe vazio se não houver escolha obrigatória no modal
-    ingredientes: [], // Ex: ["Baião de Dois", " Arroz"] se houver opção
+    ingredientes: ['Baião de Dois', 'Arroz'], // Ex: ["Baião de Dois", " Arroz"] se houver opção
     imagem: "imagens/pratos/frangoassado2.jpeg", // Verifique o caminho da sua imagem
+},
+
+// Adicione este objeto ao seu catalogoDeProdutos em js.js
+
+"produto-mistao": {
+    tipo: "prato", 
+    nome: "Mistão na Brasa",
+    precoRiscado: 20.00, // Preço temporário
+    preco: 15.00,         // Preço temporário
+    descricao: "Uma combinação perfeita de sabores: suculenta carne bovina, linguiça calabresa defumada e pedaços de frango macios, tudo assado na brasa para um toque defumado irresistível. ACOMPANHAMENTOS: Baião de Dois OU Arroz, Vinagrete, Farofa e Maionese.",
+    // Este produto terá escolha de sabor (Baião ou Arroz)
+    ingredientes: ["Baião de Dois", " Arroz"], 
+    imagem: "imagens/pratos/Mistao.png", // Lembre-se de criar ou encontrar essa imagem!
 },
 
 
 
-
-
-    "produto-combosimples": {
-        tipo: "lanche",
-        nome: "Combo Simples",
-        precoRiscado: 45.50,
-        preco: 38.50,
-        descricao: "Um hambúrguer artesanal saboroso, acompanhado de batata frita crocante e 1 refrigerante gelado. A opção ideal para quem busca uma refeição completa e deliciosa!",
-        ingredientes: ["Pão", " Chedar", " Smash de Carne", " + Batata Frita", " + Refri em Lata"],
-        imagem: "imagens/pratos/frangoassado2.jpeg",
-    },
+"produto-feijoada": {
+    tipo: "prato", 
+    nome: "Feijoada Deliciosa",
+    precoRiscado: 35.00,
+    preco: 30.00,
+    descricao: "Nossa feijoada é preparada com carnes selecionadas, cozida lentamente e com tempero caseiro. Um prato rico e tradicional, perfeito para matar a fome. ACOMPANHAMENTOS: Arroz branco, couve refogada e farofa.",
+    // Deixando o array vazio para que a seção de escolha de sabor/acompanhamento não apareça no modal.
+    ingredientes: [], 
+    imagem: "imagens/pratos/feijoada.jpeg", // Verifique o caminho da imagem
+},
 
 
 
@@ -494,11 +506,13 @@ function modalPrato(produtoSelecionado, bebidasSelecionadas, conteudoModal, scro
      // 2. SEÇÃO ESPECÍFICA: ESCOLHA DE SABOR (CHECKBOXES)
      // ====================================================================
 
-    let saborPrincipalSelecionado = null; // 👈 NOVA VARIÁVEL AQUI!
+    // 🚀 PASSO 1: DECLARE A VARIÁVEL NO ESCOPO PRINCIPAL DA FUNÇÃO
+    let saborPrincipalSelecionado = null; 
 
     if (produtoSelecionado.ingredientes && produtoSelecionado.ingredientes.length > 0) {
 
-            let divSabores = document.createElement('div');
+
+      let divSabores = document.createElement('div');
       divSabores.classList.add('divEscolhaSabores');
       divPrincipal.appendChild(divSabores);
 
@@ -541,8 +555,6 @@ function modalPrato(produtoSelecionado, bebidasSelecionadas, conteudoModal, scro
             if (checkbox.checked) {
                  // Armazena o sabor selecionado com a quantidade 1 (ou true)
                 saborPrincipalSelecionado = saborLimpo;
-            } else {
-                saborPrincipalSelecionado = null
             }
             
              // Aqui você pode chamar a função para atualizar o botão de adicionar, 
@@ -713,7 +725,7 @@ labelObsModal.textContent = 'Observação (Opcional):'
 labelObsModal.classList.add('labelObs') 
 
 let inputObsModal = document.createElement('input');
-inputObsModal.placeholder = 'Ex: sem maionese, sem tomate, etc.';
+inputObsModal.placeholder = 'Ex: sem maionese, sem farofa, etc.';
 inputObsModal.classList.add('inputObs'); 
 
 // 1. Carrega o valor inicial
@@ -787,11 +799,14 @@ divObsModal.appendChild(inputObsModal);
     // =======================================================
     
     
-    if (produtoSelecionado.ingredientes && produtoSelecionado.ingredientes.length > 0) {
-        // Alerta o usuário e impede o avanço
-        alert('Por favor, escolha ao menos 1 sabor de espetinho para adicionar ao carrinho.');
-        return; // 🛑 IMPORTANTE: Para a execução da função aqui.
-    }
+   // 🚨 VALIDAÇÃO CORRIGIDA
+// =======================================================
+if (produtoSelecionado.ingredientes && produtoSelecionado.ingredientes.length > 0 && saborPrincipalSelecionado === null) {
+    
+    // 💡 A lógica AGORA é: Se o produto tem ingredientes E NENHUM foi selecionado.
+    alert('Por favor, escolha exatamente uma opção para adicionar ao carrinho.');
+    return; // 🛑 Para a execução
+}
 
 
 
@@ -980,6 +995,8 @@ function mostrarItensDoCarrinho() {
                 imagemProduto.classList.add('imagemBebidaCarrinho');
     } else if (item.produto.tipo === 'porcao') {
                 imagemProduto.classList.add('imagemPorcaoCarrinho');
+    } else if (item.produto.tipo === 'suco') {
+                imagemProduto.classList.add('imagemBebidaCarrinho')
     }
 
             // -----------------------------
@@ -1005,7 +1022,7 @@ if (item.sabor && String(item.sabor).trim() !== '') { // Verifica se há sabor/a
     // Mude o texto dependendo do tipo, se quiser (Ex: Acompanhamento: para Prato, Sabor: para Outros)
     let prefixo = (item.produto.tipo === 'prato') ? 'Acompanhamento: ' : 'Sabor: '; 
 
-    pSabor.textContent = `${prefixo} ${item.sabor} + Vinagrete`; // 🚀 LÊ A PROPRIEDADE SALVA
+    pSabor.textContent = `${prefixo} ${item.sabor},  Vinagrete, Farofa e Maionese`; // 🚀 LÊ A PROPRIEDADE SALVA
     pSabor.classList.add('sabor-selecionado');
 
     divSabor.appendChild(pSabor);
@@ -1275,7 +1292,7 @@ function abrirModalPedidoEListarItens() {
             // 🚀 INSERÇÃO DO ACOMPANHAMENTO AQUI 🚀
             if (item.sabor && String(item.sabor).trim() !== '') {
                 let addAcompanhamento = document.createElement('p');
-                addAcompanhamento.textContent = `Acompanhamento: ${item.sabor} + Vinagrete`; // Lê o item.sabor
+                addAcompanhamento.textContent = `Acompanhamento: ${item.sabor}, Vinagrete, Farofa e Maionese`; // Lê o item.sabor
                 addAcompanhamento.classList.add('addAcompanhamento'); // Nova classe para estilização
                 divControleItemIndividual.appendChild(addAcompanhamento);
             }
