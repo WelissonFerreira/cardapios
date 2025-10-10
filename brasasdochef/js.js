@@ -9,10 +9,10 @@ let catalogoDeProdutos = {
         nome: "Tambaqui Sem Espinha Grelhado",
         precoRiscado: 80.00,
         preco: 70.00,
-        descricao: "Um delicioso lombo de Tambaqui grelhado e sem espinhas, extremamente saboroso e suculento. Acompanha arroz branco, feijão, e salada.",
+        descricao: "Acompanhamentos: Baião de Dois OU Arroz + Vinagrete | Um delicioso lombo de Tambaqui grelhado e sem espinhas, extremamente saboroso e suculento.",
         // Exemplo de como você pode usar "ingredientes" ou "acompanhamentos" para pratos
-        ingredientes: ["Lombo de Tambaqui Grelhado", "Arroz Branco", "Feijão", "Salada Mista", "Farofa Temperada"], 
-        imagem: "imagens/geral/banner.jpeg", // Caminho da imagem
+        ingredientes: ["Baião de Dois", " Arroz"], 
+        imagem: "imagens/pratos/tambaqui4.jpeg", // Caminho da imagem
     },
 
 
@@ -245,7 +245,7 @@ const precosEntrega = {
   "Vitória Régia": 16.00
 };
 
-/*
+
 window.addEventListener("load", () => {
   const preloader = document.getElementById("preloader");
   
@@ -254,7 +254,7 @@ window.addEventListener("load", () => {
   setTimeout(() => {
     preloader.style.display = "none"; // some do DOM
   }, 500); // tempo igual ao transition
-}); */
+}); 
 
 
 
@@ -305,7 +305,7 @@ function saoObjetosIguais(obj1, obj2) {
 }
 // ==========================================================================================
 // FUNÇÃO ADICIONAR ITEM AO CARRINHO PRINCIPAL
-function adicionarAoCarrinho(produto, quantidade, bebidas) {
+function adicionarAoCarrinho(produto, quantidade, bebidas, saborPrincipal, observacao = '') {
 
     if (AbertoFechado()) {
 
@@ -313,6 +313,9 @@ function adicionarAoCarrinho(produto, quantidade, bebidas) {
     let itemExistente = itensCarrinho.find(item =>
     item.produto.nome === produto.nome &&   // ✅ usa o parâmetro
     saoObjetosIguais(item.bebidas, bebidas)            // ✅ usa o parâmetro
+     &&         // ✅ usa o parâmetro
+    item.sabor === saborPrincipal &&
+    (item.observacao || '') === (observacao || '')
 );
 
 
@@ -325,7 +328,9 @@ function adicionarAoCarrinho(produto, quantidade, bebidas) {
         itensCarrinho.push({
             produto: produto,
             quantidade: parseInt(quantidade),
-            bebidas: { ...bebidas }  
+            bebidas: { ...bebidas },
+            sabor: saborPrincipal,
+            observacao: observacao
         });
     }
 
@@ -439,12 +444,12 @@ function modalPrato(produtoSelecionado, bebidasSelecionadas, conteudoModal, scro
         descricaoPre.textContent = `${produtoSelecionado.descricao}`;
         descricaoPre.classList.add('descricaoPre');
         divConteudoPre.appendChild(descricaoPre);
-
+        /*
         let ingredientesPre = document.createElement('p')
         ingredientesPre.classList.add('ingredientesPre')
         ingredientesPre.textContent = `${produtoSelecionado.ingredientes}`
         divConteudoPre.appendChild(ingredientesPre)
-
+        */
         let divPrecos = document.createElement('div');
         divPrecos.classList.add('divPrecos');
         divConteudoPre.appendChild(divPrecos);
@@ -458,6 +463,69 @@ function modalPrato(produtoSelecionado, bebidasSelecionadas, conteudoModal, scro
         precoPre.classList.add('precoPre');
         precoPre.textContent = `R$ ${produtoSelecionado.preco.toFixed(2).replace('.', ',')}`;
         divPrecos.appendChild(precoPre);
+
+        // ====================================================================
+     // 2. SEÇÃO ESPECÍFICA: ESCOLHA DE SABOR (CHECKBOXES)
+     // ====================================================================
+
+    let saborPrincipalSelecionado = null; // 👈 NOVA VARIÁVEL AQUI!
+
+
+      let divSabores = document.createElement('div');
+      divSabores.classList.add('divEscolhaSabores');
+      divPrincipal.appendChild(divSabores);
+
+      let h4Sabores = document.createElement('h4');
+      h4Sabores.textContent = 'Escolha um entre as duas opções:';
+      divSabores.appendChild(h4Sabores);
+    
+     // 🚨 ADICIONANDO REQUISITO DE UMA ÚNICA ESCOLHA
+      let pRequisito = document.createElement('p');
+      pRequisito.textContent = 'Escolha exatamente uma opção.'
+      divSabores.appendChild(pRequisito);
+
+
+     // Usando o array 'ingredientes' para os sabores
+      let saboresDisponiveis = produtoSelecionado.ingredientes; 
+    
+      saboresDisponiveis.forEach(saborSuco => {
+         // Trim para remover espaços indesejados no início/fim, se houver
+        const saborLimpo = saborSuco.trim();
+        
+        let divItemSabor = document.createElement('div');
+        divItemSabor.classList.add('divItemSabor');
+        divSabores.appendChild(divItemSabor);
+        
+        let label = document.createElement('label');
+        label.textContent = saborLimpo;
+        
+        let checkbox = document.createElement('input');
+          checkbox.type = 'radio'; // 👈 MUDAMOS PARA RADIO para garantir 1 escolha
+          checkbox.name = 'saborEspetinho'; // 👈 Nome do grupo do Radio Button
+          checkbox.value = saborLimpo;
+        
+        divItemSabor.appendChild(checkbox);
+        divItemSabor.appendChild(label);
+
+         // LÓGICA DO RADIO BUTTON: Adiciona o sabor selecionado.
+        checkbox.addEventListener('change', () => {
+            
+            
+            if (checkbox.checked) {
+                 // Armazena o sabor selecionado com a quantidade 1 (ou true)
+                saborPrincipalSelecionado = saborLimpo;
+            } else {
+                saborPrincipalSelecionado = null
+            }
+            
+             // Aqui você pode chamar a função para atualizar o botão de adicionar, 
+             // se tiver lógica de preço/total a ser ajustada.
+             // atualizarPreCarrinho(inputQuantidadePre, produtoSelecionado, precoPre, precoRiscadoPre, adicionaisSelecionados, bebidasSelecionadas);
+        });
+    });
+
+
+
 
         // DIV PARA SUGESTÃO DE BEBIDAS
         let divSugestaoBebidas = document.createElement('div');
@@ -681,7 +749,23 @@ divObsModal.appendChild(inputObsModal);
 
         // EVENTO DE ADICIONAR AO CARRINHO E FECHAR MODAL
         botaoAdicionar.addEventListener('click', () => {
-            adicionarAoCarrinho(produtoSelecionado, inputQuantidadePre.value, bebidasSelecionadas, '', observacaoPrato);
+
+            
+        // =======================================================
+    // 🚨 NOVA VALIDAÇÃO: CHECAR SE HÁ UM SABOR SELECIONADO
+    // =======================================================
+    
+    
+    if (!saborPrincipalSelecionado) {
+        // Alerta o usuário e impede o avanço
+        alert('Por favor, escolha ao menos 1 sabor de espetinho para adicionar ao carrinho.');
+        return; // 🛑 IMPORTANTE: Para a execução da função aqui.
+    }
+
+
+
+
+            adicionarAoCarrinho(produtoSelecionado, inputQuantidadePre.value, bebidasSelecionadas, saborPrincipalSelecionado, observacaoPrato);
             ModalPreCarrinho.style.display = 'none';
             atualizarCarrinho();
             
@@ -880,6 +964,22 @@ function mostrarItensDoCarrinho() {
             divProdutoDescricao.appendChild(descricaoProduto);
 
 
+              // LÓGICA DE EXIBIÇÃO PARA SABOR PRINCIPAL (Somente se não for um lanche)
+// Lanche usa o 5º argumento como "sabor", mas deve ser ignorado.
+if (item.produto.tipo !== 'prato' && item.sabor && String(item.sabor).trim() !== '') {
+    let divSabor = document.createElement('div');
+    divSabor.classList.add('div-sabor-principal');
+    let pSabor = document.createElement('p');
+
+    pSabor.textContent = `Sabor: ${item.sabor}`; 
+    pSabor.classList.add('sabor-selecionado');
+
+    divSabor.appendChild(pSabor);
+    divProdutoDescricao.appendChild(divSabor);
+}
+
+
+
             // Lógica para pratos, que inclui o campo de observação
             if (item.produto.tipo === 'prato') {
                 let ingredientesProdutos = document.createElement('p');
@@ -898,14 +998,17 @@ function mostrarItensDoCarrinho() {
                 inputObs.addEventListener('input', function() {
                     item.observacao = inputObs.value;
                 });
-                if (item.observacao) {
-                    inputObs.value = item.observacao;
-                }
 
-                divObs.appendChild(labelObs);
-                divObs.appendChild(inputObs);
-                divProdutoDescricao.appendChild(divObs);
+
             }
+
+            // 🚀 Lógica para exibir observação
+          if (item.observacao && item.observacao.trim() !== '') { // <--- Esta condição está correta
+            let pObservacao = document.createElement('p');
+            pObservacao.textContent = `Observação: ${item.observacao}`; // <--- Esta leitura está correta
+            pObservacao.classList.add('observacao-item-carrinho');
+            divProdutoDescricao.appendChild(pObservacao);
+          }
 
             // Lógica para adicionar as bebidas
             const bebidasCompradas = Object.keys(item.bebidas).filter(key => item.bebidas[key] > 0);
@@ -1140,13 +1243,15 @@ function abrirModalPedidoEListarItens() {
             addIngredientes.classList.add('addIngredientes');
             divControleItemIndividual.appendChild(addIngredientes);
 
-            if (item.observacao) {
+            
+        }
+
+        if (item.observacao) {
                 let addObservacao = document.createElement('p');
                 addObservacao.textContent = `Observação: ${item.observacao}`;
                 addObservacao.classList.add('addObservacao');
                 divControleItemIndividual.appendChild(addObservacao);
             }
-        }
         
         let precoItemIndividual = (item.produto.preco * item.quantidade) + precoBebidas;
         let addPreco = document.createElement('span');
