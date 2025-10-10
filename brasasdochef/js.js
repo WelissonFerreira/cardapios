@@ -1779,7 +1779,7 @@ const pedidoParaFirebase = {
     //impressoraDestino: [],
 };
 */
-
+/*
 if (tipoPedido === "Entrega") {
     pedidoParaFirebase.cliente.endereco = {
         bairro: bairro,
@@ -1788,7 +1788,7 @@ if (tipoPedido === "Entrega") {
         complemento: complemento
     };
 }
-
+*/
 /*
 // --- 8. ENVIAR PARA O FIRESTORE E ABRIR WHATSAPP ---
 try {
@@ -1805,6 +1805,12 @@ try {
     }
 }
 */
+
+
+    if (btnFinalizarPedidoWhatsApp) {
+      btnFinalizarPedidoWhatsApp.disabled = false;
+      btnFinalizarPedidoWhatsApp.textContent = `Finalizar Pedido`
+    }
 
    // --- 9. Abrir WhatsApp para o Cliente --- 
 const numeroWhatsAppCliente = '5593992283078'; // número que aparece no botão
