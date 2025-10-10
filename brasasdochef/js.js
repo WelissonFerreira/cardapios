@@ -104,7 +104,7 @@ let catalogoDeProdutos = {
     },
 
           "produto-guaranabarelata": {
-        tipo: "bebida",
+        tipo: "suco",
         nome: "Guaraná Baré em lata",
         precoRiscado: 9.00,
         preco: 7.00,
@@ -113,7 +113,7 @@ let catalogoDeProdutos = {
     },
 
     "produto-fanta250ml": {
-      tipo: "bebida",
+      tipo: "suco",
       nome: "Fanta em Lata",
       precoRiscado: 9.00,
       preco: 7.00,
@@ -122,7 +122,7 @@ let catalogoDeProdutos = {
     },
 
       "produto-fantauvalata": {
-      tipo: "bebida",
+      tipo: "suco",
       nome: "Fanta Uva em Lata",
       precoRiscado: 9.00,
       preco: 7.00,
@@ -140,7 +140,7 @@ let catalogoDeProdutos = {
     },
 
     "produto-cocacola1LZero": {
-      tipo: "bebida",
+      tipo: "suco",
       nome: "Coca-Cola Zero 1L",
       precoRiscado: 12.00,
       preco: 10.00,
@@ -158,7 +158,7 @@ let catalogoDeProdutos = {
     },
 
     "produto-fanta1L": {
-      tipo: "bebida",
+      tipo: "suco",
       nome: "Fanta 1L",
       precoRiscado: 12.00,
       preco: 10.00,
