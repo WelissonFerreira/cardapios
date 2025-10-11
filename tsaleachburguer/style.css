@@ -2513,7 +2513,7 @@ footer {
 }
 
 .botaoFecharPre {
-    font-size: 1.6rem;
+    font-size: 1.7rem;
     font-family: "Rubik", sans-serif;
     color: grey;
     border-radius: 50%; /* círculo perfeito */
@@ -2932,6 +2932,39 @@ footer {
     .btnAumentar {
         margin-bottom: 3px;
     }
+
+
+
+    .divbotaoFecharPre {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    left: 89%;
+    top: 0;
+    width: 35px;
+    height: 35px;
+    margin: 5px;
+    z-index: 1002;
+}
+
+    .botaoFecharPre {
+    font-size: 1.4rem;
+    font-family: "Rubik", sans-serif;
+    color: grey;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    border: none;
+    display: flex
+;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: #f0f0f0;
+}
 
     
 
