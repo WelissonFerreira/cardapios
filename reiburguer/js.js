@@ -1601,6 +1601,8 @@ function mostrarItensDoCarrinho() {
                 imagemProduto.classList.add('imagemBebidaCarrinho');
     } else if (item.produto.tipo === 'porcao') {
                 imagemProduto.classList.add('imagemPorcaoCarrinho');
+    } else if (item.produto.tipo === 'suco') {
+                imagemProduto.classList.add('imagemBebidaCarrinho')
     }
 
             // -----------------------------
