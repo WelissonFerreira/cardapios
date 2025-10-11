@@ -2504,7 +2504,7 @@ footer {
     align-items: center;
     justify-content: center;
     position: fixed;
-    left: 90%;
+    left: 89%;
     top: 0;
     width: 35px;
     height: 35px;
@@ -2513,7 +2513,7 @@ footer {
 }
 
 .botaoFecharPre {
-    font-size: 1.7rem;
+    font-size: 1.8rem;
     font-family: "Rubik", sans-serif;
     color: grey;
     border-radius: 50%; /* círculo perfeito */
