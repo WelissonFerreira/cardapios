@@ -1524,6 +1524,7 @@ divObsModal.appendChild(inputObsModal);
         atualizarPreCarrinho(inputQuantidadePre, produtoSelecionado, precoPre, precoRiscadoPre, adicionaisSelecionados, bebidasSelecionadas);
         atualizarContadorCarrinho()
         
+        
 }
 
 //=================== FIM DA FUNÇÃO QUE RENDERIZA O MODAL LANCHE ==============================
@@ -2456,8 +2457,11 @@ CardProdutos.forEach(cardAtual => {
 
         // 2. PREPARAÇÃO DO MODAL (Comum a todos os tipos)
         conteudoModal.textContent = ''; // 💥 ESSENCIAL: Limpa o conteúdo antigo
+        
         let scrollPosition = 0
         let modalConstruido = false
+        
+
         
 
         // --- CRIAÇÃO DO BOTÃO FECHAR (COMO VOCÊ TINHA) ---
@@ -2479,6 +2483,7 @@ CardProdutos.forEach(cardAtual => {
             document.body.style.width = '';
             document.body.style.overflow = 'auto'; 
             window.scrollTo(0, scrollPosition);
+            
         });
         // ---------------------------------------------------
 
@@ -2523,18 +2528,22 @@ CardProdutos.forEach(cardAtual => {
         
          // 4. 🚀 LÓGICA DE ABERTURA: SÓ ABRE SE ALGO FOI CONSTRUÍDO 🚀
         if (modalConstruido) {
+            conteudoModal.scrollTop = 0;
+
             ModalPreCarrinho.style.display = 'block';
+
             scrollPosition = window.scrollY;
             document.body.style.position = 'fixed';
             document.body.style.top = `-${scrollPosition}px`;
             document.body.style.width = '100%';
             document.body.style.overflow = 'hidden';
+            
         }
 
        
         
       
-
+            conteudoModal.scrollTop = 0;
 
 
        
