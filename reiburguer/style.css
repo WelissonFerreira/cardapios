@@ -2413,18 +2413,38 @@ footer {
     object-fit: cover;
 }
 
-.divbotaoFecharPre {
+    .divbotaoFecharPre {
     display: flex;
     align-items: center;
     justify-content: center;
-    position: absolute;
-    left: 90%;
-    top: 0;
-    width: 30px;
-    height: 30px;
+    position: fixed;
+    top: 5px;
+    right: 5px;
+    width: 35px;
+    height: 35px;
     margin: 5px;
-    z-index: 1001;
+    z-index: 1002;
 }
+
+    .botaoFecharPre {
+    font-size: 1.7rem;
+    font-family: "Rubik", sans-serif;
+    color: grey;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    padding-bottom: 3px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: #f0f0f0;
+}
+
+
 
 .divNomePrecoAdiconal {
     display: flex;
@@ -2432,15 +2452,6 @@ footer {
     gap: 5px;
 }
 
-.botaoFecharPre {
-    font-size: 1.7rem;
-    font-family: "Rubik", sans-serif;
-    color: grey;
-    border-radius: 50px;
-    width: 100%;
-    height: 100%;
-    border: none;
-}
 
 
 
