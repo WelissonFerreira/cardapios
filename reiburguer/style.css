@@ -691,17 +691,31 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: fixed;
+    top: 5px;
+    right: 5px;
+    width: 35px;
+    height: 35px;
+    margin: 5px;
+    z-index: 1002;
 }
 
 .close-button-carrinho {
     font-size: 1.7rem;
     font-family: "Rubik", sans-serif;
-    font-weight: bold;
     color: grey;
-    border-radius: 50px;
-    width: 30px;
-    height: 30px;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    padding-bottom: 3px;
     border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: #f0f0f0;
 }
 
 
@@ -2057,42 +2071,63 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: fixed;
+    top: 5px;
+    right: 5px;
+    width: 35px;
+    height: 35px;
+    margin: 5px;
+    z-index: 1002;
 }
 
 
 .close-button-dados {
-    position: absolute;
-    top: 15px;
-    right: 10px;
-    font-weight: bold;
     font-size: 1.7rem;
     font-family: "Rubik", sans-serif;
     color: grey;
-    border-radius: 50px;
-    width: 30px;
-    height: 30px;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    padding-bottom: 3px;
     border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: #f0f0f0;
 }
 
 .divclose-button-pedido {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: fixed;
+    top: 5px;
+    right: 5px;
+    width: 35px;
+    height: 35px;
+    margin: 5px;
+    z-index: 1002;
 }
 
 .close-button-pedido {
-    position: absolute;
-    top: 0px;
-    right: 10px;
-    margin: 5px;
     font-size: 1.7rem;
     font-family: "Rubik", sans-serif;
-    font-weight: bold;
     color: grey;
-    border-radius: 50px;
-    width: 30px;
-    height: 30px;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    padding-bottom: 3px;
     border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: #f0f0f0;
     
     
 }
