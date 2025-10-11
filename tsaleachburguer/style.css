@@ -2491,6 +2491,29 @@ footer {
     object-fit: cover;
 }
 
+
+
+.divNomePrecoAdiconal {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.botaoFecharPre {
+    font-size: 1.7rem;
+    font-family: "Rubik", sans-serif;
+    color: grey;
+    border-radius: 50%; /* círculo perfeito */
+    width: 100%;        /* deixa preencher a div */
+    height: 100%;
+    border: none;
+    display: flex;       /* centraliza o X */
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: #f0f0f0; /* opcional: cor de fundo */
+}
+
 .divbotaoFecharPre {
     display: flex;
     align-items: center;
@@ -2504,21 +2527,6 @@ footer {
     z-index: 1001;
 }
 
-.divNomePrecoAdiconal {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-.botaoFecharPre {
-    font-size: 1.7rem;
-    font-family: "Rubik", sans-serif;
-    color: grey;
-    border-radius: 50px;
-    width: 100%;
-    height: 100%;
-    border: none;
-}
 
 
 
