@@ -1542,12 +1542,15 @@ divObsModal.appendChild(inputObsModal);
             ModalPreCarrinho.style.display = 'none';
             atualizarCarrinho();
             
+
+            
             // RESTAURA O BODY
             document.body.style.position = '';
             document.body.style.top = '';
             document.body.style.width = '';
             document.body.style.overflow = 'auto';
             window.scrollTo(0, scrollPosition)
+            
         });
 
         // Chamar atualizarPreCarrinho para garantir que os preços iniciais estejam corretos
@@ -1578,8 +1581,10 @@ CardProdutos.forEach(cardAtual => {
 
         // 2. PREPARAÇÃO DO MODAL (Comum a todos os tipos)
         conteudoModal.textContent = ''; // 💥 ESSENCIAL: Limpa o conteúdo antigo
-        let scrollPosition = 0
+        
         let modalConstruido = false
+
+
         
 
         // --- CRIAÇÃO DO BOTÃO FECHAR (COMO VOCÊ TINHA) ---
@@ -1604,6 +1609,8 @@ CardProdutos.forEach(cardAtual => {
         });
         // ---------------------------------------------------
 
+        let scrollPosition = window.scrollY; // 🚀 Mova a captura do scroll para AQUI!
+
     
 
 
@@ -1625,11 +1632,12 @@ CardProdutos.forEach(cardAtual => {
          // 4. 🚀 LÓGICA DE ABERTURA: SÓ ABRE SE ALGO FOI CONSTRUÍDO 🚀
         if (modalConstruido) {
             ModalPreCarrinho.style.display = 'block';
-            scrollPosition = window.scrollY;
+            
             document.body.style.position = 'fixed';
             document.body.style.top = `-${scrollPosition}px`;
             document.body.style.width = '100%';
             document.body.style.overflow = 'hidden';
+            
         }
 
        
