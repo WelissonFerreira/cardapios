@@ -311,7 +311,7 @@ main {
     margin-top: 20px;
     margin-left: 5%;
     /*margin-left: 15px;*/
-    font-family: "Poppins", sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 700;
     font-style: normal;
     text-align: left;
@@ -784,7 +784,8 @@ main {
 
 .txtPalavraDestaque {
     font-size: 1rem;
-    color: rgba(255, 0, 0, 0.664); /* amarelo dourado */
+    /*color: rgba(255, 0, 0, 0.664); /* amarelo dourado */ 
+    color: #e08d18;
     font-family: "Playfair Display", serif;
     font-weight: 600;
 }
@@ -792,7 +793,7 @@ main {
 .txtPalavraAcompanhamento {
     font-size: 0.8rem;
     color: black; /* amarelo dourado */
-    font-family: "Playfair Display", serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 600;
     
 }

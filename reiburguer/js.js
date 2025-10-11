@@ -3,38 +3,60 @@ import { db, collection, addDoc } from "./firebase-config.js";
 
 
 let catalogoDeProdutos = {
-"produto-burguerdoritos": {
+
+
+
+
+"produto-burgervikings": {
   tipo: "lanche",
-  nome: "Burguer Doritos",
-  precoRiscado: 26.50,
-  preco: 22.50,
-  descricao: "Hambúrguer saboroso com cheddar cremoso, Doritos e cebola caramelizada.",
-  ingredientes: ["Pão Brioche", " Blend de Carne", " Cheddar Cremoso", " Doritos", " Cebola Caramelizada"],
-  imagem: "imagens/lanches/doritos.jpg",
+  nome: "Burger Vikings",
+  precoRiscado: 35.00,
+  preco: 30.00,
+  descricao: "Suculento Burger Vikings com duas carnes de 130g, ovo frito, mussarela e cheddar, e cebola caramelizada sabor robusto e irresistível!",
+  ingredientes: ["Pão Brioche", " 2 Carnes 130g", " Ovo", " Mussarela", " Cheddar", " Cebola Caramelizada"],
+  imagem: "imagens/lanches/burguervikings.jpg",
   adicionais: [
-    { nome: "Hambúrguer", preco: 7.00 },
-    { nome: "Geleia de Pimenta", preco: 3.00 },
+    { nome: "Hambúrguer Extra", preco: 7.00 },
     { nome: "Cheddar", preco: 4.00 },
-    { nome: "Ovo", preco: 4.00 },
-    { nome: "Salsicha", preco: 3.00 },
-    { nome: "Cebola Onion Rings", preco: 5.00 },
     { nome: "Mussarela", preco: 4.00 },
     { nome: "Bacon", preco: 4.00 },
+    { nome: "Ovo", preco: 4.00 },
     { nome: "Cebola Caramelizada", preco: 3.00 },
     { nome: "Molho Verde", preco: 3.00 },
-    { nome: "Barbecue", preco: 3.00 },
-    { nome: "Alface Americana", preco: 3.00 }
+    { nome: "Barbecue", preco: 3.00 }
   ]
 },
 
-"produto-onionrings": {
+
+"produto-bmisto": {
   tipo: "lanche",
-  nome: "Onion Rings",
+  nome: "B. Misto Burger",
+  precoRiscado: 25.00,
+  preco: 20.00,
+  descricao: "Delicioso B. Misto Burger com uma carne de 130g, mussarela derretida e alface americana fresca — simplicidade e sabor que agradam a todos!",
+  ingredientes: ["Pão Brioche", "1 Carne 130g", "Mussarela", "Alface Americana"],
+  imagem: "imagens/lanches/BMisto.jpg",
+  adicionais: [
+    { nome: "Hambúrguer Extra", preco: 7.00 },
+    { nome: "Cheddar", preco: 4.00 },
+    { nome: "Mussarela", preco: 4.00 },
+    { nome: "Bacon", preco: 4.00 },
+    { nome: "Ovo", preco: 4.00 },
+    { nome: "Alface Americana", preco: 3.00 },
+    { nome: "Molho Verde", preco: 3.00 },
+    { nome: "Barbecue", preco: 3.00 }
+  ]
+},
+
+
+"produto-burguerRagnarok": {
+  tipo: "lanche",
+  nome: "BURGUER RAGNAROK",
   precoRiscado: 32.00,
   preco: 28.00,
-  descricao: "Blend artesanal com anéis de cebola crocantes, cheddar cremoso e cebola roxa.",
-  ingredientes: ["Pão Brioche", " Blend", " Anéis de Cebola Empanados e Fritos", " Cheddar", " Cebola Roxa"],
-  imagem: "imagens/lanches/onionrings.jpg",
+  descricao: "Duplo burger suculento com queijo mussarela e toque de geleia de pimenta.",
+  ingredientes: ["Pão Brioche", "2 Carnes 130g", "Queijo Mussarela", "Geleia de Pimenta"],
+  imagem: "imagens/lanches/burguerragnarok.jpg",
   adicionais: [
     { nome: "Hambúrguer", preco: 7.00 },
     { nome: "Geleia de Pimenta", preco: 3.00 },
@@ -51,29 +73,108 @@ let catalogoDeProdutos = {
   ]
 },
 
-"produto-hamburguermussarelaempanado": {
-  tipo: "lanche",
-  nome: "Hambúrguer Mussarela Empanado",
-  precoRiscado: 31.00,
-  preco: 26.50,
-  descricao: "Blend suculento com mussarela empanada crocante, maionese especial e tomate fresco.",
-  ingredientes: ["Hambúrguer Blend 130g", " Mussarela Empanada", " Molho Barbecue", " Cebola Caramelizada"],
-  imagem: "imagens/lanches/hamburguermussarelaempanado.jpg",
-  adicionais: [
-    { nome: "Hambúrguer", preco: 7.00 },
-    { nome: "Geleia de Pimenta", preco: 3.00 },
-    { nome: "Cheddar", preco: 4.00 },
-    { nome: "Ovo", preco: 4.00 },
-    { nome: "Salsicha", preco: 3.00 },
-    { nome: "Cebola Onion Rings", preco: 5.00 },
-    { nome: "Mussarela", preco: 4.00 },
-    { nome: "Bacon", preco: 4.00 },
-    { nome: "Cebola Caramelizada", preco: 3.00 },
-    { nome: "Molho Verde", preco: 3.00 },
-    { nome: "Barbecue", preco: 3.00 },
-    { nome: "Alface Americana", preco: 3.00 }
-  ]
+
+"produto-burguerCorte": {
+    tipo: "lanche",
+    nome: "BURGUER CORTE",
+    precoRiscado: 26.00,
+    preco: 23.00,
+    descricao: "Burger clássico com queijo mussarela, alface e tomate — simples e saboroso!",
+    ingredientes: ["Pão Brioche", "1 Carne 130g", "Queijo Mussarela", "Alface", "Tomate"],
+    imagem: "imagens/lanches/burguerCORTE.jpg",
+    adicionais: [
+        { nome: "Hambúrguer", preco: 7.00 },
+        { nome: "Queijo", preco: 4.00 },
+        { nome: "Bacon", preco: 4.00 },
+        { nome: "Alface Americana", preco: 3.00 },
+        { nome: "Tomate", preco: 3.00 },
+        { nome: "Molho Especial", preco: 3.00 }
+    ]
 },
+
+
+"produto-burguerRealeza": {
+    tipo: "lanche",
+    nome: "BURGUER REALEZA",
+    precoRiscado: 32.00,
+    preco: 28.00,
+    descricao: "Burger especial com carne e filé de frango empanado, queijo mussarela e cebola caramelizada.",
+    ingredientes: ["Pão Brioche", "1 Carne 130g", "Filé de Frango Empanado", "Queijo Mussarela", "Cebola Caramelizada"],
+    imagem: "imagens/lanches/burguerealeza.jpg",
+    adicionais: [
+        { nome: "Hambúrguer", preco: 7.00 },
+        { nome: "Filé de Frango Empanado", preco: 7.00 },
+        { nome: "Queijo", preco: 4.00 },
+        { nome: "Bacon", preco: 4.00 },
+        { nome: "Alface Americana", preco: 3.00 },
+        { nome: "Tomate", preco: 3.00 },
+        { nome: "Molho Especial", preco: 3.00 },
+        { nome: "Cebola Caramelizada", preco: 3.00 }
+    ]
+},
+
+"produto-burguerCastelo": {
+    tipo: "lanche",
+    nome: "BURGUER CASTELO",
+    precoRiscado: 36.00,
+    preco: 33.00,
+    descricao: "Burger com duas carnes, geleia de pimenta, queijo mussarela e cebola flambada na chapa.",
+    ingredientes: ["Pão Brioche", "2 Carnes 130g", "Geleia de Pimenta", "Queijo Mussarela", "Cebola Flambada"],
+    imagem: "imagens/lanches/burguercastelo.jpg",
+    adicionais: [
+        { nome: "Hambúrguer", preco: 7.00 },
+        { nome: "Queijo", preco: 4.00 },
+        { nome: "Bacon", preco: 4.00 },
+        { nome: "Alface Americana", preco: 3.00 },
+        { nome: "Tomate", preco: 3.00 },
+        { nome: "Cebola Flambada", preco: 3.00 },
+        { nome: "Molho Especial", preco: 3.00 },
+        { nome: "Geleia de Pimenta", preco: 3.00 }
+    ]
+},
+
+"produto-burguerVulcao": {
+    tipo: "lanche",
+    nome: "BURGUER VULCÃO",
+    precoRiscado: 28.00,
+    preco: 25.00,
+    descricao: "Burger com carne, cheddar cremoso, queijo mussarela e cebola roxa.",
+    ingredientes: ["Pão Brioche", "1 Carne 130g", "Queijo Mussarela", "Cheddar Cremoso", "Cebola Roxa"],
+    imagem: "imagens/lanches/burguervulcao.jpg",
+    adicionais: [
+        { nome: "Hambúrguer", preco: 7.00 },
+        { nome: "Queijo", preco: 4.00 },
+        { nome: "Cheddar", preco: 4.00 },
+        { nome: "Bacon", preco: 4.00 },
+        { nome: "Alface Americana", preco: 3.00 },
+        { nome: "Tomate", preco: 3.00 },
+        { nome: "Cebola Roxa", preco: 3.00 },
+        { nome: "Molho Especial", preco: 3.00 }
+    ]
+},
+
+"produto-burguerCoracao": {
+    tipo: "lanche",
+    nome: "BURGUER CORAÇÃO",
+    precoRiscado: 28.00,
+    preco: 25.00,
+    descricao: "Burger de coração de frango com queijo mussarela, alface, tomate e cebola.",
+    ingredientes: ["Pão Brioche", "Coração de Frango", "Queijo Mussarela", "Alface", "Tomate", "Cebola"],
+    imagem: "imagens/lanches/burguerCoracao.png",
+    adicionais: [
+        { nome: "Coração de Frango", preco: 7.00 },
+        { nome: "Queijo", preco: 4.00 },
+        { nome: "Bacon", preco: 4.00 },
+        { nome: "Alface Americana", preco: 3.00 },
+        { nome: "Tomate", preco: 3.00 },
+        { nome: "Cebola", preco: 3.00 },
+        { nome: "Molho Especial", preco: 3.00 }
+    ]
+},
+
+
+
+
 
 
 "produto-burguercebolacrispy": {
@@ -111,7 +212,7 @@ let catalogoDeProdutos = {
   preco: 20.00,
   descricao: "Hambúrguer suculento com blend de carne, salsicha, mussarela e milho.",
   ingredientes: ["Pão Brioche", " Blend de Carne", " Salsicha", " Mussarela", " Milho"],
-  imagem: "imagens/lanches/burguerdog2.png",
+  imagem: "imagens/lanches/burguerdog.jpg",
   adicionais: [
     { nome: "Hambúrguer", preco: 7.00 },
     { nome: "Geleia de Pimenta", preco: 3.00 },
@@ -136,7 +237,7 @@ let catalogoDeProdutos = {
   preco: 30.00,
   descricao: "Sabor único com calabresa, mussarela e cebola roxa.",
   ingredientes: ["Pão Brioche", "Blend de Carne", "Calabresa", "Mussarela", "Alface", "Tomate", "Cebola Roxa"],
-  imagem: "imagens/lanches/burguercalabresa.png",
+  imagem: "imagens/lanches/burguercalabresaAtt.jpg",
   adicionais: [
     { nome: "Hambúrguer", preco: 7.00 },
     { nome: "Geleia de Pimenta", preco: 3.00 },
@@ -277,6 +378,46 @@ let catalogoDeProdutos = {
   ]
 },
 
+"produto-cachorroquente": {
+  tipo: "lanche",
+  nome: "Cachorro Quente",
+  precoRiscado: 20.00,
+  preco: 15.00,
+  descricao: "Clássico cachorro quente artesanal com salsicha ao molho, mussarela derretida, milho e bacon crocante no pão macio tipo hot dog.",
+  ingredientes: ["Pão Hot Dog", " 1 Salsicha com Molho", " Mussarela", " Milho", " Bacon em Cubos"],
+  imagem: "imagens/lanches/cachorroquente.png",
+  adicionais: [
+    { nome: "Salsicha Extra", preco: 3.00 },
+    { nome: "Cheddar", preco: 4.00 },
+    { nome: "Bacon", preco: 4.00 },
+    { nome: "Batata Palha", preco: 2.00 },
+    { nome: "Milho", preco: 2.00 },
+    { nome: "Molho Verde", preco: 3.00 },
+    { nome: "Barbecue", preco: 3.00 },
+    { nome: "Mussarela", preco: 4.00 }
+  ]
+},
+
+"produto-cachurrodulo": {
+  tipo: "lanche",
+  nome: "Cachorro Duplo",
+  precoRiscado: 22.00,
+  preco: 18.00,
+  descricao: "Delicioso cachorro quente duplo com duas salsichas ao molho, mussarela derretida, milho e bacon crocante no pão macio tipo hot dog.",
+  ingredientes: ["Pão Hot Dog", " 2 Salsichas com Molho", " Mussarela", " Milho", " Bacon em Cubos"],
+  imagem: "imagens/lanches/cachorroquenteduplo.png",
+  adicionais: [
+    { nome: "Salsicha Extra", preco: 3.00 },
+    { nome: "Cheddar", preco: 4.00 },
+    { nome: "Bacon", preco: 4.00 },
+    { nome: "Batata Palha", preco: 2.00 },
+    { nome: "Milho", preco: 2.00 },
+    { nome: "Molho Verde", preco: 3.00 },
+    { nome: "Barbecue", preco: 3.00 },
+    { nome: "Mussarela", preco: 4.00 }
+  ]
+},
+
 
 
     "produto-combosimples": {
@@ -286,7 +427,7 @@ let catalogoDeProdutos = {
         preco: 38.50,
         descricao: "Um hambúrguer artesanal saboroso, acompanhado de batata frita crocante e 1 refrigerante gelado. A opção ideal para quem busca uma refeição completa e deliciosa!",
         ingredientes: ["Pão", " Chedar", " Smash de Carne", " + Batata Frita", " + Refri em Lata"],
-        imagem: "imagens/lanches/combosimples.png",
+        imagem: "imagens/lanches/ComboSimples.jpg",
         adicionais: [
     {
         nome: 'Hambúrguer',
@@ -356,7 +497,7 @@ let catalogoDeProdutos = {
     "+ Batata Frita",
     "+ Refrigerante em Lata"
   ],
-  imagem: "imagens/lanches/combosolteiro.png",
+  imagem: "imagens/lanches/ComboSolteiro2.jpg",
   adicionais: [
     { nome: "Hambúrguer", preco: 7.00 },
     { nome: "Geleia de Pimenta", preco: 3.00 },
@@ -389,7 +530,7 @@ let catalogoDeProdutos = {
     "+ 2 Batatas Fritas",
     "+ Refrigerante 1L"
   ],
-  imagem: "imagens/lanches/combocasal.png",
+  imagem: "imagens/lanches/ComboCasal2.jpg",
   adicionais: [
     { nome: "Hambúrguer", preco: 7.00 },
     { nome: "Geleia de Pimenta", preco: 3.00 },
@@ -423,7 +564,7 @@ let catalogoDeProdutos = {
     "+ 4 Batatas Fritas",
     "+ Refrigerante 1L"
   ],
-  imagem: "imagens/lanches/comboFamilia.png",
+  imagem: "imagens/lanches/ComboFamilia.jpg",
   adicionais: [
     { nome: "Hambúrguer", preco: 7.00 },
     { nome: "Geleia de Pimenta", preco: 3.00 },
@@ -493,7 +634,7 @@ let catalogoDeProdutos = {
   tipo: "lanche",
   nome: "Burguer Tudo",
   precoRiscado: 46.50,
-  preco: 42.50,
+  preco: 39.50,
   descricao: "Recheio completo com cheddar, calabresa, bacon, salsicha e ovo — o hambúrguer perfeito para os famintos!",
   ingredientes: ["Pão Brioche", "Carne", "Cheddar", "Calabresa", "Bacon", "Salsicha", "Ovo", "Alface Americana", "Tomate", "Cebola Roxa"],
   imagem: "imagens/lanches/burguertudo.png",
@@ -540,8 +681,8 @@ let catalogoDeProdutos = {
 "produto-eggsalada": {
   tipo: "lanche",
   nome: "Egg Salada",
-  precoRiscado: 36.00,
-  preco: 33.00,
+  precoRiscado: 33.00,
+  preco: 30.00,
   descricao: "Hambúrguer com 2 ovos, bacon crocante e queijo mussarela, fresco e saboroso.",
   ingredientes: ["Pão Brioche", "1 Carne", "2 Ovos", "Bacon", "Mussarela", "Alface", "Tomate", "Cebola Roxa"],
   imagem: "imagens/lanches/eggsalada.jpg",
@@ -561,29 +702,7 @@ let catalogoDeProdutos = {
   ]
 },
 
-"produto-burguarabacaxi": {
-  tipo: "lanche",
-  nome: "Burguer Abacaxi",
-  precoRiscado: 45.00,
-  preco: 41.50,
-  descricao: "Duplo burger com cheddar cremoso, bacon crocante e abacaxi assado — doce e salgado na medida certa!",
-  ingredientes: ["Pão Brioche", " 2 Carnes", " Cheddar Cremoso", " Bacon Crocante", " Abacaxi Assado"],
-  imagem: "imagens/lanches/burguerabacaxi.jpg",
-  adicionais: [
-    { nome: "Hambúrguer", preco: 7.00 },
-    { nome: "Geleia de Pimenta", preco: 3.00 },
-    { nome: "Cheddar", preco: 4.00 },
-    { nome: "Ovo", preco: 4.00 },
-    { nome: "Salsicha", preco: 3.00 },
-    { nome: "Cebola Onion Rings", preco: 5.00 },
-    { nome: "Mussarela", preco: 4.00 },
-    { nome: "Bacon", preco: 4.00 },
-    { nome: "Cebola Caramelizada", preco: 3.00 },
-    { nome: "Molho Verde", preco: 3.00 },
-    { nome: "Barbecue", preco: 3.00 },
-    { nome: "Alface Americana", preco: 3.00 }
-  ]
-},
+
 
 "produto-queijoquente": {
   tipo: "lanche",
@@ -634,7 +753,7 @@ let catalogoDeProdutos = {
 },
 
   "produto-porcao-batatafrita": {
-        tipo: "porcao",
+        tipo: "lanche",
         nome: "Batata Frita 200g",
         precoRiscado: 12.00,
         preco: 8.00,
@@ -651,6 +770,21 @@ let catalogoDeProdutos = {
         ]
     },
 
+"produto-macaxeiraFrita": {
+    tipo: "lanche",
+    nome: "MACAXEIRA FRITA 350g",
+    precoRiscado: 12.00,
+    preco: 12.00,
+    descricao: "Porção crocante de macaxeira frita com cheddar e bacon em cubos.",
+    ingredientes: ["Macaxeira", "Cheddar", "Bacon Crocante"],
+    imagem: "imagens/lanches/MacaxeiraFrita.jpg",
+    adicionais: [
+        { nome: "Cheddar Extra", preco: 4.00 },
+        { nome: "Bacon", preco: 4.00 },
+        { nome: "Molho Especial", preco: 3.00 },
+        { nome: "Maionese da Casa", preco: 3.00 }
+    ]
+},
 
 
     

@@ -376,19 +376,9 @@ function adicionarAoCarrinho(produto, quantidade, bebidas, saborPrincipal, obser
     atualizarCarrinho();
     atualizarContadorCarrinho();
 
-
-
-
-
-
-
-
-
-
-
     } else {
       // Se a função retornar 'false' (fechado por hora ou dia)
-        alert("Desculpe, estamos fechados. Nosso horário de atendimento é das 18:00h à 01:00h, exceto nas Segundas-Feiras.");
+        alert("Desculpe, estamos fechados. Nosso horário de atendimento é das 10:00h às 14:30h, exceto nas Segundas-Feiras.");
         return; 
     }
         
