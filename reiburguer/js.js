@@ -2668,7 +2668,7 @@ document.getElementById('btnOkConfirmacao').addEventListener('click', () => {
             openClose.appendChild(p1)
 
             let novoP = document.createElement('p')
-            novoP.textContent = 'Estamos funcionando!'
+            novoP.textContent = 'ESTAMOS FUNCIONANDO!'
             novoP.classList.add('novoP')
             openClose.appendChild(novoP)
 

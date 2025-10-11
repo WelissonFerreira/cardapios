@@ -248,13 +248,15 @@ main {
     font-family: "Montserrat", sans-serif;
     font-weight: 700;
     font-weight: bolder;
-    font-size: 0.8rem;
-    line-height: 1.2;
-    color: white;
+    font-size: 0.7rem;
+    line-height: 1;
+    color: black;
     border-radius: 3px;
     cursor: pointer;
-    text-shadow: 2px 2px 2px #091921;
     letter-spacing: 2px;
+    background-color: orange;
+    padding: 10px;
+    border-radius: 5px;
 }
 
 
@@ -1400,7 +1402,7 @@ footer {
 
 .inputObs {
     width: 100%;
-    height: 50px;
+    height: 80px;
     padding: 5px;
     font-family: "Poppins", sans-serif;
     font-weight: 700;
@@ -2165,7 +2167,7 @@ footer {
     flex-direction: column;
     font-size: 1rem;
     overflow-y: auto;
-    padding-bottom: 120px ;
+    padding-bottom: 200px ;
 
 }
 
