@@ -42,6 +42,7 @@ function imprimirPedido(pedido, tipoComanda) {
     dadosParaImpressao += linha + '\n';
 
     if (pedido.cliente && pedido.cliente.nome) {
+        dadosParaImpressao += `Data: ${dataFormatada} | Hora: ${horaFormatada}\n`;
         dadosParaImpressao += `Nome do Cliente: ${pedido.cliente.nome}\n`;
         dadosParaImpressao += `Telefone: ${pedido.cliente.telefone}\n`;
         dadosParaImpressao += `Tipo de Pedido: ${pedido.cliente.tipo}\n\n`;

@@ -3338,27 +3338,34 @@ function processarObjeto(obj) {
 
     for (const chave in obj) {
 
-        // 1️⃣ Se for array
-        if (Array.isArray(obj[chave])) {
+        // 🔹 Verifica se é um objeto Date
+        if (obj[chave] instanceof Date) {
+            novoObjeto[chave] = obj[chave]; // mantém a data original
+        }
+
+        // 🔹 Se for array
+        else if (Array.isArray(obj[chave])) {
             novoObjeto[chave] = obj[chave].map(item => {
                 if (typeof item === 'string') return removerAcentos(item);
                 if (typeof item === 'object' && item !== null) return processarObjeto(item);
                 return item;
             });
         }
-        // 2️⃣ Se for objeto (não null)
+
+        // 🔹 Se for objeto (não null)
         else if (typeof obj[chave] === 'object' && obj[chave] !== null) {
             novoObjeto[chave] = processarObjeto(obj[chave]);
         }
-        // 3️⃣ Se for string
+
+        // 🔹 Se for string
         else if (typeof obj[chave] === 'string') {
             novoObjeto[chave] = removerAcentos(obj[chave]);
         }
-        // 4️⃣ Outros tipos (número, boolean, etc.)
+
+        // 🔹 Outros tipos (número, boolean, etc.)
         else {
             novoObjeto[chave] = obj[chave];
         }
-
     }
 
     return novoObjeto;
@@ -3677,7 +3684,7 @@ document.getElementById('btnOkConfirmacao').addEventListener('click', () => {
             return false
         } 
     
-        if (hora >= 17 || hora <= 2) {
+        if (hora >= 12 || hora <= 2) {
           return true
         } else {
           return false
