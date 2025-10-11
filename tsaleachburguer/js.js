@@ -461,7 +461,7 @@ let catalogoDeProdutos = {
     preco: 33.00,
     descricao: "Combo completo com 4 X-Saladas e um refrigerante de 1L, perfeito para matar a fome de toda a turma.",
     ingredientes: ["4 X-Saladas", " Refrigerante 1L", " Pão Bola", " Carne de Hambúrguer", " Ovo", " Queijo", " Presunto", " Alface", " Tomate"],
-    imagem: "imagens/lanches/4xSalada.jpg",
+    imagem: "imagens/lanches/4xSaladaAtt.png",
     adicionais: [
     { nome: "Bacon", preco: 3.00 },
     { nome: "Calabresa", preco: 3.00 },
@@ -483,7 +483,7 @@ let catalogoDeProdutos = {
     preco: 40.00,
     descricao: "Para a galera toda: 5 X-Saladas completos e saborosos, mais um refrigerante de 1L para acompanhar.",
     ingredientes: ["5 X-Saladas", " Refrigerante 1L", " Pão Bola", " Carne de Hambúrguer", " Ovo", " Queijo", " Presunto", " Alface", " Tomate"],
-    imagem: "imagens/lanches/5xSalada.jpg",
+    imagem: "imagens/lanches/5XSaladaAtt.png",
     adicionais: [
     { nome: "Bacon", preco: 3.00 },
     { nome: "Calabresa", preco: 3.00 },
