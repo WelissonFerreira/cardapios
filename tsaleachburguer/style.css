@@ -2499,34 +2499,35 @@ footer {
     gap: 5px;
 }
 
-.divbotaoFecharPre {
+    .divbotaoFecharPre {
     display: flex;
     align-items: center;
     justify-content: center;
     position: fixed;
-    left: 89%;
-    top: 0;
+    top: 5px;
+    right: 5px;
     width: 35px;
     height: 35px;
     margin: 5px;
     z-index: 1002;
 }
 
-.botaoFecharPre {
+    .botaoFecharPre {
     font-size: 1.7rem;
     font-family: "Rubik", sans-serif;
     color: grey;
-    border-radius: 50%; /* círculo perfeito */
-    width: 100%;        /* deixa preencher a div */
-    height: 100%; 
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
     padding: 0;
     margin: 0;
+    padding-bottom: 3px;
     border: none;
-    display: flex;       /* centraliza o X */
+    display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    background-color: #f0f0f0; /* opcional: cor de fundo */
+    background-color: #f0f0f0;
 }
 
 
@@ -2942,8 +2943,6 @@ footer {
     position: fixed;
     top: 5px;
     right: 5px;
-    /*left: 89%;
-    top: 0; */
     width: 35px;
     height: 35px;
     margin: 5px;
