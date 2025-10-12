@@ -858,7 +858,7 @@ CardProdutos.forEach(cardAtual => {
 
         // 2. PREPARAÇÃO DO MODAL (Comum a todos os tipos)
         conteudoModal.textContent = ''; // 💥 ESSENCIAL: Limpa o conteúdo antigo
-        let scrollPosition = 0
+        
         let modalConstruido = false
         
 
@@ -884,7 +884,7 @@ CardProdutos.forEach(cardAtual => {
         });
         // ---------------------------------------------------
 
-    
+        let scrollPosition = window.scrollY; // 🚀 Mova a captura do scroll para AQUI!
 
 
     
@@ -1898,7 +1898,7 @@ document.getElementById('btnOkConfirmacao').addEventListener('click', () => {
             openClose.appendChild(p1)
 
             let novoP = document.createElement('p')
-            novoP.textContent = 'Estamos funcionando!'
+            novoP.textContent = 'ESTAMOS FUNCIONANDO!'
             novoP.classList.add('novoP')
             openClose.appendChild(novoP)
 
