@@ -1,3 +1,7 @@
+// Importa a configuração do Firebase e as funções que você precisa do seu arquivo central.
+import { db, collection, addDoc } from "./firebase-config.js";
+
+
 let catalogoDeProdutos = {
     "produto-aguetonis-smash": {
         tipo: "lanche",
@@ -898,10 +902,9 @@ function saoObjetosIguais(obj1, obj2) {
 // FUNÇÃO ADICIONAR ITEM AO CARRINHO PRINCIPAL
 function adicionarAoCarrinho(produto, quantidade, adicionais, bebidas) {
 
-  
+    if (AbertoFechado()) {
 
-
-    // Procura por um item existente no carrinho com as mesmas características
+              // Procura por um item existente no carrinho com as mesmas características
     let itemExistente = itensCarrinho.find(item =>
     item.produto.nome === produto.nome &&
     saoObjetosIguais(item.adicionais, adicionais) &&   // ✅ usa o parâmetro
@@ -926,7 +929,14 @@ function adicionarAoCarrinho(produto, quantidade, adicionais, bebidas) {
     // A cada adição, o carrinho é atualizado para refletir as mudanças
     atualizarCarrinho();
     atualizarContadorCarrinho();
-  
+
+
+    } else {
+      // Se a função retornar 'false' (fechado por hora ou dia)
+        alert("Desculpe, estamos fechados. Nosso horário de atendimento é das 18:00h à 01:00h, exceto nas Segundas-Feiras.");
+        return; 
+    }
+        
 }
 
 
@@ -2226,7 +2236,14 @@ document.querySelectorAll('input[name="formaPagamento"]').forEach(radio => {
 // BOTÃO DE FINALIZAR PEDIDO NO WHATSAPP
 const btnFinalizarPedidoWhatsApp = document.getElementById('Finalizar-Pedido');
 
-btnFinalizarPedidoWhatsApp.addEventListener('click', () => {
+btnFinalizarPedidoWhatsApp.addEventListener('click', async () => {
+
+    if (btnFinalizarPedidoWhatsApp) {
+      btnFinalizarPedidoWhatsApp.disabled = true // Desabilita o botão
+      btnFinalizarPedidoWhatsApp.textContent = 'Enviando Pedido...'
+    }
+
+
     // --- 1. Dados do Cliente ---
     const nomeCliente = document.querySelector('#nomeUsuario')?.value || 'Não informado';
     const telefoneCliente = document.querySelector('#cellUsuario')?.value || 'Não informado';
@@ -2342,7 +2359,96 @@ btnFinalizarPedidoWhatsApp.addEventListener('click', () => {
                     `*Total do Pedido (Itens + Taxa): R$ ${totalPedido.toFixed(2).replace('.', ',')}*\n` +
                     `*Forma de Pagamento:*\n${formaPagamentoMensagem}`;
 
-    // --- 7. Abrir WhatsApp ---
+
+    // --- NOVO: Montar o objeto para o Firebase (Parte adaptada!) ---
+const itensParaFirebase = itensCarrinho.map(item => {
+    const itemParaFirebase = {
+        nome: item.produto.nome,
+        precoBase: item.produto.preco,
+        quantidade: item.quantidade,
+        observacoes: item.observacao || ''
+    };
+    
+    // Mapeia os adicionais para o novo formato
+    if (item.adicionais && Object.keys(item.adicionais).length > 0) {
+        itemParaFirebase.adicionais = {};
+        for (const nomeAdicional in item.adicionais) {
+            const adicionalInfo = item.produto.adicionais.find(ad => ad.nome === nomeAdicional);
+            if (adicionalInfo) {
+                itemParaFirebase.adicionais[nomeAdicional] = {
+                    quantidade: item.adicionais[nomeAdicional],
+                    preco: adicionalInfo.preco
+                };
+            }
+        }
+    }
+    
+    // Mapeia as bebidas para o novo formato
+    if (item.bebidas && Object.keys(item.bebidas).length > 0) {
+        itemParaFirebase.bebidas = {};
+        for (const nomeBebida in item.bebidas) {
+            // Supondo que você tem um catálogo global de bebidas
+            const bebidaInfo = catalogoDeProdutos[nomeBebida]; 
+            if (bebidaInfo) {
+                itemParaFirebase.bebidas[nomeBebida] = {
+                    quantidade: item.bebidas[nomeBebida],
+                    preco: bebidaInfo.preco
+                };
+            }
+        }
+    }
+
+    return itemParaFirebase;
+});
+
+const pedidoParaFirebase = {
+    cliente: {
+        nome: nomeCliente,
+        telefone: telefoneCliente,
+        tipo: tipoPedido
+    },
+    itens: itensParaFirebase, // Agora sim! Itens no formato correto
+    taxaEntrega: taxaEntregaValor,
+    pagamento: formaPagamentoSelecionada,
+    troco: formaPagamentoSelecionada === 'Dinheiro' ? (document.querySelector('#inputTroco')?.value || 0) : 0,
+    data: new Date(),
+    status: 'pendente_impressao',
+    impressoraDestino: ['cozinha', 'entregador']
+    //status: 'teste_web',
+    //impressoraDestino: [],
+};
+
+if (tipoPedido === "Entrega") {
+    pedidoParaFirebase.cliente.endereco = {
+        bairro: bairro,
+        rua: rua,
+        numero: numero,
+        complemento: complemento
+    };
+}
+
+
+// --- 8. ENVIAR PARA O FIRESTORE E ABRIR WHATSAPP ---
+try {
+    const pedidosRef = collection(db, 'clientes/aguetonis/pedidos');
+    await addDoc(pedidosRef, pedidoParaFirebase);
+    console.log("Pedido enviado para o Firestore com sucesso!");
+} catch (error) {
+    console.error("Erro ao enviar o pedido para o Firestore:", error);
+    alert("Ocorreu um erro ao enviar o pedido. Tente novamente ou verifique sua conexão.");
+
+    if (btnFinalizarPedidoWhatsApp) {
+      btnFinalizarPedidoWhatsApp.disabled = false;
+      btnFinalizarPedidoWhatsApp.textContent = `Finalizar Pedido`
+    }
+}
+
+    
+
+
+
+
+    // --- 9. Abrir WhatsApp ---
     const numeroWhatsApp = '5517981321172';
     const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
     window.open(url, '_blank');
@@ -2396,7 +2502,7 @@ document.getElementById('btnOkConfirmacao').addEventListener('click', () => {
           return false
         } 
     
-        if (hora >= 19 && hora < 24) {
+        if (hora >= 17 && hora < 24) {
           return true
         } else {
           return false

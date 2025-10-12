@@ -1,5 +1,5 @@
 // Importa a configuração do Firebase e as funções que você precisa do seu arquivo central.
-//import { db, collection, addDoc } from "./firebase-config.js";
+import { db, collection, addDoc } from "./firebase-config.js";
 
 
 let catalogoDeProdutos = {
@@ -1737,7 +1737,7 @@ mensagem += `*Forma de Pagamento: *\n${formaPagamentoMensagem}`;
 
 
 
-/*
+
 
 // --- NOVO: Montar o objeto para o Firebase (Parte adaptada!) ---
 const itensParaFirebase = itensCarrinho.map(item => {
@@ -1782,8 +1782,8 @@ const pedidoParaFirebase = {
     //status: 'teste_web',
     //impressoraDestino: [],
 };
-*/
-/*
+
+
 if (tipoPedido === "Entrega") {
     pedidoParaFirebase.cliente.endereco = {
         bairro: bairro,
@@ -1792,8 +1792,8 @@ if (tipoPedido === "Entrega") {
         complemento: complemento
     };
 }
-*/
-/*
+
+
 // --- 8. ENVIAR PARA O FIRESTORE E ABRIR WHATSAPP ---
 try {
     const pedidosRef = collection(db, 'clientes/brasasdochef/pedidos');
@@ -1808,7 +1808,7 @@ try {
       btnFinalizarPedidoWhatsApp.textContent = `Finalizar Pedido`
     }
 }
-*/
+
 
 
     if (btnFinalizarPedidoWhatsApp) {
