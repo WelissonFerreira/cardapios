@@ -2567,7 +2567,7 @@ document.getElementById('btnOkConfirmacao').addEventListener('click', () => {
         // Rola a página até a seção
         if (secao) {
           secao.scrollIntoView({
-            behavior: 'smooth', // Deixa a rolagem suave
+            behavior: 'auto', // Deixa a rolagem suave
             block: 'start' // Alinha o topo da seção com o topo da janela
           });
         }
