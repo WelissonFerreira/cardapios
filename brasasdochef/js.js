@@ -46,13 +46,13 @@ let catalogoDeProdutos = {
 
 "produto-carnebovina": {
     tipo: "prato", 
-    nome: "Carne Bovína na Brasa",
+    nome: "Bisteca Bovína na Brasa",
     precoRiscado: 20.00, // Preço temporário
     preco: 17.00,         // Preço temporário
-    descricao: "Cortes selecionados de carne bovina, grelhados lentamente na brasa, macia, suculenta e sabor irresistível. ACOMPANHAMENTOS: Baião de Dois ou Arroz | Vinagrete | Farofa | Maionese.",
+    descricao: "Cortes selecionados de Bisteca bovina, grelhados lentamente na brasa, macia, suculenta e sabor irresistível. ACOMPANHAMENTOS: Baião de Dois ou Arroz | Vinagrete | Farofa | Maionese.",
     // Este produto terá escolha de sabor (Baião ou Arroz)
     ingredientes: ["Baião de Dois", " Arroz"], 
-    imagem: "imagens/pratos/carnebovina2.jpg", // Lembre-se de criar ou encontrar essa imagem!
+    imagem: "imagens/pratos/bistecabovina2.jpg", // Lembre-se de criar ou encontrar essa imagem!
 },
 
 
@@ -845,6 +845,8 @@ const conteudoModal = document.querySelector('.ContModalPreCarrinho')
 
 CardProdutos.forEach(cardAtual => {
     cardAtual.addEventListener('click', () => {
+    
+    let scrollPosition = window.scrollY; // 🚀 Mova a captura do scroll para AQUI!
 
     console.log('--- 1. Clique no Card Detectado! ---');
 
@@ -884,7 +886,7 @@ CardProdutos.forEach(cardAtual => {
         });
         // ---------------------------------------------------
 
-        let scrollPosition = window.scrollY; // 🚀 Mova a captura do scroll para AQUI!
+        
 
 
     
@@ -905,7 +907,6 @@ CardProdutos.forEach(cardAtual => {
          // 4. 🚀 LÓGICA DE ABERTURA: SÓ ABRE SE ALGO FOI CONSTRUÍDO 🚀
         if (modalConstruido) {
             ModalPreCarrinho.style.display = 'block';
-            scrollPosition = window.scrollY;
             document.body.style.position = 'fixed';
             document.body.style.top = `-${scrollPosition}px`;
             document.body.style.width = '100%';
