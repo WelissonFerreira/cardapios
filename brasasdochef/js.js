@@ -846,7 +846,7 @@ const conteudoModal = document.querySelector('.ContModalPreCarrinho')
 CardProdutos.forEach(cardAtual => {
     cardAtual.addEventListener('click', () => {
     
-    let scrollPosition = window.scrollY; // 🚀 Mova a captura do scroll para AQUI!
+    let scrollPosition = window.scrollY; // 🚀 CAPTURA O SCROLL POSITION NO INÍCIO, ANTES DE QUALQUER COISA
 
     console.log('--- 1. Clique no Card Detectado! ---');
 
@@ -2044,7 +2044,7 @@ document.getElementById('btnOkConfirmacao').addEventListener('click', () => {
         // Rola a página até a seção
         if (secao) {
           secao.scrollIntoView({
-            behavior: 'smooth', // Deixa a rolagem suave
+            behavior: 'auto', // Deixa a rolagem suave
             block: 'start' // Alinha o topo da seção com o topo da janela
           });
         }
