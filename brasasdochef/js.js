@@ -41,7 +41,20 @@ let catalogoDeProdutos = {
     imagem: "imagens/pratos/frangoassado2.jpeg", // Verifique o caminho da sua imagem
 },
 
-// Adicione este objeto ao seu catalogoDeProdutos em js.js
+
+
+
+"produto-carnebovina": {
+    tipo: "prato", 
+    nome: "Carne Bovína na Brasa",
+    precoRiscado: 20.00, // Preço temporário
+    preco: 17.00,         // Preço temporário
+    descricao: "Cortes selecionados de carne bovina, grelhados lentamente na brasa, macia, suculenta e sabor irresistível. ACOMPANHAMENTOS: Baião de Dois ou Arroz | Vinagrete | Farofa | Maionese.",
+    // Este produto terá escolha de sabor (Baião ou Arroz)
+    ingredientes: ["Baião de Dois", " Arroz"], 
+    imagem: "imagens/pratos/carnebovina2.jpg", // Lembre-se de criar ou encontrar essa imagem!
+},
+
 
 "produto-mistao": {
     tipo: "prato", 
