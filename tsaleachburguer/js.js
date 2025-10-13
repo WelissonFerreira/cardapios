@@ -3693,7 +3693,7 @@ document.getElementById('btnOkConfirmacao').addEventListener('click', () => {
             return false
         } 
     
-        if (hora >= 17 || hora <= 2) {
+        if (hora >= 17 || hora <= 3) {
           return true
         } else {
           return false
