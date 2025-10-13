@@ -1062,7 +1062,7 @@ function saoObjetosIguais(obj1, obj2) {
 
 
 // FUNÇÃO QUE SALVA PEDIDO NO CACHE DO NAVEGADOR
-
+/*
 let CHAVE_CARRINHO = 'carrinhoArthurLanches'
 
         function salvarCarrinhoNoCache() {
@@ -1096,7 +1096,7 @@ let CHAVE_CARRINHO = 'carrinhoArthurLanches'
       }
 
 
-
+*/
 
 
 // ==========================================================================================
@@ -1130,7 +1130,7 @@ function adicionarAoCarrinho(produto, quantidade, adicionais, bebidas) {
     // A cada adição, o carrinho é atualizado para refletir as mudanças
     atualizarCarrinho();
     atualizarContadorCarrinho();
-    salvarCarrinhoNoCache();
+    //salvarCarrinhoNoCache();
 
 
     } else {
@@ -2610,7 +2610,7 @@ try {
     const pedidosRef = collection(db, 'clientes/reiburguer/pedidos');
     await addDoc(pedidosRef, pedidoParaFirebase);
     console.log("Pedido enviado para o Firestore com sucesso!");
-    limparCarrinhoDoCache()
+   // limparCarrinhoDoCache()
 } catch (error) {
     console.error("Erro ao enviar o pedido para o Firestore:", error);
     alert("Ocorreu um erro ao enviar o pedido. Tente novamente ou verifique sua conexão.");
