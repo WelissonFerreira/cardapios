@@ -3689,7 +3689,7 @@ document.getElementById('btnOkConfirmacao').addEventListener('click', () => {
 
         /*Exemplo de código se fecha-se algum dia o estabelecimento */
 
-        if (dia === 1) {
+        if (dia === 2) {
             return false
         } 
     
