@@ -1013,7 +1013,7 @@ window.addEventListener("load", () => {
 });
 
 
-
+let CHAVE_CARRINHO = 'carrinhoArthurLanches'
 
 
 
@@ -1036,10 +1036,12 @@ let abrirCarrinho = document.querySelector('#botaoCarrinho')
 let modalCarrinho = document.querySelector('#ModalCarrinho')
 let fecharCarrinho = document.querySelector('.close-button-carrinho')
 let mensagemCarrinhoVazioDiv = document.querySelector('#mensagem-carrinho-vazio');
-let itensCarrinho = []
-//carregarCarrinhoDoCache();
-
+let itensDoCarrinhoDiv = document.querySelector('#itens-do-carrinho');
+let contadorCarrinho = document.querySelector('#contador-carrinho');
+let itensCarrinho = carregarCarrinhoDoCache();
 let scrollPosition = 0;
+atualizarCarrinho();
+atualizarContadorCarrinho();
 
 // ==========================================================================================
 // FUNÇÃO DE COMPARAÇÃO DE OBJETOS PARA ADICIONAIS E BEBIDAS
@@ -1063,8 +1065,8 @@ function saoObjetosIguais(obj1, obj2) {
 
 
 // FUNÇÃO QUE SALVA PEDIDO NO CACHE DO NAVEGADOR
-/*
-let CHAVE_CARRINHO = 'carrinhoArthurLanches'
+
+
 
         function salvarCarrinhoNoCache() {
       // CONVERTE O CARRINHO PARA UM OBJETO JSON STRING
@@ -1097,7 +1099,7 @@ let CHAVE_CARRINHO = 'carrinhoArthurLanches'
       }
 
 
-*/
+
 
 
 // ==========================================================================================
@@ -1131,7 +1133,7 @@ function adicionarAoCarrinho(produto, quantidade, adicionais, bebidas) {
     // A cada adição, o carrinho é atualizado para refletir as mudanças
     atualizarCarrinho();
     atualizarContadorCarrinho();
-    //salvarCarrinhoNoCache();
+    salvarCarrinhoNoCache();
 
 
     } else {
@@ -1737,7 +1739,7 @@ function atualizarPreCarrinho(inputQuantidadePre, produtoSelecionado, precoPre, 
 
 
    // FUNÇÃO EXIBIR ITENS DO CARRINHO
-let itensDoCarrinhoDiv = document.querySelector('#itens-do-carrinho');
+
 
 function mostrarItensDoCarrinho() {
     itensDoCarrinhoDiv.textContent = "" // Limpa o conteúdo atual
@@ -1935,7 +1937,7 @@ function mostrarItensDoCarrinho() {
 
 // ==========================================================================================
 // FUNÇÃO ATUALIZAR CARRINHO
-let contadorCarrinho = document.querySelector('#contador-carrinho');
+
 
 function atualizarCarrinho() {
     // Primeiro, mostra os itens no modal para refletir as quantidades e valores
@@ -2611,7 +2613,7 @@ try {
     const pedidosRef = collection(db, 'clientes/reiburguer/pedidos');
     await addDoc(pedidosRef, pedidoParaFirebase);
     console.log("Pedido enviado para o Firestore com sucesso!");
-   // limparCarrinhoDoCache()
+    limparCarrinhoDoCache()
 } catch (error) {
     console.error("Erro ao enviar o pedido para o Firestore:", error);
     alert("Ocorreu um erro ao enviar o pedido. Tente novamente ou verifique sua conexão.");
