@@ -44,7 +44,7 @@ const cortar = '\x1D\x56\x00';
 
 // =================================================================================
 // 3. FUNÇÃO DE IMPRESSÃO - AGORA É UMA PROMISE (ASSÍNCRONA)
-function imprimirPedido(pedido, tipoComanda, impressoraDestino) {
+function imprimirPedido(pedido, tipoComanda, impressoraDestino, docId) {
 
     return new Promise((resolve, reject) => {
         // --- CÓDIGO DE FORMATAÇÃO (MANTIDO EXATAMENTE IGUAL) ---
@@ -204,10 +204,14 @@ async function processarProximoDaFila() {
 // =================================================================================
 
 
+
+
+
 // 4. ESCUTA DOS PEDIDOS DO FIRESTORE
 pedidosRef.where('status', '==', 'pendente_impressao')
 .onSnapshot(snapshot => {
     snapshot.docChanges().forEach(change => {
+        
         if (change.type === 'added') {
             const novoPedido = change.doc.data();
             const docId = change.doc.id;
