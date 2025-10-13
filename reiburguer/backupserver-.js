@@ -196,21 +196,6 @@ pedidosRef.where('status', '==', 'pendente_impressao')
                 console.log("A propriedade 'impressoraDestino' não existe ou não é um array para este pedido.");
             }
 
-            // NOVA CHAMA WHATSAPP AQUI
-            enviarPedidoWhatsApp(novoPedido, docId)
-            .then(sucesso => {
-                if (sucesso) {
-                    console.log(`Mensagem de WhatsApp para o pedido ${docId} enviada.`)
-                } else {
-                    // Se falhou (retornou false), alertamos, mas deixamos a impressão continuar
-                    console.warn(`Mensagen de WhatsApp para o pedido ${docId} falhou.`)
-                }
-            })
-            .catch(error => {
-                console.error("Erro fatal ao processa envio de mensagem para WhatsApp", error)
-            })
-
-
 
             db.collection('clientes').doc(clienteId).collection('pedidos').doc(docId)
                 .update({ status: 'impresso' })

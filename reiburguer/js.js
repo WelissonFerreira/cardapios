@@ -1036,7 +1036,7 @@ let abrirCarrinho = document.querySelector('#botaoCarrinho')
 let modalCarrinho = document.querySelector('#ModalCarrinho')
 let fecharCarrinho = document.querySelector('.close-button-carrinho')
 let mensagemCarrinhoVazioDiv = document.querySelector('#mensagem-carrinho-vazio');
-let itensCarrinho = [];
+let itensCarrinho = carregarCarrinhoDoCache();
 
 let scrollPosition = 0;
 
@@ -1059,6 +1059,46 @@ function saoObjetosIguais(obj1, obj2) {
     }
     return true;
 }
+
+
+// FUNÇÃO QUE SALVA PEDIDO NO CACHE DO NAVEGADOR
+
+let CHAVE_CARRINHO = 'carrinhoArthurLanches'
+
+        function salvarCarrinhoNoCache() {
+      // CONVERTE O CARRINHO PARA UM OBJETO JSON STRING
+        const carrinhoString = JSON.stringify(itensCarrinho)
+        // SALVA ESSA STRING NO LOCALSTORAGE, USANDO CHAVE_CARRINHO
+        localStorage.setItem(CHAVE_CARRINHO, carrinhoString)
+    }
+
+      // FUNÇÃO QUE CARREGA O PEDIDO (PEGA)
+      function carregarCarrinhoDoCache() {
+        const carrinhoString = localStorage.getItem(CHAVE_CARRINHO)
+
+
+        if (!carrinhoString) {
+          return [];
+        }
+            // SE HOUVER DADOS, CONVERTE A STRING DE VOLTA PARA ARRAY/OBJETO
+        try {
+          const carrinho = JSON.parse(carrinhoString)
+          return carrinho
+        } catch (err) {
+          // Bloco de Tratamento de Erros
+          console.error("Erro ao carregar ou analisar JSON do Carrinho", err)
+          return []
+        }
+      }
+      // FUNÇÃO QUE LIMPA O CARRINHO QUE ESTAVA SALVO APÓS FINALIZAR O PEDIDO
+      function limparCarrinhoDoCache() {
+        localStorage.removeItem(CHAVE_CARRINHO)
+      }
+
+
+
+
+
 // ==========================================================================================
 // FUNÇÃO ADICIONAR ITEM AO CARRINHO PRINCIPAL
 function adicionarAoCarrinho(produto, quantidade, adicionais, bebidas) {
@@ -1090,15 +1130,7 @@ function adicionarAoCarrinho(produto, quantidade, adicionais, bebidas) {
     // A cada adição, o carrinho é atualizado para refletir as mudanças
     atualizarCarrinho();
     atualizarContadorCarrinho();
-
-
-
-
-
-
-
-
-
+    salvarCarrinhoNoCache();
 
 
     } else {
@@ -1107,12 +1139,8 @@ function adicionarAoCarrinho(produto, quantidade, adicionais, bebidas) {
         return; 
     }
         
-
-
-  
-
-  
 }
+
 
 
 // ... O restante do código vem aqui, logo abaixo.
@@ -2582,6 +2610,7 @@ try {
     const pedidosRef = collection(db, 'clientes/reiburguer/pedidos');
     await addDoc(pedidosRef, pedidoParaFirebase);
     console.log("Pedido enviado para o Firestore com sucesso!");
+    limparCarrinhoDoCache()
 } catch (error) {
     console.error("Erro ao enviar o pedido para o Firestore:", error);
     alert("Ocorreu um erro ao enviar o pedido. Tente novamente ou verifique sua conexão.");
