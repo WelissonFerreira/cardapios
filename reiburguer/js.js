@@ -1036,7 +1036,8 @@ let abrirCarrinho = document.querySelector('#botaoCarrinho')
 let modalCarrinho = document.querySelector('#ModalCarrinho')
 let fecharCarrinho = document.querySelector('.close-button-carrinho')
 let mensagemCarrinhoVazioDiv = document.querySelector('#mensagem-carrinho-vazio');
-let itensCarrinho = carregarCarrinhoDoCache();
+let itensCarrinho = []
+//carregarCarrinhoDoCache();
 
 let scrollPosition = 0;
 
