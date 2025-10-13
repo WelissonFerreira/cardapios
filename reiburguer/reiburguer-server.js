@@ -201,8 +201,20 @@ async function processarProximoDaFila() {
 }
 // =================================================================================
 
+
+const agora = new Date();
+const inicioTurno = new Date(agora);
+inicioTurno.setHours(17, 0, 0, 0); // hoje às 17h
+
+const fimTurno = new Date(agora);
+fimTurno.setDate(fimTurno.getDate() + 1); // dia seguinte
+fimTurno.setHours(2, 0, 0, 0); // amanhã às 02h
+
+
 // 4. ESCUTA DOS PEDIDOS DO FIRESTORE (REFACTOR)
 pedidosRef.where('status', '==', 'pendente_impressao')
+.where('data', '>=', inicioTurno)
+.where('data', '<', fimTurno)
 .onSnapshot(snapshot => {
     snapshot.docChanges().forEach(change => {
         if (change.type === 'added') {

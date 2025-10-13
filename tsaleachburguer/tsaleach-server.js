@@ -208,7 +208,7 @@ async function processarProximoDaFila() {
 
 const agora = new Date();
 const inicioTurno = new Date(agora);
-inicioTurno.setHours(17, 0, 0, 0); // hoje às 17h
+inicioTurno.setHours(10, 0, 0, 0); // hoje às 17h
 
 const fimTurno = new Date(agora);
 fimTurno.setDate(fimTurno.getDate() + 1); // dia seguinte
