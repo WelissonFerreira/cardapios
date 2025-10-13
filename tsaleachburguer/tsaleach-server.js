@@ -206,9 +206,23 @@ async function processarProximoDaFila() {
 
 
 
+const agora = new Date();
+const inicioTurno = new Date(agora);
+inicioTurno.setHours(17, 0, 0, 0); // hoje às 17h
+
+const fimTurno = new Date(agora);
+fimTurno.setDate(fimTurno.getDate() + 1); // dia seguinte
+fimTurno.setHours(2, 0, 0, 0); // amanhã às 02h
+
+
+
+
+
 
 // 4. ESCUTA DOS PEDIDOS DO FIRESTORE
 pedidosRef.where('status', '==', 'pendente_impressao')
+.where('data', '>=', inicioTurno)
+.where('data', '<', fimTurno)
 .onSnapshot(snapshot => {
     snapshot.docChanges().forEach(change => {
         
@@ -216,6 +230,13 @@ pedidosRef.where('status', '==', 'pendente_impressao')
             const novoPedido = change.doc.data();
             const docId = change.doc.id;
 
+            // SEGURANÇA EXTRA
+            if (!novoPedido.data) {
+                console.warn(`Pedido ${docId} não possui data, pulando.`);
+                return;
+            }
+
+            console.log('Snapshot recebido com', snapshot.size, 'documentos');
             console.log(`Novo pedido para imprimir (${docId})`, novoPedido);
 
             let itensAdicionadosAFila = 0; // Contador para saber se algo foi enfileirado
